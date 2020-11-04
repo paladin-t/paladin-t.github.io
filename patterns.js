@@ -55,6 +55,67 @@
     },
 
     {
+      request: [ 'who', 'you' ],
+      response: [ 'I\'m possibly the minimum rule based chatbot implementation in plain JavaScript.' ],
+      callback: function (bot) {
+        bot.post('Tony created me.');
+      }
+    },
+    {
+      request: [ 'what', 'you', 'do' ],
+      alias: [ 'who', 'you' ]
+    },
+    {
+      request: [ 'what', 'your', 'work' ],
+      alias: [ 'who', 'you' ]
+    },
+    {
+      request: [ 'what', 'your', 'job' ],
+      alias: [ 'who', 'you' ]
+    },
+
+    {
+      request: [ 'who', 'tony' ],
+      response: [ 'Tony is my creator. He makes video games and development tools as an independent developer.' ],
+      callback: function (bot) {
+        bot.post('He also works as a freelancer sometimes.');
+      }
+    },
+    {
+      request: [ 'what', 'tony', 'do' ],
+      alias: [ 'who', 'tony' ]
+    },
+    {
+      request: [ 'what', 'your', 'work' ],
+      alias: [ 'who', 'tony' ]
+    },
+    {
+      request: [ 'what', 'your', 'job' ],
+      alias: [ 'who', 'tony' ]
+    },
+
+    {
+      request: [ 'where', 'you' ],
+      response: [ 'I\'m hosted on the internet and run in your browser.' ]
+    },
+    {
+      request: [ 'where', 'tony' ],
+      response: [ 'He\'s from Chengdu.', 'He lives in Chengdu, the land of abundance.' ]
+    },
+    {
+      request: [ 'where', 'chengdu' ],
+      response: [ 'It\'s a beautiful city in China.' ],
+      callback: function (bot) {
+        bot.post(
+          'Would you like to search "Chengdu" on the internet?\n&emsp;' +
+          '<a href="' + 'https://google.com/search?q=Chengdu" target="_blank">Google</a>' + '&ensp;|&ensp;' +
+          '<a href="' + 'https://bing.com/search?q=Chengdu" target="_blank">Bing</a>' + '&ensp;|&ensp;' +
+          '<a href="' + 'https://duckduckgo.com/?q=Chengdu" target="_blank">DuckDuckGo</a>'
+        );
+      }
+    },
+
+    {
       request: [ 'contact', 'tony' ],
       response: [ 'His email is:\n&emsp;<img src="imgs/mailto.png">' ],
       callback: function (bot) {
