@@ -1,0 +1,39 @@
+#output_box {
+  width: 100%;
+  height: 240px;
+  resize: vertical;
+  border: none;
+  color: #ffffff;
+  background-color: #1e1e1e;
+  overflow: auto;
+}
+#input_box {
+  position: relative;
+  height: 2.5em;
+}
+#input_message {
+  width: auto;
+  height: 100%;
+  margin-right: 10em;
+  padding-right: 10px;
+}
+#input_send {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 10em;
+  height: 100%;
+}
+#message {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+}
+#message:focus {
+  outline: 1px solid royalblue;
+}
+#send {
+  width: 100%;
+  height: 100%;
+}

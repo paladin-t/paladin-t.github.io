@@ -4,8 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Tony Wang</title>
-  <link rel="shortcut icon" href="/favicon.ico"/>
-  <link rel="stylesheet" type="text/css" href="/style.css">
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="bot.css">
 </head>
 <body>
   <div id="page">
@@ -24,9 +25,25 @@
         As an independent developer, I make video games and development tools. Here are some of my creations.
       </p>
 
+      <p align="center"></p>
+        <div id="output_box">
+        </div>
+        <div id="input_box">
+          <div id="input_message">
+            <input type="text" id="message" placeholder="Enter some text here...">
+          </div>
+          <div id="input_send">
+            <input type="button" id="send" class="button" value="Send" />
+          </div>
+        </div>
+      </p>
+
       <hr>
 
-      <h2>Creative kits</h2>
+      <h2>
+        <a id="creative-kits" href="#creative-kits"></a>
+        Creative kits
+      </h2>
 
       <p align="center">
         <img src="imgs/basic8.png" width="256">
@@ -46,7 +63,10 @@
 
       <hr>
 
-      <h2>Tiny games and programs</h2>
+      <h2>
+        <a id="tiny-games-and-programs" href="#tiny-games-and-programs"></a>
+        Tiny games and programs
+      </h2>
 
       <p align="center">
         <img src="imgs/can.gif" width="256">
@@ -81,7 +101,49 @@
       </p>
     </div>
   </div>
+  <script src="bot.js"></script>
+  <script src="patterns.js"></script>
   <script type="text/javascript">
+    var button = document.getElementById('send');
+    var input = document.getElementById('message');
+    var output = document.getElementById('output_box');
+
+    var bot = new Bot.Bot();
+    Patterns.patterns.forEach(function (pattern) {
+      bot.learn(pattern);
+    });
+
+    function send() {
+      var req = input.value;
+      if (!req || req.length == 0)
+        return;
+
+      output.innerHTML += 'You: ' + req + '<br>';
+      output.scrollTop = output.scrollHeight;
+      input.value = '';
+      bot.think(req, function (rsp) {
+        rsp = rsp.replace('\n', '<br>');
+        setTimeout(function () {
+          output.innerHTML += 'Bot: ' + rsp + '<br>';
+          output.scrollTop = output.scrollHeight;
+        }, 500);
+      });
+    }
+
+    function clear() {
+      output.innerHTML = '';
+    }
+
+    button.onclick = send;
+    input.addEventListener('keyup', function (event) {
+      if (event.key === 'Enter') {
+        send();
+      }
+    });
+    output.innerHTML += 'Tony: ';
+    output.innerHTML += 'You can also chat with my agent bot, ';
+    output.innerHTML += 'or get my contact information from him. ';
+    output.innerHTML += 'He\'s been doing a good job, although he\'s a bit of a martinet.<br><br>';
   </script>
 </body>
 </html>
