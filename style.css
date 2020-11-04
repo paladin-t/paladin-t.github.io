@@ -16,14 +16,14 @@ body {
   background: #7c7c7c;
   text-decoration: none;
 }
-#page {
+.page {
   width: 750px;
   margin: 2em auto;
   padding: 20px 50px;
   border-radius: 1em;
   background-color: #fff;
 }
-#content {
+.content {
   position: relative;
 }
 a:link,
@@ -35,7 +35,7 @@ a:visited {
   body {
     background-color: #fff;
   }
-  #page {
+  .page {
     width: auto;
     margin: 0 auto;
     padding: 1em;
