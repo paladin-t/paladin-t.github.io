@@ -107,21 +107,32 @@
         });
         this.setNextFailureHandler(null);
       } else {
-        candidates.push({
-          words: words,
-          pattern: {
-            response: [ 'There is as yet insufficient data for a meaningful answer.' ],
-            callback: function (bot, words) {
-              var key = words.join(' ');
-              bot.post(
-                'Would you like to search the internet?\n&emsp;' +
-                '<a href="' + 'https://google.com/search?q=' + key + '" target="_blank">Google</a>' + '&ensp;|&ensp;' +
-                '<a href="' + 'https://bing.com/search?q=' + key + '" target="_blank">Bing</a>' + '&ensp;|&ensp;' +
-                '<a href="' + 'https://duckduckgo.com/?q=' + key + '" target="_blank">DuckDuckGo</a>'
-              );
+        try {
+          var evaluated = eval(request);
+          candidates.push({
+            words: words,
+            pattern: {
+              response: [ evaluated.toString() ]
             }
-          }
-        });
+          });
+        } catch {
+          candidates.push({
+            words: words,
+            pattern: {
+              response: [ 'There is as yet insufficient data for a meaningful answer.' ],
+              callback: function (bot, words) {
+                var key = words.join(' ');
+                bot.post(
+                  'Would you like to search "' + key + '" on the internet?\n&emsp;' +
+                  '<a href="' + 'https://google.com/search?q=' + key + '" target="_blank">Google</a>' + '&ensp;|&ensp;' +
+                  '<a href="' + 'https://bing.com/search?q=' + key + '" target="_blank">Bing</a>' + '&ensp;|&ensp;' +
+                  '<a href="' + 'https://duckduckgo.com/?q=' + key + '" target="_blank">DuckDuckGo</a>' + '&ensp;|&ensp;' +
+                  '<a href="' + 'https://www.wolframalpha.com/input/?i=' + key + '" target="_blank">Wolfram</a>'
+                );
+              }
+            }
+          });
+        }
       }
     } else {
       candidates
@@ -145,14 +156,18 @@
     output(this.escape(rsp));
 
     if (this.posted) {
-      output(this.escape(this.posted));
-      this.posted = null;
+      this.posted.forEach(function (posted) {
+        output(this.escape(posted));
+      }.bind(this));
     }
+    this.posted = null;
 
     return this;
   };
   Bot.prototype.post = function (message) {
-    this.posted = message;
+    if (!this.posted)
+      this.posted = [ ];
+    this.posted.push(message);
 
     return this;
   };

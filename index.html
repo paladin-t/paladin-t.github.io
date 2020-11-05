@@ -113,12 +113,12 @@
       bot.learn(pattern);
     });
 
-    function send() {
+    function send () {
       var req = input.value;
       if (!req || req.length == 0)
         return;
 
-      output.innerHTML += 'You: ' + req + '<br>';
+      output.innerHTML += '<br>You: ' + req + '<br>';
       output.scrollTop = output.scrollHeight;
       input.value = '';
       bot.think(req, function (rsp) {
@@ -130,7 +130,7 @@
       });
     }
 
-    function clear() {
+    function clear () {
       output.innerHTML = '';
     }
 
@@ -143,7 +143,7 @@
     output.innerHTML += 'Tony: ';
     output.innerHTML += 'You can also chat with my agent bot, ';
     output.innerHTML += 'or get my contact information from him. ';
-    output.innerHTML += 'He\'s been doing a good job, although he\'s a bit of a martinet.<br><br>';
+    output.innerHTML += 'He\'s been doing a good job, although he\'s a bit of a martinet.<br>';
   </script>
 </body>
 </html>

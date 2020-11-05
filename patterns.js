@@ -56,7 +56,7 @@
 
     {
       request: [ 'who', 'you' ],
-      response: [ 'I\'m possibly the minimum rule based chatbot implementation in plain JavaScript.' ],
+      response: [ 'I\'m possibly the minimal rule based chatbot implementation in plain JavaScript.' ],
       callback: function (bot) {
         bot.post('Tony created me.');
       }
@@ -110,7 +110,8 @@
           'Would you like to search "Chengdu" on the internet?\n&emsp;' +
           '<a href="' + 'https://google.com/search?q=Chengdu" target="_blank">Google</a>' + '&ensp;|&ensp;' +
           '<a href="' + 'https://bing.com/search?q=Chengdu" target="_blank">Bing</a>' + '&ensp;|&ensp;' +
-          '<a href="' + 'https://duckduckgo.com/?q=Chengdu" target="_blank">DuckDuckGo</a>'
+          '<a href="' + 'https://duckduckgo.com/?q=Chengdu" target="_blank">DuckDuckGo</a>' + '&ensp;|&ensp;' +
+          '<a href="' + 'https://www.wolframalpha.com/input/?i=Chengdu" target="_blank">Wolfram</a>'
         );
       }
     },
