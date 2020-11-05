@@ -40,6 +40,19 @@
     },
 
     {
+      request: [ 'bye' ],
+      response: [ 'I\'ll be back.\n&emsp;<img src="imgs/bot/iwillbeback.jpg" width="118" height="118" style="border-radius: 6px;">' ]
+    },
+    {
+      request: [ 'byebye' ],
+      alias: [ 'bye' ]
+    },
+    {
+      request: [ 'see', 'you' ],
+      alias: [ 'bye' ]
+    },
+
+    {
       request: [ 'what', 'your', 'name' ],
       response: [ 'Call me Toby.', 'I\'m Toby.' ]
     },
@@ -118,7 +131,7 @@
 
     {
       request: [ 'contact', 'tony' ],
-      response: [ 'His email is:\n&emsp;<img src="imgs/mailto.png">' ],
+      response: [ 'His email is:\n&emsp;<img src="imgs/bot/mailto.png">' ],
       callback: function (bot) {
         bot.post(
           'You can also see:\n&emsp;' +
