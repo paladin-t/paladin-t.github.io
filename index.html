@@ -26,13 +26,13 @@
       </p>
 
       <p align="center"></p>
-        <div id="output_box">
+        <div id="output-box">
         </div>
-        <div id="input_box">
-          <div id="input_message">
+        <div id="input-box">
+          <div id="input-message">
             <input type="text" id="message" placeholder="Enter some text here...">
           </div>
-          <div id="input_send">
+          <div id="input-send">
             <input type="button" id="send" class="button" value="Send" />
           </div>
         </div>
@@ -53,6 +53,8 @@
         - An itty bitty Game Engine, with built-in editors, programmable in Lua.
       </p>
 
+      <hr class='hr'>
+
       <p align="center">
         <img src="imgs/basic8.png" class="box">
       </p>
@@ -60,6 +62,8 @@
         <a href="https://paladin-t.github.io/b8/">BASIC8</a>
         - An integrated Fantasy Computer for game and other program development. You can create, share and play disks in a modern BASIC dialect, with built-in tools for editing sprite, tiles, map, quantized, etc.
       </p>
+
+      <hr class='hr'>
 
       <p align="center">
         <img src="imgs/crapht.png" class="box">
@@ -77,51 +81,66 @@
       </h2>
 
       <p align="center">
-        <img src="imgs/can.gif" class="box_small">
+        <img src="imgs/can.gif" class="box-small">
       </p>
       <p align="left">
         <a href="https://tonywang.itch.io/can">Canned Monsters</a>
         - Procedurally generated monsters in a sardines can.
       </p>
 
+      <hr class='hr'>
+
       <p align="center">
-        <img src="imgs/dice.gif" class="box_small">
+        <img src="imgs/dice.gif" class="box-small">
       </p>
       <p align="left">
         <a href="https://tonywang.itch.io/dice">Dice</a>
         - A 3D dice program.
       </p>
 
+      <hr class='hr'>
+
       <p align="center">
-        <img src="imgs/tomato.gif" class="box_small">
+        <img src="imgs/tomato.gif" class="box-small">
       </p>
       <p align="left">
         <a href="https://tonywang.itch.io/tomato">Tomato Garden</a>
         - A Pomodoro time management application.
       </p>
 
-      <p align="center">
-        <img src="imgs/capsule.png" class="box_small">
-      </p>
-      <p align="left">
-        <a href="https://tonywang.itch.io/capsule">Capsule Rush</a>
-        - Match-three to eliminate virus.
-      </p>
+      <hr class='hr'>
+
+      <span class="more" id="more-tiny">
+        <p align="center">
+          <img src="imgs/capsule.png" class="box-small">
+        </p>
+        <p align="left">
+          <a href="https://tonywang.itch.io/capsule">Capsule Rush</a>
+          - Match-three to eliminate virus.
+        </p>
+      </span>
+      <div class="button-container">
+        <button class="button-content" id="toggle-tiny">Show more...</button>
+      </div>
 
       <hr>
 
       <p align="center">
-        © 2017 - 2020 Tony Wang |
-        <a href="https://twitter.com/wangrenxin">Twitter</a>
+        © 2018 - 2020 Tony Wang |
+        <a href="https://store.steampowered.com/developer/tony">Steam</a> |
+        <a href="https://tonywang.itch.io/">Itch</a> |
+        <a href="https://twitter.com/wangrenxin">Twitter</a> |
+        <a href="https://github.com/paladin-t">GitHub</a>
       </p>
     </div>
   </div>
   <script src="bot.js"></script>
   <script src="patterns.js"></script>
   <script type="text/javascript">
+    /**< Chatbot. */
     var button = document.getElementById('send');
     var input = document.getElementById('message');
-    var output = document.getElementById('output_box');
+    var output = document.getElementById('output-box');
 
     var bot = new Bot.Bot();
     Patterns.patterns.forEach(function (pattern) {
@@ -159,6 +178,23 @@
     output.innerHTML += 'You can also chat with my agent bot, ';
     output.innerHTML += 'or get my contact information from him. ';
     output.innerHTML += 'He\'s been doing a good job, although he\'s a bit of a martinet.<br>';
+
+    /**< Show more buttons. */
+    function toggle (btn_id, more_id) {
+      var more = document.getElementById(more_id);
+      var btn = document.getElementById(btn_id);
+      btn.onclick = function () {
+        if (!more.style.display || more.style.display === 'inline-block') {
+          more.style.display = 'inline';
+          btn.innerHTML = 'Show less';
+        } else {
+          more.style.display = 'inline-block';
+          btn.innerHTML = 'Show more...';
+        }
+      };
+    }
+
+    toggle('toggle-tiny', 'more-tiny');
   </script>
 </body>
 </html>

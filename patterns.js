@@ -8,6 +8,7 @@
   }
 } (this, function (exports) {
   function setUserName (bot, matched) {
+    bot.setNextFailureHandler(null);
     bot.setUserName(matched[matched.length - 1]);
     bot.post('Call me Toby.');
   }
@@ -65,6 +66,19 @@
     {
       request: [ 'call', 'me' ],
       alias: [ 'my', 'name' ]
+    },
+    {
+      request: [ 'i', 'am' ],
+      alias: [ 'my', 'name' ]
+    },
+    {
+      request: [ 'i', 'm' ],
+      alias: [ 'my', 'name' ]
+    },
+
+    {
+      request: [ 'nice', 'meet', 'you' ],
+      response: [ 'Welcome to look around.' ]
     },
 
     {
@@ -144,6 +158,18 @@
     },
     {
       request: [ 'contact', 'developer' ],
+      alias: [ 'contact', 'tony' ]
+    },
+    {
+      request: [ 'email', 'tony' ],
+      alias: [ 'contact', 'tony' ]
+    },
+    {
+      request: [ 'tony', 'contact' ],
+      alias: [ 'contact', 'tony' ]
+    },
+    {
+      request: [ 'developer', 'contact' ],
       alias: [ 'contact', 'tony' ]
     },
     {
