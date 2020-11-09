@@ -30,16 +30,17 @@ body {
   width: 128px;
 }
 .button {
-  padding: 5px 20px 5px 20px;
+  width: 12em;
+  padding: .5em;
+  border: none;
   border-radius: 6px;
-  color: #ffffff;
-  background: #1e1e1e;
-  font-size: 14px;
-  text-decoration: none;
+  color: #fff;
+  background-color: rgb(77, 88, 100);
 }
 .button:hover {
-  background: #7c7c7c;
-  text-decoration: none;
+  border: none;
+  background: rgb(255, 199, 95);
+  box-shadow: 0px 0px 1px #777;
 }
 .more {
   display: inline-block;
@@ -49,23 +50,10 @@ body {
   overflow: hidden;
   background-image: linear-gradient(to bottom, transparent, rgba(165, 165, 165, 0.9));
 }
-.button-container {
+.more-button {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.button-content {
-  width: 12em;
-  padding: .5em;
-  border: none;
-  border-radius: 6px;
-  color: #fff;
-  background-color: rgb(77, 88, 100);;
-}
-.button-content:hover {
-  border: none;
-  background: rgb(255, 199, 95);
-  box-shadow: 0px 0px 1px #777;
 }
 a:link,
 a:visited {

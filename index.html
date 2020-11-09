@@ -8,7 +8,7 @@
   <link rel="stylesheet" type="text/css" href="style.css">
   <link rel="stylesheet" type="text/css" href="bot.css">
 </head>
-<body>
+<body onclick>
   <div class="page">
     <div class="content">
       <p align="center">
@@ -30,10 +30,10 @@
         </div>
         <div id="input-box">
           <div id="input-message">
-            <input type="text" id="message" placeholder="Enter some text here...">
+            <input type="text" id="message" placeholder="Enter your message...">
           </div>
           <div id="input-send">
-            <input type="button" id="send" class="button" value="Send" />
+            <button class="button" id="send">Send</button>
           </div>
         </div>
       </p>
@@ -119,18 +119,14 @@
           - Match-three to eliminate virus.
         </p>
       </span>
-      <div class="button-container">
-        <button class="button-content" id="toggle-tiny">Show more...</button>
+      <div class="more-button">
+        <button class="button" id="toggle-tiny">Show more...</button>
       </div>
 
       <hr>
 
       <p align="center">
-        © 2018 - 2020 Tony Wang |
-        <a href="https://store.steampowered.com/developer/tony">Steam</a> |
-        <a href="https://tonywang.itch.io/">Itch</a> |
-        <a href="https://twitter.com/wangrenxin">Twitter</a> |
-        <a href="https://github.com/paladin-t">GitHub</a>
+        © 2018 - 2020 Tony Wang
       </p>
     </div>
   </div>

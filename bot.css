@@ -5,12 +5,13 @@
   resize: vertical;
   border: none;
   color: #ffffff;
-  background-color: #1e1e1e;
+  background-color: rgb(47, 54, 61);
   overflow: auto;
 }
 #input-box {
   position: relative;
   height: 2.5em;
+  top: 2px;
 }
 #input-message {
   width: auto;
@@ -30,6 +31,9 @@
   width: 100%;
   height: 100%;
   padding: 0;
+  border: none;
+  color: #ffffff;
+  background-color: rgb(47, 54, 61);
 }
 #message:focus {
   outline: 1px solid royalblue;
