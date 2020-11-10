@@ -121,7 +121,7 @@
             pattern: {
               response: [ 'There is as yet insufficient data for a meaningful answer.' ],
               callback: function (bot, words) {
-                var key = words.join(' ');
+                var key = request;
                 bot.post(
                   'Would you like to search "' + key + '" on the internet?\n&emsp;' +
                   '<a href="' + 'https://google.com/search?q=' + key + '" target="_blank">Google</a>' + '&ensp;|&ensp;' +

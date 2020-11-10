@@ -1,15 +1,40 @@
+@font-face {
+  font-family: 'pixel';
+  src: url('fonts/pixel.woff') format('woff'),
+    url('fonts/pixel.ttf') format('truetype');
+  font-smooth: never;
+  -webkit-font-smoothing : none;
+}
 body {
   margin: 0;
   padding: 0;
-  background-color: rgb(77, 88, 100);
-  font: 14px Helvetica, Arial, sans-serif;
+  background-image: url('imgs/background.png');
+  background-repeat: repeat;
+  background-attachment: fixed;
+  font: 16px pixel,sans-serif;
+}
+h2 {
+  font-size: 24px;
+}
+a:link,
+a:visited {
+  color: #69c;
+  text-decoration: none;
 }
 .page {
   width: 750px;
   margin: 2em auto;
-  padding: 20px 50px;
-  border-radius: 1em;
+  border: 40px solid transparent;
+  border-image: url('imgs/border.png') 40 stretch;
+  -webkit-border-image: url('imgs/border.png') 40 stretch;
+  padding: 15px;
   background-color: #fff;
+}
+.title {
+  position: absolute;
+  top: 0.99em;
+  left: 0;
+  width: 100%;
 }
 .content {
   position: relative;
@@ -17,9 +42,9 @@ body {
 .hr {
   width: 50%;
   height: 1px;
-  border: 0;
   margin: 0 auto;
   margin-top: 40px;
+  border: 0;
   background-image: linear-gradient(to right, rgba(100, 100, 100, 0), rgba(100, 100, 100, 0.75), rgba(100, 100, 100, 0));
 }
 .box {
@@ -31,15 +56,14 @@ body {
 }
 .button {
   width: 12em;
-  padding: .5em;
-  border: none;
-  border-radius: 6px;
-  color: #fff;
-  background-color: rgb(77, 88, 100);
+  border-radius: 2px;
+  border-color: black;
+  padding: 0;
+  background-color: white;
+  font: 16px pixel,sans-serif;
 }
 .button:hover {
-  border: none;
-  background: rgb(255, 199, 95);
+  background: rgb(211, 211, 211);
   box-shadow: 0px 0px 1px #777;
 }
 .more {
@@ -55,10 +79,26 @@ body {
   justify-content: center;
   align-items: center;
 }
-a:link,
-a:visited {
-  color: #69c;
-  text-decoration: none;
+#container {
+  height: 100%;
+  width:100%;
+  padding-bottom: 10px;
+}
+#left {
+  display: inline-block;
+  width: 72px;
+  vertical-align: middle;
+}
+#right {
+  display: inline-block;
+  height: 72px;
+  left: 80px;
+  position: absolute;
+}
+#avatar {
+  width: 72px;
+  height: auto;
+  border-radius: 50%;
 }
 @media (max-width: 870px) {
   body {
@@ -67,12 +107,21 @@ a:visited {
   .page {
     width: auto;
     margin: 0 auto;
-    padding: 1em;
     border-radius: 0;
+    padding: 0;
+  }
+  .title {
+    position: absolute;
+    top: -1.01em;
+    left: 0;
+    width: 100%;
   }
   .box {
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+  #container {
+    padding-bottom: 32px;
   }
 }

@@ -4,27 +4,27 @@
   padding: 4px 0px 4px 0px;
   resize: vertical;
   border: none;
-  color: #ffffff;
-  background-color: rgb(47, 54, 61);
+  color: black;
+  background-color: rgb(200, 200, 200);
   overflow: auto;
 }
 #input-box {
   position: relative;
-  height: 2.5em;
+  height: 1.5em;
   top: 2px;
 }
 #input-message {
   width: auto;
   height: 100%;
-  margin-right: 10em;
-  padding-right: 10px;
+  margin-right: 6em;
+  padding-right: 2px;
 }
 #input-send {
   display: inline-block;
   position: absolute;
   top: 0;
   right: 0;
-  width: 10em;
+  width: 6em;
   height: 100%;
 }
 #message {
@@ -32,8 +32,10 @@
   height: 100%;
   padding: 0;
   border: none;
-  color: #ffffff;
-  background-color: rgb(47, 54, 61);
+  border-radius: 0;
+  color: black;
+  background-color: rgb(200, 200, 200);
+  font: 16px pixel,sans-serif;
 }
 #message:focus {
   outline: 1px solid royalblue;
