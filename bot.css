@@ -1,7 +1,7 @@
 #output-box {
-  width: 100%;
+  width: auto;
   height: 240px;
-  padding: 4px 0px 4px 0px;
+  padding: 4px 2px 4px 2px;
   resize: vertical;
   border: none;
   color: black;
@@ -17,7 +17,7 @@
   width: auto;
   height: 100%;
   margin-right: 6em;
-  padding-right: 2px;
+  padding-right: 6px;
 }
 #input-send {
   display: inline-block;
@@ -30,7 +30,7 @@
 #message {
   width: 100%;
   height: 100%;
-  padding: 0;
+  padding: 0px 2px 0px 2px;
   border: none;
   border-radius: 0;
   color: black;
