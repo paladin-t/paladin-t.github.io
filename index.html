@@ -161,6 +161,27 @@
       bot.learn(pattern);
     });
 
+    function say (words) {
+      try {
+        words = words
+          .replaceAll('\n', '')
+          .replaceAll('&emsp;', '')
+          .replaceAll('&ensp;', '');
+        var open = words.indexOf('<');
+        var close = words.lastIndexOf('>');
+        if (open >= 0 && close >= 0) {
+          open = words.substr(0, open);
+          close = words.substr(close + 1);
+          words = open + close;
+        }
+        setTimeout(function () {
+          window.Speech.say(words);
+        }, 500);
+      } catch (ex) {
+        console.warn('Speech error:\n  ' + ex.toString());
+      }
+    }
+
     function send () {
       var req = input.value;
       if (!req || req.length == 0)
@@ -187,30 +208,8 @@
         }, 500);
       });
 
-      if (!mute) {
-        try {
-          words = words
-            .replaceAll('\n', '')
-            .replaceAll('&emsp;', '')
-            .replaceAll('&ensp;', '');
-          var open = words.indexOf('<');
-          var close = words.lastIndexOf('>');
-          if (open >= 0 && close >= 0) {
-            open = words.substr(0, open);
-            close = words.substr(close + 1);
-            words = open + close;
-          }
-          setTimeout(function () {
-            window.Speech.say && window.Speech.say(words);
-          }, 500);
-        } catch (ex) {
-          console.warn('Speech error:\n  ' + ex.toString());
-        }
-      }
-    }
-
-    function clear () {
-      output.innerHTML = '';
+      if (!mute && window.Speech)
+        say(words);
     }
 
     button.onclick = send;
