@@ -63,6 +63,15 @@
     },
 
     {
+      request: [ 'ok' ],
+      response: [ 'Well...' ]
+    },
+    {
+      request: [ 'okey' ],
+      alias: [ 'ok' ]
+    },
+
+    {
       request: [ 'what', 'your', 'name' ],
       response: [ 'Call me Toby.', 'I\'m Toby.' ]
     },
@@ -262,6 +271,15 @@
     {
       request: [ 'what', 'next' ],
       alias: [ 'what', 'tony', 'doing' ]
+    },
+
+    {
+      request: [ 'mute' ],
+      response: [ 'Ok.' ]
+    },
+    {
+      request: [ 'unmute' ],
+      response: [ 'Ok.' ]
     }
   ];
 
