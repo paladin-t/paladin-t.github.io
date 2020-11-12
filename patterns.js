@@ -54,6 +54,15 @@
     },
 
     {
+      request: [ 'thank' ],
+      response: [ 'Anytime.' ]
+    },
+    {
+      request: [ 'thanks' ],
+      alias: [ 'thank' ]
+    },
+
+    {
       request: [ 'what', 'your', 'name' ],
       response: [ 'Call me Toby.', 'I\'m Toby.' ]
     },
@@ -253,7 +262,7 @@
     {
       request: [ 'what', 'next' ],
       alias: [ 'what', 'tony', 'doing' ]
-    },
+    }
   ];
 
   exports.patterns = patterns;

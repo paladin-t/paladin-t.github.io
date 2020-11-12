@@ -115,7 +115,7 @@
               response: [ evaluated.toString() ]
             }
           });
-        } catch {
+        } catch (_) {
           candidates.push({
             words: words,
             pattern: {
