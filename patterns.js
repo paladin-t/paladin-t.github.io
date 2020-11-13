@@ -224,7 +224,7 @@
     {
       request: [ 'support', 'tony' ],
       response: [
-        'Tony makes games and tools, you can support him by buying or downloading them from:\n&emsp;' +
+        'Tony makes games and tools, you can support him by buying or downloading this or that from:\n&emsp;' +
         '<a href="https://store.steampowered.com/developer/tony" target="_blank">Steam</a>' + '&ensp;|&ensp;' +
         '<a href="https://tonywang.itch.io/" target="_blank">Itch</a>'
       ],

@@ -29,6 +29,7 @@ a:visited {
   -webkit-border-image: url('imgs/window.png') 40 stretch;
   padding: 0;
   background-color: white;
+  image-rendering: pixelated;
 }
 .title {
   position: absolute;
@@ -38,6 +39,7 @@ a:visited {
 }
 .content {
   position: relative;
+  image-rendering: auto;
 }
 .hr {
   width: 50%;
@@ -85,6 +87,7 @@ a:visited {
   left: 0;
   width: 50%;
   height: 100%;
+  image-rendering: pixelated;
 }
 .sidebar {
   position: absolute;

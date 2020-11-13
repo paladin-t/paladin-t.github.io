@@ -19,15 +19,19 @@
       else if (typeof words != 'string')
         words = eval(words).toString();
       words = words
+        .replaceAll('\'', '')
+        .replaceAll('\"', '')
         .replaceAll('\n', '')
         .replaceAll('&emsp;', '')
         .replaceAll('&ensp;', '');
-      var open = words.indexOf('<');
-      var close = words.lastIndexOf('>');
-      if (open >= 0 && close >= 0) {
+      while (true) {
+        var open = words.indexOf('<');
+        var close = open >= 0 ? words.indexOf('>', open + 1) : -1;
+        if (open < 0 || close < 0)
+          break;
         open = words.substr(0, open);
         close = words.substr(close + 1);
-        words = open + close;
+        words = open + ' ' + close;
       }
       setTimeout(function () {
         window.Speech.say(words);
