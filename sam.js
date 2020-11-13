@@ -13138,104 +13138,106 @@ run();
 // {{POST_RUN_ADDITIONS}}
   // {{MODULE_ADDITIONS}}
 
-function _PlayWebkit (context, audioBuffer) {
-  var source = context.createBufferSource();
-  var soundBuffer = context.createBuffer(1, audioBuffer.length, 22050);
-  var buffer = soundBuffer.getChannelData(0);
-  for (var i = 0; i < audioBuffer.length; ++i)
-    buffer[i] = audioBuffer[i];
-  source.buffer = soundBuffer;
-  source.connect(context.destination);
-  source.start(0);
-}
-function _PlayMozilla (context, audioBuffer) {
-  var written = context.mozWriteAudio(audioBuffer);
-  var diff = audioBuffer.length - written;
-  if (diff <= 0)
-    return;
-  var buffer = new Float32Array(diff);
-  for (var i = 0; i < diff; ++i)
-    buffer[i] = audioBuffer[i + written];
-  window.setTimeout(function () {
-    _PlayMozilla(context, buffer)
-  }, 500);
-}
-function _PlayBuffer (speaker, audioBuffer) {
-  if (typeof AudioContext !== 'undefined') {
-    if (!speaker.context)
-      speaker.context = new AudioContext();
-    _PlayWebkit(speaker.context, audioBuffer);
-  } else if (typeof webkitAudioContext !== 'undefined') {
-    if (!speaker.context)
-      speaker.context = new webkitAudioContext();
-    _PlayWebkit(speaker.context, audioBuffer);
-  } else if (typeof Audio !== 'undefined') {
-    if (!speaker.context)
-      speaker.context = new Audio();
-    speaker.context.mozSetup(1, 22050);
-    _PlayMozilla(speaker.context, audioBuffer);
+(function () {
+  function _PlayWebkit (context, audioBuffer) {
+    var source = context.createBufferSource();
+    var soundBuffer = context.createBuffer(1, audioBuffer.length, 22050);
+    var buffer = soundBuffer.getChannelData(0);
+    for (var i = 0; i < audioBuffer.length; ++i)
+      buffer[i] = audioBuffer[i];
+    source.buffer = soundBuffer;
+    source.connect(context.destination);
+    source.start(0);
   }
-}
-function _FillBuffer (text) {
-  var input = text;
-  while (input.length < 256)
-    input += ' ';
-  var ptr = allocate(intArrayFromString(input), 'i8', ALLOC_STACK);
-  _TextToPhonemes(ptr);
-  _SetInput(ptr);
-  _Code39771();
-  var bufferlength = Math.floor(_GetBufferLength() / 50);
-  var bufferptr = _GetBuffer();
-  audioBuffer = new Float32Array(bufferlength);
-  for (var i = 0; i < bufferlength; ++i)
-    audioBuffer[i] = ((getValue(bufferptr + i, 'i8') & 0xff) - 128) / 256;
-
-  return audioBuffer;
-}
-
-window.Speech = {
-  _initialized: false,
-  context: null,
-  setup: function () {
-    if (!this._initialized) {
-      this._initialized = true;
-      this.say(' ');
-    }
-  },
-  say: function (text) {
-    var MAX_LEN = 96;
-  
-    if (text.length == 0)
+  function _PlayMozilla (context, audioBuffer) {
+    var written = context.mozWriteAudio(audioBuffer);
+    var diff = audioBuffer.length - written;
+    if (diff <= 0)
       return;
-  
-    var words = text
-      .split(' ')
-      .filter(function (word) {
-        return word != '';
-      });
-    if (words.length == 0)
-      words.push('.');
-
-    var audioBuffers = [ ]
-    while (words.length) {
-      text = '';
-      while (words.length && text.length + words[0].length < MAX_LEN) {
-        text += words[0];
-        text += ' ';
-        words = words.splice(1);
-      }
-      text += '[';
-      audioBuffers.push(_FillBuffer(text));
-    }
-
-    if (audioBuffers.length == 1) {
-      var audioBuffer = Float32Array.prototype.concat.apply(audioBuffers[0]);
-      _PlayBuffer(this, audioBuffer);
-    } else if (audioBuffers.length >= 2) {
-      var car = audioBuffers[0];
-      var cdr = audioBuffers.slice(1);
-      var audioBuffer = Float32Array.prototype.concat.apply(car, cdr);
-      _PlayBuffer(this, audioBuffer);
+    var buffer = new Float32Array(diff);
+    for (var i = 0; i < diff; ++i)
+      buffer[i] = audioBuffer[i + written];
+    window.setTimeout(function () {
+      _PlayMozilla(context, buffer)
+    }, 500);
+  }
+  function _PlayBuffer (speaker, audioBuffer) {
+    if (typeof AudioContext !== 'undefined') {
+      if (!speaker.context)
+        speaker.context = new AudioContext();
+      _PlayWebkit(speaker.context, audioBuffer);
+    } else if (typeof webkitAudioContext !== 'undefined') {
+      if (!speaker.context)
+        speaker.context = new webkitAudioContext();
+      _PlayWebkit(speaker.context, audioBuffer);
+    } else if (typeof Audio !== 'undefined') {
+      if (!speaker.context)
+        speaker.context = new Audio();
+      speaker.context.mozSetup(1, 22050);
+      _PlayMozilla(speaker.context, audioBuffer);
     }
   }
-};
+  function _FillBuffer (text) {
+    var input = text;
+    while (input.length < 256)
+      input += ' ';
+    var ptr = allocate(intArrayFromString(input), 'i8', ALLOC_STACK);
+    _TextToPhonemes(ptr);
+    _SetInput(ptr);
+    _Code39771();
+    var bufferlength = Math.floor(_GetBufferLength() / 50);
+    var bufferptr = _GetBuffer();
+    audioBuffer = new Float32Array(bufferlength);
+    for (var i = 0; i < bufferlength; ++i)
+      audioBuffer[i] = ((getValue(bufferptr + i, 'i8') & 0xff) - 128) / 256;
+
+    return audioBuffer;
+  }
+
+  window.Speech = {
+    _initialized: false,
+    context: null,
+    setup: function () {
+      if (!this._initialized) {
+        this._initialized = true;
+        this.say(' ');
+      }
+    },
+    say: function (text) {
+      var MAX_LEN = 96;
+    
+      if (text.length == 0)
+        return;
+    
+      var words = text
+        .split(' ')
+        .filter(function (word) {
+          return word != '';
+        });
+      if (words.length == 0)
+        words.push('.');
+
+      var audioBuffers = [ ]
+      while (words.length) {
+        text = '';
+        while (words.length && text.length + words[0].length < MAX_LEN) {
+          text += words[0];
+          text += ' ';
+          words = words.splice(1);
+        }
+        text += '[';
+        audioBuffers.push(_FillBuffer(text));
+      }
+
+      if (audioBuffers.length == 1) {
+        var audioBuffer = Float32Array.prototype.concat.apply(audioBuffers[0]);
+        _PlayBuffer(this, audioBuffer);
+      } else if (audioBuffers.length >= 2) {
+        var car = audioBuffers[0];
+        var cdr = audioBuffers.slice(1);
+        var audioBuffer = Float32Array.prototype.concat.apply(car, cdr);
+        _PlayBuffer(this, audioBuffer);
+      }
+    }
+  };
+})();

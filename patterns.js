@@ -275,11 +275,11 @@
 
     {
       request: [ 'mute' ],
-      response: [ 'Ok.' ]
+      response: [ 'Okey.' ]
     },
     {
       request: [ 'unmute' ],
-      response: [ 'Ok.' ]
+      response: [ 'Okey.' ]
     }
   ];
 

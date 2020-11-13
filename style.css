@@ -28,7 +28,7 @@ a:visited {
   border-image: url('imgs/window.png') 40 stretch;
   -webkit-border-image: url('imgs/window.png') 40 stretch;
   padding: 0;
-  background-color: #fff;
+  background-color: white;
 }
 .title {
   position: absolute;
@@ -82,7 +82,14 @@ a:visited {
 .sidenav {
   position: fixed;
   top: 0;
-  left: 10px;
+  left: 0;
+  width: 50%;
+  height: 100%;
+}
+.sidebar {
+  position: absolute;
+  top: 0;
+  right: 425px;
   z-index: 1;
   width: 90px;
   margin: 2em auto;
@@ -90,12 +97,12 @@ a:visited {
   border-image: url('imgs/popup.png') 40 stretch;
   -webkit-border-image: url('imgs/popup.png') 40 stretch;
   padding: 0;
-  background-color: #fff;
+  background-color: white;
 }
-.sidenav a {
+.sidebar a {
   display: block;
 }
-.sidenav p {
+.sidebar p {
   top: -3.4em;
 }
 #container {
@@ -121,7 +128,7 @@ a:visited {
 }
 @media (max-width: 870px) {
   body {
-    background-color: #fff;
+    background-color: white;
   }
   .page {
     width: auto;

@@ -109,6 +109,10 @@
       } else {
         try {
           var evaluated = eval(request);
+          if (evaluated === null)
+            evaluated = 'null';
+          else if (evaluated === undefined)
+            evaluated = 'undefined';
           candidates.push({
             words: words,
             pattern: {
