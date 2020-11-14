@@ -35,7 +35,7 @@
   border-radius: 0;
   color: black;
   background-color: rgb(200, 200, 200);
-  font: 16px pixel,sans-serif;
+  font: 16px pixel, Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace, sans-serif;
 }
 #message:focus {
   outline: 1px solid royalblue;

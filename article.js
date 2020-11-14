@@ -122,6 +122,7 @@
             html += '<div class="article-timestamp">Last update: ';
               html += updatedAt;
             html += '</div>';
+
             attach(nodes.labels, html);
           });
 
@@ -158,15 +159,18 @@
               render(body)
                 .then(function (html) {
                   html = nodes.preprocess(html);
+
                   attach(id, html);
+
                   nodes.highlight();
                 });
             });
             if (comments.length == 0) {
-              html += 'No comments yet.';
+              html += '<div align="center" style="color: gray;">No comment yet.</div>';
               html += '<hr class="hr">';
             }
             html += '<a href="' + url + '#issuecomment-new" target="_blank">Leave a comment...</a>';
+
             attach(nodes.comments, html);
           })
           .catch(function (_) {
@@ -180,22 +184,25 @@
         return render(body)
           .then(function (html) {
             html = nodes.preprocess(html);
+
             attach(nodes.content, html);
+
             nodes.highlight();
 
-            var rss = '<a href="all.xml" target="_blank">';
+            var rss = '<a href="../feed.xml" target="_blank">';
               rss += '<div class="article-label" style="background-color: #ffa500;">';
                 rss += '<img align="center" src="../imgs/rss.svg" style="width: 14px;">';
                 rss += '<div align="center" style="color: white;">RSS</div>';
               rss += '</div>';
             rss += '</a>';
+
             attach(nodes.rss, rss);
           });
       })
       .catch(function (_) {
         var url = 'https://github.com/' + author + '/' + repo + '/issues/' + id.toString();
         var html = 'Oops, cannot load article for the moment...<br>Try refersh or ';
-        html += '<a href="' + url + '" target="_blank">' + click + '</a>';
+        html += '<a href="' + url + '" target="_blank">click</a>';
 
         attach(nodes.content, html);
         attach(nodes.comments, 'Cannot load comments...');

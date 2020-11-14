@@ -184,6 +184,10 @@
           '<a href="https://twitter.com/wangrenxin" target="_blank">Twitter</a>' + '&ensp;|&ensp;' +
           '<a href="https://github.com/paladin-t" target="_blank">GitHub</a>'
         );
+        bot.post(
+          'Or subscribe to this site:\n&emsp;' +
+          '<a href="https://paladin-t.github.io/feed.xml" target="_blank" class="label" style="display: inline; color: white;">RSS</a>'
+        );
       }
     },
     {
@@ -232,6 +236,10 @@
       request: [ 'github' ],
       response: [ '<a href="https://github.com/paladin-t" target="_blank">GitHub</a>' ]
     },
+    {
+      request: [ 'rss' ],
+      response: [ '<a href="https://paladin-t.github.io/feed.xml" target="_blank" class="label" style="display: inline; color: white;">RSS</a>' ]
+    },
 
     {
       request: [ 'support', 'tony' ],
@@ -244,6 +252,10 @@
         bot.post(
           'Also follow him for future creations:\n&emsp;' +
           '<a href="https://twitter.com/wangrenxin" target="_blank">Twitter</a>'
+        );
+        bot.post(
+          'Or subscribe to this site:\n&emsp;' +
+          '<a href="https://paladin-t.github.io/feed.xml" target="_blank" class="label" style="display: inline; color: white;">RSS</a>'
         );
       }
     },
@@ -269,6 +281,10 @@
           '<a href="https://store.steampowered.com/developer/tony" target="_blank">Steam</a>' + '&ensp;|&ensp;' +
           '<a href="https://tonywang.itch.io/" target="_blank">Itch</a>' + '&ensp;|&ensp;' +
           '<a href="https://twitter.com/wangrenxin" target="_blank">Twitter</a>'
+        );
+        bot.post(
+          'Or subscribe to this site:\n&emsp;' +
+          '<a href="https://paladin-t.github.io/feed.xml" target="_blank" class="label" style="display: inline; color: white;">RSS</a>'
         );
       }
     },

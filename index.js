@@ -62,7 +62,7 @@
         mute = false;
       words += rsp + ' ';
 
-      rsp = rsp.replace('\n', '<br>');
+      rsp = rsp.replaceAll('\n', '<br>');
       setTimeout(function () {
         output.innerHTML += 'Bot: ' + rsp + '<br>';
         output.scrollTop = output.scrollHeight;

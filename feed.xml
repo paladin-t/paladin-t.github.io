@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>Tony Wang - Homepage</title>
+  <description>Development tools, video games, technique articles</description>
+  <link>https://paladin-t.github.io/</link>
+  <atom:link rel="self" type="application/rss+xml" href="https://paladin-t.github.io/feed.xml"/>
+
+  <item>
+    <title>Crapht Box Available Now</title>
+    <description>Crapht Box is a Fantasy Physics Sandbox, inspired by the Fantasy Console genre. It brings a simulated world with a number of disks and tools, and leaves you to play, program, create and share disks. &lt;a href="https://paladin-t.github.io/crft/"&gt;Click for details: https://paladin-t.github.io/crft/&lt;/a&gt;</description>
+    <link>https://paladin-t.github.io/crft/</link>
+    <guid>https://paladin-t.github.io/crft/</guid>
+    <pubDate>14 Feb 2020 08:00:00 +0800 </pubDate>
+  </item>
+  <item>
+    <title>BASIC8 Available Now</title>
+    <description>BASIC8 is an integrated Fantasy Computer for game and other program development. You can create, share and play disks in a modern BASIC dialect, with built-in tools for editing sprite, tiles, map, quantized, etc. &lt;a href="https://paladin-t.github.io/b8/"&gt;Click for details: https://paladin-t.github.io/b8/&lt;/a&gt;</description>
+    <link>https://paladin-t.github.io/b8/</link>
+    <guid>https://paladin-t.github.io/b8/</guid>
+    <pubDate>02 Jan 2018 08:00:00 +0800 </pubDate>
+  </item>
+</channel>
+</rss>
