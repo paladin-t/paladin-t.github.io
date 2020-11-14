@@ -186,7 +186,7 @@
         );
         bot.post(
           'Or subscribe to this site:\n&emsp;' +
-          '<a href="https://paladin-t.github.io/feed.xml" target="_blank" class="label" style="display: inline; color: white;">RSS</a>'
+          '<a href="https://paladin-t.github.io/feed" target="_blank" class="label" style="display: inline; color: white;">RSS</a>'
         );
       }
     },
@@ -238,7 +238,7 @@
     },
     {
       request: [ 'rss' ],
-      response: [ '<a href="https://paladin-t.github.io/feed.xml" target="_blank" class="label" style="display: inline; color: white;">RSS</a>' ]
+      response: [ '<a href="https://paladin-t.github.io/feed" target="_blank" class="label" style="display: inline; color: white;">RSS</a>' ]
     },
 
     {
@@ -255,7 +255,7 @@
         );
         bot.post(
           'Or subscribe to this site:\n&emsp;' +
-          '<a href="https://paladin-t.github.io/feed.xml" target="_blank" class="label" style="display: inline; color: white;">RSS</a>'
+          '<a href="https://paladin-t.github.io/feed" target="_blank" class="label" style="display: inline; color: white;">RSS</a>'
         );
       }
     },
@@ -284,7 +284,7 @@
         );
         bot.post(
           'Or subscribe to this site:\n&emsp;' +
-          '<a href="https://paladin-t.github.io/feed.xml" target="_blank" class="label" style="display: inline; color: white;">RSS</a>'
+          '<a href="https://paladin-t.github.io/feed" target="_blank" class="label" style="display: inline; color: white;">RSS</a>'
         );
       }
     },
