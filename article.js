@@ -155,15 +155,19 @@
                   nodes.highlight();
                 });
             });
+            if (comments.length == 0) {
+              html += 'No comments yet.';
+              html += '<hr class="hr">';
+            }
             html += '<a href="' + url + '#issuecomment-new" target="_blank">Leave a comment...</a>';
             attach(nodes.comments, html);
           })
           .catch(function (_) {
-            var url = 'https://github.com/' + author + '/repo/issues/' + id.toString();
-            var html = 'Oops, cannot load comments for the moment... Try refersh or click ';
+            var url = 'https://github.com/' + author + '/' + repo + '/issues/' + id.toString();
+            var html = 'Oops, cannot load comments for the moment...<br>Try refersh or click ';
             html += '<a href="' + url + '#issuecomment-new" target="_blank">' + url + '</a>';
     
-            attach(nodes.content, html);
+            attach(nodes.comments, html);
           });
 
         return render(body)
@@ -174,11 +178,12 @@
           });
       })
       .catch(function (_) {
-        var url = 'https://github.com/' + author + '/repo/issues/' + id.toString();
-        var html = 'Oops, cannot load article for the moment... Try refersh or click ';
+        var url = 'https://github.com/' + author + '/' + repo + '/issues/' + id.toString();
+        var html = 'Oops, cannot load article for the moment...<br>Try refersh or click ';
         html += '<a href="' + url + '" target="_blank">' + url + '</a>';
 
         attach(nodes.content, html);
+        attach(nodes.comments, 'Cannot load comments...');
       });
   }
 
