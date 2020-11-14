@@ -9,6 +9,15 @@
   border-radius: 2px;
   font-size: 8px;
 }
+.article-rss {
+  width: auto;
+  display: inline-block;
+  margin: 0px 2px;
+  padding: 4px;
+  border-radius: 2px;
+  font-size: 8px;
+  color: white;
+}
 .article-timestamp {
   width: auto;
   display: inline-block;

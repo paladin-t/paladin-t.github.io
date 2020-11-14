@@ -105,6 +105,8 @@
         var body = data.body;
         var updatedAt = data.updated_at;
 
+        document.title = title + ' | Tony Wang';
+
         attach(nodes.avatar, '<a href="' + userUrl + '" target="_blank">' + '<img src="' + userAvatar + '" id="avatar">' + '</a>');
         attach(nodes.title, '<a href="' + url + '" target="_blank">' + title + '</a>');
 
@@ -112,9 +114,13 @@
           .then(function (labels) {
             var html = '';
             labels.map(function (label) {
-              html += '<div class="article-label" style="background-color: #' + label.color + ';">' + label.name + '</div>';
+              html += '<div class="article-label" style="background-color: #' + label.color + ';">';
+                html += label.name;
+              html += '</div>';
             });
-            html += '<div class="article-timestamp">Last update: ' + updatedAt + '</div>';
+            html += '<div class="article-timestamp">Last update: ';
+              html += updatedAt;
+            html += '</div>';
             attach(nodes.labels, html);
           });
 
@@ -175,6 +181,14 @@
             html = nodes.preprocess(html);
             attach(nodes.content, html);
             nodes.highlight();
+
+            var rss = '<a href="all.xml" target="_blank">';
+              rss += '<div class="article-label" style="background-color: #ffa500;">';
+                rss += '<img align="center" src="../imgs/rss.svg" style="width: 14px;">';
+                rss += '<div align="center" style="color: white;">RSS</div>';
+              rss += '</div>';
+            rss += '</a>';
+            attach(nodes.rss, rss);
           });
       })
       .catch(function (_) {
