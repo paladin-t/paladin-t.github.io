@@ -1,5 +1,12 @@
 .article-title {
-  font-size: 24px;
+  font-size: 16px;
+}
+.article-original {
+  width: auto;
+  display: inline-block;
+  margin: 0px 2px;
+  padding: 4px;
+  font-size: 8px;
 }
 .article-label {
   width: auto;

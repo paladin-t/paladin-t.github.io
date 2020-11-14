@@ -61,7 +61,7 @@
         </div>
         <div id="article-labels">
         </div>
-        <div id="article-rss">
+        <div id="article-rss" style="padding-top: 8px;">
         </div>
         <hr>
         <div id="article-comments">
@@ -97,6 +97,7 @@
         comments: 'article-comments',
         preprocess: function (code) {
           return code
+            .replaceAll('<code>', '<code class="language-auto">')
             .replaceAll('language-c', 'language-clike')
             .replaceAll('language-c++', 'language-clike');
         },

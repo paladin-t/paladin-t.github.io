@@ -108,7 +108,7 @@
         document.title = title + ' | Tony Wang';
 
         attach(nodes.avatar, '<a href="' + userUrl + '" target="_blank">' + '<img src="' + userAvatar + '" id="avatar">' + '</a>');
-        attach(nodes.title, '<a href="' + url + '" target="_blank">' + title + '</a>');
+        attach(nodes.title, title);
 
         labels(author, repo, id)
           .then(function (labels) {
@@ -118,6 +118,7 @@
                 html += label.name;
               html += '</div>';
             });
+            html += '<a class="article-original" href="' + url + '" target="_blank">Read on GitHub</a>';
             html += '<div class="article-timestamp">Last update: ';
               html += updatedAt;
             html += '</div>';
@@ -170,8 +171,8 @@
           })
           .catch(function (_) {
             var url = 'https://github.com/' + author + '/' + repo + '/issues/' + id.toString();
-            var html = 'Oops, cannot load comments for the moment...<br>Try refersh or click ';
-            html += '<a href="' + url + '#issuecomment-new" target="_blank">' + url + '</a>';
+            var html = 'Oops, cannot load comments for the moment...<br>Try refersh or ';
+            html += '<a href="' + url + '" target="_blank">click</a>';
     
             attach(nodes.comments, html);
           });
@@ -193,8 +194,8 @@
       })
       .catch(function (_) {
         var url = 'https://github.com/' + author + '/' + repo + '/issues/' + id.toString();
-        var html = 'Oops, cannot load article for the moment...<br>Try refersh or click ';
-        html += '<a href="' + url + '" target="_blank">' + url + '</a>';
+        var html = 'Oops, cannot load article for the moment...<br>Try refersh or ';
+        html += '<a href="' + url + '" target="_blank">' + click + '</a>';
 
         attach(nodes.content, html);
         attach(nodes.comments, 'Cannot load comments...');
