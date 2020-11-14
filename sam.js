@@ -1,3 +1,12 @@
+(function (root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    define(['exports'], factory);
+  } else if (typeof exports === 'object' && typeof exports.nodeName !== 'string') {
+    factory(exports);
+  } else {
+    factory(root.Sam = { });
+  }
+} (this, function (exports) {
 // Note: Some Emscripten settings will significantly limit the speed of the generated code.
 // Note: Some Emscripten settings may limit the speed of the generated code.
 try {
@@ -13194,7 +13203,7 @@ run();
     return audioBuffer;
   }
 
-  window.Speech = {
+  exports.sam = {
     _initialized: false,
     context: null,
     setup: function () {
@@ -13241,3 +13250,5 @@ run();
     }
   };
 })();
+}));
+

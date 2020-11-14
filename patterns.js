@@ -39,6 +39,18 @@
       request: [ 'how', 'do', 'you', 'do' ],
       alias: [ 'greetings' ]
     },
+    {
+      request: [ 'hola' ],
+      alias: [ 'greetings' ]
+    },
+    {
+      request: [ 'bonjour' ],
+      alias: [ 'greetings' ]
+    },
+    {
+      request: [ 'ciao' ],
+      alias: [ 'greetings' ]
+    },
 
     {
       request: [ 'bye' ],

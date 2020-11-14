@@ -34,7 +34,7 @@
         words = open + ' ' + close;
       }
       setTimeout(function () {
-        window.Speech.say(words);
+        Sam.sam.say(words);
       }, 500);
     } catch (ex) {
       console.warn('Speech error:\n  ' + ex.toString());
@@ -54,7 +54,7 @@
 
     var words = '';
     bot.think(req, function (rsp) {
-      window.Speech && window.Speech.setup();
+      Sam.sam && Sam.sam.setup();
 
       if (req == 'mute')
         mute = true;
@@ -69,7 +69,7 @@
       }, 500);
     });
 
-    if (!mute && window.Speech)
+    if (!mute && Sam.sam)
       say(words);
   }
 
@@ -96,9 +96,9 @@
 
 /**< Show more buttons. */
 (function () {
-  function toggle (btn_id, more_id) {
-    var more = document.getElementById(more_id);
-    var btn = document.getElementById(btn_id);
+  function toggle (btnId, moreId) {
+    var more = document.getElementById(moreId);
+    var btn = document.getElementById(btnId);
     btn.onclick = function () {
       if (!more.style.display || more.style.display === 'inline-block') {
         more.style.display = 'inline';

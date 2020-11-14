@@ -1,0 +1,42 @@
+.article-title {
+  font-size: 24px;
+}
+.article-label {
+  width: auto;
+  display: inline-block;
+  margin: 0px 2px;
+  padding: 4px;
+  border-radius: 2px;
+  font-size: 8px;
+}
+.article-timestamp {
+  width: auto;
+  display: inline-block;
+  margin: 0px 2px;
+  padding: 4px;
+  font-size: 8px;
+}
+.article-commenter-container {
+  height: 100%;
+  width: 100%;
+  padding-top: 20px;
+}
+.article-commenter-container img {
+  max-width: 100%;
+}
+.article-commenter-left {
+  display: inline-block;
+  width: 36px;
+  vertical-align: middle;
+}
+.article-commenter-right {
+  display: inline-block;
+  height: 36px;
+  left: 44px;
+  position: absolute;
+}
+.article-commenter-avatar {
+  width: 36px;
+  height: auto;
+  border-radius: 50%;
+}
