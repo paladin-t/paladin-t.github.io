@@ -1,4 +1,4 @@
-/**< Chatbot. */
+// Chatbot.
 (function () {
   var button = document.getElementById('send');
   var input = document.getElementById('message');
@@ -94,7 +94,7 @@
   window.clear = clear;
 })();
 
-/**< Show more buttons. */
+// Show more buttons.
 (function () {
   function toggle (btnId, moreId) {
     var more = document.getElementById(moreId);
