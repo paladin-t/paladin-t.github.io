@@ -7,6 +7,19 @@
     factory(root.Patterns = { });
   }
 } (this, function (exports) {
+  var homepage = '<a href="https://paladin-t.github.io/" target="_blank">Homepage</a>';
+  var steam = '<a href="https://store.steampowered.com/developer/tony" target="_blank">Steam</a>';
+  var itch = '<a href="https://tonywang.itch.io/" target="_blank">Itch</a>';
+  var twitter = '<a href="https://twitter.com/wangrenxin" target="_blank">Twitter</a>';
+  var github = '<a href="https://github.com/paladin-t" target="_blank">GitHub</a>';
+  var rss = '<a href="https://paladin-t.github.io/feed.xml" target="_blank" class="label" style="display: inline; color: white;">RSS</a>';
+  function search (key) {
+    return '<a href="' + 'https://google.com/search?q=' + key + '" target="_blank">Google</a>' + '&ensp;|&ensp;' +
+      '<a href="' + 'https://bing.com/search?q=' + key + '" target="_blank">Bing</a>' + '&ensp;|&ensp;' +
+      '<a href="' + 'https://duckduckgo.com/?q=' + key + '" target="_blank">DuckDuckGo</a>' + '&ensp;|&ensp;' +
+      '<a href="' + 'https://www.wolframalpha.com/input/?i=' + key + '" target="_blank">Wolfram</a>';
+  }
+
   function setUserName (bot, matched) {
     bot.setNextFailureHandler(null);
     bot.setUserName(matched[matched.length - 1]);
@@ -165,10 +178,7 @@
       callback: function (bot) {
         bot.post(
           'Would you like to search "Chengdu" on the internet?\n&emsp;' +
-          '<a href="' + 'https://google.com/search?q=Chengdu" target="_blank">Google</a>' + '&ensp;|&ensp;' +
-          '<a href="' + 'https://bing.com/search?q=Chengdu" target="_blank">Bing</a>' + '&ensp;|&ensp;' +
-          '<a href="' + 'https://duckduckgo.com/?q=Chengdu" target="_blank">DuckDuckGo</a>' + '&ensp;|&ensp;' +
-          '<a href="' + 'https://www.wolframalpha.com/input/?i=Chengdu" target="_blank">Wolfram</a>'
+          search('Chengdu')
         );
       }
     },
@@ -179,14 +189,14 @@
       callback: function (bot) {
         bot.post(
           'You can also see:\n&emsp;' +
-          '<a href="https://store.steampowered.com/developer/tony" target="_blank">Steam</a>' + '&ensp;|&ensp;' +
-          '<a href="https://tonywang.itch.io/" target="_blank">Itch</a>' + '&ensp;|&ensp;' +
-          '<a href="https://twitter.com/wangrenxin" target="_blank">Twitter</a>' + '&ensp;|&ensp;' +
-          '<a href="https://github.com/paladin-t" target="_blank">GitHub</a>'
+          steam + '&ensp;|&ensp;' +
+          itch + '&ensp;|&ensp;' +
+          twitter + '&ensp;|&ensp;' +
+          github
         );
         bot.post(
           'Or subscribe to this site:\n&emsp;' +
-          '<a href="https://paladin-t.github.io/feed" target="_blank" class="label" style="display: inline; color: white;">RSS</a>'
+          rss
         );
       }
     },
@@ -213,7 +223,7 @@
 
     {
       request: [ 'homepage' ],
-      response: [ '<a href="https://paladin-t.github.io/" target="_blank">Homepage</a>' ]
+      response: [ homepage ]
     },
     {
       request: [ 'website' ],
@@ -222,40 +232,40 @@
 
     {
       request: [ 'steam' ],
-      response: [ '<a href="https://store.steampowered.com/developer/tony" target="_blank">Steam</a>' ]
+      response: [ steam ]
     },
     {
       request: [ 'itch' ],
-      response: [ '<a href="https://tonywang.itch.io/" target="_blank">Itch</a>' ]
+      response: [ itch ]
     },
     {
       request: [ 'twitter' ],
-      response: [ '<a href="https://twitter.com/wangrenxin" target="_blank">Twitter</a>' ]
+      response: [ twitter ]
     },
     {
       request: [ 'github' ],
-      response: [ '<a href="https://github.com/paladin-t" target="_blank">GitHub</a>' ]
+      response: [ github ]
     },
     {
       request: [ 'rss' ],
-      response: [ '<a href="https://paladin-t.github.io/feed" target="_blank" class="label" style="display: inline; color: white;">RSS</a>' ]
+      response: [ rss ]
     },
 
     {
       request: [ 'support', 'tony' ],
       response: [
         'Tony makes games and tools, you can support him by buying or downloading this or that from:\n&emsp;' +
-        '<a href="https://store.steampowered.com/developer/tony" target="_blank">Steam</a>' + '&ensp;|&ensp;' +
-        '<a href="https://tonywang.itch.io/" target="_blank">Itch</a>'
+        steam + '&ensp;|&ensp;' +
+        itch
       ],
       callback: function (bot) {
         bot.post(
           'Also follow him for future creations:\n&emsp;' +
-          '<a href="https://twitter.com/wangrenxin" target="_blank">Twitter</a>'
+          twitter
         );
         bot.post(
           'Or subscribe to this site:\n&emsp;' +
-          '<a href="https://paladin-t.github.io/feed" target="_blank" class="label" style="display: inline; color: white;">RSS</a>'
+          rss
         );
       }
     },
@@ -278,13 +288,13 @@
       callback: function (bot) {
         bot.post(
           'Follow him for future creations:\n&emsp;' +
-          '<a href="https://store.steampowered.com/developer/tony" target="_blank">Steam</a>' + '&ensp;|&ensp;' +
-          '<a href="https://tonywang.itch.io/" target="_blank">Itch</a>' + '&ensp;|&ensp;' +
-          '<a href="https://twitter.com/wangrenxin" target="_blank">Twitter</a>'
+          steam + '&ensp;|&ensp;' +
+          itch + '&ensp;|&ensp;' +
+          twitter
         );
         bot.post(
           'Or subscribe to this site:\n&emsp;' +
-          '<a href="https://paladin-t.github.io/feed" target="_blank" class="label" style="display: inline; color: white;">RSS</a>'
+          rss
         );
       }
     },

@@ -189,7 +189,7 @@
 
             nodes.highlight();
 
-            var rss = '<a href="../feed" target="_blank">';
+            var rss = '<a href="../feed.xml" target="_blank">';
               rss += '<div class="article-label" style="background-color: #ffa500;">';
                 rss += '<img align="center" src="../imgs/rss.svg" style="width: 14px;">';
                 rss += '<div align="center" style="color: white;">RSS</div>';

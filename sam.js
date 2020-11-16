@@ -13148,7 +13148,7 @@ run();
   // {{MODULE_ADDITIONS}}
 
 (function () {
-  function _PlayWebkit (context, audioBuffer) {
+  function playWebkit (context, audioBuffer) {
     var source = context.createBufferSource();
     var soundBuffer = context.createBuffer(1, audioBuffer.length, 22050);
     var buffer = soundBuffer.getChannelData(0);
@@ -13158,7 +13158,7 @@ run();
     source.connect(context.destination);
     source.start(0);
   }
-  function _PlayMozilla (context, audioBuffer) {
+  function playMozilla (context, audioBuffer) {
     var written = context.mozWriteAudio(audioBuffer);
     var diff = audioBuffer.length - written;
     if (diff <= 0)
@@ -13167,26 +13167,26 @@ run();
     for (var i = 0; i < diff; ++i)
       buffer[i] = audioBuffer[i + written];
     window.setTimeout(function () {
-      _PlayMozilla(context, buffer)
+      playMozilla(context, buffer)
     }, 500);
   }
-  function _PlayBuffer (speaker, audioBuffer) {
+  function playBuffer (speaker, audioBuffer) {
     if (typeof AudioContext !== 'undefined') {
       if (!speaker.context)
         speaker.context = new AudioContext();
-      _PlayWebkit(speaker.context, audioBuffer);
+      playWebkit(speaker.context, audioBuffer);
     } else if (typeof webkitAudioContext !== 'undefined') {
       if (!speaker.context)
         speaker.context = new webkitAudioContext();
-      _PlayWebkit(speaker.context, audioBuffer);
+      playWebkit(speaker.context, audioBuffer);
     } else if (typeof Audio !== 'undefined') {
       if (!speaker.context)
         speaker.context = new Audio();
       speaker.context.mozSetup(1, 22050);
-      _PlayMozilla(speaker.context, audioBuffer);
+      playMozilla(speaker.context, audioBuffer);
     }
   }
-  function _FillBuffer (text) {
+  function fillBuffer (text) {
     var input = text;
     while (input.length < 256)
       input += ' ';
@@ -13235,17 +13235,17 @@ run();
           words = words.splice(1);
         }
         text += '[';
-        audioBuffers.push(_FillBuffer(text));
+        audioBuffers.push(fillBuffer(text));
       }
 
       if (audioBuffers.length == 1) {
         var audioBuffer = Float32Array.prototype.concat.apply(audioBuffers[0]);
-        _PlayBuffer(this, audioBuffer);
+        playBuffer(this, audioBuffer);
       } else if (audioBuffers.length >= 2) {
         var car = audioBuffers[0];
         var cdr = audioBuffers.slice(1);
         var audioBuffer = Float32Array.prototype.concat.apply(car, cdr);
-        _PlayBuffer(this, audioBuffer);
+        playBuffer(this, audioBuffer);
       }
     }
   };

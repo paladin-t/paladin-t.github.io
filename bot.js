@@ -7,6 +7,13 @@
     factory(root.Bot = { });
   }
 } (this, function (exports) {
+  function search (key) {
+    return '<a href="' + 'https://google.com/search?q=' + key + '" target="_blank">Google</a>' + '&ensp;|&ensp;' +
+      '<a href="' + 'https://bing.com/search?q=' + key + '" target="_blank">Bing</a>' + '&ensp;|&ensp;' +
+      '<a href="' + 'https://duckduckgo.com/?q=' + key + '" target="_blank">DuckDuckGo</a>' + '&ensp;|&ensp;' +
+      '<a href="' + 'https://www.wolframalpha.com/input/?i=' + key + '" target="_blank">Wolfram</a>';
+  }
+
   function split (request) {
     return request
       .replace(/[^\w\s]/gi, ' ')
@@ -128,10 +135,7 @@
                 var key = request;
                 bot.post(
                   'Would you like to search "' + key + '" on the internet?\n&emsp;' +
-                  '<a href="' + 'https://google.com/search?q=' + key + '" target="_blank">Google</a>' + '&ensp;|&ensp;' +
-                  '<a href="' + 'https://bing.com/search?q=' + key + '" target="_blank">Bing</a>' + '&ensp;|&ensp;' +
-                  '<a href="' + 'https://duckduckgo.com/?q=' + key + '" target="_blank">DuckDuckGo</a>' + '&ensp;|&ensp;' +
-                  '<a href="' + 'https://www.wolframalpha.com/input/?i=' + key + '" target="_blank">Wolfram</a>'
+                  search(key)
                 );
               }
             }
