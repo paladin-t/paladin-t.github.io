@@ -168,8 +168,10 @@
             if (comments.length == 0) {
               html += '<div align="center" style="color: gray;">No comment yet.</div>';
               html += '<hr class="hr">';
+              html += '<a href="' + url + '#issuecomment-new" target="_blank">Leave the first comment...</a>';
+            } else {
+              html += '<a href="' + url + '#issuecomment-new" target="_blank">Leave a comment or read more...</a>';
             }
-            html += '<a href="' + url + '#issuecomment-new" target="_blank">Leave a comment...</a>';
 
             attach(nodes.comments, html);
           })
@@ -177,7 +179,7 @@
             var url = 'https://github.com/' + author + '/' + repo + '/issues/' + id.toString();
             var html = 'Oops, cannot load comments for the moment...<br>Try refersh or ';
             html += '<a href="' + url + '" target="_blank">click</a>';
-    
+
             attach(nodes.comments, html);
           });
 
