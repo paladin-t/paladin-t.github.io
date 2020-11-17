@@ -21,7 +21,7 @@ Prism.languages.cpp = {
       'punctuation': /[.\\]/
     }
   },
-  'keyword': /\b(?:if|else|while|do|for|return|in|instanceof|function|new|try|throw|catch|finally|null|break|continue|class|struct|public|protected|private|friend|include|define|undef|defined|ifdef|ifndef|elif|endif|template|typename|typedef|using|const|static|auto|void|bool|char|short|unsigned|int|long|float|double)\b/,
+  'keyword': /\b(?:if|else|while|do|for|return|in|instanceof|function|new|try|throw|catch|finally|null|break|continue|class|struct|public|protected|private|friend|include|define|undef|defined|ifdef|ifndef|elif|endif|template|typename|typedef|using|const|static|auto|enum|void|bool|char|short|unsigned|int|long|float|double|std)\b/,
   'boolean': /\b(?:true|false)\b/,
   'function': /\w+(?=\()/,
   'number': /\b0x[\da-f]+\b|(?:\b\d+\.?\d*|\B\.\d+)(?:e[+-]?\d+)?/i,
