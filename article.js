@@ -139,7 +139,7 @@
               var id = 'article-comment-' + index.toString();
 
               html += '<div>';
-                html += '<div class="article-commenter-container">';
+                html += '<div class="article-comment">';
                   html += '<div class="article-commenter-left">';
                     html += '<div class="article-commenter-avatar">';
                       html += '<a href="' + userUrl + '" target="_blank">' + '<img src="' + userAvatar + '" class="article-commenter-avatar">' + '</a>';

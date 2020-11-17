@@ -1,12 +1,8 @@
 .article-title {
   font-size: 16px;
 }
-.article-original {
-  width: auto;
-  display: inline-block;
-  margin: 0px 2px;
-  padding: 4px;
-  font-size: 8px;
+.article-content img {
+  max-width: 100%;
 }
 .article-label {
   width: auto;
@@ -14,6 +10,20 @@
   margin: 0px 2px;
   padding: 4px;
   border-radius: 2px;
+  font-size: 8px;
+}
+.article-original {
+  width: auto;
+  display: inline-block;
+  margin: 0px 2px;
+  padding: 4px;
+  font-size: 8px;
+}
+.article-timestamp {
+  width: auto;
+  display: inline-block;
+  margin: 0px 2px;
+  padding: 4px;
   font-size: 8px;
 }
 .article-rss {
@@ -25,19 +35,12 @@
   font-size: 8px;
   color: white;
 }
-.article-timestamp {
-  width: auto;
-  display: inline-block;
-  margin: 0px 2px;
-  padding: 4px;
-  font-size: 8px;
-}
-.article-commenter-container {
+.article-comment {
   height: 100%;
   width: 100%;
   padding-top: 20px;
 }
-.article-commenter-container img {
+.article-comment img {
   max-width: 100%;
 }
 .article-commenter-left {
