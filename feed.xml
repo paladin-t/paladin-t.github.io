@@ -7,6 +7,13 @@
   <atom:link rel="self" type="application/rss+xml" href="https://paladin-t.github.io/feed.xml"/>
 
   <item>
+    <title>Smooth Tile-based Movement Algorithm with Sliding</title>
+    <description>Movement is a very basic concept in video games, it could be as simple as accumulating steps to a position value. This article introduces a smooth movement algorithm with tolerant sliding, which offers good adaptivity to various tile-based scenes. Click to read: &lt;a href="https://paladin-t.github.io/articles/smooth-tile-based-movement-algorithm-with-sliding.html"&gt;https://paladin-t.github.io/articles/smooth-tile-based-movement-algorithm-with-sliding.html&lt;/a&gt;</description>
+    <link>https://paladin-t.github.io/articles/smooth-tile-based-movement-algorithm-with-sliding.html</link>
+    <guid>https://paladin-t.github.io/articles/smooth-tile-based-movement-algorithm-with-sliding.html</guid>
+    <pubDate>17 Nov 2020 08:00:00 +0800 </pubDate>
+  </item>
+  <item>
     <title>Crapht Box Available Now</title>
     <description>Crapht Box is a Fantasy Physics Sandbox, inspired by the Fantasy Console genre. It brings a simulated world with a number of disks and tools, and leaves you to play, program, create and share disks. Click for details: &lt;a href="https://paladin-t.github.io/crft/"&gt;https://paladin-t.github.io/crft/&lt;/a&gt;</description>
     <link>https://paladin-t.github.io/crft/</link>

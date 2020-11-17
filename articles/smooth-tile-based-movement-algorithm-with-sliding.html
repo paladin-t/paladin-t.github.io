@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Video games, development tools and articles by Tony Wang. Including game engines, fantasy consoles, games and other cool stuff.">
+  <meta name="twitter:card" content="Video games, development tools and articles by Tony Wang. Including game engines, fantasy consoles, games and other cool stuff.">
+  <meta name="og:title" property="og:title" content="Tony Wang - Test">
+  <meta name="og:description" property="og:title" content="Video games, development tools and articles by Tony Wang. Including game engines, fantasy consoles, games and other cool stuff.">
+  <title>Tony Wang - Articles</title>
+  <link rel="alternate" type="application/rss+xml" title="Tony Wang - Homepage" href="../feed.xml" />
+  <link rel="shortcut icon" href="../favicon.ico"/>
+  <link rel="apple-touch-icon" href="../icon.png"/>
+  <link rel="stylesheet" type="text/css" href="../index.css">
+  <link rel="stylesheet" type="text/css" href="../prism.css">
+  <link rel="stylesheet" type="text/css" href="../article.css">
+</head>
+<body onclick>
+  <div class="sidenav">
+    <div class="sidebar">
+      <p align="center" class="title">
+        Contents
+      </p>
+      <a href="../#top">* Home</a>
+      <a href="../#kits">* Kits</a>
+      <a href="../#tiny">* Tiny</a>
+      <a href="../#articles">* Articles</a>
+      * <a href="../feed.xml" target="_blank" class="label" style="display: inline; color: white;">RSS</a>
+    </div>
+  </div>
+  <div class="page">
+    <a id="top" href="#top"></a>
+    <p align="center" class="title">
+      <a href="https://paladin-t.github.io/">Tony Wang</a>
+    </p>
+    <div class="content">
+      <p align="left">
+        <a href="https://store.steampowered.com/developer/tony" target="_blank">Steam</a> |
+        <a href="https://tonywang.itch.io/" target="_blank">Itch</a> |
+        <a href="https://twitter.com/wangrenxin" target="_blank">Twitter</a> |
+        <a href="https://github.com/paladin-t" target="_blank">GitHub</a>
+      </p>
+      <div id="container">
+        <div id="left">
+          <div id="article-avatar">
+            <img src="../imgs/avatar.png" id="avatar">
+          </div>
+        </div>
+        <div id="right">
+          <div class="article-title" id="article-title">
+            ...
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div id="article">
+        <div id="article-content">
+          Loading content...
+        </div>
+        <div id="article-labels">
+        </div>
+        <div id="article-rss" style="padding-top: 8px;">
+        </div>
+        <hr>
+        <div id="article-comments">
+          Loading comments...
+        </div>
+      </div>
+      <hr>
+      <p align="center">
+        (C) 2018-2020 <a href="https://paladin-t.github.io/">Tony Wang</a>
+        <a href="feed.xml" target="_blank" class="label" style="color: white;">RSS</a>
+      </p>
+    </div>
+  </div>
+  <script src="../polyfill.js"></script>
+  <script src="../marked.js"></script>
+  <script src="../prism.js"></script>
+  <script src="../article.js"></script>
+  <script type="text/javascript">
+    var author = 'paladin-t';
+    var repo = 'paladin-t.github.io';
+    var id = '1';
+    var url = 'https://github.com/' + author + '/' + repo + '/issues/' + id.toString();
+
+    try {
+      Article.attach('article-title', '<a href="' + url + '" target="_blank">' + url + '</a>');
+      Article.read(author, repo, id, {
+          avatar: 'article-avatar',
+          title: 'article-title',
+          content: 'article-content',
+          labels: 'article-labels',
+          rss: 'article-rss',
+          comments: 'article-comments',
+          preprocess: function (code) {
+            return code
+              .replaceAll('<code>', '<code class="language-auto">')
+              .replaceAll('language-c', 'language-clike')
+              .replaceAll('language-c++', 'language-clike');
+          },
+          highlight: function () {
+            Prism.highlightAll();
+          }
+      });
+    } catch (_) {
+      var html = 'Oops, cannot load article for the moment...<br>Try refersh or ';
+      html += '<a href="' + url + '" target="_blank">click</a>';
+
+      Article.attach('article-content', html);
+      Article.attach('article-comments', 'Cannot load comments...');
+    }
+  </script>
+</body>
+</html>
