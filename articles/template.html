@@ -84,9 +84,12 @@
     var repo = 'yyy';
     var id = 'zzz';
     var url = 'https://github.com/' + author + '/' + repo + '/issues/' + id.toString();
+    var title = '...';
+    var overview = '...';
 
     try {
-      Article.attach('article-title', '<a href="' + url + '" target="_blank">' + url + '</a>');
+      Article.attach('article-title', '<a href="' + url + '" target="_blank">' + title + '</a>');
+      Article.attach('article-content', overview + '<br><br>Loading content...');
       Article.read(author, repo, id, {
           avatar: 'article-avatar',
           title: 'article-title',

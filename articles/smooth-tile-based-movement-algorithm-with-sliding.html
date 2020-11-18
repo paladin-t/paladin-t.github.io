@@ -48,14 +48,17 @@
         </div>
         <div id="right">
           <div class="article-title" id="article-title">
-            ...
+            Smooth Tile-based Movement Algorithm with Sliding
           </div>
         </div>
       </div>
       <hr>
       <div id="article">
         <div id="article-content" class="article-content">
-          Loading content...
+          Movement is a very basic concept in video games, it could be as simple as accumulating steps to a position value. This article introduces a smooth movement algorithm with tolerant sliding, which offers good adaptivity to various tile-based scenes.
+          <br>
+          <br>
+          Loading full content...
         </div>
         <div id="article-labels">
         </div>
@@ -84,9 +87,12 @@
     var repo = 'paladin-t.github.io';
     var id = '1';
     var url = 'https://github.com/' + author + '/' + repo + '/issues/' + id.toString();
+    var title = 'Smooth Tile-based Movement Algorithm with Sliding';
+    var overview = 'Movement is a very basic concept in video games, it could be as simple as accumulating steps to a position value. This article introduces a smooth movement algorithm with tolerant sliding, which offers good adaptivity to various tile-based scenes.';
 
     try {
-      Article.attach('article-title', '<a href="' + url + '" target="_blank">' + url + '</a>');
+      Article.attach('article-title', '<a href="' + url + '" target="_blank">' + title + '</a>');
+      Article.attach('article-content', overview + '<br><br>Loading content...');
       Article.read(author, repo, id, {
           avatar: 'article-avatar',
           title: 'article-title',
