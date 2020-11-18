@@ -34,7 +34,8 @@
         words = open + ' ' + close;
       }
       setTimeout(function () {
-        Sam && Sam.sam && Sam.sam.say(words);
+        if (typeof Sam != 'undefined')
+          Sam.sam.say(words);
       }, 500);
     } catch (ex) {
       console.warn('Speech error:\n  ' + ex.toString());
@@ -54,7 +55,8 @@
 
     var words = '';
     bot.think(req, function (rsp) {
-      Sam && Sam.sam && Sam.sam.setup();
+      if (typeof Sam != 'undefined')
+        Sam.sam.setup();
 
       if (req == 'mute')
         mute = true;
@@ -69,7 +71,7 @@
       }, 500);
     });
 
-    if (!mute && Sam && Sam.sam)
+    if (!mute && typeof Sam != 'undefined')
       say(words);
   }
 
