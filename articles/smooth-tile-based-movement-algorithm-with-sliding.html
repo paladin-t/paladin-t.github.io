@@ -50,6 +50,7 @@
           <div class="article-title" id="article-title">
             Smooth Tile-based Movement Algorithm with Sliding
           </div>
+          <button class="button" id="font" style="width: 4em; font-size: 8px;">Font</button>
         </div>
       </div>
       <hr>
@@ -83,39 +84,65 @@
   <script src="../prism-lua.js"></script>
   <script src="../article.js"></script>
   <script type="text/javascript">
-    var author = 'paladin-t';
-    var repo = 'paladin-t.github.io';
-    var id = '1';
-    var url = 'https://github.com/' + author + '/' + repo + '/issues/' + id.toString();
-    var title = 'Smooth Tile-based Movement Algorithm with Sliding';
-    var overview = 'Movement is a very basic concept in video games, it could be as simple as accumulating steps to a position value. This article introduces a smooth movement algorithm with tolerant sliding, which offers good adaptivity to various tile-based scenes.';
+    // Article.
+    (function () {
+      var author = 'paladin-t';
+      var repo = 'paladin-t.github.io';
+      var id = '1';
+      var url = 'https://github.com/' + author + '/' + repo + '/issues/' + id.toString();
+      var title = 'Smooth Tile-based Movement Algorithm with Sliding';
+      var overview = 'Movement is a very basic concept in video games, it could be as simple as accumulating steps to a position value. This article introduces a smooth movement algorithm with tolerant sliding, which offers good adaptivity to various tile-based scenes.';
 
-    try {
-      Article.attach('article-title', '<a href="' + url + '" target="_blank">' + title + '</a>');
-      Article.attach('article-content', overview + '<br><br>Loading content...');
-      Article.read(author, repo, id, {
-          avatar: 'article-avatar',
-          title: 'article-title',
-          content: 'article-content',
-          labels: 'article-labels',
-          rss: 'article-rss',
-          comments: 'article-comments',
-          preprocess: function (code) {
-            return code
-              .replaceAll('<code>', '<code class="language-auto">')
-              .replaceAll('language-c++', 'language-cpp');
-          },
-          highlight: function () {
-            Prism.highlightAll();
-          }
-      });
-    } catch (_) {
-      var html = 'Oops, cannot load article for the moment...<br>Try refersh or ';
-      html += '<a href="' + url + '" target="_blank">click</a>';
+      try {
+        Article.attach('article-title', '<a href="' + url + '" target="_blank">' + title + '</a>');
+        Article.attach('article-content', overview + '<br><br>Loading content...');
+        Article.read(author, repo, id, {
+            avatar: 'article-avatar',
+            title: 'article-title',
+            content: 'article-content',
+            labels: 'article-labels',
+            rss: 'article-rss',
+            comments: 'article-comments',
+            preprocess: function (code) {
+              return code
+                .replaceAll('<code>', '<code class="language-auto">')
+                .replaceAll('language-c++', 'language-cpp');
+            },
+            highlight: function () {
+              Prism.highlightAll();
+            }
+        });
+      } catch (_) {
+        var html = 'Oops, cannot load article for the moment...<br>Try refersh or ';
+        html += '<a href="' + url + '" target="_blank">click</a>';
 
-      Article.attach('article-content', html);
-      Article.attach('article-comments', 'Cannot load comments...');
-    }
+        Article.attach('article-content', html);
+        Article.attach('article-comments', 'Cannot load comments...');
+      }
+    })();
+
+    // Font.
+    (function () {
+      var pixelFont = true;
+      var font = document.getElementById('font');
+
+      font.onclick = function () {
+        var style = pixelFont ? 'font: 16px Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace, sans-serif;' : '';
+        pixelFont = !pixelFont;
+        var content = document.getElementById('article-content');
+        if (content)
+          content.style = style;
+        for (var i = 0; i < 999; ++i) {
+          var comment = document.getElementById('article-comment-' + i.toString());
+          if (!comment)
+            break;
+          comment.style = style;
+        }
+        var codes = document.getElementsByTagName('code');
+        for (var i in codes)
+          codes[i].style = style;
+      };
+    })();
   </script>
 </body>
 </html>

@@ -50,12 +50,16 @@
           <div class="article-title" id="article-title">
             ...
           </div>
+          <button class="button" id="font" style="width: 4em; font-size: 8px;">Font</button>
         </div>
       </div>
       <hr>
       <div id="article">
         <div id="article-content" class="article-content">
-          Loading content...
+          ...
+          <br>
+          <br>
+          Loading full content...
         </div>
         <div id="article-labels">
         </div>
@@ -80,39 +84,65 @@
   <script src="../prism-lua.js"></script>
   <script src="../article.js"></script>
   <script type="text/javascript">
-    var author = 'xxx';
-    var repo = 'yyy';
-    var id = 'zzz';
-    var url = 'https://github.com/' + author + '/' + repo + '/issues/' + id.toString();
-    var title = '...';
-    var overview = '...';
+    // Article.
+    (function () {
+      var author = 'xxx';
+      var repo = 'yyy';
+      var id = 'zzz';
+      var url = 'https://github.com/' + author + '/' + repo + '/issues/' + id.toString();
+      var title = '...';
+      var overview = '...';
 
-    try {
-      Article.attach('article-title', '<a href="' + url + '" target="_blank">' + title + '</a>');
-      Article.attach('article-content', overview + '<br><br>Loading content...');
-      Article.read(author, repo, id, {
-          avatar: 'article-avatar',
-          title: 'article-title',
-          content: 'article-content',
-          labels: 'article-labels',
-          rss: 'article-rss',
-          comments: 'article-comments',
-          preprocess: function (code) {
-            return code
-              .replaceAll('<code>', '<code class="language-auto">')
-              .replaceAll('language-c++', 'language-cpp');
-          },
-          highlight: function () {
-            Prism.highlightAll();
-          }
-      });
-    } catch (_) {
-      var html = 'Oops, cannot load article for the moment...<br>Try refersh or ';
-      html += '<a href="' + url + '" target="_blank">click</a>';
+      try {
+        Article.attach('article-title', '<a href="' + url + '" target="_blank">' + title + '</a>');
+        Article.attach('article-content', overview + '<br><br>Loading content...');
+        Article.read(author, repo, id, {
+            avatar: 'article-avatar',
+            title: 'article-title',
+            content: 'article-content',
+            labels: 'article-labels',
+            rss: 'article-rss',
+            comments: 'article-comments',
+            preprocess: function (code) {
+              return code
+                .replaceAll('<code>', '<code class="language-auto">')
+                .replaceAll('language-c++', 'language-cpp');
+            },
+            highlight: function () {
+              Prism.highlightAll();
+            }
+        });
+      } catch (_) {
+        var html = 'Oops, cannot load article for the moment...<br>Try refersh or ';
+        html += '<a href="' + url + '" target="_blank">click</a>';
 
-      Article.attach('article-content', html);
-      Article.attach('article-comments', 'Cannot load comments...');
-    }
+        Article.attach('article-content', html);
+        Article.attach('article-comments', 'Cannot load comments...');
+      }
+    })();
+
+    // Font.
+    (function () {
+      var pixelFont = true;
+      var font = document.getElementById('font');
+
+      font.onclick = function () {
+        var style = pixelFont ? 'font: 16px Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace, sans-serif;' : '';
+        pixelFont = !pixelFont;
+        var content = document.getElementById('article-content');
+        if (content)
+          content.style = style;
+        for (var i = 0; i < 999; ++i) {
+          var comment = document.getElementById('article-comment-' + i.toString());
+          if (!comment)
+            break;
+          comment.style = style;
+        }
+        var codes = document.getElementsByTagName('code');
+        for (var i in codes)
+          codes[i].style = style;
+      };
+    })();
   </script>
 </body>
 </html>
