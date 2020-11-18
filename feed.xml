@@ -7,6 +7,13 @@
   <atom:link rel="self" type="application/rss+xml" href="https://paladin-t.github.io/feed.xml"/>
 
   <item>
+    <title>Bitty Engine Available Now</title>
+    <description>Bitty Engine is an itty bitty Game Engine, with built-in editors, programmable in Lua. Click for details: &lt;a href="https://paladin-t.github.io/bitty/"&gt;https://paladin-t.github.io/bitty/&lt;/a&gt;</description>
+    <link>https://paladin-t.github.io/bitty/</link>
+    <guid>https://paladin-t.github.io/bitty/</guid>
+    <pubDate>18 Nov 2020 08:00:00 +0800 </pubDate>
+  </item>
+  <item>
     <title>Smooth Tile-based Movement Algorithm with Sliding</title>
     <description>Movement is a very basic concept in video games, it could be as simple as accumulating steps to a position value. This article introduces a smooth movement algorithm with tolerant sliding, which offers good adaptivity to various tile-based scenes. Click to read: &lt;a href="https://paladin-t.github.io/articles/smooth-tile-based-movement-algorithm-with-sliding.html"&gt;https://paladin-t.github.io/articles/smooth-tile-based-movement-algorithm-with-sliding.html&lt;/a&gt;</description>
     <link>https://paladin-t.github.io/articles/smooth-tile-based-movement-algorithm-with-sliding.html</link>
