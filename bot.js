@@ -7,6 +7,14 @@
     factory(root.Bot = { });
   }
 } (this, function (exports) {
+  function alert () {
+    // Do nothing.
+  }
+
+  function prompt () {
+    // Do nothing.
+  }
+
   function search (key) {
     return '<a href="' + 'https://google.com/search?q=' + key + '" target="_blank">Google</a>' + '&ensp;|&ensp;' +
       '<a href="' + 'https://bing.com/search?q=' + key + '" target="_blank">Bing</a>' + '&ensp;|&ensp;' +

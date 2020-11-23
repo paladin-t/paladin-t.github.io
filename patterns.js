@@ -146,7 +146,7 @@
 
     {
       request: [ 'who', 'tony' ],
-      response: [ 'Tony is my creator. He makes video games and development tools as an independent developer.' ],
+      response: [ 'Tony is my creator. He makes games and development tools as an independent developer.' ],
       callback: function (bot) {
         bot.post('He also works as a freelancer sometimes.');
       }
@@ -318,6 +318,19 @@
     {
       request: [ 'unmute' ],
       response: [ 'Okey.' ]
+    },
+
+    {
+      request: [ 'help' ],
+      response: [
+        'Eg.\n' +
+        '&emsp;mute(): mute speech\n' +
+        '&emsp;unmute(): unmute speech\n' +
+        '&emsp;say(\'hello\'): say something\n' +
+        '&emsp;clear(): clear output\n' +
+        '&emsp;search(\'keyword\'): search something\n' +
+        '&emsp;a=22;b=7;a/b: execute as JavaScript\n'
+      ]
     }
   ];
 

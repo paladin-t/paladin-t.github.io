@@ -4,11 +4,19 @@
   var input = document.getElementById('message');
   var output = document.getElementById('output-box');
 
-  var mute = false;
+  var muted = false;
   var bot = new Bot.Bot();
   Patterns.patterns.forEach(function (pattern) {
     bot.learn(pattern);
   });
+
+  function mute () {
+    muted = true;
+  }
+
+  function unmute () {
+    muted = false;
+  }
 
   function say (words) {
     try {
@@ -44,8 +52,11 @@
     return words;
   }
 
-  function send () {
-    var req = input.value;
+  function send (req, think) {
+    if (!req)
+      req = input.value;
+    if (!think)
+      think = bot.think.bind(bot);
     if (!req || req.length == 0)
       return;
 
@@ -54,14 +65,14 @@
     input.value = '';
 
     var words = '';
-    bot.think(req, function (rsp) {
+    think(req, function (rsp) {
       if (typeof Sam != 'undefined')
         Sam.sam.setup();
 
       if (req == 'mute')
-        mute = true;
+        mute();
       else if (req == 'unmute')
-        mute = false;
+        unmute();
       words += rsp + ' ';
 
       rsp = rsp.replaceAll('\n', '<br>');
@@ -71,7 +82,7 @@
       }, 500);
     });
 
-    if (!mute && typeof Sam != 'undefined')
+    if (!muted && typeof Sam != 'undefined')
       say(words);
   }
 
@@ -92,6 +103,8 @@
   output.innerHTML += 'or get my contact information from him. ';
   output.innerHTML += 'He\'s been doing a good job, although he\'s a bit of a martinet.<br>';
 
+  window.mute = mute;
+  window.unmute = unmute;
   window.say = say;
   window.clear = clear;
 })();
