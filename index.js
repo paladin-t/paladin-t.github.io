@@ -101,7 +101,7 @@
   output.innerHTML += 'Tony: ';
   output.innerHTML += 'You can also chat with my agent bot, ';
   output.innerHTML += 'or get my contact information from him. ';
-  output.innerHTML += 'He\'s been doing a good job, although he\'s a bit of a martinet.<br>';
+  output.innerHTML += 'He\'s been doing a good job.<br>';
 
   window.mute = mute;
   window.unmute = unmute;
