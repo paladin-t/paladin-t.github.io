@@ -92,7 +92,9 @@
     return 'Okey.';
   }
 
-  button.onclick = send;
+  button.onclick = function () {
+    send();
+  };
   input.addEventListener('keyup', function (event) {
     if (event.key === 'Enter') {
       send();
