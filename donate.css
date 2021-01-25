@@ -1,0 +1,29 @@
+@font-face {
+  font-family: 'pixel';
+  src: url('fonts/pixel.woff') format('woff'),
+    url('fonts/pixel.ttf') format('truetype');
+  font-smooth: never;
+  -webkit-font-smoothing : none;
+}
+.donation {
+  width: 100%;
+  font: 16px pixel, Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace, sans-serif;
+}
+#one-off-donation {
+  width: 50%;
+  height: 270px;
+  border: none;
+}
+#periodical-donation {
+  width: 50%;
+  height: 100px;
+  border: none;
+}
+@media (max-width: 870px) {
+  #one-off-donation {
+    width: 100%;
+  }
+  #periodical-donation {
+    width: 100%;
+  }
+}
