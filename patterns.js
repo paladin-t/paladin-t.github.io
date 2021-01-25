@@ -278,6 +278,14 @@
       request: [ 'support', 'developer' ],
       alias: [ 'support', 'tony' ]
     },
+    {
+      request: [ 'donate' ],
+      alias: [ 'support', 'tony' ]
+    },
+    {
+      request: [ 'donation' ],
+      alias: [ 'support', 'tony' ]
+    },
 
     {
       request: [ 'what', 'tony', 'doing' ],

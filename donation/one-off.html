@@ -2,17 +2,16 @@
 <html>
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="../donate.css">
 </head>
 <body>
   <div class="donation">
     <div id="smart-button-container">
-      <div style="text-align: center"><label for="description">Message </label><input type="text" name="descriptionInput" id="description" maxlength="127" value="" style="width: 100%;"></div>
+      <div style="text-align: center"><label for="description">Message </label><input type="text" name="descriptionInput" id="description" maxlength="127" value="" style="width: 100%; padding: 4px 0;"></div>
         <p id="descriptionError" style="visibility: hidden; color:red; text-align: center; margin: 0;">Please enter a description</p>
-      <div style="text-align: center"><label for="amount">One-off donation </label><input name="amountInput" type="number" id="amount" value="" style="width: 100%;"><span> USD</span></div>
+      <div style="text-align: center"><label for="amount">One-off donation </label><input name="amountInput" type="number" id="amount" value="" style="width: 100%; padding: 4px 0;"><span> USD</span></div>
         <p id="priceLabelError" style="visibility: hidden; color:red; text-align: center; margin: 0;">Please enter a price</p>
-      <div id="invoiceidDiv" style="text-align: center; display: none;"><label for="invoiceid"> </label><input name="invoiceid" maxlength="127" type="text" id="invoiceid" value="" style="width: 100%;"></div>
+      <div id="invoiceidDiv" style="text-align: center; display: none;"><label for="invoiceid"> </label><input name="invoiceid" maxlength="127" type="text" id="invoiceid" value="" style="width: 100%; padding: 4px 0;"></div>
         <p id="invoiceidError" style="visibility: hidden; color:red; text-align: center; margin: 0;">Please enter an Invoice ID</p>
       <div style="text-align: center; margin-top: 0.625rem;" id="paypal-button-container"></div>
     </div>
