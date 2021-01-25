@@ -13,6 +13,7 @@
   var twitter = '<a href="https://twitter.com/wangrenxin" target="_blank">Twitter</a>';
   var github = '<a href="https://github.com/paladin-t" target="_blank">GitHub</a>';
   var rss = '<a href="https://paladin-t.github.io/feed.xml" target="_blank" class="label" style="display: inline; color: white;">RSS</a>';
+  var donate = '<a href="donate.html">Donate</a>';
   function search (key) {
     return '<a href="' + 'https://google.com/search?q=' + key + '" target="_blank">Google</a>' + '&ensp;|&ensp;' +
       '<a href="' + 'https://bing.com/search?q=' + key + '" target="_blank">Bing</a>' + '&ensp;|&ensp;' +
@@ -260,12 +261,8 @@
       ],
       callback: function (bot) {
         bot.post(
-          'Also follow him for future creations:\n&emsp;' +
-          twitter
-        );
-        bot.post(
-          'Or subscribe to this site:\n&emsp;' +
-          rss
+          'Or consider making a donation if you like his work:\n&emsp;' +
+          donate
         );
       }
     },
