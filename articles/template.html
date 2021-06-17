@@ -53,6 +53,7 @@
           <button class="button" id="font" style="width: 4em; font-size: 8px;">Font</button>
         </div>
       </div>
+
       <hr>
       <div id="article">
         <div id="article-content" class="article-content">
@@ -70,6 +71,7 @@
           Loading comments...
         </div>
       </div>
+
       <hr>
       <p align="center">
         (C) 2018-2021 <a href="https://paladin-t.github.io/">Tony Wang</a>
@@ -83,6 +85,8 @@
   <script src="../prism-cpp.js"></script>
   <script src="../prism-lua.js"></script>
   <script src="../article.js"></script>
+  <script src="../site-storage.js"></script>
+  <script src="../toggle-font.js"></script>
   <script type="text/javascript">
     // Article.
     (function () {
@@ -110,6 +114,8 @@
             },
             highlight: function () {
               Prism.highlightAll();
+
+              toggleFont();
             }
         });
       } catch (_) {
@@ -118,30 +124,9 @@
 
         Article.attach('article-content', html);
         Article.attach('article-comments', 'Cannot load comments...');
+
+        toggleFont();
       }
-    })();
-
-    // Font.
-    (function () {
-      var pixelFont = true;
-      var font = document.getElementById('font');
-
-      font.onclick = function () {
-        var style = pixelFont ? 'font: 16px Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace, sans-serif;' : '';
-        pixelFont = !pixelFont;
-        var content = document.getElementById('article-content');
-        if (content)
-          content.style = style;
-        for (var i = 0; i < 999; ++i) {
-          var comment = document.getElementById('article-comment-' + i.toString());
-          if (!comment)
-            break;
-          comment.style = style;
-        }
-        var codes = document.getElementsByTagName('code');
-        for (var i in codes)
-          codes[i].style = style;
-      };
     })();
   </script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112501113-5"></script>
