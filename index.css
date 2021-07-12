@@ -13,6 +13,10 @@ body {
   background-attachment: fixed;
   font: 16px pixel, Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace, sans-serif;
 }
+table, th, td {
+  border: 1px black solid;
+  border-collapse: collapse;
+}
 h2 {
   font-size: 24px;
 }
@@ -74,7 +78,7 @@ a:visited {
   max-height: 40px;
   position: relative;
   overflow: hidden;
-  background-image: linear-gradient(to bottom, transparent, rgba(165, 165, 165, 0.9));
+  /* background-image: linear-gradient(to bottom, transparent, rgba(165, 165, 165, 0.9)); */
 }
 .more-button {
   display: flex;
@@ -113,6 +117,18 @@ a:visited {
   border-radius: 2px;
   color: white;
   background-color: #ffa500;
+}
+.store {
+  width: 48px;
+  height: 48px;
+}
+.store-frame-steam {
+  width: 552px;
+  height: 190px;
+}
+.store-frame-itch {
+  width: 552px;
+  height: 167px;
 }
 #container {
   height: 100%;
@@ -155,6 +171,17 @@ a:visited {
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+  .store-frame-container {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .store-frame-steam {
+    max-width: 100%;
+  }
+  .store-frame-itch {
+    max-width: 100%;
   }
   #container {
     padding-bottom: 32px;

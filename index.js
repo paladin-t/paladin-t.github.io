@@ -101,9 +101,9 @@
     }
   });
   output.innerHTML += 'Tony: ';
-  output.innerHTML += 'You can also chat with my agent bot, ';
-  output.innerHTML += 'or get my contact information from him. ';
-  output.innerHTML += 'He\'s been doing a good job. ';
+  output.innerHTML += 'You can chat with my agent bot here, ';
+  output.innerHTML += 'i.e. enter "How to contact Tony?" to get my email address, ';
+  output.innerHTML += 'or try whatever you want. ';
   output.innerHTML += 'Also click to <a href="https://github.com/paladin-t/paladin-t.github.io/discussions" target="_blank">leave a message</a>.<br>';
 
   window.mute = mute;

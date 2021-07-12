@@ -99,14 +99,16 @@
 
     var words = split(request);
     var candidates = [ ];
-    this.patterns.forEach(function (pattern) {
-      if (match(words, pattern.request)) {
-        candidates.push({
-          words: words,
-          pattern: pattern
-        });
-      }
-    }.bind(this));
+    if (!request.startsWith('say(') && !request.startsWith('search(')) {
+      this.patterns.forEach(function (pattern) {
+        if (match(words, pattern.request)) {
+          candidates.push({
+            words: words,
+            pattern: pattern
+          });
+        }
+      }.bind(this));
+    }
 
     if (candidates.length == 0) {
       var fail = this.getNextFailureHandler();

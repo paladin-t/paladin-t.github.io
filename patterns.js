@@ -146,6 +146,27 @@
     },
 
     {
+      request: [ 'do', 'you', 'like' ],
+      response: [
+        'That would be interesting, but never got a chance to touch it.',
+        'That would be interesting, but never got a chance to taste it.',
+        'Quite a difficult question for me...'
+      ]
+    },
+    {
+      request: [ 'do', 'you', 'love' ],
+      alias: [ 'do', 'you', 'like' ]
+    },
+    {
+      request: [ 'what', 'you', 'lile' ],
+      alias: [ 'do', 'you', 'like' ]
+    },
+    {
+      request: [ 'what', 'you', 'love' ],
+      alias: [ 'do', 'you', 'like' ]
+    },
+
+    {
       request: [ 'who', 'tony' ],
       response: [ 'Tony is my creator. He makes games and development tools as an independent developer.' ],
       callback: function (bot) {
