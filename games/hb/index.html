@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Hyper Bullet is a top-down shoot'em up game.">
-  <meta name="twitter:card" content="Hyper Bullet is a top-down shoot'em up game.">
+  <meta name="description" content="Hyper Bullet is a top-down action game.">
+  <meta name="twitter:card" content="Hyper Bullet is a top-down action game.">
   <meta name="og:title" property="og:title" content="Hyper Bullet">
-  <meta name="og:description" property="og:description" content="Hyper Bullet is a top-down shoot'em up game.">
+  <meta name="og:description" property="og:description" content="Hyper Bullet is a top-down action game.">
   <title>Hyper Bullet | Tony Wang</title>
   <link rel="alternate" type="application/rss+xml" title="Tony Wang - Homepage" href="../../feed.xml" />
   <link rel="shortcut icon" href="../../favicon.ico" />
@@ -53,7 +53,79 @@
       <div id="content">
         <hr>
         <p align="left">
-          WIP
+          Get Hyper Bullet
+          <ul>
+            <li>Full version on <a href="https://store.steampowered.com/app/1729660/" target="_blank">Steam</a></li>
+            <li>Demo version on <a href="https://store.steampowered.com/app/1769610/" target="_blank">Steam</a> and <a href="https://tonywang.itch.io/hyper-bullet" target="_blank">Itch</a></li>
+          </ul>
+        </p>
+        <hr>
+        <p align="center" class="slider-frame">
+          <iframe id="slider-iframe" src="/games/hb/slides.html" scrolling="no" style="width: 640px; height: 360px; border: none;"></iframe>
+        </p>
+        <div align="center" class="slider-vertical">
+          <img src="/games/hb/imgs/screenshot1.png" class="box">
+          <br>
+          <span class="more" id="more-tiny">
+            <img src="/games/hb/imgs/screenshot2.png" class="box">
+            <br>
+            <img src="/games/hb/imgs/screenshot3.png" class="box">
+            <br>
+            <img src="/games/hb/imgs/screenshot4.png" class="box">
+            <br>
+            <img src="/games/hb/imgs/screenshot5.png" class="box">
+          </span>
+          <div class="more-button">
+            <button class="button" id="toggle-tiny">Show more...</button>
+          </div>
+        </div>
+        <hr>
+        <p align="left">
+          <b>Hyper Bullet</b> is a top-down action game replenished with agreeable vaporwave aesthetics, pure joy of combat and gunplay rhythm.
+          <br>
+          Pick up a weapon, defeat oncoming enemies, survive in infinite crises, and write down your own legend here...
+        </p>
+        <hr class="hr">
+        <p align="left">
+          Get Hyper Bullet
+        </p>
+        <p align="center" class="store-frame-container">
+          <iframe src="https://store.steampowered.com/widget/1729660/" class="store-frame-steam" frameborder="0"></iframe>
+          <br>
+          <iframe src="https://itch.io/embed/1192050?linkback=true&amp;dark=true" class="store-frame-itch" frameborder="0"><a href="https://tonywang.itch.io/hyper-dungeon-crawler">Hyper Bullet by Tony Wang</a></iframe>
+        </p>
+        <p align="left">
+          System requirements
+          <br>
+          <table style="width: 100%; max-width: 552px; margin-left: auto; margin-right: auto;">
+            <thead>
+              <tr>
+                <th colspan="2">Minimum</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>OS</td>
+                <td>Windows 7 or later (32/64bit), MacOS 10.7 or later (64bit), Ubuntu 14 or later (32/64bit)</td>
+              </tr>
+              <tr>
+                <td>Processor</td>
+                <td>1.5GHz</td>
+              </tr>
+              <tr>
+                <td>Memory</td>
+                <td>512 MB RAM</td>
+              </tr>
+              <tr>
+                <td>Graphics</td>
+                <td>Intel HD</td>
+              </tr>
+              <tr>
+                <td>Storage</td>
+                <td>50 MB available space</td>
+              </tr>
+            </tbody>
+          </table>
         </p>
       </div>
 
@@ -104,7 +176,7 @@
         };
       }
 
-      //toggle('toggle-tiny', 'more-tiny');
+      toggle('toggle-tiny', 'more-tiny');
     })();
   </script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112501113-5"></script>
@@ -113,8 +185,8 @@
     function gtag () {
       dataLayer.push(arguments);
     }
-    //gtag('js', new Date());
-    //gtag('config', 'UA-112501113-5');
+    gtag('js', new Date());
+    gtag('config', 'UA-112501113-5');
   </script>
 </body>
 </html>
