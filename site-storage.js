@@ -11,8 +11,11 @@
     get: function (key, default_) {
       if (typeof(localStorage) == 'undefined')
         return default_;
+      var val = localStorage.getItem(key);
+      if (!val)
+        val = default_;
 
-      return localStorage.getItem(key);
+      return val;
     },
     set: function (key, val) {
       if (typeof(localStorage) == 'undefined')

@@ -1,9 +1,9 @@
 // Font.
 function toggleFont() {
-  var pixelFont = SiteStorage.SiteStorage.get('pixel_font', 'true');
+  var pixelFont = SiteStorage.SiteStorage.get('pixel_font', 'false');
   var font = document.getElementById('font');
   var set = function () {
-    var style = pixelFont == 'true' ? 'font: 16px Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace, sans-serif;' : '';
+    var style = pixelFont == 'false' ? 'font: 16px Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace, sans-serif;' : '';
     var content = document.getElementById('article-content');
     if (content)
       content.style = style;
