@@ -108,8 +108,10 @@
             labels: 'article-labels',
             rss: 'article-rss',
             comments: 'article-comments',
-            preprocess: function (code) {
-              return code
+            preprocess: function (html) {
+              return html
+                .replaceAll('<!--iframe', '<iframe')
+                .replaceAll('/iframe-->', '/iframe>')
                 .replaceAll('<code>', '<code class="language-auto">')
                 .replaceAll('language-c++', 'language-cpp');
             },
