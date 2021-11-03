@@ -38,10 +38,10 @@
     </p>
     <div class="content">
       <p align="left">
-        <a href="https://store.steampowered.com/developer/tony" target="_blank">Steam</a> |
-        <a href="https://tonywang.itch.io/" target="_blank">Itch</a> |
-        <a href="https://twitter.com/wangrenxin" target="_blank">Twitter</a> |
-        <a href="https://github.com/paladin-t" target="_blank">GitHub</a>
+        <a href="https://store.steampowered.com/developer/tony">Steam</a> |
+        <a href="https://tonywang.itch.io/">Itch</a> |
+        <a href="https://twitter.com/wangrenxin">Twitter</a> |
+        <a href="https://github.com/paladin-t">GitHub</a>
       </p>
       <div id="container">
         <div id="left">
@@ -103,7 +103,7 @@
       var overview = '...';
 
       try {
-        //Article.attach('article-title', '<a href="' + url + '" target="_blank">' + title + '</a>');
+        //Article.attach('article-title', '<a href="' + url + '">' + title + '</a>');
         //Article.attach('article-content', overview + '<br><br>Loading content...');
         Article.read(author, repo, id, {
             avatar: 'article-avatar',
@@ -127,7 +127,7 @@
         });
       } catch (_) {
         var html = 'Oops, cannot load article for the moment...<br>Try refersh or ';
-        html += '<a href="' + url + '" target="_blank">click</a>';
+        html += '<a href="' + url + '">click</a>';
 
         Article.attach('article-content', html);
         Article.attach('article-comments', 'Cannot load comments...');

@@ -107,7 +107,7 @@
 
         document.title = title + ' | Tony Wang';
 
-        attach(nodes.avatar, '<a href="' + userUrl + '" target="_blank">' + '<img src="' + userAvatar + '" id="avatar">' + '</a>');
+        attach(nodes.avatar, '<a href="' + userUrl + '">' + '<img src="' + userAvatar + '" id="avatar">' + '</a>');
         attach(nodes.title, title);
 
         labels(author, repo, id)
@@ -118,7 +118,7 @@
                 html += label.name;
               html += '</div>';
             });
-            html += '<a class="article-original" href="' + url + '" target="_blank">Read on GitHub</a>';
+            html += '<a class="article-original" href="' + url + '">Read on GitHub</a>';
             html += '<div class="article-timestamp">Last update: ';
               html += updatedAt;
             html += '</div>';
@@ -142,11 +142,11 @@
                 html += '<div class="article-comment">';
                   html += '<div class="article-commenter-left">';
                     html += '<div class="article-commenter-avatar">';
-                      html += '<a href="' + userUrl + '" target="_blank">' + '<img src="' + userAvatar + '" class="article-commenter-avatar">' + '</a>';
+                      html += '<a href="' + userUrl + '">' + '<img src="' + userAvatar + '" class="article-commenter-avatar">' + '</a>';
                     html += '</div>';
                   html += '</div>';
                   html += '<div class="article-commenter-right">';
-                    html += '<a href="' + userUrl + '" target="_blank">' + userName + '</a>';
+                    html += '<a href="' + userUrl + '">' + userName + '</a>';
                     html += ' posted at ';
                     html += createdAt;
                   html += '</div>';
@@ -168,9 +168,9 @@
             if (comments.length == 0) {
               html += '<div align="center" style="color: gray;">No comment yet.</div>';
               html += '<hr class="hr">';
-              html += '<a href="' + url + '#issuecomment-new" target="_blank">Leave the first comment...</a>';
+              html += '<a href="' + url + '#issuecomment-new">Leave the first comment...</a>';
             } else {
-              html += '<a href="' + url + '#issuecomment-new" target="_blank">Leave a comment or read more...</a>';
+              html += '<a href="' + url + '#issuecomment-new">Leave a comment or read more...</a>';
             }
 
             attach(nodes.comments, html);
@@ -178,7 +178,7 @@
           .catch(function (_) {
             var url = 'https://github.com/' + author + '/' + repo + '/issues/' + id.toString();
             var html = 'Oops, cannot load comments for the moment...<br>Try refersh or ';
-            html += '<a href="' + url + '" target="_blank">click</a>';
+            html += '<a href="' + url + '">click</a>';
 
             attach(nodes.comments, html);
           });
@@ -204,7 +204,7 @@
       .catch(function (_) {
         var url = 'https://github.com/' + author + '/' + repo + '/issues/' + id.toString();
         var html = 'Oops, cannot load article for the moment...<br>Try refersh or ';
-        html += '<a href="' + url + '" target="_blank">click</a>';
+        html += '<a href="' + url + '">click</a>';
 
         attach(nodes.content, html);
         attach(nodes.comments, 'Cannot load comments...');

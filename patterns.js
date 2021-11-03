@@ -7,11 +7,11 @@
     factory(root.Patterns = { });
   }
 } (this, function (exports) {
-  var homepage = '<a href="https://paladin-t.github.io/" target="_blank">Homepage</a>';
-  var steam = '<a href="https://store.steampowered.com/developer/tony" target="_blank">Steam</a>';
-  var itch = '<a href="https://tonywang.itch.io/" target="_blank">Itch</a>';
-  var twitter = '<a href="https://twitter.com/wangrenxin" target="_blank">Twitter</a>';
-  var github = '<a href="https://github.com/paladin-t" target="_blank">GitHub</a>';
+  var homepage = '<a href="https://paladin-t.github.io/">Homepage</a>';
+  var steam = '<a href="https://store.steampowered.com/developer/tony">Steam</a>';
+  var itch = '<a href="https://tonywang.itch.io/">Itch</a>';
+  var twitter = '<a href="https://twitter.com/wangrenxin">Twitter</a>';
+  var github = '<a href="https://github.com/paladin-t">GitHub</a>';
   var rss = '<a href="https://paladin-t.github.io/feed.xml" target="_blank" class="label" style="display: inline; color: white;">RSS</a>';
   var donate = '<a href="donate.html">Donate</a>';
   function search (key) {
