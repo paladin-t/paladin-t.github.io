@@ -160,12 +160,17 @@ a:visited {
     margin: 0 auto;
     border-radius: 0;
     padding: 0;
+    border-image: url('imgs/window_portrait.png') 40 stretch;
+    -webkit-border-image: url('imgs/window_portrait.png') 40 stretch;
   }
   .title {
     position: absolute;
     top: -1em;
     left: 0;
     width: 100%;
+  }
+  .content {
+    margin: -20px -36px -20px -36px;
   }
   .box {
     width: 100%;
