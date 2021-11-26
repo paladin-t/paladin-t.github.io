@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Video games, development tools and articles by Tony Wang. Including game engines, fantasy consoles, games and other cool stuff.">
+  <meta name="twitter:card" content="Video games, development tools and articles by Tony Wang. Including game engines, fantasy consoles, games and other cool stuff.">
+  <meta name="og:title" property="og:title" content="Page Not Found | Tony Wang">
+  <meta name="og:description" property="og:description" content="Video games, development tools and articles by Tony Wang. Including game engines, fantasy consoles, games and other cool stuff.">
+  <title>Page Not Found | Tony Wang</title>
+  <link rel="alternate" type="application/rss+xml" title="Page Not Found | Tony Wang" href="feed.xml" />
+  <link rel="shortcut icon" href="favicon.ico" />
+  <link rel="apple-touch-icon" href="imgs/avatar.png" />
+  <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body onclick>
+  <div class="sidenav">
+    <div class="sidebar">
+      <p align="center" class="title">
+        Contents
+      </p>
+      <a href="/#top">* Home</a>
+      <a href="/#kits">* Kits</a>
+      <a href="/#games">* Games</a>
+      <a href="/#tiny">* Tiny</a>
+      <a href="/#articles">* Articles</a>
+      * <a href="feed.xml" target="_blank" class="label" style="display: inline; color: white;">RSS</a>
+    </div>
+  </div>
+  <div class="page">
+    <a id="top" href="#top"></a>
+    <p align="center" class="title">
+      <a href="https://paladin-t.github.io/">Tony Wang</a>
+    </p>
+    <div class="content">
+      <p align="left">
+        <a href="https://store.steampowered.com/developer/tony">Steam</a> |
+        <a href="https://tonywang.itch.io/">Itch</a> |
+        <a href="https://twitter.com/wangrenxin">Twitter</a> |
+        <a href="https://github.com/paladin-t">GitHub</a>
+      </p>
+      <div id="container">
+        <div id="left">
+          <img src="imgs/avatar.png" id="avatar">
+        </div>
+        <div id="right">
+          In the pursuit of inner peace, Tony accidentally releases games and development tools from time to time.
+          <button class="button" id="font" style="width: 4em; font-size: 8px; vertical-align: middle;">Font</button>
+        </div>
+      </div>
+
+      <div id="content">
+        <h2>
+          Oops...
+        </h2>
+        <p align="center">
+          <img src="imgs/404.png">
+        </p>
+        <p align="center">
+          Page not found, back to <a href="https://paladin-t.github.io/">homepage</a>?
+        </p>
+      </div>
+
+      <hr>
+      <p align="center">
+        (C) 2018-2021 <a href="https://paladin-t.github.io/">Tony Wang</a>
+        <a href="feed.xml" target="_blank" class="label" style="color: white;">RSS</a>
+      </p>
+    </div>
+  </div>
+  <script src="site-storage.js"></script>
+  <script type="text/javascript">
+    // Font.
+    (function () {
+      var pixelFont = SiteStorage.SiteStorage.get('pixel_font', 'false');
+      var font = document.getElementById('font');
+      var set = function () {
+        var style = pixelFont == 'false' ? 'font: 16px Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace, sans-serif;' : '';
+        var content = document.getElementById('content')
+        if (content)
+          content.style = style;
+      };
+      set();
+      font.onclick = function () {
+        if (pixelFont == 'true')
+          pixelFont = 'false';
+        else
+          pixelFont='true';
+        set();
+        SiteStorage.SiteStorage.set('pixel_font', pixelFont);
+      };
+    })();
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112501113-5"></script>
+  <script type="text/javascript">
+    window.dataLayer = window.dataLayer || [];
+    function gtag () {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-112501113-5');
+  </script>
+</body>
+</html>
