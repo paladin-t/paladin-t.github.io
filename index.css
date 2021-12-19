@@ -57,8 +57,17 @@ a:visited {
   width: 640px;
   height: auto;
 }
-.box-small {
-  width: 128px;
+.box-160xN {
+  width: 320px;
+  -ms-interpolation-mode: nearest-neighbor;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+.box-360xN {
+  width: 360px;
+  -ms-interpolation-mode: nearest-neighbor;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
 }
 .button {
   width: 12em;
