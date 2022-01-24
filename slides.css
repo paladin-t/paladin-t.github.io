@@ -1,8 +1,11 @@
 .slider-frame {
   display: block;
 }
-.slider-vertical {
+.slider-horizontal {
   display: none;
+  overflow: auto;
+  white-space: nowrap;
+  font-size: 0;
 }
 .slider {
   width: 640px;
@@ -49,7 +52,7 @@
   .slider-frame {
     display: none;
   }
-  .slider-vertical {
+  .slider-horizontal {
     display: block;
   }
 }
