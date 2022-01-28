@@ -5,9 +5,15 @@
   font-smooth: never;
   -webkit-font-smoothing : none;
 }
+@font-face {
+  font-family: 'pixel-cn';
+  src: url('fonts/pixel-cn.ttf') format('truetype');
+  font-smooth: never;
+  -webkit-font-smoothing : none;
+}
 .donation {
   width: 100%;
-  font: 16px pixel, Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace, sans-serif;
+  font: 1em pixel, pixel-cn, Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace, sans-serif;
 }
 #one-off-donation {
   width: 50%;

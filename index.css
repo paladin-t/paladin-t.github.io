@@ -5,13 +5,19 @@
   font-smooth: never;
   -webkit-font-smoothing : none;
 }
+@font-face {
+  font-family: 'pixel-cn';
+  src: url('fonts/pixel-cn.ttf') format('truetype');
+  font-smooth: never;
+  -webkit-font-smoothing : none;
+}
 body {
   margin: 0;
   padding: 0;
   background-image: url('imgs/background.png');
   background-repeat: repeat;
   background-attachment: fixed;
-  font: 16px pixel, Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace, sans-serif;
+  font: 1em pixel, pixel-cn, Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace, sans-serif;
 }
 table, th, td {
   border: 1px black solid;

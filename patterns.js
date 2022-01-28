@@ -168,7 +168,7 @@
 
     {
       request: [ 'who', 'tony' ],
-      response: [ 'Tony is my creator. He makes games and development tools as an independent developer.' ],
+      response: [ 'Tony is my creator. He makes development tools, apps and games as an independent developer.' ],
       callback: function (bot) {
         bot.post('He also works as a freelancer sometimes.');
       }
@@ -276,7 +276,7 @@
     {
       request: [ 'support', 'tony' ],
       response: [
-        'Tony makes games and tools, you can support him by buying or downloading this or that from:\n&emsp;' +
+        'Tony makes development tools, apps and games, you can support him by buying or downloading this or that from:\n&emsp;' +
         steam + '&ensp;|&ensp;' +
         itch
       ],
