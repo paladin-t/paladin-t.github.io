@@ -7,50 +7,57 @@
   <atom:link rel="self" type="application/rss+xml" href="https://paladin-t.github.io/feed.xml"/>
 
   <item>
+    <title>The Legend of Pomodoro Available Now</title>
+    <description>The Legend of Pomodoro is a pomodoro tool and RPG game driven by tomatoes.&lt;br&gt;It is the nature of the human mind to roam about and sneak away from work.&lt;br&gt;The Legend of Pomodoro (TLOP) implements a pomodoro timer gamified by an idle game environment, it creates a buffer zone between your focus and the outer world to avoid either getting tired or procrastination.&lt;br&gt;Being different from traditional idle games, TLOP doesn't interrupt you from time to time during a pomodoro cycle. You'll become a legend in the virtual world while being concentrated on your real life tasks.&lt;br&gt;Click for details: &lt;a href="https://paladin-t.github.io/apps/tlop/"&gt;https://paladin-t.github.io/apps/tlop/&lt;/a&gt;</description>
+    <link>https://paladin-t.github.io/apps/tlop/</link>
+    <guid>https://paladin-t.github.io/apps/tlop/</guid>
+    <pubDate>11 Feb 2022 08:00:00 +0800 </pubDate>
+  </item>
+  <item>
     <title>Hyper Bullet Available Now</title>
-    <description>Hyper Bullet is a top-down action game replenished with agreeable vaporwave aesthetics, pure joy of combat and gunplay rhythm. Pick up a weapon, defeat oncoming enemies, survive in infinite crises, and write down your own legend here... Click for details: &lt;a href="https://paladin-t.github.io/games/hb/"&gt;https://paladin-t.github.io/games/hb/&lt;/a&gt;</description>
+    <description>Hyper Bullet is a top-down action game replenished with agreeable vaporwave aesthetics, pure joy of combat and gunplay rhythm.&lt;br&gt;Pick up a weapon, defeat oncoming enemies, survive in infinite crises, and write down your own legend here...&lt;br&gt;Click for details: &lt;a href="https://paladin-t.github.io/games/hb/"&gt;https://paladin-t.github.io/games/hb/&lt;/a&gt;</description>
     <link>https://paladin-t.github.io/games/hb/</link>
     <guid>https://paladin-t.github.io/games/hb/</guid>
     <pubDate>06 Oct 2021 08:00:00 +0800 </pubDate>
   </item>
   <item>
     <title>Vaporwave, Deconstructivism and Video Game</title>
-    <description>Vaporwave and video game need each other. There are quite a number of pioneer developers who have involved in introducing the vaporwave aesthetic to video games. Click to read: &lt;a href="https://paladin-t.github.io/articles/vaporwave-deconstructivism-and-video-game.html"&gt;https://paladin-t.github.io/articles/vaporwave-deconstructivism-and-video-game.html&lt;/a&gt;</description>
+    <description>Vaporwave and video game need each other. There are quite a number of pioneer developers who have involved in introducing the vaporwave aesthetic to video games.&lt;br&gt;Click to read: &lt;a href="https://paladin-t.github.io/articles/vaporwave-deconstructivism-and-video-game.html"&gt;https://paladin-t.github.io/articles/vaporwave-deconstructivism-and-video-game.html&lt;/a&gt;</description>
     <link>https://paladin-t.github.io/articles/vaporwave-deconstructivism-and-video-game.html</link>
     <guid>https://paladin-t.github.io/articles/vaporwave-deconstructivism-and-video-game.html</guid>
     <pubDate>02 Oct 2021 08:00:00 +0800 </pubDate>
   </item>
   <item>
     <title>Hyper Dungeon Crawler Available Now</title>
-    <description>Hyper Dungeon Crawler is a turn-based roguelike RPG with crafting. Collect materials and craft your unique tools, weapons, magic spells and other supplements and fight your way through a series of procedurally generated scenes. Click for details: &lt;a href="https://paladin-t.github.io/games/hdc/"&gt;https://paladin-t.github.io/games/hdc/&lt;/a&gt;</description>
+    <description>Hyper Dungeon Crawler is a turn-based roguelike RPG with crafting.&lt;br&gt;Collect materials and craft your unique tools, weapons, magic spells and other supplements and fight your way through a series of procedurally generated scenes.&lt;br&gt;Click for details: &lt;a href="https://paladin-t.github.io/games/hdc/"&gt;https://paladin-t.github.io/games/hdc/&lt;/a&gt;</description>
     <link>https://paladin-t.github.io/games/hdc/</link>
     <guid>https://paladin-t.github.io/games/hdc/</guid>
     <pubDate>1 Aug 2021 08:00:00 +0800 </pubDate>
   </item>
   <item>
     <title>Bitty Engine Available Now</title>
-    <description>Bitty Engine is an itty bitty Game Engine, with built-in editors, programmable in Lua. Click for details: &lt;a href="https://paladin-t.github.io/bitty/"&gt;https://paladin-t.github.io/bitty/&lt;/a&gt;</description>
+    <description>Bitty Engine is an itty bitty Game Engine, with built-in editors, programmable in Lua.&lt;br&gt;Click for details: &lt;a href="https://paladin-t.github.io/bitty/"&gt;https://paladin-t.github.io/bitty/&lt;/a&gt;</description>
     <link>https://paladin-t.github.io/bitty/</link>
     <guid>https://paladin-t.github.io/bitty/</guid>
     <pubDate>18 Nov 2020 08:00:00 +0800 </pubDate>
   </item>
   <item>
     <title>Smooth Tile-based Movement Algorithm with Sliding</title>
-    <description>Movement is a very basic concept in video games, it could be as simple as accumulating steps to a position value. This article introduces a smooth movement algorithm with tolerant sliding, which offers good adaptivity to various tile-based scenes. Click to read: &lt;a href="https://paladin-t.github.io/articles/smooth-tile-based-movement-algorithm-with-sliding.html"&gt;https://paladin-t.github.io/articles/smooth-tile-based-movement-algorithm-with-sliding.html&lt;/a&gt;</description>
+    <description>Movement is a very basic concept in video games, it could be as simple as accumulating steps to a position value. This article introduces a smooth movement algorithm with tolerant sliding, which offers good adaptivity to various tile-based scenes.&lt;br&gt;Click to read: &lt;a href="https://paladin-t.github.io/articles/smooth-tile-based-movement-algorithm-with-sliding.html"&gt;https://paladin-t.github.io/articles/smooth-tile-based-movement-algorithm-with-sliding.html&lt;/a&gt;</description>
     <link>https://paladin-t.github.io/articles/smooth-tile-based-movement-algorithm-with-sliding.html</link>
     <guid>https://paladin-t.github.io/articles/smooth-tile-based-movement-algorithm-with-sliding.html</guid>
     <pubDate>17 Nov 2020 08:00:00 +0800 </pubDate>
   </item>
   <item>
     <title>Crapht Box Available Now</title>
-    <description>Crapht Box is a Fantasy Physics Sandbox, inspired by the Fantasy Console genre. It brings a simulated world with a number of disks and tools, and leaves you to play, program, create and share disks. Click for details: &lt;a href="https://paladin-t.github.io/crft/"&gt;https://paladin-t.github.io/crft/&lt;/a&gt;</description>
+    <description>Crapht Box is a Fantasy Physics Sandbox, inspired by the Fantasy Console genre. It brings a simulated world with a number of disks and tools, and leaves you to play, program, create and share disks.&lt;br&gt;Click for details: &lt;a href="https://paladin-t.github.io/crft/"&gt;https://paladin-t.github.io/crft/&lt;/a&gt;</description>
     <link>https://paladin-t.github.io/crft/</link>
     <guid>https://paladin-t.github.io/crft/</guid>
     <pubDate>14 Feb 2020 08:00:00 +0800 </pubDate>
   </item>
   <item>
     <title>BASIC8 Available Now</title>
-    <description>BASIC8 is an integrated Fantasy Computer for game and other program development. You can create, share and play disks in a modern BASIC dialect, with built-in tools for editing sprite, tiles, map, quantized, etc. Click for details: &lt;a href="https://paladin-t.github.io/b8/"&gt;https://paladin-t.github.io/b8/&lt;/a&gt;</description>
+    <description>BASIC8 is an integrated Fantasy Computer for game and other program development. You can create, share and play disks in a modern BASIC dialect, with built-in tools for editing sprite, tiles, map, quantized, etc.&lt;br&gt;Click for details: &lt;a href="https://paladin-t.github.io/b8/"&gt;https://paladin-t.github.io/b8/&lt;/a&gt;</description>
     <link>https://paladin-t.github.io/b8/</link>
     <guid>https://paladin-t.github.io/b8/</guid>
     <pubDate>02 Jan 2018 08:00:00 +0800 </pubDate>
