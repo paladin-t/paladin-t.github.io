@@ -134,8 +134,8 @@ a:visited {
   background-color: #ffa500;
 }
 .store {
-  width: 48px;
-  height: 48px;
+  width: 130px;
+  height: 40px;
 }
 .store-frame-steam {
   width: 552px;
@@ -175,8 +175,8 @@ a:visited {
     margin: 0 auto;
     border-radius: 0;
     padding: 0;
-    border-image: url('imgs/window_portrait.png') 40 stretch;
-    -webkit-border-image: url('imgs/window_portrait.png') 40 stretch;
+    border-image: url('imgs/window-portrait.png') 40 stretch;
+    -webkit-border-image: url('imgs/window-portrait.png') 40 stretch;
   }
   .title {
     position: absolute;
