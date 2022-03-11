@@ -4,7 +4,10 @@ function toggleFont() {
   var font = document.getElementById('font');
   var set = function () {
     var style = pixelFont == 'false' ? 'font: 16px Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace, sans-serif;' : '';
-    var content = document.getElementById('article-content');
+    var content = document.getElementById('container');
+    if (content)
+      content.style = style;
+    content = document.getElementById('article-content');
     if (content)
       content.style = style;
     for (var i = 0; i < 999; ++i) {
