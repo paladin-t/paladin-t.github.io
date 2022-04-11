@@ -1,0 +1,25 @@
+[col=0x6f95abff]Tips: Startup Options[/col]
+
+TLOP accepts the following command
+line arguments:
+
+* "-b" for borderless window
+* "-m" for top most window
+* "-x1", "-x2", "-x3" for constant scales
+* "-i" for thin navigation buttons
+* "-g X" for specific immersive background modes:
+  * "-g 0" for fill mode (default)
+  * "-g 1" for stretch
+  * "-g 2" for auto fit
+  * "-g 3" for horizontally fit
+  * "-g 4" for vertically fit
+* "-a" for advanced mode with:
+  * "Reset all data" button enabled in
+    the settings page, do not click this
+    unless you know what you are doing
+* "-n WORK;REST" for custom notification sounds (.wav),
+  i.e. `-n "X:/xxx/work.wav;X:/xxx/rest.wav"`
+
+TLOP also loads and parses startup
+options from file, create an "args.txt"
+under TLOP's root directory for it.

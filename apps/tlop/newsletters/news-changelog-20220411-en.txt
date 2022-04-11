@@ -1,0 +1,12 @@
+[col=0x6f95abff]Update notes v1.4.0:[/col]
+
+* Added a story chapter for Beastmaster
+* Added a setting option to set whether week starts on Sunday or Monday
+* Added a setting option to disable screen saver
+* Added a setting option to toggle GUI animation
+* Added a launch option to use thin navigation buttons
+* Added a launch option to specify immersive background modes
+* Added a newsletter view
+* Updated the tasks, stories buttons
+* Updated the timer adjusting buttons
+* Improved appearing animation of the wild monsters
