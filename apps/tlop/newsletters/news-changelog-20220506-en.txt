@@ -1,0 +1,17 @@
+[col=0x6f95abff]Update notes v1.5.0:[/col]
+
+* Added complete stories
+* Added selection indicator to the
+  newsletter index
+* Added a manual refresh link to the
+  report view
+* Added page navigation to the story
+  popup
+* Fixed a stat. bug of customized rest
+  cycle
+* Fixed a report data parsing bug when
+  DST effects
+* Fixed a red spot bug of the newsletter
+  button
+* Fixed an enemy leveling issue after
+  retire

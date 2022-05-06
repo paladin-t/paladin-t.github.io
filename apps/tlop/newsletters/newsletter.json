@@ -1,13 +1,28 @@
 {
   "english": [
     {
-      "id": "300",
-      "platform": [ "All" ],
+      "id": "301",
+      "platform": [ "Windows" ],
       "revision_condition": {
-        "type": "<=",
-        "value": 1
+        "type": "<=>",
+        "value": [ 1, 9999 ]
       },
-      "start_timepoint": "1900-01-01 00:00:00",
+      "start_timepoint": "1970-01-01 00:00:00",
+      "end_timepoint": "9999-12-31 23:59:59",
+      "impressions": -1,
+      "created_timepoint": "2022-05-06 08:00:00",
+      "updated_timepoint": "2022-05-06 08:00:00",
+      "title": "Changelog #9",
+      "url": "news://news-changelog-20220506-en.txt"
+    },
+    {
+      "id": "300",
+      "platform": [ "Windows" ],
+      "revision_condition": {
+        "type": "<=>",
+        "value": [ 1, 9999 ]
+      },
+      "start_timepoint": "1970-01-01 00:00:00",
       "end_timepoint": "9999-12-31 23:59:59",
       "impressions": -1,
       "created_timepoint": "2022-04-11 08:00:00",
@@ -22,7 +37,7 @@
         "type": ">=",
         "value": 1
       },
-      "start_timepoint": "1900-01-01 00:00:00",
+      "start_timepoint": "1970-01-01 00:00:00",
       "end_timepoint": "9999-12-31 23:59:59",
       "impressions": -1,
       "created_timepoint": "2022-04-01 08:00:00",
@@ -33,13 +48,28 @@
   ],
   "chinese": [
     {
-      "id": "300",
-      "platform": [ "All" ],
+      "id": "301",
+      "platform": [ "Windows" ],
       "revision_condition": {
-        "type": "<=",
-        "value": 1
+        "type": "<=>",
+        "value": [ 1, 9999 ]
       },
-      "start_timepoint": "1900-01-01 00:00:00",
+      "start_timepoint": "1970-01-01 00:00:00",
+      "end_timepoint": "9999-12-31 23:59:59",
+      "impressions": -1,
+      "created_timepoint": "2022-05-06 08:00:00",
+      "updated_timepoint": "2022-05-06 08:00:00",
+      "title": "更新日志 #9",
+      "url": "news://news-changelog-20220506-zh.txt"
+    },
+    {
+      "id": "300",
+      "platform": [ "Windows" ],
+      "revision_condition": {
+        "type": "<=>",
+        "value": [ 1, 9999 ]
+      },
+      "start_timepoint": "1970-01-01 00:00:00",
       "end_timepoint": "9999-12-31 23:59:59",
       "impressions": -1,
       "created_timepoint": "2022-04-11 08:00:00",
@@ -54,7 +84,7 @@
         "type": ">=",
         "value": 1
       },
-      "start_timepoint": "1900-01-01 00:00:00",
+      "start_timepoint": "1970-01-01 00:00:00",
       "end_timepoint": "9999-12-31 23:59:59",
       "impressions": -1,
       "created_timepoint": "2022-04-01 08:00:00",
