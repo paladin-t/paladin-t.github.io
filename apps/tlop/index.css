@@ -75,6 +75,7 @@ header {
   background-color: #005280;
   background-image: url(imgs/background.png);
   background-repeat: repeat-x;
+  background-attachment: fixed;
 }
 .avatar {
   max-width: 44px;
