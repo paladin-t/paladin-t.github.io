@@ -11,6 +11,7 @@ html {
   font-size: 16px;
   line-height: 1.5;
   overflow: scroll;
+  overflow-x: hidden;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 body.open {
@@ -122,7 +123,7 @@ header {
   position: absolute;
   bottom: 1rem;
   left: 0;
-  width: 31px;
+  width: 180px;
   height: 3px;
   background-color: #8cd612;
   border-radius: 2px;
@@ -310,7 +311,7 @@ section {
 .feature_box {
   max-width: 1080px;
   margin: 0 auto;
-  padding: 3rem 1.5rem 1rem 1.5rem;
+  padding: 2rem 1.5rem 1rem 1.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -404,7 +405,7 @@ section {
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-end;
-    padding: 4rem 1.5rem;
+    padding: 2rem 1.5rem;
   }
   .feature_content {
     max-width: 60%;
@@ -441,7 +442,7 @@ section {
 }
 .more_features h2 {
   text-align: center;
-  line-height: 9rem;
+  line-height: 4rem;
 }
 .more_box {
   max-width: 1080px;
@@ -486,10 +487,10 @@ section {
 }
 .pricing h2 {
   text-align: center;
-  line-height: 8.25rem;
+  line-height: 6rem;
 }
 .pricing_feature {
-  max-width: 768px;
+  max-width: 960px;
   margin: auto;
   padding: 0 1.5rem;
 }
@@ -520,7 +521,7 @@ section {
 }
 .pricing_feature p {
   padding: 1rem 0;
-  height: 7rem;
+  height: 5rem;
 }
 .pricing_feature li {
   color: #000000;
@@ -540,7 +541,7 @@ section {
   opacity: 0.8;
 }
 .pricing_plan {
-  max-width: 768px;
+  max-width: 960px;
   margin: auto;
   padding: 0 1.5rem;
 }
@@ -592,7 +593,7 @@ section {
   margin-bottom: 0.75rem;
 }
 
-@media (min-width:768px) {
+@media (min-width: 768px) {
   .pricing_feature {
     display: grid;
     grid-template-columns: 1fr 1fr;
