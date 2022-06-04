@@ -24,7 +24,7 @@ table, th, td {
   border-collapse: collapse;
 }
 h2 {
-  font-size: 24px;
+  font-size: 2em;
 }
 a:link,
 a:visited {
@@ -54,26 +54,60 @@ a:visited {
 .hr {
   width: 50%;
   height: 1px;
-  margin: 0 auto;
-  margin-top: 40px;
+  margin: 0px auto 20px auto;
   border: 0;
   background-image: linear-gradient(to right, rgba(100, 100, 100, 0), rgba(100, 100, 100, 0.75), rgba(100, 100, 100, 0));
 }
-.box {
-  width: 640px;
-  height: auto;
+.entry-box {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
 }
-.box-160xN {
-  width: 320px;
-  -ms-interpolation-mode: nearest-neighbor;
-  image-rendering: crisp-edges;
-  image-rendering: pixelated;
+.entry-box a {
+  text-align: center;
 }
-.box-360xN {
-  width: 360px;
-  -ms-interpolation-mode: nearest-neighbor;
-  image-rendering: crisp-edges;
-  image-rendering: pixelated;
+.entry-img {
+  max-width: 100%;
+  object-fit: contain;
+  margin-top: 2rem;
+}
+.entry-content0 h2 {
+  display: inline;
+  margin: 10px 0px 10px 0px;
+  border-bottom: 0.15rem solid #8cd612;
+  font-size: 1em;
+}
+.entry-content1 h2 {
+  display: inline;
+  margin: 10px 10px 0px 0px;
+  border-bottom: 0.15rem solid #8cd612;
+  font-size: 1em;
+}
+.entry-content2 h2 {
+  display: inline;
+  margin: 10px 0px 0px 10px;
+  border-bottom: 0.15rem solid #8cd612;
+  font-size: 1em;
+}
+.entry-content3 h2 {
+  display: inline;
+  margin: 10px 10px 0px 0px;
+  border-bottom: 0.15rem solid #8cd612;
+  font-size: 1em;
+}
+.entry-content0 p {
+  margin: 10px 0px 10px 0px;
+}
+.entry-content1 p {
+  margin: 10px 10px 0px 0px;
+}
+.entry-content2 p {
+  margin: 10px 0px 0px 10px;
+}
+.entry-content3 p {
+  margin: 10px 10px 0px 0px;
 }
 .button {
   width: 12em;
@@ -166,6 +200,26 @@ a:visited {
   height: auto;
   border-radius: 50%;
 }
+@media (min-width: 870px) {
+  .entry-box {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0px;
+  }
+  .entry-box a {
+    width: 444px;
+  }
+  .entry-img {
+    margin-top: 0;
+  }
+  .entry-content {
+    max-width: 305px;
+  }
+  .entry-content2 {
+    order: 1;
+  }
+}
 @media (max-width: 870px) {
   body {
     background-color: white;
@@ -186,11 +240,6 @@ a:visited {
   }
   .content {
     margin: -20px -36px -20px -36px;
-  }
-  .box {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
   }
   .store-frame-container {
     display: block;
