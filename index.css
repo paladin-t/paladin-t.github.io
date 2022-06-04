@@ -88,7 +88,7 @@ a:visited {
 }
 .entry-content2 h2 {
   display: inline;
-  margin: 10px 0px 0px 10px;
+  margin: 10px 10px 0px 0px;
   border-bottom: 0.15rem solid #8cd612;
   font-size: 1em;
 }
@@ -105,7 +105,7 @@ a:visited {
   margin: 10px 10px 0px 0px;
 }
 .entry-content2 p {
-  margin: 10px 0px 0px 10px;
+  margin: 10px 10px 0px 0px;
 }
 .entry-content3 p {
   margin: 10px 10px 0px 0px;
@@ -219,6 +219,12 @@ a:visited {
   }
   .entry-content2 {
     order: 1;
+  }
+  .entry-content2 h2 {
+    margin: 10px 0px 0px 10px;
+  }
+  .entry-content2 p {
+    margin: 10px 0px 0px 10px;
   }
 }
 @media (max-width: 870px) {
