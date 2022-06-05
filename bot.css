@@ -1,17 +1,27 @@
 #output-box {
   width: auto;
   height: 240px;
+  min-height: 4em;
+  max-height: 80em;
+  border: 1px;
+  border-style: solid;
+  border-color: black;
+  border-radius: 4px;
   padding: 4px 2px 4px 2px;
   resize: vertical;
-  border: none;
   color: black;
   background-color: rgb(200, 200, 200);
   overflow: auto;
+  scrollbar-width: thin;
 }
 #input-box {
   position: relative;
   height: 1.5em;
   top: 2px;
+  border: 1px;
+  border-style: solid;
+  border-color: black;
+  border-radius: 4px;
 }
 #input-message {
   width: auto;
