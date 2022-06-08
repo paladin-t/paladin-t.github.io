@@ -154,6 +154,13 @@ header {
   background-color: #8cd612;
   border-radius: 2px;
 }
+.title_frame {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0rem 1.5rem 0rem 1.5rem;
+  display: block;
+  transform: translateY(2em);
+}
 
 @media (min-width: 768px) {
   /* .banner {
@@ -167,6 +174,11 @@ header {
   }
   .nav_compact {
     display: none;
+  }
+}
+@media (max-width: 750px) {
+  .title_frame {
+    padding: 0rem 1.5rem 0rem 1.5rem;
   }
 }
 
@@ -237,7 +249,7 @@ header {
   color: #f4f4f4;
   text-shadow: 0px 0px 5px rgb(0, 0, 0), 0px 0px 4px rgb(0, 0, 0), -2px 2px 2px rgb(0, 82, 128);
 }
-.banner_image {
+.banner_img {
   max-width: 100%;
   margin: -40px auto auto auto;
 }
@@ -245,6 +257,24 @@ header {
   width: 130px;
   height: 40px;
   margin: 0px 4px 10px 4px;
+}
+.download_btn_apple {
+  margin: 1rem 0.5rem 1rem 0;
+  display: inline-block;
+  width: 64px;
+  height: 64px;
+  background-image: url(imgs/stores/apple-square.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+.download_btn_apple {
+  margin: 1rem 0.5rem 1rem 0;
+  display: inline-block;
+  width: 64px;
+  height: 64px;
+  background-image: url(imgs/stores/apple-square.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
 }
 .download_btn_steam {
   margin: 1rem 0.5rem 1rem 0;
@@ -297,7 +327,7 @@ header {
     max-width: 50%;
     margin-bottom: 0;
   }
-  .banner_image {
+  .banner_img {
     max-width: 48%;
     margin: auto auto auto auto;
   }
@@ -388,7 +418,14 @@ section {
   background-size: 24px;
 }
 .term_title {
-  padding: 2rem 1.5rem 2rem 1.5rem;
+  width: auto;
+  height: auto;
+  border: none;
+  border-radius: 7px;
+  padding: 30px 40px;
+  background: rgb(255, 255, 255) none repeat scroll 0% 0%;
+  box-shadow: rgba(60, 64, 89, 0.65) -10px 8px 16px 3px;
+  color: black;
 }
 .term_title h1 {
   padding: 0rem 0rem 1.5rem 0rem;
@@ -683,7 +720,7 @@ footer a:hover {
 
 @media (prefers-color-scheme: dark) {
   html {
-    background-color: #000000;
+    background-color: #16191d;
     color: #c7c7cc;
   }
   h1, h2, h3, h4 {
@@ -719,14 +756,20 @@ footer a:hover {
   .banner_left p {
     color: rgba(255, 255, 255, 0.8);
   }
+  .download_btn_apple {
+    background-image: url(imgs/stores/apple-square.png);
+  }
+  .download_btn_apple {
+    background-image: url(imgs/stores/apple-square.png);
+  }
   .download_btn_steam {
+    background-image: url(imgs/stores/steam-square.png);
+  }
+  .download_btn_steam_cn {
     background-image: url(imgs/stores/steam-square.png);
   }
   .download_btn_itch {
     background-image: url(imgs/stores/itch-square.png);
-  }
-  .download_btn_steam_cn {
-    background-image: url(imgs/stores/steam-square.png);
   }
   .download_btn_itch_cn {
     background-image: url(imgs/stores/itch-square.png);
