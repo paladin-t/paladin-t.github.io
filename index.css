@@ -79,24 +79,44 @@ a:visited {
   margin: 10px 0px 10px 0px;
   border-bottom: 0.15rem solid #8cd612;
   font-size: 1em;
+  padding-left: 1.5rem;
+  background-image: url(imgs/link.svg);
+  background-position-y: center;
+  background-size: 20px;
+  background-repeat: no-repeat;
 }
 .entry-content1 h2 {
   display: inline;
   margin: 10px 10px 0px 0px;
   border-bottom: 0.15rem solid #8cd612;
   font-size: 1em;
+  padding-left: 1.5rem;
+  background-image: url(imgs/link.svg);
+  background-position-y: center;
+  background-size: 20px;
+  background-repeat: no-repeat;
 }
 .entry-content2 h2 {
   display: inline;
   margin: 10px 10px 0px 0px;
   border-bottom: 0.15rem solid #8cd612;
   font-size: 1em;
+  padding-left: 1.5rem;
+  background-image: url(imgs/link.svg);
+  background-position-y: center;
+  background-size: 20px;
+  background-repeat: no-repeat;
 }
 .entry-content3 h2 {
   display: inline;
   margin: 10px 10px 0px 0px;
   border-bottom: 0.15rem solid #8cd612;
   font-size: 1em;
+  padding-left: 1.5rem;
+  background-image: url(imgs/link.svg);
+  background-position-y: center;
+  background-size: 20px;
+  background-repeat: no-repeat;
 }
 .entry-content0 p {
   margin: 10px 0px 10px 0px;
