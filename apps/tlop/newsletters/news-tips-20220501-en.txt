@@ -1,0 +1,13 @@
+[col=0x6f95abff]Tips: Operations[/col]
+
+Most operations in TLOP are done by
+mouse. In addition, double click on a
+citizen or animal to follow them.
+
+TLOP accepts the following keyboard
+shortcuts:
+
+* "Ctrl+0" to use mini window
+* "Ctrl+1/2/3/4" to use landscape window
+* "Ctrl+Shift+1/2/3/4" to use portrait window
+* "F10" to take a screenshot

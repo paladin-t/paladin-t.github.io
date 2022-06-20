@@ -14,12 +14,14 @@ line arguments:
   * "-g 3" for horizontally fit
   * "-g 4" for vertically fit
 * "-a" for advanced mode with:
-  * "Reset all data" button enabled in
-    the settings page, do not click this
-    unless you know what you are doing
+  * "Reset all data" button enabled
+    in the settings page, do not
+    click this unless you know what
+    you are doing
 * "-n WORK;REST" for custom notification sounds (.wav),
   i.e. `-n "X:/xxx/work.wav;X:/xxx/rest.wav"`
 
 TLOP also loads and parses startup
-options from file, create an "args.txt"
-under TLOP's root directory for it.
+options from file, create an
+"args.txt" under TLOP's root
+directory for it.
