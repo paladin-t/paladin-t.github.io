@@ -1,0 +1,6 @@
+[col=0x6f95abff]资讯：iOS 版本[/col]
+
+The Legend of Pomodoro 现已上架苹果
+App Store，点击下方链接查看详情。
+
+<!--url>App Store|https://apps.apple.com/app/the-legend-of-pomodoro-timer/id1631659076</url-->

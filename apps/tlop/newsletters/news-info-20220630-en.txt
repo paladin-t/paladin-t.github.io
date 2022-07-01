@@ -1,0 +1,7 @@
+[col=0x6f95abff]Info: iOS Version[/col]
+
+The Legend of Pomodoro is available
+on Apple App Store now, click the
+following link for details.
+
+<!--url>App Store|https://apps.apple.com/app/the-legend-of-pomodoro-timer/id1631659076</url-->
