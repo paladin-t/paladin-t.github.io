@@ -1,0 +1,15 @@
+[col=0x6f95abff]Patch notes v1.5.4:[/col]
+
+* Added a new "nature" alarm theme
+* Added a confirm dialog before
+  deleting a pomodoro cycle
+* Added an explanation tip for pause
+  budget
+* Added a piece of newsletter about
+  keyboard shortcuts
+* Added a following mode (double
+  click a citizen or animal)
+* Fixed a noncontinuous span bug
+* Fixed an ambient preview bug
+* Fixed a wrong icon on the reward
+  view under dark mode

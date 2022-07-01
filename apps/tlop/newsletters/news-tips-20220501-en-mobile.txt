@@ -1,0 +1,5 @@
+[col=0x6f95abff]Tips: Operations[/col]
+
+Most operations in TLOP are done by
+touch. In addition, double tap on a
+citizen or animal to follow them.

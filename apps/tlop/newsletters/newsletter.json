@@ -1,8 +1,23 @@
 {
   "english": [
     {
+      "id": "303",
+      "platform": [ "iOS", "Android" ],
+      "revision_condition": {
+        "type": "<=>",
+        "value": [ 3, 7 ]
+      },
+      "start_timepoint": "1970-01-01 00:00:00",
+      "end_timepoint": "9999-12-31 23:59:59",
+      "impressions": -1,
+      "created_timepoint": "2022-06-20 08:00:00",
+      "updated_timepoint": "2022-06-20 08:00:00",
+      "title": "Changelog #10",
+      "url": "news://news-changelog-20220620-en-mobile.txt"
+    },
+    {
       "id": "302",
-      "platform": [ "Windows", "Linux" ],
+      "platform": [ "Windows", "Linux", "MacOS" ],
       "revision_condition": {
         "type": "<=>",
         "value": [ 3, 7 ]
@@ -17,7 +32,7 @@
     },
     {
       "id": "301",
-      "platform": [ "Windows", "Linux" ],
+      "platform": [ "Windows", "Linux", "MacOS" ],
       "revision_condition": {
         "type": "<=>",
         "value": [ 2, 6 ]
@@ -32,7 +47,7 @@
     },
     {
       "id": "300",
-      "platform": [ "Windows", "Linux" ],
+      "platform": [ "Windows", "Linux", "MacOS" ],
       "revision_condition": {
         "type": "<=>",
         "value": [ 1, 5 ]
@@ -46,8 +61,23 @@
       "url": "news://news-changelog-20220411-en.txt"
     },
     {
+      "id": "102",
+      "platform": [ "iOS", "Android" ],
+      "revision_condition": {
+        "type": ">=",
+        "value": 1
+      },
+      "start_timepoint": "1970-01-01 00:00:00",
+      "end_timepoint": "9999-12-31 23:59:59",
+      "impressions": -1,
+      "created_timepoint": "2022-05-01 08:00:00",
+      "updated_timepoint": "2022-05-01 08:00:00",
+      "title": "Tips: Operations",
+      "url": "news://news-tips-20220501-en-mobile.txt"
+    },
+    {
       "id": "101",
-      "platform": [ "Windows", "Linux" ],
+      "platform": [ "Windows", "Linux", "MacOS" ],
       "revision_condition": {
         "type": ">=",
         "value": 1
@@ -78,8 +108,23 @@
   ],
   "chinese": [
     {
+      "id": "303",
+      "platform": [ "iOS", "Android" ],
+      "revision_condition": {
+        "type": "<=>",
+        "value": [ 3, 7 ]
+      },
+      "start_timepoint": "1970-01-01 00:00:00",
+      "end_timepoint": "9999-12-31 23:59:59",
+      "impressions": -1,
+      "created_timepoint": "2022-06-20 08:00:00",
+      "updated_timepoint": "2022-06-20 08:00:00",
+      "title": "更新日志 #10",
+      "url": "news://news-changelog-20220620-zh-mobile.txt"
+    },
+    {
       "id": "302",
-      "platform": [ "Windows", "Linux" ],
+      "platform": [ "Windows", "Linux", "MacOS" ],
       "revision_condition": {
         "type": "<=>",
         "value": [ 3, 7 ]
@@ -94,7 +139,7 @@
     },
     {
       "id": "301",
-      "platform": [ "Windows", "Linux" ],
+      "platform": [ "Windows", "Linux", "MacOS" ],
       "revision_condition": {
         "type": "<=>",
         "value": [ 2, 6 ]
@@ -109,7 +154,7 @@
     },
     {
       "id": "300",
-      "platform": [ "Windows", "Linux" ],
+      "platform": [ "Windows", "Linux", "MacOS" ],
       "revision_condition": {
         "type": "<=>",
         "value": [ 1, 5 ]
@@ -123,8 +168,23 @@
       "url": "news://news-changelog-20220411-zh.txt"
     },
     {
+      "id": "102",
+      "platform": [ "iOS", "Android" ],
+      "revision_condition": {
+        "type": ">=",
+        "value": 1
+      },
+      "start_timepoint": "1970-01-01 00:00:00",
+      "end_timepoint": "9999-12-31 23:59:59",
+      "impressions": -1,
+      "created_timepoint": "2022-05-01 08:00:00",
+      "updated_timepoint": "2022-05-01 08:00:00",
+      "title": "小贴士：操作指南",
+      "url": "news://news-tips-20220501-zh-mobile.txt"
+    },
+    {
       "id": "101",
-      "platform": [ "Windows", "Linux" ],
+      "platform": [ "Windows", "Linux", "MacOS" ],
       "revision_condition": {
         "type": ">=",
         "value": 1
