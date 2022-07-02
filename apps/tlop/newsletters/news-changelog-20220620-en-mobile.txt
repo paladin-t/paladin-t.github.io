@@ -5,8 +5,6 @@
   deleting a pomodoro cycle
 * Added an explanation tip for pause
   budget
-* Added a piece of newsletter about
-  keyboard shortcuts
 * Added a following mode (double
   click a citizen or animal)
 * Fixed a noncontinuous span bug
