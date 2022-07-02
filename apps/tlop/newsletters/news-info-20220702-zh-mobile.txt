@@ -1,0 +1,7 @@
+[col=0x6f95abff]资讯：链接[/col]
+
+<!--url>The Legend of Pomodoro - 主页|https://paladin-t.github.io/apps/tlop/index.html</url-->
+<!--url>E-mail|https://paladin-t.github.io/</url-->
+<!--url>留言板|https://paladin-t.github.io/message.html</url-->
+<!--url>微博|https://weibo.com/paladint</url-->
+<!--url>Twitter|https://twitter.com/wangrenxin</url-->
