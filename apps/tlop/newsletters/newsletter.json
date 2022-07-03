@@ -2,7 +2,7 @@
   "english": [
     {
       "id": "2",
-      "platform": [ "iOS", "Android" ],
+      "platform": [ "iOS" ],
       "revision_condition": {
         "type": ">=",
         "value": 1
@@ -13,7 +13,7 @@
       "created_timepoint": "2022-07-02 08:00:00",
       "updated_timepoint": "2022-07-02 08:00:00",
       "title": "Info: Connect",
-      "url": "news://news-info-20220702-en-mobile.txt"
+      "url": "news://news-info-20220702-en-ios.txt"
     },
     {
       "id": "1",
@@ -139,7 +139,7 @@
   "chinese": [
     {
       "id": "2",
-      "platform": [ "iOS", "Android" ],
+      "platform": [ "iOS" ],
       "revision_condition": {
         "type": ">=",
         "value": 1
@@ -150,7 +150,7 @@
       "created_timepoint": "2022-07-02 08:00:00",
       "updated_timepoint": "2022-07-02 08:00:00",
       "title": "资讯：链接",
-      "url": "news://news-info-20220702-zh-mobile.txt"
+      "url": "news://news-info-20220702-zh-ios.txt"
     },
     {
       "id": "1",
