@@ -2,7 +2,7 @@ const language = navigator.language || navigator.userLanguage;
 const translations = document.querySelectorAll('.translations');
 translations.forEach(item => {
   if (language.indexOf('zh') !== -1) {
-    item.textContent = 'EN/中文';
+    item.textContent = 'En/中文';
   }
 });
 
