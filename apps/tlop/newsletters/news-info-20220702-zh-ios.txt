@@ -1,8 +1,7 @@
 [col=0x6f95abff]资讯：链接[/col]
 
-<!--url>写个好评支持开发者|https://apps.apple.com/app/id1631659076?action=write-review</url-->
 <!--url>The Legend of Pomodoro - 主页|https://paladin-t.github.io/apps/tlop/index.html</url-->
 <!--url>E-mail|https://paladin-t.github.io/</url-->
 <!--url>留言板|https://paladin-t.github.io/message.html</url-->
 <!--url>新浪微博|sinaweibo://userinfo?uid=paladint</url-->
-<!--url>Twitter|twitter://user?screen_name=wangrenxin</url-->
+<!--url>写个好评支持开发者|https://apps.apple.com/app/id1631659076?action=write-review</url-->

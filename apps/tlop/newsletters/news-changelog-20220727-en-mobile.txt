@@ -1,0 +1,8 @@
+[col=0x6f95abff]Update notes v1.6.0:[/col]
+
+* Updated the data of some
+  upgradable/purchasable items
+* Updated the data of the tasks
+* Improved the interaction behaviour
+  of list widgets
+* Fixed some bugs

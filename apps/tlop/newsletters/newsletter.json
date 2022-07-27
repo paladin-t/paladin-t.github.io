@@ -76,6 +76,36 @@
       "url": "news://news-tips-20220401-en.txt"
     },
     {
+      "id": "305",
+      "platform": [ "iOS", "Android" ],
+      "revision_condition": {
+        "type": "<=>",
+        "value": [ 4, 8 ]
+      },
+      "start_timepoint": "1970-01-01 00:00:00",
+      "end_timepoint": "9999-12-31 23:59:59",
+      "impressions": -1,
+      "created_timepoint": "2022-07-31 08:00:00",
+      "updated_timepoint": "2022-07-31 08:00:00",
+      "title": "Changelog #11",
+      "url": "news://news-changelog-20220727-en-mobile.txt"
+    },
+    {
+      "id": "304",
+      "platform": [ "Windows", "Linux", "MacOS" ],
+      "revision_condition": {
+        "type": "<=>",
+        "value": [ 4, 8 ]
+      },
+      "start_timepoint": "1970-01-01 00:00:00",
+      "end_timepoint": "9999-12-31 23:59:59",
+      "impressions": -1,
+      "created_timepoint": "2022-07-31 08:00:00",
+      "updated_timepoint": "2022-07-31 08:00:00",
+      "title": "Changelog #11",
+      "url": "news://news-changelog-20220727-en.txt"
+    },
+    {
       "id": "303",
       "platform": [ "iOS", "Android" ],
       "revision_condition": {
@@ -211,6 +241,36 @@
       "updated_timepoint": "2022-04-01 08:00:00",
       "title": "小贴士：启动选项",
       "url": "news://news-tips-20220401-zh.txt"
+    },
+    {
+      "id": "305",
+      "platform": [ "iOS", "Android" ],
+      "revision_condition": {
+        "type": "<=>",
+        "value": [ 4, 8 ]
+      },
+      "start_timepoint": "1970-01-01 00:00:00",
+      "end_timepoint": "9999-12-31 23:59:59",
+      "impressions": -1,
+      "created_timepoint": "2022-07-31 08:00:00",
+      "updated_timepoint": "2022-07-31 08:00:00",
+      "title": "更新日志 #11",
+      "url": "news://news-changelog-20220727-zh-mobile.txt"
+    },
+    {
+      "id": "304",
+      "platform": [ "Windows", "Linux", "MacOS" ],
+      "revision_condition": {
+        "type": "<=>",
+        "value": [ 4, 8 ]
+      },
+      "start_timepoint": "1970-01-01 00:00:00",
+      "end_timepoint": "9999-12-31 23:59:59",
+      "impressions": -1,
+      "created_timepoint": "2022-07-31 08:00:00",
+      "updated_timepoint": "2022-07-31 08:00:00",
+      "title": "更新日志 #11",
+      "url": "news://news-changelog-20220727-zh.txt"
     },
     {
       "id": "303",

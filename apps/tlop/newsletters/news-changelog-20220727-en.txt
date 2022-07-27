@@ -1,0 +1,11 @@
+[col=0x6f95abff]Update notes v1.6.0:[/col]
+
+* Added window raising when a
+  pomodoro cycle is finished
+* Updated the data of some
+  upgradable/purchasable items
+* Fixed a file extension completeness
+  issue of screenshots
+* Improved the interaction behaviour
+  of list widgets
+* Fixed some bugs
