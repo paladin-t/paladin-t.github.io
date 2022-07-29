@@ -132,10 +132,11 @@ a:visited {
 }
 .button {
   width: 12em;
+  border: 0;
   border-radius: 2px;
   border-color: black;
   padding: 0;
-  background-color: white;
+  background: rgb(233, 233, 233);
   font: 16px pixel, Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace, sans-serif;
 }
 .button:hover {
