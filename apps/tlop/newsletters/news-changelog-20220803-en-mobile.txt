@@ -1,0 +1,23 @@
+[col=0x6f95abff]Update notes v1.7.0:[/col]
+(App version: v1.2.0)
+
+* Added an inhabitancy log to the
+  town screen since this version
+  (tap the statue to view)
+* Updated the damage calculation of
+  the adventure screen
+* Updated the UI background under
+  different seasons
+* Updated the data of the tasks
+* Fixed a calculation bug of monthly
+  report
+* Fixed a saving bug of "spent gold"
+* Fixed a background color issue of
+  items after ordering
+* Improved weekly reward counting
+  after retired
+* Improved the animation of the
+  combat efficiency indicator on the
+  adventure screen
+* Improved the behaviour when double
+  tapped a character

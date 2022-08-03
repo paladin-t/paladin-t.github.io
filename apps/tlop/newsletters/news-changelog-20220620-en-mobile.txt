@@ -1,4 +1,5 @@
 [col=0x6f95abff]Patch notes v1.5.4:[/col]
+(App version: v1.0.0)
 
 * Added a new "nature" alarm theme
 * Added a confirm dialog before

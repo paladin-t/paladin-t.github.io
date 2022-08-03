@@ -1,4 +1,5 @@
 [col=0x6f95abff]Update notes v1.6.0:[/col]
+(App version: v1.1.0)
 
 * Updated the data of some
   upgradable/purchasable items
