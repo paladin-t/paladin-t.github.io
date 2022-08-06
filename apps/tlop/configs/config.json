@@ -1,4 +1,4 @@
 {
-  "loop_offline_traveling": true,
-  "loop_online_traveling": true
+  "loop_offline_traveling": false,
+  "loop_online_traveling": false
 }
