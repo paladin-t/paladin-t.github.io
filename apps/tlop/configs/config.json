@@ -1,6 +1,6 @@
 {
   "traveling": {
-    "loop_offline": true,
+    "loop_offline": false,
     "loop_online": true
   },
   "loop_offline_traveling": false,
