@@ -3,3 +3,6 @@
 Most operations in TLOP are done by
 touch. In addition, double tap on a
 citizen or animal to follow them.
+
+Press and hold to upgrade 10 times or
+purchase 10 times in the Up. or shop.
