@@ -1,0 +1,14 @@
+[col=0x6f95abff]Update notes v1.8.0:[/col]
+
+* Added a sort button to the town
+  unlock popup
+* Added self introduction of the
+  citizens
+* Added a quick upgrade/purchase
+  action (press and hold to perform
+  10 times)
+* Fixed a potential crash bug
+* Optimized the program's loading
+  performance
+* Optimized the program's running
+  performance
