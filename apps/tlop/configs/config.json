@@ -3,6 +3,7 @@
     "loop_offline": false,
     "loop_online": true
   },
-  "loop_offline_traveling": false,
-  "loop_online_traveling": false
+  "corrupt": {
+    "time_traveling": true
+  }
 }
