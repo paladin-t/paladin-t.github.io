@@ -5,3 +5,9 @@ on Apple App Store now, click the
 following link for details.
 
 <!--url>App Store|https://apps.apple.com/app/the-legend-of-pomodoro-timer/id1631659076</url-->
+
+TLOP runs as a standalone app without
+server to provide a secure and fast
+response experience. Meaning that
+distributions on different platforms
+cannot share saved progress.

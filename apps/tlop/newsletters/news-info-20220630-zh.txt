@@ -4,3 +4,7 @@ The Legend of Pomodoro 现已上架苹果
 App Store，点击下方链接查看详情。
 
 <!--url>App Store|https://apps.apple.com/app/the-legend-of-pomodoro-timer/id1631659076</url-->
+
+TLOP 以一个独立 app、无后台服务器的形式提供
+安全和高响应的用户体验。因此不同平台的分发版
+本无法共享进程存档。
