@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" type="text/css" href="../../slides.css">
+</head>
+<body style="margin: 0;">
+  <div class="slider">
+    <span id="slide-1"></span>
+    <div class="slide-images" id="slide-images">
+      <img src="/apps/player/imgs/screenshot1.png" class="slide">
+    </div>
+    <div class="slide-buttons">
+      <button id="button1"></button>
+    </div>
+  </div>
+  <script>
+    // Slides.
+    var slideRoutine = null;
+    var slideIndex = 0;
+    var slideImages = document.getElementById('slide-images');
+    var slides = document.getElementsByClassName('slide');
+    function setCursor(index) {
+      for (var i = 0; i < slides.length; ++i) {
+        var button = document.getElementById('button' + (i + 1).toString());
+        if (i + 1 == index)
+          button.style = 'background-color: gray;';
+        else
+          button.style = 'background-color: white;';
+      }
+    }
+    function showSlides() {
+      ++slideIndex;
+      if (slideIndex > slides.length)
+        slideIndex = 1;
+      slideImages.style = 'left: -' + ((slideIndex - 1) * 640).toString() + 'px;';
+      setCursor(slideIndex);
+      slideRoutine = setTimeout(showSlides, 8000);
+    }
+    for (var i = 0; i < slides.length; ++i) {
+      var button = document.getElementById('button' + (i + 1).toString());
+      (function () {
+        var index = i;
+        button.onclick = function () {
+          slideIndex = index + 1;
+          slideImages.style = 'left: -' + (index * 640).toString() + 'px;';
+          setCursor(index + 1);
+          if (slideRoutine != null) {
+            clearTimeout(slideRoutine);
+            slideRoutine = setTimeout(showSlides, 5000);
+          }
+        };
+      })();
+    }
+    showSlides();
+  </script>
+</body>
+</html>

@@ -7,6 +7,13 @@
   <atom:link rel="self" type="application/rss+xml" href="https://paladin-t.github.io/feed.xml"/>
 
   <item>
+    <title>Urban Player Is Available Now</title>
+    <description>Urban Player is an oldschool music player and visualizer.&lt;br&gt;Click for details: &lt;a href="https://paladin-t.github.io/apps/player/"&gt;https://paladin-t.github.io/apps/player/&lt;/a&gt;</description>
+    <link>https://paladin-t.github.io/apps/player/</link>
+    <guid>https://paladin-t.github.io/apps/player/</guid>
+    <pubDate>07 Sep 2022 08:00:00 +0800 </pubDate>
+  </item>
+  <item>
     <title>The Legend of Pomodoro Is Available Now</title>
     <description>The Legend of Pomodoro is a pomodoro tool and an RPG game driven by tomatoes.&lt;br&gt;It is the nature of the human mind to roam about and sneak away from work.&lt;br&gt;The Legend of Pomodoro (TLOP) implements a pomodoro timer gamified by an idle game environment, it creates a buffer zone between your focus and the outer world to avoid either getting tired or procrastination.&lt;br&gt;Being different from traditional idle games, TLOP doesn't interrupt you from time to time during a pomodoro cycle. You'll become a legend in the virtual world while being concentrated on your real life tasks.&lt;br&gt;Click for details: &lt;a href="https://paladin-t.github.io/apps/tlop/"&gt;https://paladin-t.github.io/apps/tlop/&lt;/a&gt;</description>
     <link>https://paladin-t.github.io/apps/tlop/</link>
