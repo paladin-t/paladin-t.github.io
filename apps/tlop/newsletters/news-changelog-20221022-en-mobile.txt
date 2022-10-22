@@ -1,0 +1,16 @@
+[col=0x6f95abff]Patch notes v1.8.1:[/col]
+(App version: v1.3.6)
+
+* Added a "max adventure progress"
+  stat. in the retire view
+* Updated description of retire
+* Fixed an amount stat. bug of
+  collected currencies
+* Fixed a immersive mode issue after
+  changing options from the cycles
+  popup
+* Fixed a progressing bug
+* Improved calculation of the average
+  trend of the recent report view
+* Improved the experience of quick
+  upgrade/purchase actions

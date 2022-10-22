@@ -5,7 +5,9 @@ line arguments:
 
 * "-b" for borderless window
 * "-m" for top most window
-* "-x1", "-x2", "-x3" for constant scales
+* "-x" to disable the boot sound
+* "-x1", "-x2", "-x3" for constant window scale
+* "-c1", "-c2", "-c3" for constant scene scale
 * "-i" for thin navigation buttons
 * "-g X" for specific immersive background modes:
   * "-g 0" for fill mode (default)
