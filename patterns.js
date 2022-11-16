@@ -8,6 +8,7 @@
   }
 } (this, function (exports) {
   var homepage = '<a href="https://paladin-t.github.io/">Homepage</a>';
+  var appstore = '<a href="https://apps.apple.com/developer/id856262887">App Store</a>';
   var steam = '<a href="https://store.steampowered.com/developer/tony">Steam</a>';
   var itch = '<a href="https://tonywang.itch.io/">Itch</a>';
   var twitter = '<a href="https://twitter.com/wangrenxin">Twitter</a>';
@@ -170,7 +171,7 @@
       request: [ 'who', 'tony' ],
       response: [ 'Tony is my creator. He makes development tools, apps and games as an independent developer.' ],
       callback: function (bot) {
-        bot.post('He also works as a freelancer sometimes.');
+        bot.post('He also works as a freelance sometimes.');
       }
     },
     {
@@ -211,10 +212,7 @@
       callback: function (bot) {
         bot.post(
           'You can also see:\n&emsp;' +
-          steam + '&ensp;|&ensp;' +
-          itch + '&ensp;|&ensp;' +
-          twitter + '&ensp;|&ensp;' +
-          github
+          twitter
         );
         bot.post(
           'Or subscribe to this site:\n&emsp;' +
@@ -277,15 +275,16 @@
       request: [ 'support', 'tony' ],
       response: [
         'Tony makes development tools, apps and games, you can support him by buying or downloading this or that from:\n&emsp;' +
+        appstore + '&ensp;|&ensp;' +
         steam + '&ensp;|&ensp;' +
         itch
-      ],
+      ]/*,
       callback: function (bot) {
         bot.post(
           'Or consider making a donation if you like his work:\n&emsp;' +
           donate
         );
-      }
+      }*/
     },
     {
       request: [ 'support', 'you' ],
@@ -314,6 +313,7 @@
       callback: function (bot) {
         bot.post(
           'Follow him for future creations:\n&emsp;' +
+          appstore + '&ensp;|&ensp;' +
           steam + '&ensp;|&ensp;' +
           itch + '&ensp;|&ensp;' +
           twitter
