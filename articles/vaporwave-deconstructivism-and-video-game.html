@@ -230,7 +230,7 @@
 
       <hr>
       <p align="center">
-        (C) 2018-2022 <a href="https://paladin-t.github.io/">Tony Wang</a>
+        (C) 2018-2023 <a href="https://paladin-t.github.io/">Tony Wang</a>
         <a href="../feed.xml" target="_blank" class="label" style="color: white;">RSS</a>
       </p>
     </div>
@@ -311,6 +311,9 @@
       var content = document.getElementsByClassName('wpcc-container');
       if (content && content.length > 0)
         content[0].style = 'font: 16px Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace, sans-serif;';
+      var btn = document.getElementsByClassName('wpcc-btn');
+      if (btn && btn.length > 0)
+        btn[0].style = 'border: 0; display: block; font-size: .9em; font-weight: 700; outline: 0; padding: .4em 0em; text-align: center; width: 100%; white-space: nowrap; -webkit-transition: background-color .2s ease; -moz-transition: background-color .2s ease; -ms-transition: background-color .2s ease; -o-transition: background-color .2s ease;';
     });
   </script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112501113-5"></script>
