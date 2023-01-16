@@ -66,7 +66,7 @@
             <!-- ## What Is GB BASIC? -->
             <p>We are in a prime time when developing for our favourite 8-bit handheld game console is easy. There are several solutions, you can pick from ASM, C, or graphics-based tools.</p>
             <p>GameBuilder BASIC (GB BASIC) is a Fantasy Console that generates GameBoy compatible ROM. The upcoming full version would contain a BASIC dialect, a compiler, and a GUI-based development environment. GB BASIC is supposed to be an integrated environment, following the design philosophy of the Fantasy Console genre. The language is designed to be able to work as both DSL and generic programming language, in which a user can write code in a declarative way, also it preserves the ability to do fine operations. The compiler allocates variables automatically. Moreover, referencing to variables is handled by the compiler, other than by a programmer. You won't perceive the existence of ROM banks, since it's also handled automatically. Another major goal of the project is to shorten compile time as much as possible for quicker feedback and better prototyping/developing experience.</p>
-            <p>In the past few years, the community has been putting extraordinary efforts to make it possible for everyone who want to develop their own GameBoy programs. Without these work, I could not realize my dream - bringing BASIC to GameBoy homebrew developers and GameBoy gaming enthusiasts. The runtime is based on the GBVM project and compiled with the GBDK-2020 toolchain. The GBVM's convention, API, and features are complete and stable for some serious uses.</p>
+            <p>In the past few years, the community has been putting extraordinary efforts to make it possible for everyone who want to develop their own GameBoy programs. Without these work, I could not realize my dream - bringing BASIC to GameBoy homebrew developers and GameBoy gaming enthusiasts. The runtime is based on the GBVM project and compiled with the GBDK-2020 toolchain. The GBVM's convention, API, and features are fair complete and stable for some serious uses.</p>
             <p>The compiler part is created from scratch (in C++) so that I can take fine control over the passes. Another benefit of inventing the wheel again is that a dedicated compiler could be precisely optimized. Compared to other architectures (i.e. generic frontend parser, plus customized backend generator), GB BASIC can finish the parsing, compiling, and emitting passes of a regular program in less than a second. It is an important feature that determines a Fantasy Console's overall responsiveness.</p>
             <hr>
             <!-- ## Project Status -->
@@ -74,7 +74,7 @@
             <p>As of the time of this writing, the project is yet a prototype. See the <a href="https://github.com/gbbasic/prototype">repository</a> for a glance which contains an executable for Windows, several example programs, and other necessary assets.</p>
             <hr>
             <!-- ## Why Use GB BASIC? -->
-            <p>There are not many options available for restricted system programming, for GameBoy in particular, you could choose either assembly or C. I regard BASIC as something between the low-level (assembly) and the high-level (C). GB BASIC reserved some flavours of the old school BASIC dialects: it accepts line number (optional), implements a procedural programming paradigm, variables in it are global, has <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">GOTO</code>, etc. Compared to assembly and C, as a programmer, you do not need to know: bank, address, pointer, instruction conventions, code and constant space (ROM) allocation, variable space (RAM) allocation, asset referencing, etc. Regarding its objective project types and scale, I think such BASIC is at a subtle balance point of easy-to-use, expressive, and productive.</p>
+            <p>There are not many options available for restricted system programming, for GameBoy in particular, you could choose either assembly or C. I regard BASIC as something between the low-level (assembly) and the high-level (C). GB BASIC reserved some flavours of the old school BASIC dialects: it accepts line number (optional), implements a procedural programming paradigm, variables in it are global, has <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">GOTO</code>, etc. Compared to assembly and C, as a programmer, you do not need to know: bank, address, pointer, instruction conventions, code and constant space (ROM) allocation, variable space (RAM) allocation, asset referencing, etc. Regarding its objective project types and scale, I think such BASIC is at a subtle balance point of easy-to-use, expressive, speed, and productive.</p>
             <p>To make user experience focused, it is designed that the all-in-one application will have all the asset pipelines built-in, as well as other integrated toolchains (for coding, asset editing, etc).</p>
             <p>By introducing a VM layer other than compiling into machine code directly for the runtime, there would definitely be loss of speed. But it gets big gain in expressiveness. The API is designed to support both imperative and declarative paradigms. To make the declarative part more usable, the runtime has some advanced features, such as the <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">thread</code> feature which simplifies concurrent execution, and the <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">Actor</code>, <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">Controller</code> and <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">Scene</code> modules which could make the development work of specific genres of games easier.</p>
             <p>As a developer from East Asia, I'm also very sensitive to Unicode support. GB BASIC can examine in-code UTF-8 strings, then generates their corresponding glyphs from a variable width font face (TTF).</p>
@@ -82,8 +82,7 @@
             <!-- ## Development Plan -->
             <p>This project has already implemented the following features:</p>
             <ul>
-            <li>A parser</li>
-            <li>A compiler</li>
+            <li>A parser and a compiler that work in command line mode</li>
             <li>A <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">Graphics</code> module</li>
             <li>An <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">Audio</code> module for music and SFX</li>
             <li>An <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">Input</code> module</li>
@@ -828,11 +827,11 @@ palette sprite_layer<span class="token punctuation">,</span> <span class="token 
             }
         });
       } catch (_) {
-        var html = 'Oops, cannot load article for the moment...<br>Try refersh or ';
-        html += '<a href="' + url + '">click</a>';
+        //var html = 'Oops, cannot load article for the moment...<br>Try refersh or ';
+        //html += '<a href="' + url + '">click</a>';
 
-        Article.attach('article-content', html);
-        Article.attach('article-comments', 'Cannot load comments...');
+        //Article.attach('article-content', html);
+        //Article.attach('article-comments', 'Cannot load comments...');
 
         toggleFont();
       }
