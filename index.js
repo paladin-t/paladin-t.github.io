@@ -46,7 +46,7 @@
           Sam.sam.say(words);
       }, 500);
     } catch (ex) {
-      console.warn('Speech error:\n  ' + ex.toString());
+      console.warn('Speech synthesis error:\n  ' + ex.toString());
     }
 
     return words;
@@ -100,10 +100,77 @@
       send();
     }
   });
+  window.enableSpeechInput = function () {
+    var failed = function () {
+      var msg = 'Speech recognition is not supported by your browser.';
+      output.innerHTML += '<br>Bot: ' + msg + '.<br>';
+      output.scrollTop = output.scrollHeight;
+
+      say(msg);
+    };
+    var Recognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!Recognition) {
+      failed();
+
+      return;
+    }
+
+    try {
+      var recognition = new Recognition();
+      recognition.lang = 'en-US';
+      recognition.continuous = true;
+      recognition.interimResults = false;
+      recognition.maxAlternatives = 10;
+      var GrammerList = window.SpeechGrammarList || window.webkitSpeechGrammarList;
+      if (GrammerList) {
+        var KEYWORDS = [
+          'tony', 'toby', 'chengdu',
+          'contact', 'support'
+        ];
+        var speechRecognitionList = new GrammerList();
+        var grmr = '';
+        KEYWORDS.forEach(function (val, i) {
+          grmr += val;
+          if (i != KEYWORDS.length - 1)
+            grmr += ' | ';
+        });
+        speechRecognitionList.addFromString(grmr, 1);
+        recognition.grammars = speechRecognitionList;
+      }
+      recognition.addEventListener('end', () => {
+        recognition.start();
+        console.log('Restart listening.');
+      });
+      recognition.addEventListener('result', function (event) {
+        for (var i = event.resultIndex; i < event.results.length; ++i) {
+          var identificated = event.results[i][0].transcript;
+          console.error('Got: ' + identificated);
+          send(identificated);
+        }
+        recognition.stop();
+      });
+      recognition.start();
+      console.log('Start listening.');
+      output.innerHTML += '<br>Bot: I am lisening.<br>';
+      output.scrollTop = output.scrollHeight;
+      // speechSynthesis.speak(new SpeechSynthesisUtterance('I am listening.'));
+      // say('I am lisening.');
+
+      window.enableSpeechInput = function () {
+        output.innerHTML += '<br>Bot: I am lisening.<br>';
+        output.scrollTop = output.scrollHeight;
+      };
+    } catch (ex) {
+      failed();
+
+      console.warn('Speech recognition error:\n  ' + ex.toString());
+    }
+  };
   output.innerHTML += 'Tony: ';
   output.innerHTML += 'You can chat with my agent bot here, ';
   output.innerHTML += 'i.e. enter "How to contact Tony?" to get my email address, ';
   output.innerHTML += 'or try whatever you want. ';
+  output.innerHTML += 'Click to <a class="link" onclick="enableSpeechInput()">enable speech input</a>. ';
   output.innerHTML += 'Also click to <a href="message.html">leave a message</a>.<br>';
 
   window.mute = mute;

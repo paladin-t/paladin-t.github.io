@@ -193,6 +193,10 @@ a:visited {
   color: white;
   background-color: #ffa500;
 }
+.link {
+  color: #69c;
+  text-decoration: none;
+}
 .store {
   width: 130px;
   height: 40px;
