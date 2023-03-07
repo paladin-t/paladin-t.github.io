@@ -68,6 +68,23 @@
     },
 
     {
+      request: [ 'sup' ],
+      response: [ 'Nice.', 'Good.', 'Wonderful.' ]
+    },
+    {
+      request: [ 'whats', 'up' ],
+      alias: [ 'sup' ]
+    },
+    {
+      request: [ 'how', 'are', 'you' ],
+      alias: [ 'sup' ]
+    },
+    {
+      request: [ 'how', 'doing' ],
+      alias: [ 'sup' ]
+    },
+
+    {
       request: [ 'bye' ],
       response: [ 'I\'ll be back.\n&emsp;<img src="imgs/bot/iwillbeback.jpg" width="118" height="118" style="border-radius: 6px;">' ]
     },

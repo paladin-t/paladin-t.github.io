@@ -196,6 +196,7 @@ a:visited {
 .link {
   color: #69c;
   text-decoration: none;
+  cursor: pointer;
 }
 .store {
   width: 130px;

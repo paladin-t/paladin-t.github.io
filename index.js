@@ -5,6 +5,8 @@
   var output = document.getElementById('output-box');
 
   var muted = false;
+  var startSpeaking = null;
+  var finishSpeaking = null;
   var bot = new Bot.Bot();
   Patterns.patterns.forEach(function (pattern) {
     bot.learn(pattern);
@@ -42,8 +44,14 @@
         words = open + ' ' + close;
       }
       setTimeout(function () {
-        if (typeof Sam != 'undefined')
-          Sam.sam.say(words);
+        if (typeof Sam != 'undefined') {
+          if (startSpeaking)
+            startSpeaking();
+          Sam.sam.say(words, function () {
+            if (finishSpeaking)
+              finishSpeaking()
+          });
+        }
       }, 500);
     } catch (ex) {
       console.warn('Speech synthesis error:\n  ' + ex.toString());
@@ -138,19 +146,38 @@
         recognition.grammars = speechRecognitionList;
       }
       recognition.addEventListener('end', () => {
-        recognition.start();
-        console.log('Restart listening.');
+        if (typeof Sam == 'undefined') {
+          try {
+            recognition.start();
+            console.log('Restart listening.');
+          } catch (_) {
+          }
+        }
       });
       recognition.addEventListener('result', function (event) {
         for (var i = event.resultIndex; i < event.results.length; ++i) {
           var identificated = event.results[i][0].transcript;
-          console.error('Got: ' + identificated);
+          console.log('Got: ' + identificated);
           send(identificated);
         }
-        recognition.stop();
+        recognition.abort();
+        console.log('Stop listening.');
       });
       recognition.start();
       console.log('Start listening.');
+
+      startSpeaking = function () {
+        recognition.abort();
+        console.log('Stop listening.');
+      };
+      finishSpeaking = function () {
+        try {
+          recognition.start();
+          console.log('Restart listening.');
+        } catch (_) {
+        }
+      };
+
       output.innerHTML += '<br>Bot: I am lisening.<br>';
       output.scrollTop = output.scrollHeight;
       // speechSynthesis.speak(new SpeechSynthesisUtterance('I am listening.'));

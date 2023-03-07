@@ -13148,7 +13148,7 @@ run();
   // {{MODULE_ADDITIONS}}
 
 (function () {
-  function playWebkit (context, audioBuffer) {
+  function playWebkit (context, audioBuffer, onEnded) {
     var source = context.createBufferSource();
     var soundBuffer = context.createBuffer(1, audioBuffer.length, 22050);
     var buffer = soundBuffer.getChannelData(0);
@@ -13157,33 +13157,41 @@ run();
     source.buffer = soundBuffer;
     source.connect(context.destination);
     source.start(0);
+    source.addEventListener('ended', function() {
+      source.disconnect();
+      if (onEnded)
+        onEnded();
+    });
   }
-  function playMozilla (context, audioBuffer) {
+  function playMozilla (context, audioBuffer, onEnded) {
     var written = context.mozWriteAudio(audioBuffer);
     var diff = audioBuffer.length - written;
-    if (diff <= 0)
+    if (diff <= 0) {
+      if (onEnded)
+        onEnded();
       return;
+    }
     var buffer = new Float32Array(diff);
     for (var i = 0; i < diff; ++i)
       buffer[i] = audioBuffer[i + written];
     window.setTimeout(function () {
-      playMozilla(context, buffer)
+      playMozilla(context, buffer, onEnded)
     }, 500);
   }
-  function playBuffer (speaker, audioBuffer) {
+  function playBuffer (speaker, audioBuffer, onEnded) {
     if (typeof AudioContext !== 'undefined') {
       if (!speaker.context)
         speaker.context = new AudioContext();
-      playWebkit(speaker.context, audioBuffer);
+      playWebkit(speaker.context, audioBuffer, onEnded);
     } else if (typeof webkitAudioContext !== 'undefined') {
       if (!speaker.context)
         speaker.context = new webkitAudioContext();
-      playWebkit(speaker.context, audioBuffer);
+      playWebkit(speaker.context, audioBuffer, onEnded);
     } else if (typeof Audio !== 'undefined') {
       if (!speaker.context)
         speaker.context = new Audio();
       speaker.context.mozSetup(1, 22050);
-      playMozilla(speaker.context, audioBuffer);
+      playMozilla(speaker.context, audioBuffer, onEnded);
     }
   }
   function fillBuffer (text) {
@@ -13209,10 +13217,10 @@ run();
     setup: function () {
       if (!this._initialized) {
         this._initialized = true;
-        this.say(' ');
+        this.say(' ', null);
       }
     },
-    say: function (text) {
+    say: function (text, onEnded) {
       var MAX_LEN = 96;
     
       if (text.length == 0)
@@ -13240,12 +13248,12 @@ run();
 
       if (audioBuffers.length == 1) {
         var audioBuffer = Float32Array.prototype.concat.apply(audioBuffers[0]);
-        playBuffer(this, audioBuffer);
+        playBuffer(this, audioBuffer, onEnded);
       } else if (audioBuffers.length >= 2) {
         var car = audioBuffers[0];
         var cdr = audioBuffers.slice(1);
         var audioBuffer = Float32Array.prototype.concat.apply(car, cdr);
-        playBuffer(this, audioBuffer);
+        playBuffer(this, audioBuffer, onEnded);
       }
     }
   };
