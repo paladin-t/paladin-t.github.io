@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="GB BASIC is a Fantasy Console that generates GameBoy compatible ROM. This article shows off what's new in alpha version 1.">
+  <meta name="twitter:card" content="GB BASIC is a Fantasy Console that generates GameBoy compatible ROM. This article shows off what's new in alpha version 1.">
+  <meta name="twitter:image" property="twitter:image" content="https://user-images.githubusercontent.com/2062224/225692312-8333019c-b0ed-454e-8c2f-923565605de3.png">
+  <meta name="og:title" property="og:title" content="GB BASIC Alpha 1">
+  <meta name="og:description" property="og:description" content="GB BASIC is a Fantasy Console that generates GameBoy compatible ROM. This article shows off what's new in alpha version 1.">
+  <meta name="og:image" property="og:image" content="https://user-images.githubusercontent.com/2062224/225692312-8333019c-b0ed-454e-8c2f-923565605de3.png">
+  <title>Tony Wang - Articles</title>
+  <link rel="alternate" type="application/rss+xml" title="Tony Wang - Homepage" href="../feed.xml" />
+  <link rel="shortcut icon" href="../favicon.ico" />
+  <link rel="apple-touch-icon" href="../imgs/avatar.png" />
+  <link rel="stylesheet" type="text/css" href="../index.css">
+  <link rel="stylesheet" type="text/css" href="../prism.css">
+  <link rel="stylesheet" type="text/css" href="../article.css">
+</head>
+<body onclick>
+  <div class="sidenav">
+    <div class="sidebar">
+      <p align="center" class="title">
+        Contents
+      </p>
+      <a href="../#top">* Home</a>
+      <a href="../#kits">* Kits</a>
+      <a href="../#apps">* Apps</a>
+      <a href="../#games">* Games</a>
+      <a href="../#tiny">* Tiny</a>
+      <a href="../#articles">* Articles</a>
+      * <a href="../feed.xml" target="_blank" class="label" style="display: inline; color: white;">RSS</a>
+    </div>
+  </div>
+  <div class="page">
+    <a id="top" href="#top"></a>
+    <p align="center" class="title">
+      <a href="https://paladin-t.github.io/">Tony Wang</a>
+    </p>
+    <div class="content">
+      <p align="left">
+        <a href="https://store.steampowered.com/developer/tony">Steam</a> |
+        <a href="https://tonywang.itch.io/">Itch</a> |
+        <a href="https://twitter.com/wangrenxin">Twitter</a> |
+        <a href="https://github.com/paladin-t">GitHub</a>
+      </p>
+      <div id="container">
+        <div id="left">
+          <div id="article-avatar">
+            <img src="../imgs/avatar.png" id="avatar">
+          </div>
+        </div>
+        <div id="right">
+          <div class="article-title" id="article-title">
+            GB BASIC Alpha 1
+          </div>
+          <button class="button" id="font" style="width: 4em; font-size: 8px;">Font</button>
+        </div>
+      </div>
+
+      <hr>
+      <div id="article">
+        <div id="article-content" class="article-content" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">
+          <!-- BEGIN CONTENT -->
+          <p>[<a href="https://paladin-t.github.io/">Home</a>|<a href="https://paladin-t.github.io/#articles">All articles</a>|<a href="https://paladin-t.github.io/articles/gb-basic-alpha-1.html">Permalink</a>]</p>
+          <!-- ## Previously on The Prototype -->
+
+          <p>I've been putting efforts on GB BASIC for months. The previous <a href="https://github.com/gbbasic/prototype">prototype release</a> was nothing more than a command line tool that <a href="https://paladin-t.github.io/articles/introducing-gb-basic.html">proved the compiler worked</a>. During the last few weeks, I've made good progress pushing this project closer to its goal: being a Fantasy Console that generates GameBoy compatible ROM. I'll show off something new since last release.</p>
+          <hr>
+
+          <!-- ## Get The Alpha 1 Release -->
+
+          <p>Quite a few new features were added to this version, that should make up an alpha release. The latest version is available on <a href="https://tonywang.itch.io/gbbasic-alpha">itch.io</a>.</p>
+          <img src="https://user-images.githubusercontent.com/2062224/225687554-e7948f03-38e1-4a16-a808-c9af677a43e6.png" style="display: block; margin-left: auto; margin-right: auto; width: 640px; image-rendering: pixelated;">
+          <div style="color: gray; font-size: 8px;" align="center">Linux port</div>
+
+          <p>The alpha version supports both Windows and Linux for the moment.</p>
+          <img src="https://user-images.githubusercontent.com/2062224/225687574-d90fad74-8527-49cb-8d54-fcd09c602e06.png" style="display: block; margin-left: auto; margin-right: auto; width: 640px; image-rendering: pixelated;">
+          <div style="color: gray; font-size: 8px;" align="center">Editor tabs</div>
+
+          <p>In this alpha version, I have finished code, tiles, map and palette (was not shown in the picture) editors. The other audio, font, actor, scene editors are coming soon.</p>
+          <hr>
+
+          <!-- ## The Idea behind It -->
+
+          <p>I borrowed a lot of concepts and design language from two of my other released projects: <a href="https://paladin-t.github.io/b8/">BASIC8</a> (a Fantasy Console) and <a href="https://paladin-t.github.io/bitty/">Bitty Engine</a> (a Fantasy Console styled Game Engine). You'll get familiar with GB BASIC soon if you have used these two pieces of software or any other fantasy consoles.</p>
+          <img src="https://user-images.githubusercontent.com/2062224/225687581-3d2502a3-32ed-4c53-9fbb-f730bb9ced5b.gif" style="display: block; margin-left: auto; margin-right: auto; width: 640px; image-rendering: pixelated;">
+          <div style="color: gray; font-size: 8px;" align="center">Development experience</div>
+
+          <p>The idea behind GB BASIC is to bring the fun of programming for an old system back, with well designed and polished UX.</p>
+          <hr>
+
+          <!-- ## What's New -->
+
+          <h3 id="integrated-environment">Integrated Environment</h3>
+          <p>Compared to the prototype, the alpha version took a big step forward with a GUI-based environment to offer an integrated flow. You'll be able to get everything done without pushing and popping GB BASIC.</p>
+          <img src="https://user-images.githubusercontent.com/2062224/225687583-020f851e-bf19-46dd-8fd4-fb39ffd1c802.png" style="display: block; margin-left: auto; margin-right: auto; width: 640px; image-rendering: pixelated;">
+          <div style="color: gray; font-size: 8px;" align="center">Recent</div>
+
+          <p>The first screen shows you your recent projects once you launched it.</p>
+          <img src="https://user-images.githubusercontent.com/2062224/225687585-073ea435-6b3a-4587-b90e-024a06b5800b.png" style="display: block; margin-left: auto; margin-right: auto; width: 640px; image-rendering: pixelated;">
+          <div style="color: gray; font-size: 8px;" align="center">Manual</div>
+
+          <p>As a feature preview, the reference manual will be also integrated.</p>
+          <img src="https://user-images.githubusercontent.com/2062224/225687591-ec17b619-e93a-4e99-8379-41f21142cebc.png" style="display: block; margin-left: auto; margin-right: auto; width: 640px; image-rendering: pixelated;">
+          <div style="color: gray; font-size: 8px;" align="center">Multi-page editors</div>
+
+          <p>Most of the editors support multi-page assets, say, organize code in different pages, put objects in different tiles pages, etc.</p>
+          <img src="https://user-images.githubusercontent.com/2062224/225687597-088fa8c6-ee30-4e5d-b182-c6de52226681.png" style="display: block; margin-left: auto; margin-right: auto; width: 640px; image-rendering: pixelated;">
+          <div style="color: gray; font-size: 8px;" align="center">One-click compile and run</div>
+
+          <p>You'll get your program running very soon after one or two clicks, GB BASIC processes code pages and assets in a flash.</p>
+          <hr class="hr">
+
+          <h3 id="code-editor">Code Editor</h3>
+          <img src="https://user-images.githubusercontent.com/2062224/225687605-366dc8de-9f27-4296-bf27-0af76f52f588.png" style="display: block; margin-left: auto; margin-right: auto; width: 640px; image-rendering: pixelated;">
+          <div style="color: gray; font-size: 8px;" align="center">Code editor</div>
+
+          <p>First of all, the alpha version contains a code editor with syntax highlight.</p>
+          <hr class="hr">
+
+          <h3 id="tiles-editor">Tiles Editor</h3>
+          <img src="https://user-images.githubusercontent.com/2062224/225687611-e7a68ba5-5012-47de-aaa3-00fd746460d3.png" style="display: block; margin-left: auto; margin-right: auto; width: 640px; image-rendering: pixelated;">
+          <div style="color: gray; font-size: 8px;" align="center">Tiles editor</div>
+
+          <p>Tiles asset is the base of other graphical assets, painting tiles is as simple as using "mspaint.exe".</p>
+          <hr class="hr">
+
+          <h3 id="map-editor">Map Editor</h3>
+          <img src="https://user-images.githubusercontent.com/2062224/225687618-01369d06-9c73-4c2e-acc0-467beeb3d52e.png" style="display: block; margin-left: auto; margin-right: auto; width: 640px; image-rendering: pixelated;">
+          <div style="color: gray; font-size: 8px;" align="center">Map editor</div>
+
+          <p>With the map editor, you can edit both map data and map attributes. Please note that big map is not supported by defining in code yet, it is for the upcoming scene editor.</p>
+          <hr class="hr">
+
+          <h3 id="palette-editor">Palette Editor</h3>
+          <img src="https://user-images.githubusercontent.com/2062224/225687622-c1cc81a7-765b-41e5-887d-58ec9ff0455d.png" style="display: block; margin-left: auto; margin-right: auto; width: 640px; image-rendering: pixelated;">
+          <div style="color: gray; font-size: 8px;" align="center">Palette editor</div>
+
+          <p>The palette editor is mainly used to preview visuals during developing, but it can also generate BASIC code to set palette for CGB programs.</p>
+          <hr class="hr">
+
+          <h3 id="emulator">Emulator</h3>
+          <img src="https://user-images.githubusercontent.com/2062224/225687627-39b2f4be-3e84-410f-8277-d6a947119b95.png" style="display: block; margin-left: auto; margin-right: auto; width: 640px; image-rendering: pixelated;">
+          <div style="color: gray; font-size: 8px;" align="center">Emulator</div>
+
+          <p>GB BASIC includes an emulator to keep you focused.</p>
+          <hr class="hr">
+
+          <h3 id="fast-iterating">Fast Iterating</h3>
+          <img src="https://user-images.githubusercontent.com/2062224/225687631-3a210552-9a32-431a-8854-63ffe61878b0.png" style="display: block; margin-left: auto; margin-right: auto; width: 640px; image-rendering: pixelated;">
+          <div style="color: gray; font-size: 8px;" align="center">Fast iterating</div>
+
+          <p>GB BASIC compiles code and processes assets within a fairly short time.</p>
+          <hr class="hr">
+
+          <h3 id="exporting-rom">Exporting ROM</h3>
+          <img src="https://user-images.githubusercontent.com/2062224/225687639-078b2747-4403-4663-ac7c-c15a46ef3772.png" style="display: block; margin-left: auto; margin-right: auto; width: 640px; image-rendering: pixelated;">
+          <div style="color: gray; font-size: 8px;" align="center">Exporting ROM</div>
+
+          <p>The alpha version could generate runnable ROMs already.</p>
+          <hr class="hr">
+
+          <h3 id="text-based-project-format">Text-based Project Format</h3>
+          <img src="https://user-images.githubusercontent.com/2062224/225687642-4c333b04-60d8-47be-ac41-3ac69d74c8f9.png" style="display: block; margin-left: auto; margin-right: auto; width: 640px; image-rendering: pixelated;">
+          <div style="color: gray; font-size: 8px;" align="center">Text-based project format</div>
+
+          <p>The prototype version could handle plain source code only, this ability was reserved, and GB BASIC can work as a command line tool as well. I have invented a new "rich format" for it to support mixed source code, assets, config, etc. Everything (except for the upcoming font assets) are packed in a single project file, which is text-based and friendly to version control systems.</p>
+          <hr class="hr">
+
+          <h3 id="using-user-created-assets">Using User-Created Assets</h3>
+          <p>Some of the examples have been migrated to use real user-created assets instead of built-in and inline data. Now there are three major ways to define a resource.</p>
+          <img src="https://user-images.githubusercontent.com/2062224/225687647-aad34184-210d-4533-8b27-ed61293d4b31.png" style="display: block; margin-left: auto; margin-right: auto; width: 640px; image-rendering: pixelated;">
+          <div style="color: gray; font-size: 8px;" align="center">Built-in data</div>
+
+          <p>First, it loads built-in data in ROM.</p>
+          <pre class="language-basic" tabindex="0"><code class="language-basic" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;"><span class="token comment"><span class="token keyword">REM</span> This is defined at the native side in C,</span>
+          <span class="token comment"><span class="token keyword">REM</span> that compiles into a ROM, and referenced by its name.</span>
+          fill sprite<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">56</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token string">"Elephant"</span></code></pre>
+          <hr class="hr">
+
+          <img src="https://user-images.githubusercontent.com/2062224/225687649-1243c8bf-4162-4523-8e11-82f42d4c5c20.png" style="display: block; margin-left: auto; margin-right: auto; width: 640px; image-rendering: pixelated;">
+          <div style="color: gray; font-size: 8px;" align="center">Data sequence</div>
+
+          <p>Second, it loads data sequence in BASIC code.</p>
+          <pre class="language-basic" tabindex="0"><code class="language-basic" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;"><span class="token comment"><span class="token keyword">REM</span> Read data sequence,</span>
+          fill sprite<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">56</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token keyword">read</span>
+          <span class="token keyword">data</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6.</span>..
+          ' <span class="token operator">or</span>
+          <span class="token comment"><span class="token keyword">REM</span> use inline data sequence.</span>
+          fill sprite<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">56</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token keyword">data</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6.</span>..</code></pre>
+          <hr class="hr">
+
+          <img src="https://user-images.githubusercontent.com/2062224/225687652-0870c9d1-e8a6-405f-84bd-dd621c9d392f.png" style="display: block; margin-left: auto; margin-right: auto; width: 640px; image-rendering: pixelated;">
+          <div style="color: gray; font-size: 8px;" align="center">Tiles editor</div>
+
+          <p>And third, it loads resources from editors.</p>
+          <pre class="language-basic" tabindex="0"><code class="language-basic" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;"><span class="token comment"><span class="token keyword">REM</span> Reference to an asset page.</span>
+          fill sprite<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">56</span><span class="token punctuation">)</span> <span class="token operator">=</span> #<span class="token number">0</span></code></pre>
+          <hr class="hr">
+
+          <h3 id="importing-and-exporting-assets">Importing And Exporting Assets</h3>
+          <img src="https://user-images.githubusercontent.com/2062224/225687656-fc877895-9f1f-499f-8188-99b21a8b6a3c.png" style="display: block; margin-left: auto; margin-right: auto; width: 640px; image-rendering: pixelated;">
+          <div style="color: gray; font-size: 8px;" align="center">Importing and exporting assets</div>
+
+          <p>Editors would support various importing and exporting methods respectively.</p>
+          <hr>
+
+          <!-- ## Development Plan -->
+
+          <p>Though the alpha 1 is pretty rough, you could get a first impression of how working with full version would be like. There are three more alpha and a beta versions on the schedule, the overall progress is estimatedly 33% complete.</p>
+          <p>[⬛⬛⬛⬛⬛⬛⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜] 33% - Overall progress</p>
+          <img src="https://user-images.githubusercontent.com/2062224/225687661-6d7c2716-9173-471c-a5fa-653e99ba1700.jpg" style="display: block; margin-left: auto; margin-right: auto; width: 640px;">
+          <div style="color: gray; font-size: 8px;" align="center">Running on different devices</div>
+
+          <p>[⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛] 100% - Prototype progress (DONE):</p>
+          <ul>
+          <li>A working parser and a compiler</li>
+          <li>A runtime that supports a number of programming interfaces</li>
+          </ul>
+          <p>[⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛] 100% - Alpha 1 progress (DONE):</p>
+          <ul>
+          <li>A working assets processing pipeline flow</li>
+          <li>Code, tiles, map, palette editors</li>
+          <li>A built-in emulator</li>
+          <li>A ROM exporter</li>
+          <li>Migrated examples</li>
+          <li>A Linux port</li>
+          </ul>
+          <p>[⬛⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜] 5% - Alpha 2 progress (WIP):</p>
+          <ul>
+          <li>Implement font, actor, scene editors</li>
+          <li>Implement asset pipelines to process those real user made assets</li>
+          </ul>
+          <p>[⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜] 0% - Alpha 3 progress (TODO):</p>
+          <ul>
+          <li>Implement an audio tracker and editor</li>
+          <li>Implement an asset pipeline to process those real user made assets</li>
+          <li>Fill in the reference manual</li>
+          </ul>
+          <p>[⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜] 0% - Alpha 4 progress (TODO):</p>
+          <ul>
+          <li>Improve the API</li>
+          <li>Improve the <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">Actor</code>, <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">Controller</code> and <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">Scene</code> modules, etc.</li>
+          <li>Implement extension features</li>
+          </ul>
+          <p>[⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜] 0% - Beta 1 progress (TODO):</p>
+          <ul>
+          <li>Add more customization options</li>
+          <li>Finish the reference manual</li>
+          <li>Add more examples</li>
+          <li>Port the project to other operating systems</li>
+          </ul>
+          <p>More versions (TBD)?</p>
+          <hr class="hr">
+
+          <p>Stick around for future updates if you are interested in GB BASIC, leave a message below if you got an idea or question. You can also support my development by getting my other projects listed on the main page of this site.</p>
+          <p>[<a href="https://paladin-t.github.io/">Home</a>|<a href="https://paladin-t.github.io/#articles">All articles</a>|<a href="https://paladin-t.github.io/articles/gb-basic-alpha-1.html">Permalink</a>]</p>
+          <!--  END CONTENT  -->
+          <br>
+          <br>
+          Loading content...
+        </div>
+        <div id="article-labels">
+        </div>
+        <div id="article-rss" style="padding-top: 8px;">
+        </div>
+        <hr>
+        <div id="article-comments" style="display: none;">
+          Loading comments...
+        </div>
+      </div>
+      <script src="https://utteranc.es/client.js"
+        repo="paladin-t/paladin-t.github.io" issue-number="5"
+        theme="github-light"
+        crossorigin="anonymous" async>
+      </script>
+
+      <hr>
+      <p align="center">
+        (C) 2018-2023 <a href="https://paladin-t.github.io/">Tony Wang</a>
+        <a href="../feed.xml" target="_blank" class="label" style="color: white;">RSS</a>
+      </p>
+    </div>
+  </div>
+  <script src="../polyfill.js"></script>
+  <script src="../marked.js"></script>
+  <script src="../prism.js"></script>
+  <script src="../article.js"></script>
+  <script src="../site-storage.js"></script>
+  <script src="../toggle-font.js"></script>
+  <script type="text/javascript">
+    // Article.
+    (function () {
+      var author = 'paladin-t';
+      var repo = 'paladin-t.github.io';
+      var id = '8';
+      var url = 'https://github.com/' + author + '/' + repo + '/issues/' + id.toString();
+      var title = 'GB BASIC Alpha 1';
+      var overview = 'GB BASIC is a Fantasy Console that generates GameBoy compatible ROM. This article shows off what\'s new in alpha version 1';
+
+      try {
+        //Article.attach('article-title', '<a href="' + url + '">' + title + '</a>');
+        //Article.attach('article-content', overview + '<br><br>Loading content...');
+        Article.read(author, repo, id, {
+            avatar: 'article-avatar',
+            title: 'article-title',
+            content: 'article-content',
+            labels: 'article-labels',
+            rss: 'article-rss',
+            comments: 'article-comments',
+            preprocess: function (html) {
+              return html
+                .replaceAll('<!--iframe', '<iframe')
+                .replaceAll('/iframe-->', '/iframe>')
+                .replaceAll('<code>', '<code class="language-auto">')
+                .replaceAll('language-c++', 'language-cpp');
+            },
+            highlight: function () {
+              Prism.highlightAll();
+
+              toggleFont();
+            }
+        });
+      } catch (_) {
+        //var html = 'Oops, cannot load article for the moment...<br>Try refersh or ';
+        //html += '<a href="' + url + '">click</a>';
+
+        //Article.attach('article-content', html);
+        //Article.attach('article-comments', 'Cannot load comments...');
+
+        toggleFont();
+      }
+    })();
+  </script>
+  <script async src="/cookieconsent.js"></script>
+  <script>
+      window.addEventListener('load', function () {
+      window.wpcc.init(
+        {
+          'border': 'thin',
+          'corners': 'small',
+          'colors': {
+            'popup': {
+              'background': '#f6f6f6',
+              'text': '#000000',
+              'border': '#555555'
+            },
+            'button': {
+              'background': '#555555',
+              'text': '#ffffff'
+            }
+          },
+          'content': {
+            'message': 'This website uses cookies to keep ensure the highest service quality. By continuing using the site, you agree to use cookies.'
+          }
+        }
+      );
+      var content = document.getElementsByClassName('wpcc-container');
+      if (content && content.length > 0)
+        content[0].style = 'font: 16px Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace, sans-serif;';
+      var btn = document.getElementsByClassName('wpcc-btn');
+      if (btn && btn.length > 0)
+        btn[0].style = 'border: 0; display: block; font-size: .9em; font-weight: 700; outline: 0; padding: .4em 0em; text-align: center; width: 100%; white-space: nowrap; -webkit-transition: background-color .2s ease; -moz-transition: background-color .2s ease; -ms-transition: background-color .2s ease; -o-transition: background-color .2s ease;';
+    });
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112501113-5"></script>
+  <script type="text/javascript">
+    window.dataLayer = window.dataLayer || [];
+    function gtag () {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-112501113-5');
+  </script>
+</body>
+</html>
