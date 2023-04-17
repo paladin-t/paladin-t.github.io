@@ -1,0 +1,11 @@
+[col=0x6f95abff]Patch notes v1.8.2:[/col]
+(App version: v1.3.9)
+
+* Updated the data of some upgradable/
+  purchasable items
+* Updated adventures of the basic
+  version
+* Fixed a currency display issue
+* Fixed a combat efficiency display
+  issue at the camp
+* Other minor bugfix
