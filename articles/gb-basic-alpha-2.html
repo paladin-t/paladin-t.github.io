@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="GB BASIC is a Fantasy Console that generates GameBoy compatible ROM. This article shows off what's new in alpha version 2.">
+  <meta name="twitter:card" content="GB BASIC is a Fantasy Console that generates GameBoy compatible ROM. This article shows off what's new in alpha version 2.">
+  <meta name="twitter:image" property="twitter:image" content="https://user-images.githubusercontent.com/2062224/225692312-8333019c-b0ed-454e-8c2f-923565605de3.png">
+  <meta name="og:title" property="og:title" content="GB BASIC Alpha 2">
+  <meta name="og:description" property="og:description" content="GB BASIC is a Fantasy Console that generates GameBoy compatible ROM. This article shows off what's new in alpha version 2.">
+  <meta name="og:image" property="og:image" content="https://user-images.githubusercontent.com/2062224/225692312-8333019c-b0ed-454e-8c2f-923565605de3.png">
+  <title>Tony Wang - Articles</title>
+  <link rel="alternate" type="application/rss+xml" title="Tony Wang - Homepage" href="../feed.xml" />
+  <link rel="shortcut icon" href="../favicon.ico" />
+  <link rel="apple-touch-icon" href="../imgs/avatar.png" />
+  <link rel="stylesheet" type="text/css" href="../index.css">
+  <link rel="stylesheet" type="text/css" href="../prism.css">
+  <link rel="stylesheet" type="text/css" href="../article.css">
+</head>
+<body onclick>
+  <div class="sidenav">
+    <div class="sidebar">
+      <p align="center" class="title">
+        Contents
+      </p>
+      <a href="../#top">* Home</a>
+      <a href="../#kits">* Kits</a>
+      <a href="../#apps">* Apps</a>
+      <a href="../#games">* Games</a>
+      <a href="../#tiny">* Tiny</a>
+      <a href="../#articles">* Articles</a>
+      * <a href="../feed.xml" target="_blank" class="label" style="display: inline; color: white;">RSS</a>
+    </div>
+  </div>
+  <div class="page">
+    <a id="top" href="#top"></a>
+    <p align="center" class="title">
+      <a href="https://paladin-t.github.io/">Tony Wang</a>
+    </p>
+    <div class="content">
+      <p align="left">
+        <a href="https://store.steampowered.com/developer/tony">Steam</a> |
+        <a href="https://tonywang.itch.io/">Itch</a> |
+        <a href="https://twitter.com/wangrenxin">Twitter</a> |
+        <a href="https://github.com/paladin-t">GitHub</a>
+      </p>
+      <div id="container">
+        <div id="left">
+          <div id="article-avatar">
+            <img src="../imgs/avatar.png" id="avatar">
+          </div>
+        </div>
+        <div id="right">
+          <div class="article-title" id="article-title">
+            GB BASIC Alpha 2
+          </div>
+          <button class="button" id="font" style="width: 4em; font-size: 8px;">Font</button>
+        </div>
+      </div>
+
+      <hr>
+      <div id="article">
+        <div id="article-content" class="article-content" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">
+          <!-- BEGIN CONTENT -->
+          <p>[<a href="https://paladin-t.github.io/">Home</a>|<a href="https://paladin-t.github.io/#articles">All articles</a>|<a href="https://paladin-t.github.io/articles/gb-basic-alpha-2.html">Permalink</a>]</p>
+          <!-- ## Previously on The Alpha -->
+
+          <p>Previously on the project:</p>
+          <ul>
+          <li><a href="https://paladin-t.github.io/articles/introducing-gb-basic.html">Introducing GB BASIC</a><ul>
+          <li><a href="https://github.com/gbbasic/prototype">Prototype release</a></li>
+          </ul>
+          </li>
+          <li><a href="https://paladin-t.github.io/articles/gb-basic-alpha-1.html">GB BASIC Alpha 1</a><ul>
+          <li><a href="https://tonywang.itch.io/gbbasic-alpha">Alpha 1 on itch.io</a></li>
+          </ul>
+          </li>
+          </ul>
+          <hr>
+
+          <!-- ## Get The Alpha 2 Release -->
+
+          <p>Quite a few new features have been added since my last post, that would be sufficient for another alpha release. As of the time of this writing, the latest alpha 2 is available on <a href="https://tonywang.itch.io/gbbasic-alpha">itch.io</a>.</p>
+          <img src="https://user-images.githubusercontent.com/2062224/225687554-e7948f03-38e1-4a16-a808-c9af677a43e6.png" style="display: block; margin-left: auto; margin-right: auto; width: 640px; image-rendering: pixelated;">
+          <div style="color: gray; font-size: 8px;" align="center">Linux port</div>
+
+          <p>The alpha version supports both Windows and Linux for the moment.</p>
+          <img src="https://user-images.githubusercontent.com/2062224/238142927-c147da57-1a8c-4450-b3f1-6269edbd524d.png" style="display: block; margin-left: auto; margin-right: auto; width: 640px; image-rendering: pixelated;">
+          <div style="color: gray; font-size: 8px;" align="center">Editor tabs</div>
+
+          <p>In this alpha 2 version, I've added editors for font, actor, and scene assets. Audio editor is coming soon in alpha 3, and the runtime will be further more enhanced in alpha 4.</p>
+          <hr>
+
+          <!-- ## What's New -->
+
+          <h3 id="improvements">Improvements</h3>
+          <p>Compared to the previous alpha, the new version implemented more editors, the pipeline and compiler have been updated to process and make use of assets created by these editors, the examples have been upgraded as well.</p>
+          <hr class="hr">
+
+          <h3 id="font-editor">Font Editor</h3>
+          <img src="https://user-images.githubusercontent.com/2062224/238142933-ec80399a-ccc7-4059-87a3-a640ef66cd87.png" style="display: block; margin-left: auto; margin-right: auto; width: 640px; image-rendering: pixelated;">
+          <div style="color: gray; font-size: 8px;" align="center">Font editor</div>
+
+          <p>There are three ways to output some text onto the screen in GB BASIC: <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">print ...</code> with the default font, <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">text ...</code> as a graphics primitive, and <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">label ...</code> with a TrueType font. The first way is primarily designed for debug purpose, the second one is for simple ASCII output, and the last one is for generic text representation in game (including both ASCII and UTF-8). To help present a random TTF, GB BASIC implements a font editor.</p>
+          <hr class="hr">
+
+          <h3 id="actor-editor">Actor Editor</h3>
+          <img src="https://user-images.githubusercontent.com/2062224/238142938-09e9999d-a68e-4779-a5a6-7f6064fab9da.png" style="display: block; margin-left: auto; margin-right: auto; width: 640px; image-rendering: pixelated;">
+          <div style="color: gray; font-size: 8px;" align="center">Actor editor</div>
+
+          <img src="https://user-images.githubusercontent.com/2062224/238142939-6badfd17-e746-487a-82bf-681a28135639.png" style="display: block; margin-left: auto; margin-right: auto; width: 640px; image-rendering: pixelated;">
+          <div style="color: gray; font-size: 8px;" align="center">Actor editor</div>
+
+          <p>An actor is considered being a wrapper and better version of sprite, which supports bigger frames and more advanced options. The new actor editor offers an integrated context and tools for making actors.</p>
+          <hr class="hr">
+
+          <h3 id="scene-editor">Scene Editor</h3>
+          <img src="https://user-images.githubusercontent.com/2062224/238142940-bef2858d-2cd4-441d-a73a-b66132b492d3.png" style="display: block; margin-left: auto; margin-right: auto; width: 640px; image-rendering: pixelated;">
+          <div style="color: gray; font-size: 8px;" align="center">Scene editor</div>
+
+          <p>You can edit both map data and map attributes with the map editor in alpha 1. The new scene editor as enhancement can refer to map and actor assets to make up a full scene.</p>
+          <hr>
+
+          <!-- ## Ease of Use -->
+
+          <h3 id="font-for-text">Font for Text</h3>
+          <p>The runtime offers a <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">label</code> statement to draw TTF text. First, define an area on a specific layer as a label, then feed the label with some text, it handles line-wrap and paging automatically.</p>
+          <pre class="language-basic" tabindex="0"><code class="language-basic" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;"><span class="token function">window</span> <span class="token keyword">on</span>
+          <span class="token function">window</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">111</span>
+          <span class="token function">def</span> label<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">16</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">=</span> window_layer<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">10</span>
+
+          label #<span class="token number">0</span><span class="token punctuation">,</span> <span class="token string">"Hello World"</span>
+          label #<span class="token number">0</span><span class="token punctuation">,</span> "你好世界"
+          label #<span class="token number">0</span><span class="token punctuation">,</span> "こんにちは世界"</code></pre>
+          <p>The compiler will figure out which characters are used in your program, therefore the assets pipeline can emits only a sub set of the glyphs which are in-use in a TTF to the final ROM.</p>
+          <img src="https://user-images.githubusercontent.com/2062224/238142943-ecd97265-2571-44ba-8013-fae0cc490abc.png" style="display: block; margin-left: auto; margin-right: auto; width: 640px; image-rendering: pixelated;">
+          <div style="color: gray; font-size: 8px;" align="center">Font effects</div>
+
+          <p>You can also specify shadow or outline effects in the font editor, this effect is baked during building time before running.</p>
+          <hr class="hr">
+
+          <h3 id="actor-operations">Actor Operations</h3>
+          <img src="https://user-images.githubusercontent.com/2062224/238142946-866153b7-72bc-4d31-ac2c-ae90787614fb.png" style="display: block; margin-left: auto; margin-right: auto; width: 640px; image-rendering: pixelated;">
+          <div style="color: gray; font-size: 8px;" align="center">Actor definition</div>
+
+          <p>It was barely possible to make an actor before, but it is a past tense already. Most of the actor options could be defined in this editor as well, besides making actors. An actor could be referenced from code as <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">#0</code>, <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">#1</code>, etc. where the number indicates a specific asset page.</p>
+          <pre class="language-basic" tabindex="0"><code class="language-basic" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">sprite <span class="token keyword">on</span>
+          <span class="token function">option</span> sprite8x16_enabled<span class="token punctuation">,</span> true
+
+          fill actor<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">56</span><span class="token punctuation">)</span> <span class="token operator">=</span> #<span class="token number">0</span>
+
+          <span class="token function">let</span> a <span class="token operator">=</span> new actor<span class="token punctuation">(</span><span class="token punctuation">)</span>
+          <span class="token function">def</span> actor<span class="token punctuation">(</span>a<span class="token punctuation">,</span> <span class="token number">79</span><span class="token punctuation">,</span> <span class="token number">63</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">=</span> #<span class="token number">0</span>
+          play actor a<span class="token punctuation">,</span> <span class="token number">0</span></code></pre>
+          <hr class="hr">
+
+          <img src="https://user-images.githubusercontent.com/2062224/238142949-89da9ff0-9912-44d5-8ddf-7dd9bae4ad23.png" style="display: block; margin-left: auto; margin-right: auto; width: 256px; image-rendering: pixelated;">
+          <div style="color: gray; font-size: 8px;" align="center">Actor compacting</div>
+
+          <p>Actors are compacted for less ROM footprint.</p>
+          <hr class="hr">
+
+          <h3 id="scene-operations">Scene Operations</h3>
+          <p>Scene is a high-level type of asset that refers to a base map asset, a group of actors and another layer of properties. There are two kinds of typical usages of a scene. First, it could be used as a "big" map, that only defines the tiles indices as <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">def scene(...)</code>.</p>
+          <pre class="language-basic" tabindex="0"><code class="language-basic" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">map <span class="token keyword">on</span>
+          fill tile<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span> <span class="token operator">=</span> #<span class="token number">0</span>
+
+          map <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span>
+          camera <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span>
+
+          <span class="token function">def</span> scene<span class="token punctuation">(</span><span class="token number">38</span><span class="token punctuation">,</span> <span class="token number">22</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">=</span> #<span class="token number">0</span>
+
+          <span class="token comment"><span class="token keyword">REM</span> Other code to do other setup and actor loading...</span></code></pre>
+          <p>Second, GB BASIC also implements a <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">load scene(...)</code> statement to offer a handy one-line shot that initializes everything.</p>
+          <pre class="language-basic" tabindex="0"><code class="language-basic" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">load scene<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">=</span> #<span class="token number">0</span></code></pre>
+          <p>In addition, use <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">find actor(...)</code> to access actors since the one-line loading doesn't return them.</p>
+          <pre class="language-basic" tabindex="0"><code class="language-basic" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;"><span class="token function">let</span> a <span class="token operator">=</span> find actor<span class="token punctuation">(</span>none_template<span class="token punctuation">,</span> nothing<span class="token punctuation">)</span>
+          play actor a<span class="token punctuation">,</span> <span class="token number">0</span></code></pre>
+          <hr class="hr">
+
+          <h3 id="side-note">Side Note</h3>
+          <p>The alpha 2 version is mostly about improvements on the editors; in the next next version (alpha 4), I'll step on upgrading the runtime part, and also improve the editors again by then.</p>
+          <hr>
+
+          <!-- ## Development Plan -->
+
+          <p>Though the latest version is alpha 2, you could get an impression of how working with full version would be like. There are two more alpha and a beta versions on the schedule, the overall progress is estimatedly 50% complete.</p>
+          <p><img src="https://paladin-t.github.io/imgs/progresses/50.png" alt="33%"> 50% - Overall progress</p>
+          <img src="https://user-images.githubusercontent.com/2062224/225687661-6d7c2716-9173-471c-a5fa-653e99ba1700.jpg" style="display: block; margin-left: auto; margin-right: auto; width: 640px;">
+          <div style="color: gray; font-size: 8px;" align="center">Running on different devices</div>
+
+          <p><img src="https://paladin-t.github.io/imgs/progresses/100.png" alt="100%"> 100% - Prototype progress (DONE):</p>
+          <ul>
+          <li>A working parser and a compiler</li>
+          <li>A runtime that supports a number of programming interfaces</li>
+          </ul>
+          <p><img src="https://paladin-t.github.io/imgs/progresses/100.png" alt="100%"> 100% - Alpha 1 progress (DONE):</p>
+          <ul>
+          <li>A working assets processing pipeline flow</li>
+          <li>Code, tiles, map, palette editors</li>
+          <li>A built-in emulator</li>
+          <li>A ROM exporter</li>
+          <li>Migrated examples</li>
+          <li>A Linux port</li>
+          </ul>
+          <p><img src="https://paladin-t.github.io/imgs/progresses/100.png" alt="5%"> 100% - Alpha 2 progress (DONE):</p>
+          <ul>
+          <li>Implement font, actor, scene editors</li>
+          <li>Implement asset pipelines to process those real user made assets</li>
+          </ul>
+          <p><img src="https://paladin-t.github.io/imgs/progresses/5.png" alt="0%"> 5% - Alpha 3 progress (WIP):</p>
+          <ul>
+          <li>Implement an audio tracker and editor</li>
+          <li>Implement an asset pipeline to process those real user made assets</li>
+          <li>Fill in the reference manual</li>
+          </ul>
+          <p><img src="https://paladin-t.github.io/imgs/progresses/0.png" alt="0%"> 0% - Alpha 4 progress (TODO):</p>
+          <ul>
+          <li>Improve the API</li>
+          <li>Improve the <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">Actor</code>, <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">Controller</code> and <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">Scene</code> modules, etc.</li>
+          <li>Implement extension features</li>
+          </ul>
+          <p><img src="https://paladin-t.github.io/imgs/progresses/0.png" alt="0%"> 0% - Beta 1 progress (TODO):</p>
+          <ul>
+          <li>Add more customization options</li>
+          <li>Finish the reference manual</li>
+          <li>Add more examples</li>
+          <li>Port the project to other operating systems</li>
+          </ul>
+          <p>More versions (TBD)?</p>
+          <hr class="hr">
+
+          <p>Stick around for future updates if you are interested in GB BASIC, leave a message below if you got an idea or question. You can also support my development by getting my other projects listed on the main page of this site.</p>
+          <p>[<a href="https://paladin-t.github.io/">Home</a>|<a href="https://paladin-t.github.io/#articles">All articles</a>|<a href="https://paladin-t.github.io/articles/gb-basic-alpha-2.html">Permalink</a>]</p>
+          <!--  END CONTENT  -->
+          <br>
+          <br>
+          Loading content...
+        </div>
+        <div id="article-labels">
+        </div>
+        <div id="article-rss" style="padding-top: 8px;">
+        </div>
+        <hr>
+        <div id="article-comments" style="display: none;">
+          Loading comments...
+        </div>
+      </div>
+      <script src="https://utteranc.es/client.js"
+        repo="paladin-t/paladin-t.github.io" issue-number="5"
+        theme="github-light"
+        crossorigin="anonymous" async>
+      </script>
+
+      <hr>
+      <p align="center">
+        (C) 2018-2023 <a href="https://paladin-t.github.io/">Tony Wang</a>
+        <a href="../feed.xml" target="_blank" class="label" style="color: white;">RSS</a>
+      </p>
+    </div>
+  </div>
+  <script src="../polyfill.js"></script>
+  <script src="../marked.js"></script>
+  <script src="../prism.js"></script>
+  <script src="../article.js"></script>
+  <script src="../site-storage.js"></script>
+  <script src="../toggle-font.js"></script>
+  <script type="text/javascript">
+    // Article.
+    (function () {
+      var author = 'paladin-t';
+      var repo = 'paladin-t.github.io';
+      var id = '9';
+      var url = 'https://github.com/' + author + '/' + repo + '/issues/' + id.toString();
+      var title = 'GB BASIC Alpha 2';
+      var overview = 'GB BASIC is a Fantasy Console that generates GameBoy compatible ROM. This article shows off what\'s new in alpha version 2';
+
+      try {
+        //Article.attach('article-title', '<a href="' + url + '">' + title + '</a>');
+        //Article.attach('article-content', overview + '<br><br>Loading content...');
+        Article.read(author, repo, id, {
+            avatar: 'article-avatar',
+            title: 'article-title',
+            content: 'article-content',
+            labels: 'article-labels',
+            rss: 'article-rss',
+            comments: 'article-comments',
+            preprocess: function (html) {
+              return html
+                .replaceAll('<!--iframe', '<iframe')
+                .replaceAll('/iframe-->', '/iframe>')
+                .replaceAll('<code>', '<code class="language-auto">')
+                .replaceAll('language-c++', 'language-cpp');
+            },
+            highlight: function () {
+              Prism.highlightAll();
+
+              toggleFont();
+            }
+        });
+      } catch (_) {
+        //var html = 'Oops, cannot load article for the moment...<br>Try refersh or ';
+        //html += '<a href="' + url + '">click</a>';
+
+        //Article.attach('article-content', html);
+        //Article.attach('article-comments', 'Cannot load comments...');
+
+        toggleFont();
+      }
+    })();
+  </script>
+  <script async src="/cookieconsent.js"></script>
+  <script>
+      window.addEventListener('load', function () {
+      window.wpcc.init(
+        {
+          'border': 'thin',
+          'corners': 'small',
+          'colors': {
+            'popup': {
+              'background': '#f6f6f6',
+              'text': '#000000',
+              'border': '#555555'
+            },
+            'button': {
+              'background': '#555555',
+              'text': '#ffffff'
+            }
+          },
+          'content': {
+            'message': 'This website uses cookies to keep ensure the highest service quality. By continuing using the site, you agree to use cookies.'
+          }
+        }
+      );
+      var content = document.getElementsByClassName('wpcc-container');
+      if (content && content.length > 0)
+        content[0].style = 'font: 16px Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace, sans-serif;';
+      var btn = document.getElementsByClassName('wpcc-btn');
+      if (btn && btn.length > 0)
+        btn[0].style = 'border: 0; display: block; font-size: .9em; font-weight: 700; outline: 0; padding: .4em 0em; text-align: center; width: 100%; white-space: nowrap; -webkit-transition: background-color .2s ease; -moz-transition: background-color .2s ease; -ms-transition: background-color .2s ease; -o-transition: background-color .2s ease;';
+    });
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112501113-5"></script>
+  <script type="text/javascript">
+    window.dataLayer = window.dataLayer || [];
+    function gtag () {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-112501113-5');
+  </script>
+</body>
+</html>
