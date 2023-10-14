@@ -7,6 +7,13 @@
   <atom:link rel="self" type="application/rss+xml" href="https://paladin-t.github.io/feed.xml"/>
 
   <item>
+    <title>GB BASIC Alpha 3</title>
+    <description>GB BASIC is a Fantasy Console that generates GameBoy compatible ROM. This article shows off what's new in alpha version 3.&lt;br&gt;Click to read: &lt;a href="https://paladin-t.github.io/articles/gb-basic-alpha-3.html"&gt;https://paladin-t.github.io/articles/gb-basic-alpha-3.html&lt;/a&gt;</description>
+    <link>https://paladin-t.github.io/articles/gb-basic-alpha-3.html</link>
+    <guid>https://paladin-t.github.io/articles/gb-basic-alpha-3.html</guid>
+    <pubDate>14 Oct 2023 08:00:00 +0800 </pubDate>
+  </item>
+  <item>
     <title>GB BASIC Alpha 2</title>
     <description>GB BASIC is a Fantasy Console that generates GameBoy compatible ROM. This article shows off what's new in alpha version 2.&lt;br&gt;Click to read: &lt;a href="https://paladin-t.github.io/articles/gb-basic-alpha-2.html"&gt;https://paladin-t.github.io/articles/gb-basic-alpha-2.html&lt;/a&gt;</description>
     <link>https://paladin-t.github.io/articles/gb-basic-alpha-2.html</link>
