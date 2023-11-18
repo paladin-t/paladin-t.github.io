@@ -1,1 +1,297 @@
-under construction
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <title>GB BASIC | Tony Wang</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <meta name="description" content="GB BASIC is a retro Fantasy Console that generates ROMs compatible with the popular handheld game console.">
+  <meta name="twitter:card" content="GB BASIC is a retro Fantasy Console that generates ROMs compatible with the popular handheld game console.">
+  <meta name="og:title" property="og:title" content="GB BASIC">
+  <meta name="og:description" property="og:description" content="GB BASIC is a retro Fantasy Console that generates ROMs compatible with the popular handheld game console.">
+  <meta name="author" content="Tony Wang">
+  <meta name="keywords" content="game,boy,gb,gbc,gba,psp,programming,programmable,programmer,handheld,gaming,console,homebrew,tool,nintendo,pixel,pixelart,indie,1980,1990,2000,retro,vintage,classic">
+  <link rel="alternate" type="application/rss+xml" title="Tony Wang - Homepage" href="../../feed.xml" />
+  <link rel="shortcut icon" href="/kits/gbb/favicon.ico" />
+  <link rel="apple-touch-icon" href="/kits/gbb/icon.png" />
+  <link rel="stylesheet" type="text/css" href="/kits/gbb/index.css">
+  <link rel="stylesheet" type="text/css" href="/kits/gbb/slides.css">
+</head>
+<body>
+  <header>
+    <a class="avatar" href="https://paladin-t.github.io/"><img src="/kits/gbb/assets/avatar.png" alt="avatar"></a>
+    <div class="nav_compact">
+      <ul>
+        <li><a href="/kits/gbb/" class="active_nav_compact">GB BASIC</a></li>
+        <li><a href="/kits/gbb/manual.html">Docs</a></li>
+        <li><a href="/kits/gbb/privacy.html">Privacy & Terms</a></li>
+        <li><span class="nav_compact_disabled">GitHub (TBD) <img src="/kits/gbb/assets/icons/external-link.svg"></span></li>
+      </ul>
+    </div>
+    <div class="nav_regular">
+      <ul>
+        <li><a href="/kits/gbb/" class="active_nav_regular">GB BASIC</a></li>
+        <li><a href="/kits/gbb/manual.html">Docs</a></li>
+        <li><a href="/kits/gbb/privacy.html">Privacy & Terms</a></li>
+        <li><span class="nav_compact_disabled">GitHub (TBD) <img src="/kits/gbb/assets/icons/external-link.svg"></span></li>
+        <li><div class="theme_btn"></div></li>
+      </ul>
+    </div>
+    <div class="theme_btn_narrow"></div>
+    <div class="menu_btn">
+      <div class="menu_burger"></div>
+    </div>
+  </header>
+  <div class="content">
+    <main>
+      <div class="banner">
+        <div class="banner_logo">
+          <div class="banner_img" id="container">
+            <canvas id="canvas"></canvas>
+            <div id="loading">
+              <div class="loader"></div> 
+            </div>
+          </div>
+          <div class="banner_title">
+            <h1>GB BASIC</h1>
+            <p>A retro Fantasy Console that generates ROMs compatible with the popular handheld game console.</p>
+            <p style="font-size: 1.5em;">Release date: TBD</p>
+            <p style="font-size: 1.5em;">Alpha: <a href="https://tonywang.itch.io/gbbasic-alpha" target="_blank">itch.io</a></p>
+            <!-- <a href="https://store.steampowered.com/app/0000000/" class="download_btn_steam" title="Steam" target="_blank"></a> -->
+          </div>
+        </div>
+        <div>
+          <p align="center" class="slider-frame">
+            <iframe id="slider-iframe" src="/kits/gbb/slides.html" scrolling="no" style="width: 680px; height: 400px; border: none; border-radius: 7px; padding: 20px 20px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; box-shadow: rgba(60, 64, 89, 0.65) -10px 8px 16px 3px;"></iframe>
+          </p>
+          <div align="center" class="slider-horizontal">
+            <img src="/kits/gbb/assets/screenshot1.png" class="box">
+            <img src="/kits/gbb/assets/screenshot2.png" class="box">
+            <img src="/kits/gbb/assets/screenshot3.png" class="box">
+            <img src="/kits/gbb/assets/screenshot4.png" class="box">
+            <img src="/kits/gbb/assets/screenshot5.png" class="box">
+            <img src="/kits/gbb/assets/screenshot6.png" class="box">
+            <img src="/kits/gbb/assets/screenshot7.png" class="box">
+            <img src="/kits/gbb/assets/screenshot8.png" class="box">
+          </div>
+        </div>
+      </div>
+      <section id="highlight">
+        <div class="highlight_box">
+          <div class="highlight_content highlight_content1">
+            <h2>Write Code</h2>
+            <p>GB BASIC is programmable in a brand new BASIC dialect. It implements a few programming paradigms.</p>
+            <ul>
+              <li class="liicon" style="background-image: url(/kits/gbb/assets/icons/light-bulb.svg);">Imperative paradigm</li>
+              <li>
+                <ul>
+                  <li class="liicon" style="background-image: url(/kits/gbb/assets/icons/light-bulb.svg);">Non-structured programming</li>
+                  <li class="liicon" style="background-image: url(/kits/gbb/assets/icons/light-bulb.svg);">Concurrent processing approach</li>
+                </ul>
+              </li>
+              <li class="liicon" style="background-image: url(/kits/gbb/assets/icons/light-bulb.svg);">Declarative paradigm</li>
+              <li>
+                <ul>
+                  <li class="liicon" style="background-image: url(/kits/gbb/assets/icons/light-bulb.svg);">Data driven approach</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <img class="highlight_img" src="/kits/gbb/assets/icons/code.svg" alt="" aria-hidden="true" width="200">
+          <img class="highlight_img_dark" src="/kits/gbb/assets/icons/code.svg" alt="" aria-hidden="true" width="200">
+        </div>
+        <div class="highlight_box">
+          <div class="highlight_content highlight_content2">
+            <h2>Make Assets</h2>
+            <p>GB BASIC also has everything ready-to-use for making assets.</p>
+            <ul>
+              <li class="liicon" style="background-image: url(/kits/gbb/assets/icons/light-bulb.svg);">Tiles</li>
+              <li class="liicon" style="background-image: url(/kits/gbb/assets/icons/light-bulb.svg);">Map, Scene, and Actor</li>
+              <li class="liicon" style="background-image: url(/kits/gbb/assets/icons/light-bulb.svg);">Font</li>
+              <li class="liicon" style="background-image: url(/kits/gbb/assets/icons/light-bulb.svg);">Music and SFX</li>
+            </ul>
+          </div>
+          <img class="highlight_img" src="/kits/gbb/assets/icons/beaker.svg" alt="" aria-hidden="true" width="200">
+          <img class="highlight_img_dark" src="/kits/gbb/assets/icons/beaker.svg" alt="" aria-hidden="true" width="200">
+        </div>
+        <div class="highlight_box">
+          <div class="highlight_content">
+            <h2>Export ROMs</h2>
+            <p>GB BASIC supports running with the built-in emulator, exporting ROMs that are runnable on various platforms.</p>
+            <ul>
+              <li class="liicon" style="background-image: url(/kits/gbb/assets/icons/light-bulb.svg);">A real handheld game console hardware</li>
+              <li class="liicon" style="background-image: url(/kits/gbb/assets/icons/light-bulb.svg);">A regular emulator</li>
+              <li class="liicon" style="background-image: url(/kits/gbb/assets/icons/light-bulb.svg);">A hardware clone</li>
+              <li class="liicon" style="background-image: url(/kits/gbb/assets/icons/light-bulb.svg);">An amulator that runs as a retro console</li>
+            </ul>
+          </div>
+          <img class="highlight_img" src="/kits/gbb/assets/icons/chip.svg" alt="" aria-hidden="true" width="200">
+          <img class="highlight_img_dark" src="/kits/gbb/assets/icons/chip.svg" alt="" aria-hidden="true" width="200">
+        </div>
+      </section>
+      <section class="get_the_app">
+        <h2>Get GB BASIC</h2>
+        <div align="center" style="padding: 10px 0 0 0;">
+          <!-- <a href="https://store.steampowered.com/app/0000000/">
+            <img src="/kits/gbb/assets/stores/steam.png" class="download_btn">
+          </a> -->
+          <p>Coming soon</p>
+          <br>
+        </div>
+      </section>
+      <section class="technical" id="technical">
+        <h2>Technical Aspects</h2>
+        <div class="technical_aspects">
+          <div>
+            <img src="/kits/gbb/assets/icons/adjustments.svg">
+            <h3>Features</h3>
+            <h5>Ready-to-use</h5>
+            <!-- <p>...</p> -->
+            <ul>
+              <li>Programmable in BASIC, an easy to learn and fun to use programming language</li>
+              <li>Easy to use API for graphics, input, audio, and more other facilities</li>
+              <li>Built-in libraries for scene, actor, GUI, persistence, RTC, etc.</li>
+              <li>Handy tools for editing tiles, map, scene, actor, font, sound, etc.</li>
+              <li>Project can be exported into real ROM</li>
+              <li>Dozens of example projects</li>
+            </ul>
+          </div>
+          <div>
+            <img src="/kits/gbb/assets/icons/cube-transparent.svg">
+            <h3>Specifications</h3>
+            <h5>As a Fantasy Console</h5>
+            <!-- <p>...</p> -->
+            <ul>
+              <li><span style="font-weight: bold;">CPU</span>: 4.19MHz/8.38MHz for classic/colored respectively</li>
+              <li><span style="font-weight: bold;">Threads</span>: up to 16 concurrent execution contexts</li>
+              <li><span style="font-weight: bold;">Display</span>: 160x144px</li>
+              <li><span style="font-weight: bold;">Code</span>: BASIC, supports multiple source pages</li>
+              <li><span style="font-weight: bold;">Gamepad</span>: 8 buttons (D-Pad + A/B + Select/Start)</li>
+              <li><span style="font-weight: bold;">Mouse and touch</span>: supported by <span style="font-weight: bold;">extension</span></li>
+              <li><span style="font-weight: bold;">Tiles</span>: up to 256 units per page</li>
+              <li><span style="font-weight: bold;">Map</span>: up to 4095 tiles per page; two layers (graphics, attributes)</li>
+              <li><span style="font-weight: bold;">Sprite</span>: supports simple 8x8 and 8x16 sprites</li>
+              <li><span style="font-weight: bold;">Scene</span>: up to 4095 tiles per page; four layers (map, attributes, properties, actors)</li>
+              <li><span style="font-weight: bold;">Actor</span>: up to 8x8 tiles per frame; up to 1024 frames per page</li>
+              <li><span style="font-weight: bold;">Font</span>: supports TrueType; up to 16px; 1bpp or 2bpp</li>
+              <li><span style="font-weight: bold;">Audio</span>: 4 channels; supports importing from JSON, VGM, WAV, FxHammer</li>
+              <li><span style="font-weight: bold;">Palette</span>: 2bit (4 colors)</li>
+              <li><span style="font-weight: bold;">GUI</span>: supports label</li>
+              <li><span style="font-weight: bold;">Persistence</span>: supported</li>
+              <li><span style="font-weight: bold;">RTC</span>: supported</li>
+              <li><span style="font-weight: bold;">Serial port</span>: supported</li>
+            </ul>
+          </div>
+        </div>
+        <div class="system_requirements">
+          <h2>System Requirements</h2>
+          <div class="table_box">
+            <table title="System Requirements">
+              <thead>
+                <tr>
+                  <th scope="col"></th>
+                  <th scope="col">Windows</th>
+                  <th scope="col">MacOS</th>
+                  <th scope="col">Linux</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">OS</th>
+                  <td>Windows 7 or later (64bit)</td>
+                  <td>Coming soon</td>
+                  <td>Ubuntu 14 or later (64bit)</td>
+                </tr>
+                <tr>
+                  <th scope="row">Processor</th>
+                  <td>1.5GHz</td>
+                  <td>-</td>
+                  <td>1.5GHz</td>
+                </tr>
+                <tr>
+                  <th scope="row">Memory</th>
+                  <td>512 MB RAM</td>
+                  <td>-</td>
+                  <td>512 MB RAM</td>
+                </tr>
+                <tr>
+                  <th scope="row">Graphics</th>
+                  <td>Intel HD</td>
+                  <td>-</td>
+                  <td>Intel HD</td>
+                </tr>
+                <tr>
+                  <th scope="row">Storage</th>
+                  <td>80 MB available space</td>
+                  <td>-</td>
+                  <td>80 MB available space</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <br>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="footer_nav" align="center">
+        <div>
+          <h6>About</h6>
+          <ul>
+            <li><a href="/kits/gbb/privacy.html">Privacy Policy</a></li>
+            <li><a href="/kits/gbb/terms.html">Terms of Service</a></li>
+            <li><a href="https://paladin-t.github.io/" target="_blank">Tony Wang</a></li>
+          </ul>
+        </div>
+        <div>
+          <h6>Product</h6>
+          <ul>
+            <li><a href="#highlight">Highlight</a></li>
+            <li><a href="#technical">Technical Aspects</a></li>
+          </ul>
+        </div>
+        <div>
+          <h6>Connect</h6>
+          <ul>
+            <li><a href="https://paladin-t.github.io/message.html" target="_blank">Message board</a></li>
+            <li><a href="https://paladin-t.github.io/" target="_blank">E-mail</a></li>
+            <li><a href="https://twitter.com/wangrenxin" target="_blank">Twitter</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer_copyright">
+        <img src="/kits/gbb/icon.png" alt="logo" width="48">
+        <p>Copyright © 2023 Tony Wang. All rights reserved.</p>
+      </div>
+    </footer>
+  </div>
+  <script src="/polyfill.js"></script>
+  <script async src="/es-module-shims.js"></script>
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "/three.js/three.module.js",
+        "three/addons/": "/three.js/jsm/"
+      }
+    }
+  </script>
+  <script type="x-shader/x-vertex" id="vertexshader">
+    varying vec2 vUv;
+    void main() {
+      vUv = uv;
+      gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+    }
+  </script>
+  <script type="x-shader/x-fragment" id="fragmentshader">
+    uniform sampler2D baseTexture;
+    uniform sampler2D bloomTexture;
+    varying vec2 vUv;
+    void main() {
+      vec4 baseCol = texture2D(baseTexture, vUv);
+      vec4 bloomCol = texture2D(bloomTexture, vUv);
+      gl_FragColor = baseCol + bloomCol * vec4(1.0, 1.0, 1.0, bloomCol.r + bloomCol.g + bloomCol.b);
+    }
+  </script>
+  <script type="module" src="/kits/gbb/index.js"></script>
+</body>
+</html>
