@@ -1,5 +1,17 @@
 ## About
 
+# About This Software
+
+Hi, I'm Tony Wang.
+
+Enlightened with BASIC, I started to write computer programs when I was a young boy. Almost at the same age, I got a GameBoy Pocket as my first handheld gaming console. I was quite into these both things. I learned many other programming languages and owned quite a number of newer consoles with age. Now I'm almost living by writing game programs, and could still have a lot of fun from these two of my hobbies.
+
+I found that the simple and straightforward nature of BASIC and GameBoy became more charming when the other modern technologies went complex and excessive. I've worked on a lot of game, gaming tool and programming language projects in office and home. So I decided to bring you GB BASIC, I hope you would enjoy.
+
+## Why Fantasy Console?
+
+Most of the technical specifications are referenced from real hardwares, however GB BASIC also implements a few <a href="/kits/gbb/extensions.html#kernel-extension">extension</a> features which are fictional. On the other hand, these features are totally implementable, technically it is possible that we could see these features on hardware.
+
 # License
 
 Under construction...
@@ -17,7 +29,7 @@ Under construction...
 * LZ4 - from [lz4/lz4](https://github.com/lz4/lz4)
 * zlib - from [zlib.net](https://zlib.net/)
 
-### VM Toolchains
+### Kernel (VM) Toolchains
 
 * GBDK-2020 - from [gbdk-2020/gbdk-2020](https://github.com/gbdk-2020/gbdk-2020)
 * gbvm - from [untoxa/gbvm](https://github.com/untoxa/gbvm)

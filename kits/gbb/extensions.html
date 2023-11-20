@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>GB BASIC - Launching | Tony Wang</title>
+  <title>GB BASIC - Extensions | Tony Wang</title>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
@@ -24,18 +24,18 @@
     <div class="nav_compact">
       <ul>
         <li><a href="/kits/gbb/">GB BASIC</a></li>
-        <li><a href="/kits/gbb/manual.html" class="active_nav_compact">Docs</a></li>
+        <li><a href="/kits/gbb/manual.html">Docs</a></li>
         <li><a href="/kits/gbb/privacy.html">Privacy & Terms</a></li>
-        <li><a href="/kits/gbb/about.html">About</a></li>
+        <li><a href="/kits/gbb/about.html" class="active_nav_compact">About</a></li>
         <li><span class="nav_compact_disabled">GitHub (TBD) <img src="/kits/gbb/assets/icons/external-link.svg"></span></li>
       </ul>
     </div>
     <div class="nav_regular">
       <ul>
         <li><a href="/kits/gbb/">GB BASIC</a></li>
-        <li><a href="/kits/gbb/manual.html" class="active_nav_regular">Docs</a></li>
+        <li><a href="/kits/gbb/manual.html">Docs</a></li>
         <li><a href="/kits/gbb/privacy.html">Privacy & Terms</a></li>
-        <li><a href="/kits/gbb/about.html">About</a></li>
+        <li><a href="/kits/gbb/about.html" class="active_nav_regular">About</a></li>
         <li><span class="nav_compact_disabled">GitHub (TBD) <img src="/kits/gbb/assets/icons/external-link.svg"></span></li>
         <li><div class="theme_btn"></div></li>
       </ul>
@@ -68,8 +68,8 @@
         <div class="term_box">
           <p class="docs_nav" align="left">
             <a href="manual.html">Reference Manual</a> |
-            <a href="extensions.html">Extensions</a> |
-            <a href="launching.html"><b>Launching</b></a> |
+            <a href="extensions.html"><b>Extensions</b></a> |
+            <a href="launching.html">Launching</a> |
             <a href="changelog.html">Changelog</a> |
             <a href="about.html">About</a>
           </p>
@@ -161,15 +161,15 @@
   <script src="/kits/gbb/article.js"></script>
   <script type="text/javascript">
     (function () {
-      var url = 'documents/launching.md';
-      var ref = 'documents/launching';
+      var url = 'documents/extensions.md';
+      var ref = 'documents/extensions';
 
       try {
         Article.read(url, ref, {
           content: 'article-content',
           parse: function (markdown) {
             return markdown
-              .replaceAll('## Launching', '# Launching')
+              .replaceAll('## Extensions', '# Extensions')
               .replaceAll('![](imgs/', '![](documents/imgs/');
           },
           preprocess: function (html) {

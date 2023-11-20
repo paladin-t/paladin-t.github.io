@@ -653,10 +653,10 @@ section {
   padding-bottom: 10px;
 }
 .technical_aspects a {
-  background-image: url(/kits/gbb/assets/arrow.svg);
+  text-decoration: revert;
+  color: #f052a1;
   background-repeat: no-repeat;
   background-position: right center;
-  padding-right: 1.25rem;
 }
 .technical_aspects a:hover {
   opacity: 0.8;

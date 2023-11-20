@@ -2,7 +2,7 @@
 
 ## Reference Manual
 
-[**Manual**](https://paladin-t.github.io/kits/gbb/manual.html) | [Launching](https://paladin-t.github.io/kits/gbb/launching.html) | [Changelog](https://paladin-t.github.io/kits/gbb/changelog.html) | [About](https://paladin-t.github.io/kits/gbb/about.html)
+[**Manual**](https://paladin-t.github.io/kits/gbb/manual.html) | [Extensions](https://paladin-t.github.io/kits/gbb/extensions.html) | [Launching](https://paladin-t.github.io/kits/gbb/launching.html) | [Changelog](https://paladin-t.github.io/kits/gbb/changelog.html) | [About](https://paladin-t.github.io/kits/gbb/about.html)
 
 ## Table of Content
 
