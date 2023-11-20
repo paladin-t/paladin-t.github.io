@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>GB BASIC - Reference Manual | Tony Wang</title>
+  <title>GB BASIC - Changelog | Tony Wang</title>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
@@ -67,9 +67,9 @@
       <section style="padding-top: 100px;">
         <div class="term_box">
           <p class="docs_nav" align="left">
-            <a href="manual.html"><b>Reference Manual</b></a> |
+            <a href="manual.html">Reference Manual</a> |
             <a href="launching.html">Launching</a> |
-            <a href="changelog.html">Changelog</a> |
+            <a href="changelog.html"><b>Changelog</b></a> |
             <a href="about.html">About</a>
           </p>
           <div id="article-content" class="term_content">
@@ -160,17 +160,15 @@
   <script src="/kits/gbb/article.js"></script>
   <script type="text/javascript">
     (function () {
-      var url = 'documents/manual.md';
-      var ref = 'documents/manual';
+      var url = 'documents/changelog.md';
+      var ref = 'documents/changelog';
 
       try {
         Article.read(url, ref, {
           content: 'article-content',
           parse: function (markdown) {
             return markdown
-              .replaceAll('## Reference Manual', '# Reference Manual')
-              .replaceAll('[**Manual**](https://paladin-t.github.io/kits/gbb/manual.html) | [Launching](https://paladin-t.github.io/kits/gbb/launching.html) | [Changelog](https://paladin-t.github.io/kits/gbb/changelog.html) | [About](https://paladin-t.github.io/kits/gbb/about.html)', '')
-              .replaceAll('![](imgs/logo.png)', '')
+              .replaceAll('## Changelog', '# Changelog')
               .replaceAll('![](imgs/', '![](documents/imgs/');
           },
           preprocess: function (html) {

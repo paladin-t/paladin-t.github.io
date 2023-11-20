@@ -25,7 +25,7 @@ import { FXAAShader } from 'three/addons/shaders/FXAAShader.js';
 
 let lightTheme = true;
 let setHandheldTheme = null;
-do {
+(function () {
   const ELEMENTS = [
     '*',
     'html',
@@ -36,6 +36,7 @@ do {
     'footer',
     'footer h6',
     'footer li',
+    'footer li img',
     'footer a:hover',
     '.footer_copyright p',
     '.banner',
@@ -115,7 +116,7 @@ do {
   const themeNarrowBtn = document.querySelector('.theme_btn_narrow');
   themeBtn.addEventListener('click', onToggleTheme);
   themeNarrowBtn.addEventListener('click', onToggleTheme);
-} while (false);
+})();
 
 /* ===========================================================================} */
 
@@ -124,7 +125,7 @@ do {
 ** Logo
 */
 
-do {
+(async function () {
   let stat = false;
   let auto = true;
   let tween = true;
@@ -134,6 +135,7 @@ do {
   let shadow = true;
 
   const container = document.getElementById('container');
+  const loading = document.getElementById('loading');
   const canvas = document.getElementById('canvas');
   const obj = {
     animations: null,
@@ -342,8 +344,8 @@ do {
     onLoaded: obj.onLoaded.bind(obj),
     onUpdated: obj.onUpdated.bind(obj)
   });
-  const loading = document.getElementById('loading');
   loading.hidden = true;
+  container.style.backgroundImage = 'none';
 
   // window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (event) {
   //   const theme = event.matches ? 'dark' : 'light';
@@ -760,7 +762,7 @@ do {
 
     return result;
   }
-} while (false);
+})();
 
 /* ===========================================================================} */
 
@@ -769,7 +771,7 @@ do {
 ** Menu
 */
 
-do {
+(function () {
   const menuBtn = document.querySelector('.menu_btn');
   const menuNav = document.querySelector('.nav_compact ul');
   const menuItems = document.querySelectorAll('.nav_compact li a');
@@ -811,6 +813,6 @@ do {
 
     closeMenu();
   });
-} while (false);
+})();
 
 /* ===========================================================================} */

@@ -73,6 +73,10 @@ h6 {
 
 #container {
   position: relative;
+  background-image: url(/kits/gbb/assets/logo.png);
+  background-position: center bottom;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 #canvas {
   width: 100%;
@@ -123,7 +127,7 @@ header a {
 .banner {
   width: 100%;
   background-color: #88c070;
-  background-image: url(assets/background.png);
+  background-image: url(/kits/gbb/assets/background.png);
   background-repeat: repeat-x repeat-y;
   background-attachment: fixed;
 }
@@ -266,6 +270,7 @@ header a {
     display: none;
   }
 }
+
 @media (max-width: 750px) {
   .title_frame {
     padding: 0rem 1.5rem 0rem 1.5rem;
@@ -360,7 +365,7 @@ header a {
   display: inline-block;
   width: 64px;
   height: 64px;
-  background-image: url(assets/stores/steam-square.png);
+  background-image: url(/kits/gbb/assets/stores/steam-square.png);
   background-size: 100%;
   background-repeat: no-repeat;
 }
@@ -369,7 +374,7 @@ header a {
   display: inline-block;
   width: 64px;
   height: 64px;
-  background-image: url(assets/stores/itch-square.png);
+  background-image: url(/kits/gbb/assets/stores/itch-square.png);
   background-size: 100%;
   background-repeat: no-repeat;
 }
@@ -394,6 +399,12 @@ header a {
   }
   .download_btn_itch {
     display: inline-block;
+  }
+}
+
+@media (max-width: 750px) {
+  .banner_title {
+    margin-bottom: 1em;
   }
 }
 
@@ -444,7 +455,7 @@ section {
   background-size: fit-content;
   background-repeat: no-repeat;
   background-position: left center;
-  margin-top: 0.75rem;
+  margin-top: 0.25rem;
 }
 .highlight_content li ul li {
   color: #000000;
@@ -454,7 +465,7 @@ section {
   background-size: fit-content;
   background-repeat: no-repeat;
   background-position: left center;
-  margin-top: 0.75rem;
+  margin-top: 0.25rem;
 }
 .highlight_content .liicon {
   background-size: 24px;
@@ -490,6 +501,9 @@ section {
 .term_content .link {
   color: #f052a1;
 }
+#highlight {
+  margin-top: 2em;
+}
 
 @media (min-width: 960px) {
   .highlight_box {
@@ -517,9 +531,8 @@ section {
     max-width: 1080px;
   }
   .term_box {
-    flex-direction: row;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: normal;
     padding: 0rem 1.5rem 1.5rem 1.5rem;
   }
 }
@@ -533,6 +546,12 @@ section {
   } */
   .highlight_content {
     max-width: 55%;
+  }
+}
+
+@media (max-width: 750px) {
+  #highlight {
+    margin-top: revert;
   }
 }
 
@@ -601,6 +620,7 @@ section {
   padding: 2.5rem 2rem;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0);
   transition: all 0.24s ease-in-out;
+  margin-bottom: 1em;
 }
 .technical_aspects > div:hover {
   transform: translateY(-0.25rem);
@@ -620,13 +640,12 @@ section {
   font-weight: 500;
 }
 .technical_aspects p {
-  padding: 1rem 0;
-  height: 5rem;
+  padding: 0.5rem 0;
 }
 .technical_aspects li {
   color: #000000;
   line-height: normal;
-  background-image: url(assets/check.svg);
+  background-image: url(/kits/gbb/assets/check.svg);
   background-repeat: no-repeat;
   background-position: left center;
   padding-left: 2rem;
@@ -634,7 +653,7 @@ section {
   padding-bottom: 10px;
 }
 .technical_aspects a {
-  background-image: url(assets/arrow.svg);
+  background-image: url(/kits/gbb/assets/arrow.svg);
   background-repeat: no-repeat;
   background-position: right center;
   padding-right: 1.25rem;
@@ -652,11 +671,9 @@ section {
 }
 .table_box {
   width: 100%;
-  overflow-x: scroll;
-  -ms-overflow-style: none;
-  scrollbar-width: thin;
   border: 1px solid #e6e6e6;
   border-radius: 6px;
+  scrollbar-width: none;
 }
 .system_requirements table {
   width: 100%;
@@ -700,8 +717,18 @@ section {
     grid-template-columns: 1fr 1fr;
     column-gap: 2rem;
   }
+  .technical_aspects > div {
+    margin-bottom: revert;
+  }
   .table_box {
     scrollbar-width: none;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .table_box {
+    overflow-x: scroll;
+    scrollbar-width: thin;
   }
 }
 
@@ -722,6 +749,11 @@ footer li {
   line-height: 1;
   color: #343434;
   padding: 0.5rem 0;
+}
+footer li img {
+  position: relative;
+  top: -2px;
+  width: 1.2em;
 }
 footer a:hover {
   color: #343434;
@@ -793,6 +825,9 @@ footer a:hover {
 [data-theme="dark"] footer li {
   color: rgba(255, 255, 255, 0.7);
 }
+[data-theme="dark"] footer li img {
+  filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(283deg) brightness(98%) contrast(107%);
+}
 [data-theme="dark"] footer a:hover {
   color: #ffffff;
 }
@@ -801,7 +836,7 @@ footer a:hover {
 }
 [data-theme="dark"] .banner {
   background-color: #346856;
-  background-image: url(assets/background-dark.png);
+  background-image: url(/kits/gbb/assets/background-dark.png);
 }
 [data-theme="dark"] .nav_compact ul {
   background-color: black;
@@ -842,10 +877,10 @@ footer a:hover {
   color: #f052a1;
 }
 [data-theme="dark"] .download_btn_steam {
-  background-image: url(assets/stores/steam-square.png);
+  background-image: url(/kits/gbb/assets/stores/steam-square.png);
 }
 [data-theme="dark"] .download_btn_itch {
-  background-image: url(assets/stores/itch-square.png);
+  background-image: url(/kits/gbb/assets/stores/itch-square.png);
 }
 [data-theme="dark"] .highlight_img {
   max-width: 100%;

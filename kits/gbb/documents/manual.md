@@ -2,7 +2,7 @@
 
 ## Reference Manual
 
-[**Manual**](https://paladin-t.github.io/kits/gbb/manual.html)
+[**Manual**](https://paladin-t.github.io/kits/gbb/manual.html) | [Launching](https://paladin-t.github.io/kits/gbb/launching.html) | [Changelog](https://paladin-t.github.io/kits/gbb/changelog.html) | [About](https://paladin-t.github.io/kits/gbb/about.html)
 
 ## Table of Content
 
@@ -1212,7 +1212,7 @@ The SFX editor can produce assets used for SFX, press **Ctrl+8/Cmd+8** in edit m
 
 This feature is only available on a cartridge with an SRAM chip. All the bytes will be set to zero on the first initialization.
 
-| SRAM type | Total size | File count (banks) | Usable per file size |
+| SRAM type | Total size | File count (banks) | Usable size per file |
 |---|---|---|---|
 | 0x00 | 0KB | 0 | 0B |
 | 0x01 | 2KB | 1 | 2046B |

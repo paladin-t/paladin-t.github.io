@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>GB BASIC - Reference Manual | Tony Wang</title>
+  <title>GB BASIC - About | Tony Wang</title>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
@@ -24,18 +24,18 @@
     <div class="nav_compact">
       <ul>
         <li><a href="/kits/gbb/">GB BASIC</a></li>
-        <li><a href="/kits/gbb/manual.html" class="active_nav_compact">Docs</a></li>
+        <li><a href="/kits/gbb/manual.html">Docs</a></li>
         <li><a href="/kits/gbb/privacy.html">Privacy & Terms</a></li>
-        <li><a href="/kits/gbb/about.html">About</a></li>
+        <li><a href="/kits/gbb/about.html" class="active_nav_compact">About</a></li>
         <li><span class="nav_compact_disabled">GitHub (TBD) <img src="/kits/gbb/assets/icons/external-link.svg"></span></li>
       </ul>
     </div>
     <div class="nav_regular">
       <ul>
         <li><a href="/kits/gbb/">GB BASIC</a></li>
-        <li><a href="/kits/gbb/manual.html" class="active_nav_regular">Docs</a></li>
+        <li><a href="/kits/gbb/manual.html">Docs</a></li>
         <li><a href="/kits/gbb/privacy.html">Privacy & Terms</a></li>
-        <li><a href="/kits/gbb/about.html">About</a></li>
+        <li><a href="/kits/gbb/about.html" class="active_nav_regular">About</a></li>
         <li><span class="nav_compact_disabled">GitHub (TBD) <img src="/kits/gbb/assets/icons/external-link.svg"></span></li>
         <li><div class="theme_btn"></div></li>
       </ul>
@@ -67,10 +67,10 @@
       <section style="padding-top: 100px;">
         <div class="term_box">
           <p class="docs_nav" align="left">
-            <a href="manual.html"><b>Reference Manual</b></a> |
+            <a href="manual.html">Reference Manual</a> |
             <a href="launching.html">Launching</a> |
             <a href="changelog.html">Changelog</a> |
-            <a href="about.html">About</a>
+            <a href="about.html"><b>About</b></a>
           </p>
           <div id="article-content" class="term_content">
             Loading...
@@ -160,17 +160,15 @@
   <script src="/kits/gbb/article.js"></script>
   <script type="text/javascript">
     (function () {
-      var url = 'documents/manual.md';
-      var ref = 'documents/manual';
+      var url = 'documents/about.md';
+      var ref = 'documents/about';
 
       try {
         Article.read(url, ref, {
           content: 'article-content',
           parse: function (markdown) {
             return markdown
-              .replaceAll('## Reference Manual', '# Reference Manual')
-              .replaceAll('[**Manual**](https://paladin-t.github.io/kits/gbb/manual.html) | [Launching](https://paladin-t.github.io/kits/gbb/launching.html) | [Changelog](https://paladin-t.github.io/kits/gbb/changelog.html) | [About](https://paladin-t.github.io/kits/gbb/about.html)', '')
-              .replaceAll('![](imgs/logo.png)', '')
+              .replaceAll('## About', '# About')
               .replaceAll('![](imgs/', '![](documents/imgs/');
           },
           preprocess: function (html) {

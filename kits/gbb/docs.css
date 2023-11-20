@@ -1,15 +1,21 @@
 h1, h2, h3, h4 {
   scroll-margin-top: 4.2rem;
 }
+.docs_nav {
+  color: #f052a1;
+}
+.term_content {
+  width: 100%;
+}
 .term_content * {
   padding: revert;
 }
 .term_content ol {
-  padding: 0rem 1.0rem 1.5rem 1.0rem;
+  padding: 0rem 1.0rem 0rem 1.0rem;
 }
 .term_content ul {
   list-style-type: disc;
-  padding: 0rem 1.0rem 1.5rem 1.0rem;
+  padding: 0rem 1.0rem 0rem 1.2rem;
 }
 .term_content a {
   text-decoration: revert;
@@ -19,12 +25,12 @@ h1, h2, h3, h4 {
   margin-top: 1em;
   margin-bottom: 0.5em;
 }
+.term_content .scrollable {
+  scrollbar-width: none;
+}
 .term_content table {
   width: 100%;
   margin: 0.5em 0;
-  overflow-x: scroll;
-  -ms-overflow-style: none;
-  scrollbar-width: thin;
   border: 1px solid #e6e6e6;
   border-radius: 6px;
   text-align: left;
@@ -60,6 +66,7 @@ h1, h2, h3, h4 {
 }
 .term_content p {
   margin: 0;
+  padding-top: 8px;
   overflow: scroll;
   overflow-x: auto;
   overflow-y: auto;
@@ -69,19 +76,17 @@ h1, h2, h3, h4 {
   image-rendering: auto;
 }
 
-@media (min-width: 960px) {
-  .term_content ol {
-    padding: 0rem 1.0rem 0rem 1.0rem;
-  }
-  .term_content ul {
-    padding: 0rem 1.0rem 0rem 1.0rem;
+@media only screen and (max-width: 750px) {
+  .term_content .scrollable {
+    overflow-x: scroll;
+    scrollbar-width: thin;
   }
 }
 
 @media (max-width: 750px) {
   .term_box {
     display: block;
-    padding: 0rem 0 0rem 0;
+    padding: 0 4px 0 4px;
   }
   .banner_title {
     padding: 0rem 0.5rem 0rem 0.5rem;

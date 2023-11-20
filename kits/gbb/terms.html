@@ -24,6 +24,7 @@
         <li><a href="/kits/gbb/">GB BASIC</a></li>
         <li><a href="/kits/gbb/manual.html">Docs</a></li>
         <li><a href="/kits/gbb/privacy.html" class="active_nav_compact">Privacy & Terms</a></li>
+        <li><a href="/kits/gbb/about.html">About</a></li>
         <li><span class="nav_compact_disabled">GitHub (TBD) <img src="/kits/gbb/assets/icons/external-link.svg"></span></li>
       </ul>
     </div>
@@ -32,6 +33,7 @@
         <li><a href="/kits/gbb/">GB BASIC</a></li>
         <li><a href="/kits/gbb/manual.html">Docs</a></li>
         <li><a href="/kits/gbb/privacy.html" class="active_nav_regular">Privacy & Terms</a></li>
+        <li><a href="/kits/gbb/about.html">About</a></li>
         <li><span class="nav_compact_disabled">GitHub (TBD) <img src="/kits/gbb/assets/icons/external-link.svg"></span></li>
         <li><div class="theme_btn"></div></li>
       </ul>
@@ -55,7 +57,7 @@
             <h1>GB BASIC</h1>
             <p>A retro Fantasy Console that generates ROMs compatible with the popular handheld game console.</p>
             <p style="font-size: 1.5em;">Release date: TBD</p>
-            <p style="font-size: 1.5em;">Alpha: <a href="https://tonywang.itch.io/gbbasic-alpha" target="_blank">itch.io</a></p>
+            <p style="font-size: 1.5em;">Alpha version: <a href="https://tonywang.itch.io/gbbasic-alpha" target="_blank">itch.io</a></p>
             <!-- <a href="https://store.steampowered.com/app/0000000/" class="download_btn_steam" title="Steam" target="_blank"></a> -->
           </div>
         </div>
@@ -126,26 +128,33 @@
     <footer>
       <div class="footer_nav" align="center">
         <div>
-          <h6>About</h6>
+          <h6>Learn</h6>
           <ul>
-            <li><a href="/kits/gbb/privacy.html">Privacy Policy</a></li>
-            <li><a href="/kits/gbb/terms.html">Terms of Service</a></li>
-            <li><a href="https://paladin-t.github.io/" target="_blank">Tony Wang</a></li>
+            <li><a href="/kits/gbb/manual.html">Reference Manual</a></li>
+            <li><a href="/kits/gbb/launching.html">Launching</a></li>
+            <li><a href="/kits/gbb/changelog.html">Changelog</a></li>
           </ul>
         </div>
         <div>
-          <h6>Product</h6>
+          <h6>Production</h6>
           <ul>
-            <li><a href="/kits/gbb/index.html#highlight">Highlight</a></li>
-            <li><a href="/kits/gbb/index.html#technical">Technical Aspects</a></li>
+            <li><a href="/kits/gbb/index.html#downloads">Get GB BASIC</a></li>
+            <li>GitHub (TBD) <img src="/kits/gbb/assets/icons/external-link.svg"></li>
+            <li><a href="https://paladin-t.github.io/" target="_blank">Tony Wang <img src="/kits/gbb/assets/icons/external-link.svg"></a></li>
           </ul>
         </div>
         <div>
           <h6>Connect</h6>
           <ul>
-            <li><a href="https://paladin-t.github.io/message.html" target="_blank">Message board</a></li>
-            <li><a href="https://paladin-t.github.io/" target="_blank">E-mail</a></li>
-            <li><a href="https://twitter.com/wangrenxin" target="_blank">Twitter</a></li>
+            <li><a href="https://paladin-t.github.io/message.html" target="_blank">Message Board <img src="/kits/gbb/assets/icons/external-link.svg"></a></li>
+            <li><a href="https://paladin-t.github.io/" target="_blank">E-mail <img src="/kits/gbb/assets/icons/external-link.svg"></a></li>
+            <li><a href="https://twitter.com/wangrenxin" target="_blank">Twitter <img src="/kits/gbb/assets/icons/external-link.svg"></a></li>
+          </ul>
+        </div>
+        <div>
+          <h6>Press</h6>
+          <ul>
+            <li><a href="/kits/gbb/press-kit.zip" target="_blank">Press Kit <img src="/kits/gbb/assets/icons/external-link.svg"></a></li>
           </ul>
         </div>
       </div>
@@ -160,7 +169,7 @@
   <script type="importmap">
     {
       "imports": {
-        "three": "/three.js/three.module.js",
+        "three": "/three.js/three.module.min.js",
         "three/addons/": "/three.js/jsm/"
       }
     }
@@ -183,5 +192,15 @@
     }
   </script>
   <script type="module" src="/kits/gbb/index.js"></script>
+  <script type="text/javascript">
+    (function () {
+      setInterval(function () {
+        if (typeof(THREE) == 'undefined') {
+          const loading = document.getElementById('loading');
+          loading.hidden = true;
+        }
+      }, 60000); // One minute before timeout.
+    })();
+  </script>
 </body>
 </html>
