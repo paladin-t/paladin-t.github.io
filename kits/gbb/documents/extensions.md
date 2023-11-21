@@ -43,7 +43,7 @@ GB BASIC is extended to support to execute specialized shell commands for [debug
 |---|---|---|
 | 0x0143 | Feature flag | Cartridge mask |
 
-The "Feature flag" can be a value combined by the following masks:
+The "Feature flag" can be a value combined by the following masks.
 
 | Cartridge mask | Description |
 |---|---|
@@ -64,7 +64,7 @@ The "Feature flag" can be a value combined by the following masks:
 | 0xFEA5 | 0xFEE4 | TRSC | Transfer buffer | Read/write |
 | 0xFEE5 | 0xFEFF | - | Reserved | - |
 
-The `EXTF` and `TRSC` can be on of the following codes respectively:
+The `EXTF` can be one of the following codes; it writes to this register with the specific value determined by the device itself after booting.
 
 | Extension status | Description |
 |---|---|
@@ -72,8 +72,23 @@ The `EXTF` and `TRSC` can be on of the following codes respectively:
 | 0x21 | Classic with extension |
 | 0x31 | Colored with extension |
 
+The `TRSC` can be one of the following codes.
+
 | Transfer status | Description |
 |---|---|
 | 0x00 | Ready |
 | 0x01 | Busy |
 | 0x02 | Filled |
+
+### Transfer Protocol
+
+Device reads the `TRSF` register continuously to wait untill it's set to the "Filled" status; then it reads all the bytes from the transfer buffer and clears it with `0`; finally it sets the `TRSF` register to the "Ready" status.
+
+Device takes further actions determined by the heading byte(s) of the read buffer data.
+
+| Protocol header | Description |
+|---|---|
+| "http://" or "https://" | Performs web surfing |
+| "file://" | Performs filesystem browsing |
+| ">" | Performs debugging |
+| Others | Executes the command literally |
