@@ -6,7 +6,7 @@ Hi, I'm Tony Wang.
 
 Enlightened with BASIC, I started to write computer programs when I was a young boy. Almost at the same age, I got a GameBoy Pocket as my first handheld gaming console. I was quite into these both things. I learned many other programming languages and owned quite a number of newer consoles with age. Now I'm almost living by writing game programs, and could still have a lot of fun from these two of my hobbies.
 
-I found that the simple and straightforward nature of BASIC and GameBoy became more charming when the other modern technologies went complex and excessive. I've worked on a lot of game, gaming tool and programming language projects in office and home. So I decided to bring you GB BASIC, I hope you would enjoy.
+I found that the simple and straightforward nature of BASIC and GameBoy became more charming when the other modern technologies went complex and excessive. I've worked on a lot of game, game development tool and programming language projects both in office and home. Eventually, I managed to bring you GB BASIC, I hope you would enjoy.
 
 ## Why Fantasy Console?
 

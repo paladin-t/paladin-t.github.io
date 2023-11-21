@@ -52,8 +52,8 @@
           });
       })
       .catch(function (_) {
-        var html = 'Oops, cannot load content for the moment...<br>Try refersh or ';
-        html += '<a href="' + ref + '" target="_blank">click</a>';
+        var html = 'Oops, cannot load content for the moment...<br>Try refersh or click to read the ';
+        html += '<a href="' + ref + '" target="_blank">plain version</a>';
 
         attach(nodes.content, html);
       });
