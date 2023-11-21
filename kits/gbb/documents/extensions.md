@@ -37,6 +37,8 @@ GB BASIC is extended to support to execute specialized shell commands for [debug
 
 ## Implementation Instructions
 
+These details are not required to know to use GB BASIC. They are guides for someone who want to make running environments compatible with GB BASIC's extension features.
+
 ### ROM Map
 
 | Address | Name | Description |
