@@ -4,13 +4,17 @@
 
 Hi, I'm Tony Wang.
 
-Enlightened with BASIC, I started to write computer programs when I was a young boy. Almost at the same age, I got a GameBoy Pocket as my first handheld gaming console. I was quite into these both things. I learned many other programming languages and owned quite a number of newer consoles with age. Now I'm almost living by writing game programs, and could still have a lot of fun from these two of my hobbies.
+Enlightened with BASIC, I started to write computer programs when I was a young boy. Almost at the same age, I got a GameBoy Pocket as my first handheld gaming console. I was quite into them both. I learned many other programming languages and owned quite a number of newer handheld and home consoles with age. Now I'm almost living by writing game programs, and could still have a lot of fun from these two of my hobbies.
 
-I found that the simple and straightforward nature of BASIC and GameBoy became more charming when the other modern technologies went complex and excessive. I've worked on a lot of game, game development tool and programming language projects both in office and home. Eventually, I managed to bring you GB BASIC, I hope you would enjoy.
+I found that the simple and straightforward nature of BASIC and GameBoy becames more charming when the other modern technologies went complex and excessive. I've worked on a lot of game titles, game development tools and programming language projects both in office and home. Eventually, I managed to bring you GB BASIC, I hope you would enjoy.
 
 ## Why Fantasy Console?
 
-Most of the technical specifications are referenced from real hardwares, however GB BASIC also implements a few <a href="/kits/gbb/extensions.html#kernel-extension">extension</a> features which are fictional. On the other hand, these features are totally implementable, technically it is possible that we could see these features on hardware.
+Most of the technical specifications are referenced from real hardwares, however GB BASIC also implements a few <a href="/kits/gbb/extensions.html#kernel-extension">extension</a> features which are fictional. On the other hand, these features are totally implementable, so technically it is possible that we can see these features come true on hardware.
+
+## Is Programming Skills Required?
+
+Short answer: yes. Gameplay logic is organized by code, to be specific as the name implies, you will program in BASIC. But no worry, it is an easy to learn language, and you will find it fun to use in GB BASIC dispite you have experience in another programming language or not.
 
 # License
 

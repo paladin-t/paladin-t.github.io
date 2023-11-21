@@ -14,25 +14,25 @@ Under construction...
 
 GB BASIC is extended with a new set of [mouse and touch](/kits/gbb/manual.html#mouse-and-touch) API.
 
-* It uses the `TCHX`, `TCHY` and `TCHF` registers to transfer mouse/touch data.
+* This feature uses the `TCHX`, `TCHY` and `TCHF` registers to transfer mouse/touch data.
   * `TCHX`: the x position in pixels, with range of values from 0 to 159
   * `TCHY`: the y position in pixels, with range of values from 0 to 143
-  * `TCHF`: the mouse/touch pressing status, `0` for no pressing, `1` for pressing
+  * `TCHF`: the mouse/touch pressing status, 0 for no pressing, 1 for pressing
 
 ## Shell Command
 
 GB BASIC is extended to support to execute [shell commands](/kits/gbb/manual.html#shell-command).
 
-* It uses the `TRSF` register and the `TRSC` buffer to transfer command data.
-  * `TRSF`: command transfer status; can be one of the following "Transfer status" constants
+* This feature uses the `TRSF` register and the `TRSC` buffer to transfer command data.
+  * `TRSF`: command transfer status; can be one of the "Transfer status" constants below
   * `TRSC`: command transfer buffer
 
 ## Debugging
 
 GB BASIC is extended to support to execute specialized shell commands for [debugging](/kits/gbb/manual.html#debugging).
 
-* It uses the `TRSF` register and the `TRSC` buffer to transfer debugging data.
-  * `TRSF`: debugging data transfer status; can be one of the following "Transfer status" constants
+* This feature uses the `TRSF` register and the `TRSC` buffer to transfer debugging data.
+  * `TRSF`: debugging data transfer status; can be one of the "Transfer status" constants below
   * `TRSC`: debugging data transfer buffer
 
 ## Implementation Instructions
@@ -41,16 +41,16 @@ GB BASIC is extended to support to execute specialized shell commands for [debug
 
 | Address | Name | Description |
 |---|---|---|
-| 0x0143 | Feature flag | Cartridge mask |
+| 0x0143 | Feature flag | Cartridge mask (extended) |
 
 The "Feature flag" can be a value combined by the following masks.
 
-| Cartridge mask | Description |
-|---|---|
-| 0x00 | Classic only |
-| 0x80 | Classic & colored |
-| 0xC0 | Colored only |
-| 0x20 | With extension |
+| Cartridge mask (basic type) | Cartridge mask (extension type) | Description |
+|---|---|---|
+| 0x00 | | Classic only |
+| 0x80 | | Classic & colored |
+| 0xC0 | | Colored only |
+| | 0x20 | With extension |
 
 ### RAM Map
 
@@ -64,7 +64,7 @@ The "Feature flag" can be a value combined by the following masks.
 | 0xFEA5 | 0xFEE4 | TRSC | Transfer buffer | Read/write |
 | 0xFEE5 | 0xFEFF | - | Reserved | - |
 
-The `EXTF` can be one of the following codes; it writes to this register with the specific value determined by the device itself after booting.
+The `EXTF` can be one of the following codes; a device writes to this register with the specific value determined by the device itself after booting.
 
 | Extension status | Description |
 |---|---|
@@ -82,7 +82,7 @@ The `TRSC` can be one of the following codes.
 
 ### Transfer Protocol
 
-Device reads the `TRSF` register continuously to wait untill it's set to the "Filled" status; then it reads all the bytes from the transfer buffer and clears it with `0`; finally it sets the `TRSF` register to the "Ready" status.
+Device reads the `TRSF` register continuously to wait untill it's set to the "Filled" status; then it reads all the bytes from the transfer buffer and clears it with 0; finally it sets the `TRSF` register to the "Ready" status.
 
 Device takes further actions determined by the heading byte(s) of the read buffer data.
 
