@@ -58,7 +58,6 @@ h1, h2, h3, h4 {
 .term_content thead {
   background-color: #eeeeee;
 }
-
 .term_content h2 {
   display: block;
   margin-top: 1em;
@@ -71,9 +70,33 @@ h1, h2, h3, h4 {
   overflow-x: auto;
   overflow-y: auto;
 }
+.term_footer {
+  padding-bottom: 0;
+}
 #article-content img {
   max-width: 100%;
   image-rendering: auto;
+}
+.banner_img {
+  max-width: 100%;
+}
+.banner_logo {
+  padding: 2rem 0 0rem 0;
+}
+#canvas {
+  height: 220px;
+}
+
+@media (min-width: 960px) {
+  .banner_img {
+    max-width: 30%;
+  }
+  .banner_logo {
+    padding: 2rem 1.5rem 0rem 1.5rem;
+  }
+  #canvas {
+    height: 280px;
+  }
 }
 
 @media only screen and (max-width: 750px) {
@@ -88,8 +111,14 @@ h1, h2, h3, h4 {
     display: block;
     padding: 0 4px 0 4px;
   }
+  .term_footer {
+    padding-bottom: 1em;
+  }
   .banner_title {
     padding: 0rem 0.5rem 0rem 0.5rem;
+  }
+  .title_frame {
+    padding: 1rem 1.5rem 0rem 1.5rem;
   }
 }
 

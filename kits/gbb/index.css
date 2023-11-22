@@ -63,12 +63,6 @@ h6 {
   box-sizing: border-box;
 }
 
-@media (min-width: 960px) {
-  #canvas {
-    height: 480px;
-  }
-}
-
 /* Logo. */
 
 #container {
@@ -102,6 +96,12 @@ h6 {
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+@media (min-width: 960px) {
+  #canvas {
+    height: 480px;
+  }
 }
 
 /* Banner. */
@@ -221,7 +221,7 @@ header a {
 .title_frame {
   max-width: 1080px;
   margin: 0 auto;
-  padding: 0rem 1.5rem 0rem 1.5rem;
+  padding: 1rem 1.5rem 0rem 1.5rem;
   display: block;
   transform: translateY(2em);
 }

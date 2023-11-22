@@ -1,6 +1,6 @@
 ## About
 
-GB BASIC (GameBuilder BASIC) is a retro Fantasy Console that generates ROMs compatible with the popular handheld game console.
+GameBuilder BASIC (GB BASIC) is a retro Fantasy Console that generates ROMs compatible with the popular handheld game console.
 
 # About This Software
 
