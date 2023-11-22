@@ -1,5 +1,7 @@
 ## Extensions
 
+GB BASIC implements a few extension features upon the original architecture, which defines the "[fantasy](/kits/gbb/about.html#why-fantasy-console)" part of the console.
+
 # Kernel Extension
 
 To enable extension for the built-in emulator, click the main menu, then "Application", "Preferences...", switch to the "Device" tab, choose a device type with "extension". To enable extension for a project and its output ROM, open the project properties dialog, choose a cart type with "extension".
@@ -56,7 +58,7 @@ The "Feature flag" can be a value combined by the following masks.
 
 ### RAM Map
 
-| Start | End | Name | Description | Cartridge Access |
+| Start | End | Name | Description | Access |
 |---|---|---|---|---|
 | 0xFEA0 | - | EXTF | Extension status | Read-only |
 | 0xFEA1 | - | TCHX | Touch x | Read-only |

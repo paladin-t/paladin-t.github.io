@@ -1,5 +1,7 @@
 ## Launching
 
+GB BASIC accepts a number of launching options to customize some behaviours.
+
 # Launching Options
 
 ## Application Options

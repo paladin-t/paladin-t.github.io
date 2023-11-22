@@ -70,7 +70,7 @@ h1, h2, h3, h4 {
   overflow-x: auto;
   overflow-y: auto;
 }
-.term_footer {
+.content_body {
   padding-bottom: 0;
 }
 #article-content img {
@@ -111,7 +111,7 @@ h1, h2, h3, h4 {
     display: block;
     padding: 0 4px 0 4px;
   }
-  .term_footer {
+  .content_body {
     padding-bottom: 1em;
   }
   .banner_title {

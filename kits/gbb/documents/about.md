@@ -14,7 +14,7 @@ I found that the simple and straightforward nature of BASIC and GameBoy becames 
 
 Most of the technical specifications are referenced from real hardwares, however GB BASIC also implements a few <a href="/kits/gbb/extensions.html#kernel-extension">extension</a> features which are fictional. On the other hand, these features are totally implementable, so technically it is possible that we can see these features come true on hardware.
 
-## Is Programming Skills Required?
+## Are Programming Skills Required?
 
 Short answer: yes. Gameplay logic is organized by code, to be specific as the name implies, you will program in BASIC. But no worry, it is an easy to learn language, and you will find it fun to use in GB BASIC dispite you have experience in another programming language or not.
 
