@@ -211,7 +211,7 @@ GB BASIC is a programming language that was born in the modern era with retro fl
 * Declarative paradigm
   * Data driven approach
 
-The imperative paradigm is one of the historically early programming paradigms. It features close relation to machine architecture. In this paradigm, a programmer have to tell a computer system exact steps to do. In particular with the use of non-structured programming in GB BASIC, it is capable of creating Turing-complete algorithms. However GB BASIC is not "pure" non-structured, it has mixed with a few structured constructs of selection (`if` and `select case`) and repetition (`for`, `while` and `repeat`) etc. Moreover GB BASIC implements a simple threading feature for being possible and easier of doing concurrent processing.
+The imperative paradigm is one of the historically early programming paradigms. It features close relation to machine architecture. In this paradigm, a programmer have to tell a computer system exact steps to do. In particular with the use of non-structured programming in GB BASIC, it is capable of creating Turing-complete algorithms. However GB BASIC is not "pure" non-structured, it has mixed with a few structured constructs of selection (`if`) and repetition (`for`, `while` and `repeat`) etc. Moreover GB BASIC implements a simple threading feature for being possible and easier of doing concurrent processing.
 
 The declarative paradigm is a style of way to program a computer system with "what to do" rather than "how to do", in GB BASIC this is achieved with a few specialized statements that follow the data driven approach. This approach uses data instead of instructions to indicate a program's behaviour, those data are mostly produced within the asset editors in GB BASIC.
 
@@ -337,7 +337,6 @@ Memory of values are managed by GB BASIC itself rather than by a programmer, thi
 |---|---|---|
 | `call wait_frames n` | `wait n` | Waits for `n` frames on the current thread |
 | `call raise` | - | Raises an error |
-| `call camera_shake n, d` | - | Shake camera for `n` frames with ["Camera shake directions"](#scene) specified by `d` |
 
 <!-- Extra kernels can provide more native functions. -->
 
@@ -386,35 +385,12 @@ else
 end if
 ```
 
-* `select case/case*/end select`: multi-case selection statement
-* `select case/case*/else/end select`: multi-case selection statement
-
-Multi-case selection example:
-
-```bas
-select case foo
-  case 1
-    print "Value"
-  case 2, 3
-    print "Values"
-  case 4 to 5
-    print "Range"
-  case >= 6
-    print "Comparison"
-  else
-    print "Others"
-end select
-```
-
-A `select case` statement conditionally executes sections of code depending on the value of a variable. A case condition can be a single value, a number of values, a range of values or a comparison. When the case is determined by a range of values, the smaller number must come before the larger one; when the case is determined by a comparison, it supports `=`, `<`, `<=`, `>`, `>=` and `<>` operators.
-
-`If` and `select case` statements support both modern and retro syntax.
+Conditional statements support both modern and retro syntax.
 
 | Modern syntax | Retro syntax |
 |---|---|
 | `else if` | `elseif` |
 | `end if` | `endif` |
-| `end select` | `endselect` |
 
 * `=iif(cond, a, b)`: gets one of the two specific values according to the condition
   * `cond`: the condition expression
@@ -580,10 +556,6 @@ GB BASIC supports array of number up to 4 dimensions; index is 0-based in each d
 * `swap var0, var1`: swaps the values of the two variables
   * `var0`: passed by reference; the first variable
   * `var1`: passed by reference; the second variable
-* `inc var`: increases the value of the specific variable; this is identical to `var = var + 1` but simpler
-  * `var`: passed by reference; the variable to operate
-* `dec var`: decreases the value of the specific variable; this is identical to `var = var - 1` but simpler
-  * `var`: passed by reference; the variable to operate
 
 * `sleep(ms)`: sleeps for the specific milliseconds; this statement blocks all threads
   * `ms`: the milliseconds
@@ -830,11 +802,6 @@ There is no dedicated builtin editor for producing sprite assets. Since sprite d
 * `camera x, y`: puts the camera to the specific position that counts for putting maps and sprites
   * `x`: the x position in pixels
   * `y`: the y position in pixels
-
-| Camera shake directions | Note |
-|---|---|
-| `CAMERA_SHAKE_X` | For the [camera_shake](#function) function |
-| `CAMERA_SHAKE_Y` | For the [camera_shake](#function) function |
 
 * `viewport x, y`: gets the viewport position that is calculated with both map and camera offsets
   * `x`: passed by reference; a variable to store the x position in pixels
@@ -1302,7 +1269,6 @@ The `RTC_ENABLED` must be on to use the RTC feature.
 |---|---|---|---|
 | `FAST_CPU_ENABLED` | Boolean | Determined by device | Whether to enable the fast CPU mode for the current program, only available on a colored device |
 | `AUTO_ACTOR_SPRITE` | Boolean | `true` | Whether to allocate sprites automatically for actors |
-| `ACTOR_HIT_WITH_DIRECTION` | Boolean | `false` | Whether to pass hit direction for actor collision callback |
 | `SRAM_BANK` | Integer (8bit unsigned) | `0` | Select the SRAM bank |
 | `SRAM_ENABLED` | Boolean | `false` | Whether to enable the SRAM |
 | `VRAM_BANK` | "VRAM banks" (8bit unsigned integer) | `VRAM_BANK0` | Select the VRAM bank |
