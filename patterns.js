@@ -185,6 +185,25 @@
     },
 
     {
+      request: [ 'chatgpt' ],
+      response: [
+        'We do similar jobs, but it is a different approach.'
+      ]
+    },
+    {
+      request: [ 'chat', 'gpt' ],
+      alias: [ 'chatgpt' ]
+    },
+    {
+      request: [ 'gpt' ],
+      alias: [ 'chatgpt' ]
+    },
+    {
+      request: [ 'openai' ],
+      alias: [ 'chatgpt' ]
+    },
+
+    {
       request: [ 'who', 'tony' ],
       response: [ 'Tony is my creator. He makes development tools, apps and games as an independent developer.' ],
       callback: function (bot) {
