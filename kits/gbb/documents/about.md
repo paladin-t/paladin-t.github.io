@@ -38,7 +38,7 @@ Under construction...
 ### Kernel (VM) Toolchains
 
 * GBDK-2020 - from [gbdk-2020/gbdk-2020](https://github.com/gbdk-2020/gbdk-2020)
-* gbvm - from [untoxa/gbvm](https://github.com/untoxa/gbvm)
+* gbvm - from [untoxa/gbvm](https://github.com/untoxa/gbvm) and [chrismaltby/gbvm](https://github.com/chrismaltby/gbvm)
 * hUGEBuild - from [untoxa/hUGEBuild](https://github.com/untoxa/hUGEBuild)
 * VGM2GBSFX - from [untoxa/VGM2GBSFX](https://github.com/untoxa/VGM2GBSFX)
 
