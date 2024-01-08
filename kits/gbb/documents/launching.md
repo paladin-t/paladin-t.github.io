@@ -7,8 +7,8 @@ GB BASIC accepts a number of launching options to customize some behaviours.
 ## Application Options
 
 * "-W PATH": specify current working directory of the application
-* "-L": specify to launch the application under compile-only mode
-* "-Q": specify to not quit after compiling when "-L" is specified
+<!-- * "-L": specify to launch the application under command-line-only mode -->
+* "-Q": specify to not quit after compiling under the compile-only mode
 * "-A FPS": specify expected `FPS` for the application
 * "-B": specify to enable borderless window
 * "-S WxH": specify the application window size with `W`x`H`
@@ -24,7 +24,7 @@ GB BASIC accepts a number of launching options to customize some behaviours.
 
 ## Compiler Options
 
-These options are used when compile-only mode is specified, i.e.
+GB BASIC will work under a compile-only mode when a "-o" option is specify for output target explicitly. The following options are used to specify behaviours of the compiler under this mode, i.e.
 
 ```shell
 gbbasic temp.gbb -o gbbasic.gb -r gbbvm.gb -s gbbvm.sym -f default.json
@@ -32,7 +32,7 @@ gbbasic temp.gbb -o gbbasic.gb -r gbbvm.gb -s gbbvm.sym -f default.json
 
 * "-r PATH": specify kernel ROM path for input
 * "-s PATH": specify symbols data path for input
-* "-o PATH": specify ROM path for output
+* "-o PATH": specify ROM path for output, compile-only mode will be enabled only when this option is specified
 * "-a OUT": specify AST output method, `OUT` can be one of the following value; defaults to "none"
   * "none": disable AST output
   * "stdout": output to console view

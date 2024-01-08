@@ -10,15 +10,16 @@
 
 * Latest (TBD) -->
 
-<!-- # Beta Version
+<!-- # Beta Versions
 
 ## Devlog
 
-* GB BASIC Beta (TBD)
+* GB BASIC Beta 2 (TBD)
+* GB BASIC Beta 1 (TBD)
 
 ## Download
 
-* Beta (TBD) -->
+* Beta versions (TBD) -->
 
 # Alpha Versions
 

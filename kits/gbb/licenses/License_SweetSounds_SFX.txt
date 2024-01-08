@@ -1,9 +1,9 @@
 [SweetSounds SFX]
 
 The sound pack is made by Coffee 'Valen' Bat, and converted to GB BASIC by
-Tony, see the following text for the original copyright information.
+Tony. To use these sound files in GB BASIC, just import "From Library".
 
-To use these sound files in GB BASIC, just import "From Library".
+See the following text for the original copyright information.
 
 [Original copyright information]
 
