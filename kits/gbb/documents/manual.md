@@ -77,9 +77,9 @@
 * **Gamepad**: 8 buttons (D-Pad + A/B + Select/Start)
 * **Mouse and touch**: supported by **extension**
 * **Tiles**: up to 256 units per page
-* **Map**: up to 4095 tiles per page; two layers (graphics, attributes)
+* **Map**: up to 511 tiles in one dimension per page; two layers (graphics, attributes)
 * **Sprite**: supports simple 8x8 and 8x16 sprites
-* **Scene**: up to 4095 tiles per page; four layers (map, attributes, properties, actors)
+* **Scene**: up to 511 tiles in one dimension per page; four layers (map, attributes, properties, actors)
 * **Actor**: up to 8x8 tiles per frame; up to 1024 frames per page
 * **Font**: supports TrueType; up to 16px; 1bpp or 2bpp
 * **Audio**: 4 channels; supports importing from JSON, VGM, WAV, FxHammer

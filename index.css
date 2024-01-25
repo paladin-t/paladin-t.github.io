@@ -73,6 +73,13 @@ a:visited {
   object-fit: contain;
   margin-top: 2rem;
   border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0);
+  transition: all 0.24s ease-in-out;
+}
+.entry-img:hover {
+  transform: translateY(-0.25rem);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  transition: all 0.24s ease-in-out;
 }
 .entry-content0 h2 {
   display: inline;

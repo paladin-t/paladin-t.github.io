@@ -64,11 +64,31 @@ p {
   color: #fbfbfb;
   text-shadow: 0px 0px 5px rgb(0, 0, 0), -4px 4px 8px rgba(60, 64, 89, 0.65);
 }
+.cover > img {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0);
+  transition: all 0.24s ease-in-out;
+}
+.cover > img:hover {
+  transform: translateY(-0.25rem);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  transition: all 0.24s ease-in-out;
+}
+.cover > a > img {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0);
+  transition: all 0.24s ease-in-out;
+}
+.cover > a > img:hover {
+  transform: translateY(-0.25rem);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  transition: all 0.24s ease-in-out;
+}
+
 .cover a {
   color: #fbfbfb;
 }
 .cover img {
   width: 100%;
+  border-radius: 8px;
 }
 
 #canvas {
