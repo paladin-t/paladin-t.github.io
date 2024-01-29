@@ -11,6 +11,65 @@ p {
   overflow: scroll;
 }
 
+.message-button {
+  width: 64px;
+  height: 64px;
+  right: 1em;
+  bottom: 1em;
+  position: fixed;
+  z-index: 9999;
+  cursor: pointer;
+}
+.message-icon {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  background-image: url("../images/message.svg");
+  background-size: cover;
+  background-color: #ffffff9e;
+}
+
+.message-dialog {
+  display: none;
+  max-width: 90%;
+  max-height: 90%;
+  width: 768px;
+  height: 640px;
+  right: 1em;
+  bottom: 1em;
+  position: fixed;
+  z-index: 9999;
+  border-radius: 10px;
+  background-color: #ffffff9e;
+}
+.message-title {
+  width: 100%;
+  height: 2em;
+  border-radius: 10px 10px 0px 0px;
+  background-color: rgba(127, 193, 255, 0.637);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  text-align: center;
+  color: white;
+  line-height: 2em;
+}
+.message-close-button {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 2em;
+  height: 2em;
+  background-image: url("../images/close.png");
+  background-size: cover;
+  cursor: pointer;
+}
+.message-content {
+  overflow: overlay;
+  width: 100%;
+  height: calc(100% - 2em - 10px);
+  position: absolute;
+  bottom: 10px;
+}
+
 .header {
   position: absolute;
   top: 0px;
