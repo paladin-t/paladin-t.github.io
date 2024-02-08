@@ -111,6 +111,7 @@ p {
 .table {
   display: flex;
   margin: 10px;
+  flex-wrap: wrap;
 }
 .cover {
   min-width: 100px;
