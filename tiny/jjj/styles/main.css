@@ -115,8 +115,7 @@ p {
 }
 .cover {
   min-width: 100px;
-  max-width: 500px;
-  width: 30%;
+  width: calc(100% / 5 - 10px);
   margin: 5px;
   text-align: center;
   font-size: 0.9rem;
