@@ -706,7 +706,7 @@ let setHandheldTheme = null;
 
       const outputPass = new OutputPass();
 
-      const fxaaPass = new ShaderPass( FXAAShader );
+      const fxaaPass = new ShaderPass(FXAAShader);
       const pixelRatio = renderer.getPixelRatio();
       fxaaPass.material.uniforms['resolution'].value.x = 1 / (container.offsetWidth * pixelRatio);
       fxaaPass.material.uniforms['resolution'].value.y = 1 / (container.offsetHeight * pixelRatio);
