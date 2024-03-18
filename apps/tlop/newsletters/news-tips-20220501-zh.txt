@@ -10,6 +10,7 @@
 The Legend of Pomodoro 可识别如下键盘快捷
 键：
 
+* “Ins” 以切换窗口边框是否可见
 * “Ctrl+0” 以使用迷你窗口
 * “Ctrl+1/2/3/4” 以使用横屏窗口
 * “Ctrl+Shift+1/2/3/4” 以使用竖屏窗口

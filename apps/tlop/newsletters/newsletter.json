@@ -76,11 +76,26 @@
       "url": "news://news-tips-20220401-en.txt"
     },
     {
+      "id": "314",
+      "platform": [ "Windows", "Linux", "MacOS" ],
+      "revision_condition": {
+        "type": ">=",
+        "value": 9
+      },
+      "start_timepoint": "1970-01-01 00:00:00",
+      "end_timepoint": "9999-12-31 23:59:59",
+      "impressions": -1,
+      "created_timepoint": "2024-03-18 08:00:00",
+      "updated_timepoint": "2024-03-18 08:00:00",
+      "title": "Changelog #16",
+      "url": "news://news-changelog-20240318-en.txt"
+    },
+    {
       "id": "313",
       "platform": [ "iOS", "Android" ],
       "revision_condition": {
-        "type": "<=>",
-        "value": [ 8, 12 ]
+        "type": ">=",
+        "value": 8
       },
       "start_timepoint": "1970-01-01 00:00:00",
       "end_timepoint": "9999-12-31 23:59:59",
@@ -94,8 +109,8 @@
       "id": "312",
       "platform": [ "Windows", "Linux", "MacOS" ],
       "revision_condition": {
-        "type": "<=>",
-        "value": [ 8, 12 ]
+        "type": ">=",
+        "value": 8
       },
       "start_timepoint": "1970-01-01 00:00:00",
       "end_timepoint": "9999-12-31 23:59:59",
@@ -109,8 +124,8 @@
       "id": "311",
       "platform": [ "iOS", "Android" ],
       "revision_condition": {
-        "type": "<=>",
-        "value": [ 7, 11 ]
+        "type": ">=",
+        "value": 7
       },
       "start_timepoint": "1970-01-01 00:00:00",
       "end_timepoint": "9999-12-31 23:59:59",
@@ -124,8 +139,8 @@
       "id": "310",
       "platform": [ "Windows", "Linux", "MacOS" ],
       "revision_condition": {
-        "type": "<=>",
-        "value": [ 7, 11 ]
+        "type": ">=",
+        "value": 7
       },
       "start_timepoint": "1970-01-01 00:00:00",
       "end_timepoint": "9999-12-31 23:59:59",
@@ -139,8 +154,8 @@
       "id": "309",
       "platform": [ "iOS", "Android" ],
       "revision_condition": {
-        "type": "<=>",
-        "value": [ 6, 10 ]
+        "type": ">=",
+        "value": 6
       },
       "start_timepoint": "1970-01-01 00:00:00",
       "end_timepoint": "9999-12-31 23:59:59",
@@ -154,8 +169,8 @@
       "id": "308",
       "platform": [ "Windows", "Linux", "MacOS" ],
       "revision_condition": {
-        "type": "<=>",
-        "value": [ 6, 10 ]
+        "type": ">=",
+        "value": 6
       },
       "start_timepoint": "1970-01-01 00:00:00",
       "end_timepoint": "9999-12-31 23:59:59",
@@ -169,8 +184,8 @@
       "id": "307",
       "platform": [ "iOS", "Android" ],
       "revision_condition": {
-        "type": "<=>",
-        "value": [ 5, 9 ]
+        "type": ">=",
+        "value": 5
       },
       "start_timepoint": "1970-01-01 00:00:00",
       "end_timepoint": "9999-12-31 23:59:59",
@@ -184,8 +199,8 @@
       "id": "306",
       "platform": [ "Windows", "Linux", "MacOS" ],
       "revision_condition": {
-        "type": "<=>",
-        "value": [ 5, 9 ]
+        "type": ">=",
+        "value": 5
       },
       "start_timepoint": "1970-01-01 00:00:00",
       "end_timepoint": "9999-12-31 23:59:59",
@@ -199,8 +214,8 @@
       "id": "305",
       "platform": [ "iOS", "Android" ],
       "revision_condition": {
-        "type": "<=>",
-        "value": [ 4, 8 ]
+        "type": ">=",
+        "value": 4
       },
       "start_timepoint": "1970-01-01 00:00:00",
       "end_timepoint": "9999-12-31 23:59:59",
@@ -214,8 +229,8 @@
       "id": "304",
       "platform": [ "Windows", "Linux", "MacOS" ],
       "revision_condition": {
-        "type": "<=>",
-        "value": [ 4, 8 ]
+        "type": ">=",
+        "value": 4
       },
       "start_timepoint": "1970-01-01 00:00:00",
       "end_timepoint": "9999-12-31 23:59:59",
@@ -229,8 +244,8 @@
       "id": "303",
       "platform": [ "iOS", "Android" ],
       "revision_condition": {
-        "type": "<=>",
-        "value": [ 3, 7 ]
+        "type": ">=",
+        "value": 3
       },
       "start_timepoint": "1970-01-01 00:00:00",
       "end_timepoint": "9999-12-31 23:59:59",
@@ -244,8 +259,8 @@
       "id": "302",
       "platform": [ "Windows", "Linux", "MacOS" ],
       "revision_condition": {
-        "type": "<=>",
-        "value": [ 3, 7 ]
+        "type": ">=",
+        "value": 3
       },
       "start_timepoint": "1970-01-01 00:00:00",
       "end_timepoint": "9999-12-31 23:59:59",
@@ -259,8 +274,8 @@
       "id": "301",
       "platform": [ "Windows", "Linux", "MacOS" ],
       "revision_condition": {
-        "type": "<=>",
-        "value": [ 2, 6 ]
+        "type": ">=",
+        "value": 2
       },
       "start_timepoint": "1970-01-01 00:00:00",
       "end_timepoint": "9999-12-31 23:59:59",
@@ -274,8 +289,8 @@
       "id": "300",
       "platform": [ "Windows", "Linux", "MacOS" ],
       "revision_condition": {
-        "type": "<=>",
-        "value": [ 1, 5 ]
+        "type": ">=",
+        "value": 1
       },
       "start_timepoint": "1970-01-01 00:00:00",
       "end_timepoint": "9999-12-31 23:59:59",
@@ -363,11 +378,26 @@
       "url": "news://news-tips-20220401-zh.txt"
     },
     {
+      "id": "314",
+      "platform": [ "Windows", "Linux", "MacOS" ],
+      "revision_condition": {
+        "type": ">=",
+        "value": 9
+      },
+      "start_timepoint": "1970-01-01 00:00:00",
+      "end_timepoint": "9999-12-31 23:59:59",
+      "impressions": -1,
+      "created_timepoint": "2024-03-18 08:00:00",
+      "updated_timepoint": "2024-03-18 08:00:00",
+      "title": "更新日志 #16",
+      "url": "news://news-changelog-20240318-zh.txt"
+    },
+    {
       "id": "313",
       "platform": [ "iOS", "Android" ],
       "revision_condition": {
-        "type": "<=>",
-        "value": [ 8, 12 ]
+        "type": ">=",
+        "value": 8
       },
       "start_timepoint": "1970-01-01 00:00:00",
       "end_timepoint": "9999-12-31 23:59:59",
@@ -381,8 +411,8 @@
       "id": "312",
       "platform": [ "Windows", "Linux", "MacOS" ],
       "revision_condition": {
-        "type": "<=>",
-        "value": [ 8, 12 ]
+        "type": ">=",
+        "value": 8
       },
       "start_timepoint": "1970-01-01 00:00:00",
       "end_timepoint": "9999-12-31 23:59:59",
@@ -396,8 +426,8 @@
       "id": "311",
       "platform": [ "iOS", "Android" ],
       "revision_condition": {
-        "type": "<=>",
-        "value": [ 7, 11 ]
+        "type": ">=",
+        "value": 7
       },
       "start_timepoint": "1970-01-01 00:00:00",
       "end_timepoint": "9999-12-31 23:59:59",
@@ -411,8 +441,8 @@
       "id": "310",
       "platform": [ "Windows", "Linux", "MacOS" ],
       "revision_condition": {
-        "type": "<=>",
-        "value": [ 7, 11 ]
+        "type": ">=",
+        "value": 7
       },
       "start_timepoint": "1970-01-01 00:00:00",
       "end_timepoint": "9999-12-31 23:59:59",
@@ -426,8 +456,8 @@
       "id": "309",
       "platform": [ "iOS", "Android" ],
       "revision_condition": {
-        "type": "<=>",
-        "value": [ 6, 10 ]
+        "type": ">=",
+        "value": 6
       },
       "start_timepoint": "1970-01-01 00:00:00",
       "end_timepoint": "9999-12-31 23:59:59",
@@ -441,8 +471,8 @@
       "id": "308",
       "platform": [ "Windows", "Linux", "MacOS" ],
       "revision_condition": {
-        "type": "<=>",
-        "value": [ 6, 10 ]
+        "type": ">=",
+        "value": 6
       },
       "start_timepoint": "1970-01-01 00:00:00",
       "end_timepoint": "9999-12-31 23:59:59",
@@ -456,8 +486,8 @@
       "id": "307",
       "platform": [ "iOS", "Android" ],
       "revision_condition": {
-        "type": "<=>",
-        "value": [ 5, 9 ]
+        "type": ">=",
+        "value": 5
       },
       "start_timepoint": "1970-01-01 00:00:00",
       "end_timepoint": "9999-12-31 23:59:59",
@@ -471,8 +501,8 @@
       "id": "306",
       "platform": [ "Windows", "Linux", "MacOS" ],
       "revision_condition": {
-        "type": "<=>",
-        "value": [ 5, 9 ]
+        "type": ">=",
+        "value": 5
       },
       "start_timepoint": "1970-01-01 00:00:00",
       "end_timepoint": "9999-12-31 23:59:59",
@@ -486,8 +516,8 @@
       "id": "305",
       "platform": [ "iOS", "Android" ],
       "revision_condition": {
-        "type": "<=>",
-        "value": [ 4, 8 ]
+        "type": ">=",
+        "value": 4
       },
       "start_timepoint": "1970-01-01 00:00:00",
       "end_timepoint": "9999-12-31 23:59:59",
@@ -501,8 +531,8 @@
       "id": "304",
       "platform": [ "Windows", "Linux", "MacOS" ],
       "revision_condition": {
-        "type": "<=>",
-        "value": [ 4, 8 ]
+        "type": ">=",
+        "value": 4
       },
       "start_timepoint": "1970-01-01 00:00:00",
       "end_timepoint": "9999-12-31 23:59:59",
@@ -516,8 +546,8 @@
       "id": "303",
       "platform": [ "iOS", "Android" ],
       "revision_condition": {
-        "type": "<=>",
-        "value": [ 3, 7 ]
+        "type": ">=",
+        "value": 3
       },
       "start_timepoint": "1970-01-01 00:00:00",
       "end_timepoint": "9999-12-31 23:59:59",
@@ -531,8 +561,8 @@
       "id": "302",
       "platform": [ "Windows", "Linux", "MacOS" ],
       "revision_condition": {
-        "type": "<=>",
-        "value": [ 3, 7 ]
+        "type": ">=",
+        "value": 3
       },
       "start_timepoint": "1970-01-01 00:00:00",
       "end_timepoint": "9999-12-31 23:59:59",
@@ -546,8 +576,8 @@
       "id": "301",
       "platform": [ "Windows", "Linux", "MacOS" ],
       "revision_condition": {
-        "type": "<=>",
-        "value": [ 2, 6 ]
+        "type": ">=",
+        "value": 2
       },
       "start_timepoint": "1970-01-01 00:00:00",
       "end_timepoint": "9999-12-31 23:59:59",
@@ -561,8 +591,8 @@
       "id": "300",
       "platform": [ "Windows", "Linux", "MacOS" ],
       "revision_condition": {
-        "type": "<=>",
-        "value": [ 1, 5 ]
+        "type": ">=",
+        "value": 1
       },
       "start_timepoint": "1970-01-01 00:00:00",
       "end_timepoint": "9999-12-31 23:59:59",

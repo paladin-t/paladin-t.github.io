@@ -1,0 +1,4 @@
+[col=0x6f95abff]Patch notes v1.8.3:[/col]
+
+* Added a native Linux support
+* Added a shortcut to toggle bordered window (Ins)
