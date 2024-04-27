@@ -24,7 +24,7 @@ p {
   width: 100%;
   height: 100%;
   border-radius: 20px;
-  background-image: url("../images/message.svg");
+  background-image: url("../images/gui/message.svg");
   background-size: cover;
   background-color: #ffffff9e;
 }
@@ -58,7 +58,7 @@ p {
   right: 0px;
   width: 2em;
   height: 2em;
-  background-image: url("../images/close.png");
+  background-image: url("../images/gui/close.png");
   background-size: cover;
   cursor: pointer;
 }
