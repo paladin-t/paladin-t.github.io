@@ -88,7 +88,7 @@
 
           <!-- ## Get The Alpha 4 Release -->
 
-          <p>It's been more than six months since the last alpha update. During this period of time, GB BASIC got significant progress which constitute as this alpha 4. As of the time of this writing, the latest alpha 4 is available on <a href="https://tonywang.itch.io/gbbasic-alpha">itch.io</a>.</p>
+          <p>It's been over six months since the last alpha update. During this period of time, GB BASIC got significant progress which constitute as this alpha 4. As of the time of this writing, the latest alpha 4 is available on <a href="https://tonywang.itch.io/gbbasic-alpha">itch.io</a>.</p>
           <img src="https://user-images.githubusercontent.com/2062224/225687554-e7948f03-38e1-4a16-a808-c9af677a43e6.png" style="display: block; margin-left: auto; margin-right: auto; width: 640px; image-rendering: pixelated;">
           <div style="color: gray; font-size: 8px;" align="center">Linux port</div>
 
@@ -257,162 +257,162 @@
 
           <h3 id="select-case-statement">Select-Case Statement</h3>
           <p>GB BASIC has introduced a versatile multi-branch conditional statement, which includes support for values, ranges and comparisons. For instance:</p>
-          <pre class="language-basic" tabindex="0"><code class="language-basic" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;"><span class="token function">let</span> a <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span>
-          <span class="token keyword">select case</span> a
-            <span class="token keyword">case</span> <span class="token number">1</span>
-              <span class="token function">print</span> <span class="token string">"1"</span>
-            <span class="token keyword">case</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span>
-              <span class="token function">print</span> <span class="token string">"2, 3"</span>
-            <span class="token keyword">case</span> <span class="token number">4</span> <span class="token keyword">to</span> <span class="token number">5</span>
-              <span class="token function">print</span> <span class="token string">"4 to 5"</span>
-            <span class="token keyword">case</span> <span class="token operator">&gt;=</span> <span class="token number">6</span>
-              <span class="token function">print</span> <span class="token string">"&gt;= 6"</span>
-            <span class="token keyword">else</span>
-              <span class="token function">print</span> <span class="token string">"Ok"</span>
-          <span class="token keyword">end</span> <span class="token function">select</span></code></pre>
-          <p>With the inclusion of the conventional <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">if</code> and <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">on</code> branching constructs, there are now a total of three distinct types of conditional statements available.</p>
-          <pre class="language-basic" tabindex="0"><code class="language-basic" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;"><span class="token keyword">if</span> <span class="token number">1</span> <span class="token keyword">then</span> <span class="token function">print</span> <span class="token string">"Ok"</span>
+<pre class="language-basic" tabindex="0"><code class="language-basic" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;"><span class="token function">let</span> a <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span>
+<span class="token keyword">select case</span> a
+  <span class="token keyword">case</span> <span class="token number">1</span>
+    <span class="token function">print</span> <span class="token string">"1"</span>
+  <span class="token keyword">case</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span>
+    <span class="token function">print</span> <span class="token string">"2, 3"</span>
+  <span class="token keyword">case</span> <span class="token number">4</span> <span class="token keyword">to</span> <span class="token number">5</span>
+    <span class="token function">print</span> <span class="token string">"4 to 5"</span>
+  <span class="token keyword">case</span> <span class="token operator">&gt;=</span> <span class="token number">6</span>
+    <span class="token function">print</span> <span class="token string">"&gt;= 6"</span>
+  <span class="token keyword">else</span>
+    <span class="token function">print</span> <span class="token string">"Ok"</span>
+<span class="token keyword">end</span> <span class="token function">select</span></code></pre>
+<p>With the inclusion of the conventional <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">if</code> and <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">on</code> branching constructs, there are now a total of three distinct types of conditional statements available.</p>
+<pre class="language-basic" tabindex="0"><code class="language-basic" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;"><span class="token keyword">if</span> <span class="token number">1</span> <span class="token keyword">then</span> <span class="token function">print</span> <span class="token string">"Ok"</span>
 
-          <span class="token keyword">if</span> <span class="token number">0</span> <span class="token keyword">then</span> <span class="token function">print</span> <span class="token string">"Oops"</span> <span class="token keyword">else</span> <span class="token function">print</span> <span class="token string">"Ok"</span>
+<span class="token keyword">if</span> <span class="token number">0</span> <span class="token keyword">then</span> <span class="token function">print</span> <span class="token string">"Oops"</span> <span class="token keyword">else</span> <span class="token function">print</span> <span class="token string">"Ok"</span>
 
-          <span class="token keyword">if</span> <span class="token number">0</span> <span class="token keyword">then</span>
-            <span class="token function">print</span> <span class="token string">"Oops"</span>
-          <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token number">1</span> <span class="token keyword">then</span>
-            <span class="token function">print</span> <span class="token string">"Ok"</span>
-          <span class="token keyword">else</span>
-            <span class="token function">print</span> <span class="token string">"Oops"</span>
-          <span class="token keyword">end</span> <span class="token keyword">if</span>
+<span class="token keyword">if</span> <span class="token number">0</span> <span class="token keyword">then</span>
+  <span class="token function">print</span> <span class="token string">"Oops"</span>
+<span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token number">1</span> <span class="token keyword">then</span>
+  <span class="token function">print</span> <span class="token string">"Ok"</span>
+<span class="token keyword">else</span>
+  <span class="token function">print</span> <span class="token string">"Oops"</span>
+<span class="token keyword">end</span> <span class="token keyword">if</span>
 
-          <span class="token keyword">if</span> <span class="token number">0</span> <span class="token keyword">then</span>
-            <span class="token function">print</span> <span class="token string">"Oops"</span>
-          <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token number">1</span> <span class="token keyword">then</span>
-            <span class="token keyword">if</span> <span class="token number">1</span> <span class="token keyword">then</span>
-              <span class="token function">print</span> <span class="token string">"Ok"</span>
-            <span class="token keyword">end</span> <span class="token keyword">if</span>
-          <span class="token keyword">else</span>
-            <span class="token function">print</span> <span class="token string">"Oops"</span>
-          <span class="token keyword">end</span> <span class="token keyword">if</span></code></pre>
-          <pre class="language-basic" tabindex="0"><code class="language-basic" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;"><span class="token function">let</span> b <span class="token operator">=</span> <span class="token number">0</span>
-          <span class="token keyword">on</span> b <span class="token keyword">goto</span> lbl0<span class="token punctuation">,</span> lbl1<span class="token punctuation">,</span> lbl2
-          <span class="token keyword">goto</span> lblElse
-          lbl0<span class="token punctuation">:</span>
-            <span class="token function">print</span> <span class="token string">"Ok"</span>
-            <span class="token keyword">end</span>
-          lbl1<span class="token punctuation">:</span>
-            <span class="token function">print</span> <span class="token string">"1"</span>
-            <span class="token keyword">end</span>
-          lbl2<span class="token punctuation">:</span>
-            <span class="token function">print</span> <span class="token string">"2"</span>
-            <span class="token keyword">end</span>
-          lblElse<span class="token punctuation">:</span>
-            <span class="token function">print</span> <span class="token string">"Else"</span></code></pre>
-          <hr class="hr">
+<span class="token keyword">if</span> <span class="token number">0</span> <span class="token keyword">then</span>
+  <span class="token function">print</span> <span class="token string">"Oops"</span>
+<span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token number">1</span> <span class="token keyword">then</span>
+  <span class="token keyword">if</span> <span class="token number">1</span> <span class="token keyword">then</span>
+    <span class="token function">print</span> <span class="token string">"Ok"</span>
+  <span class="token keyword">end</span> <span class="token keyword">if</span>
+<span class="token keyword">else</span>
+  <span class="token function">print</span> <span class="token string">"Oops"</span>
+<span class="token keyword">end</span> <span class="token keyword">if</span></code></pre>
+<pre class="language-basic" tabindex="0"><code class="language-basic" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;"><span class="token function">let</span> b <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token keyword">on</span> b <span class="token keyword">goto</span> lbl0<span class="token punctuation">,</span> lbl1<span class="token punctuation">,</span> lbl2
+<span class="token keyword">goto</span> lblElse
+lbl0<span class="token punctuation">:</span>
+  <span class="token function">print</span> <span class="token string">"Ok"</span>
+  <span class="token keyword">end</span>
+lbl1<span class="token punctuation">:</span>
+  <span class="token function">print</span> <span class="token string">"1"</span>
+  <span class="token keyword">end</span>
+lbl2<span class="token punctuation">:</span>
+  <span class="token function">print</span> <span class="token string">"2"</span>
+  <span class="token keyword">end</span>
+lblElse<span class="token punctuation">:</span>
+  <span class="token function">print</span> <span class="token string">"Else"</span></code></pre>
+<hr class="hr">
 
-          <h3 id="stack-operations">Stack Operations</h3>
-          <p>The enhancements to the stack manipulation instructions now offer a more refined experience. Additionally, to ensure greater concurrency safety, you can utilize <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">=stack0|stack1|...</code> or <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">=stack(n)</code> to directly access a thread’s local stack variables.</p>
-          <hr class="hr">
+<h3 id="stack-operations">Stack Operations</h3>
+<p>The enhancements to the stack manipulation instructions now offer a more refined experience. Additionally, to ensure greater concurrency safety, you can utilize <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">=stack0|stack1|...</code> or <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">=stack(n)</code> to directly access a thread’s local stack variables.</p>
+<hr class="hr">
 
-          <h3 id="trigger-and-projectile">Trigger and Projectile</h3>
-          <p>In this iteration, two substantial new modules have been introduced.</p>
-          <p>Refer to the ensuing example for instructions on trigger usage.</p>
-          <pre class="language-basic" tabindex="0"><code class="language-basic" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">' <span class="token function">Use</span> arrow keys <span class="token keyword">to</span> move the actor.
-          ' Try entering the trigger <span class="token keyword">then</span> leaving it.
+<h3 id="trigger-and-projectile">Trigger and Projectile</h3>
+<p>In this iteration, two substantial new modules have been introduced.</p>
+<p>Refer to the ensuing example for instructions on trigger usage.</p>
+<pre class="language-basic" tabindex="0"><code class="language-basic" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">' <span class="token function">Use</span> arrow keys <span class="token keyword">to</span> move the actor.
+' Try entering the trigger <span class="token keyword">then</span> leaving it.
 
-          sprite <span class="token keyword">on</span>
-          <span class="token function">option</span> SPRITE8X16_ENABLED<span class="token punctuation">,</span> true
-          fill sprite<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">)</span> <span class="token operator">=</span> #<span class="token number">0</span>
+sprite <span class="token keyword">on</span>
+<span class="token function">option</span> SPRITE8X16_ENABLED<span class="token punctuation">,</span> true
+fill sprite<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">)</span> <span class="token operator">=</span> #<span class="token number">0</span>
 
-          <span class="token function">let</span> a <span class="token operator">=</span> new actor<span class="token punctuation">(</span><span class="token punctuation">)</span> ' Actor <span class="token keyword">for</span> the player.
-          <span class="token function">set</span> actor property<span class="token punctuation">(</span>a<span class="token punctuation">,</span> POSITION_PROP<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">80</span><span class="token punctuation">,</span> <span class="token number">72</span>
-          <span class="token function">set</span> actor property<span class="token punctuation">(</span>a<span class="token punctuation">,</span> FRAME_PROP<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token keyword">data</span> <span class="token number">8</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">128</span>
-          <span class="token function">set</span> actor property<span class="token punctuation">(</span>a<span class="token punctuation">,</span> BOUNDS_PROP<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">7</span>
-          control actor a<span class="token punctuation">,</span> TOPDOWN_PLAYER_BEHAVIOUR
+<span class="token function">let</span> a <span class="token operator">=</span> new actor<span class="token punctuation">(</span><span class="token punctuation">)</span> ' Actor <span class="token keyword">for</span> the player.
+<span class="token function">set</span> actor property<span class="token punctuation">(</span>a<span class="token punctuation">,</span> POSITION_PROP<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">80</span><span class="token punctuation">,</span> <span class="token number">72</span>
+<span class="token function">set</span> actor property<span class="token punctuation">(</span>a<span class="token punctuation">,</span> FRAME_PROP<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token keyword">data</span> <span class="token number">8</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">128</span>
+<span class="token function">set</span> actor property<span class="token punctuation">(</span>a<span class="token punctuation">,</span> BOUNDS_PROP<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">7</span>
+control actor a<span class="token punctuation">,</span> TOPDOWN_PLAYER_BEHAVIOUR
 
-          <span class="token function">let</span> b <span class="token operator">=</span> new actor<span class="token punctuation">(</span><span class="token punctuation">)</span> ' Actor <span class="token keyword">for</span> the trigger's visual.
-          <span class="token function">set</span> actor property<span class="token punctuation">(</span>b<span class="token punctuation">,</span> FRAME_PROP<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token keyword">data</span> <span class="token number">16</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">128</span>
+<span class="token function">let</span> b <span class="token operator">=</span> new actor<span class="token punctuation">(</span><span class="token punctuation">)</span> ' Actor <span class="token keyword">for</span> the trigger's visual.
+<span class="token function">set</span> actor property<span class="token punctuation">(</span>b<span class="token punctuation">,</span> FRAME_PROP<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token keyword">data</span> <span class="token number">16</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">128</span>
 
-          <span class="token keyword">dim</span> trigger[<span class="token number">1</span>] ' Allocate <span class="token number">1</span> trigger.
-          <span class="token keyword">on</span> trigger<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span> ENTER bor LEAVE start hits_ ' Register it's callback.
+<span class="token keyword">dim</span> trigger[<span class="token number">1</span>] ' Allocate <span class="token number">1</span> trigger.
+<span class="token keyword">on</span> trigger<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span> ENTER bor LEAVE start hits_ ' Register it's callback.
 
-          <span class="token keyword">gosub</span> new_
+<span class="token keyword">gosub</span> new_
 
-          <span class="token function">let</span> c <span class="token operator">=</span> <span class="token number">0</span>
-          <span class="token function">print</span> <span class="token string">"Trigger Test"</span>
+<span class="token function">let</span> c <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token function">print</span> <span class="token string">"Trigger Test"</span>
 
-          <span class="token keyword">loop</span><span class="token punctuation">:</span>
-            update
-            <span class="token keyword">goto</span> <span class="token keyword">loop</span>
+<span class="token keyword">loop</span><span class="token punctuation">:</span>
+  update
+  <span class="token keyword">goto</span> <span class="token keyword">loop</span>
 
-          new_<span class="token punctuation">:</span>
-            <span class="token function">let</span> x <span class="token operator">=</span> <span class="token function">rnd</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">18</span> <span class="token operator">-</span> <span class="token number">2</span><span class="token punctuation">)</span>
-            <span class="token function">let</span> y <span class="token operator">=</span> <span class="token function">rnd</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">16</span> <span class="token operator">-</span> <span class="token number">2</span><span class="token punctuation">)</span>
-            <span class="token function">def</span> trigger<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">=</span> x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">2</span> ' Define the trigger.
-            <span class="token function">set</span> actor property<span class="token punctuation">(</span>b<span class="token punctuation">,</span> POSITION_PROP<span class="token punctuation">)</span> <span class="token operator">=</span> x <span class="token operator">*</span> <span class="token number">8</span><span class="token punctuation">,</span> y <span class="token operator">*</span> <span class="token number">8</span>
-            <span class="token keyword">return</span>
+new_<span class="token punctuation">:</span>
+  <span class="token function">let</span> x <span class="token operator">=</span> <span class="token function">rnd</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">18</span> <span class="token operator">-</span> <span class="token number">2</span><span class="token punctuation">)</span>
+  <span class="token function">let</span> y <span class="token operator">=</span> <span class="token function">rnd</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">16</span> <span class="token operator">-</span> <span class="token number">2</span><span class="token punctuation">)</span>
+  <span class="token function">def</span> trigger<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">=</span> x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">2</span> ' Define the trigger.
+  <span class="token function">set</span> actor property<span class="token punctuation">(</span>b<span class="token punctuation">,</span> POSITION_PROP<span class="token punctuation">)</span> <span class="token operator">=</span> x <span class="token operator">*</span> <span class="token number">8</span><span class="token punctuation">,</span> y <span class="token operator">*</span> <span class="token number">8</span>
+  <span class="token keyword">return</span>
 
-          hits_<span class="token punctuation">:</span>
-            <span class="token keyword">if</span> stack0 <span class="token operator">=</span> ENTER <span class="token keyword">then</span>
-              c <span class="token operator">=</span> c <span class="token operator">+</span> <span class="token number">1</span>
-              <span class="token function">print</span> <span class="token string">"Enter %d x%d"</span><span class="token punctuation">,</span> stack1<span class="token punctuation">,</span> c
-            <span class="token keyword">else</span>
-              <span class="token function">print</span> <span class="token string">"Leave %d x%d"</span><span class="token punctuation">,</span> stack1<span class="token punctuation">,</span> c
-              <span class="token keyword">gosub</span> new_
-            <span class="token keyword">end</span> <span class="token keyword">if</span>
-            sound <span class="token keyword">on</span>
-            <span class="token keyword">beep</span>
-            <span class="token keyword">wait</span> <span class="token number">30</span>
-            sound <span class="token keyword">off</span>
-            <span class="token keyword">end</span></code></pre>
-          <p>Consult the subsequent example for guidance on launching projectiles.</p>
-          <pre class="language-basic" tabindex="0"><code class="language-basic" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">' <span class="token function">Use</span> arrow keys <span class="token keyword">to</span> move the actor.
-          ' Press A <span class="token keyword">to</span> launch a projectile.
+hits_<span class="token punctuation">:</span>
+  <span class="token keyword">if</span> stack0 <span class="token operator">=</span> ENTER <span class="token keyword">then</span>
+    c <span class="token operator">=</span> c <span class="token operator">+</span> <span class="token number">1</span>
+    <span class="token function">print</span> <span class="token string">"Enter %d x%d"</span><span class="token punctuation">,</span> stack1<span class="token punctuation">,</span> c
+  <span class="token keyword">else</span>
+    <span class="token function">print</span> <span class="token string">"Leave %d x%d"</span><span class="token punctuation">,</span> stack1<span class="token punctuation">,</span> c
+    <span class="token keyword">gosub</span> new_
+  <span class="token keyword">end</span> <span class="token keyword">if</span>
+  sound <span class="token keyword">on</span>
+  <span class="token keyword">beep</span>
+  <span class="token keyword">wait</span> <span class="token number">30</span>
+  sound <span class="token keyword">off</span>
+  <span class="token keyword">end</span></code></pre>
+<p>Consult the subsequent example for guidance on launching projectiles.</p>
+<pre class="language-basic" tabindex="0"><code class="language-basic" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">' <span class="token function">Use</span> arrow keys <span class="token keyword">to</span> move the actor.
+' Press A <span class="token keyword">to</span> launch a projectile.
 
-          sprite <span class="token keyword">on</span>
-          <span class="token function">option</span> SPRITE8X16_ENABLED<span class="token punctuation">,</span> true
-          fill sprite<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token string">"CardTiles"</span>
+sprite <span class="token keyword">on</span>
+<span class="token function">option</span> SPRITE8X16_ENABLED<span class="token punctuation">,</span> true
+fill sprite<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token string">"CardTiles"</span>
 
-          <span class="token function">let</span> a <span class="token operator">=</span> new actor<span class="token punctuation">(</span><span class="token punctuation">)</span>
-          <span class="token function">set</span> actor property<span class="token punctuation">(</span>a<span class="token punctuation">,</span> POSITION_PROP<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">80</span><span class="token punctuation">,</span> <span class="token number">72</span>
-          <span class="token function">set</span> actor property<span class="token punctuation">(</span>a<span class="token punctuation">,</span> FRAME_PROP<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token keyword">data</span> <span class="token number">8</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">128</span>
-          <span class="token function">set</span> actor property<span class="token punctuation">(</span>a<span class="token punctuation">,</span> BOUNDS_PROP<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">7</span>
-          control actor a<span class="token punctuation">,</span> TOPDOWN_PLAYER_BEHAVIOUR
+<span class="token function">let</span> a <span class="token operator">=</span> new actor<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">set</span> actor property<span class="token punctuation">(</span>a<span class="token punctuation">,</span> POSITION_PROP<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">80</span><span class="token punctuation">,</span> <span class="token number">72</span>
+<span class="token function">set</span> actor property<span class="token punctuation">(</span>a<span class="token punctuation">,</span> FRAME_PROP<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token keyword">data</span> <span class="token number">8</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">128</span>
+<span class="token function">set</span> actor property<span class="token punctuation">(</span>a<span class="token punctuation">,</span> BOUNDS_PROP<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">7</span>
+control actor a<span class="token punctuation">,</span> TOPDOWN_PLAYER_BEHAVIOUR
 
-          fill projectile<span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token string">"BulletTiles"</span>
-          <span class="token function">def</span> projectile property<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> FRAMES_PROP            <span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token string">"Bullet"</span>
-          <span class="token function">def</span> projectile property<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> BOUNDS_LEFT_PROP       <span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">0</span>
-          <span class="token function">def</span> projectile property<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> BOUNDS_TOP_PROP        <span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">0</span>
-          <span class="token function">def</span> projectile property<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> BOUNDS_RIGHT_PROP      <span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">8</span>
-          <span class="token function">def</span> projectile property<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> BOUNDS_BOTTOM_PROP     <span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">8</span>
-          <span class="token function">def</span> projectile property<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> BASE_TILE_PROP         <span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">8</span>
-          <span class="token function">def</span> projectile property<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> ANIMATION_INTERVAL_PROP<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">15</span>
-          <span class="token function">def</span> projectile property<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> ANIMATIONS_PROP        <span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token keyword">data</span> <span class="token number">0</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span>
-          <span class="token function">def</span> projectile property<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> LIFE_TIME_PROP         <span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">60</span>
-          <span class="token function">def</span> projectile property<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> MOVE_SPEED_PROP        <span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">32</span>
-          <span class="token function">def</span> projectile property<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> INITIAL_OFFSET_PROP    <span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">200</span>
-          <span class="token function">def</span> projectile property<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> COLLISION_GROUP_PROP   <span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">0</span>x01
+fill projectile<span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token string">"BulletTiles"</span>
+<span class="token function">def</span> projectile property<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> FRAMES_PROP            <span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token string">"Bullet"</span>
+<span class="token function">def</span> projectile property<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> BOUNDS_LEFT_PROP       <span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token function">def</span> projectile property<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> BOUNDS_TOP_PROP        <span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token function">def</span> projectile property<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> BOUNDS_RIGHT_PROP      <span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">8</span>
+<span class="token function">def</span> projectile property<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> BOUNDS_BOTTOM_PROP     <span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">8</span>
+<span class="token function">def</span> projectile property<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> BASE_TILE_PROP         <span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">8</span>
+<span class="token function">def</span> projectile property<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> ANIMATION_INTERVAL_PROP<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">15</span>
+<span class="token function">def</span> projectile property<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> ANIMATIONS_PROP        <span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token keyword">data</span> <span class="token number">0</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span>
+<span class="token function">def</span> projectile property<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> LIFE_TIME_PROP         <span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">60</span>
+<span class="token function">def</span> projectile property<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> MOVE_SPEED_PROP        <span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">32</span>
+<span class="token function">def</span> projectile property<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> INITIAL_OFFSET_PROP    <span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">200</span>
+<span class="token function">def</span> projectile property<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> COLLISION_GROUP_PROP   <span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">0</span>x01
 
-          <span class="token function">let</span> c <span class="token operator">=</span> <span class="token number">0</span>
-          <span class="token function">print</span> <span class="token string">"Projectile Test"</span>
+<span class="token function">let</span> c <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token function">print</span> <span class="token string">"Projectile Test"</span>
 
-          <span class="token keyword">loop</span><span class="token punctuation">:</span>
-            ' Press A <span class="token keyword">to</span> launch a projectile.
-            <span class="token keyword">if</span> btnu<span class="token punctuation">(</span>A_BTN<span class="token punctuation">)</span> <span class="token keyword">then</span>
-              ' <span class="token function">let</span> d <span class="token operator">=</span> <span class="token keyword">get</span> actor property<span class="token punctuation">(</span>a<span class="token punctuation">,</span> ANGLE_PROP<span class="token punctuation">)</span>
-              ' <span class="token function">let</span> x <span class="token operator">=</span> <span class="token keyword">get</span> actor property<span class="token punctuation">(</span>a<span class="token punctuation">,</span> POSITION_X_PROP<span class="token punctuation">)</span>
-              ' <span class="token function">let</span> y <span class="token operator">=</span> <span class="token keyword">get</span> actor property<span class="token punctuation">(</span>a<span class="token punctuation">,</span> POSITION_Y_PROP<span class="token punctuation">)</span>
-              ' start projectile<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> d<span class="token punctuation">,</span> PROJECTILE_NONE_FLAG<span class="token punctuation">)</span>
-              start projectile<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token function">with</span> actor<span class="token punctuation">(</span>a<span class="token punctuation">)</span> ' This <span class="token function">line</span> <span class="token function">is</span> equivalent <span class="token keyword">to</span> the commented code above<span class="token punctuation">,</span> yet simpler <span class="token operator">and</span> faster.
-              start beep_
-            <span class="token keyword">end</span> <span class="token keyword">if</span>
-            update
-            <span class="token keyword">goto</span> <span class="token keyword">loop</span>
+<span class="token keyword">loop</span><span class="token punctuation">:</span>
+  ' Press A <span class="token keyword">to</span> launch a projectile.
+  <span class="token keyword">if</span> btnu<span class="token punctuation">(</span>A_BTN<span class="token punctuation">)</span> <span class="token keyword">then</span>
+    ' <span class="token function">let</span> d <span class="token operator">=</span> <span class="token keyword">get</span> actor property<span class="token punctuation">(</span>a<span class="token punctuation">,</span> ANGLE_PROP<span class="token punctuation">)</span>
+    ' <span class="token function">let</span> x <span class="token operator">=</span> <span class="token keyword">get</span> actor property<span class="token punctuation">(</span>a<span class="token punctuation">,</span> POSITION_X_PROP<span class="token punctuation">)</span>
+    ' <span class="token function">let</span> y <span class="token operator">=</span> <span class="token keyword">get</span> actor property<span class="token punctuation">(</span>a<span class="token punctuation">,</span> POSITION_Y_PROP<span class="token punctuation">)</span>
+    ' start projectile<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> d<span class="token punctuation">,</span> PROJECTILE_NONE_FLAG<span class="token punctuation">)</span>
+    start projectile<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token function">with</span> actor<span class="token punctuation">(</span>a<span class="token punctuation">)</span> ' This <span class="token function">line</span> <span class="token function">is</span> equivalent <span class="token keyword">to</span> the commented code above<span class="token punctuation">,</span> yet simpler <span class="token operator">and</span> faster.
+    start beep_
+  <span class="token keyword">end</span> <span class="token keyword">if</span>
+  update
+  <span class="token keyword">goto</span> <span class="token keyword">loop</span>
 
-          beep_<span class="token punctuation">:</span>
-            sound <span class="token keyword">on</span>
-            <span class="token keyword">beep</span>
-            <span class="token keyword">wait</span> <span class="token number">30</span>
-            sound <span class="token keyword">off</span>
-            <span class="token keyword">end</span></code></pre>
+beep_<span class="token punctuation">:</span>
+  sound <span class="token keyword">on</span>
+  <span class="token keyword">beep</span>
+  <span class="token keyword">wait</span> <span class="token number">30</span>
+  sound <span class="token keyword">off</span>
+  <span class="token keyword">end</span></code></pre>
           <hr class="hr">
 
           <h3 id="global-search">Global Search</h3>
@@ -431,7 +431,7 @@
 
           <!-- ## Development Plan -->
 
-          <p>We are getting closer to this project's formal launch. There are only one more alpha and two beta versions on the schedule, the overall progress is estimatedly 80% complete.</p>
+          <p>We are getting closer to this project's formal launch. There are only two beta versions to go, the overall progress is estimatedly 80% complete.</p>
           <p><img src="https://paladin-t.github.io/imgs/progresses/80.png" alt="80%"> 80% - Overall progress</p>
           <img src="https://user-images.githubusercontent.com/2062224/225687661-6d7c2716-9173-471c-a5fa-653e99ba1700.jpg" style="display: block; margin-left: auto; margin-right: auto; width: 640px;">
           <div style="color: gray; font-size: 8px;" align="center">Running on different devices</div>
