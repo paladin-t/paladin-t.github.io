@@ -10,22 +10,22 @@
 
 * Latest (TBD) -->
 
-<!-- # Beta Versions
+# Beta Versions
 
-## Devlog
+## Devlogs
 
 * GB BASIC Beta 2 (TBD)
-* GB BASIC Beta 1 (TBD)
+* GB BASIC Beta 1 (WIP)
 
 ## Download
 
-* Beta versions (TBD) -->
+* Beta versions (WIP)
 
 # Alpha Versions
 
 ## Devlogs
 
-* GB BASIC Alpha 4 (WIP)
+* [GB BASIC Alpha 4](https://paladin-t.github.io/articles/gb-basic-alpha-4.html) (May. 1, 2024)
 * [GB BASIC Alpha 3](https://paladin-t.github.io/articles/gb-basic-alpha-3.html) (Oct. 14, 2023)
 * [GB BASIC Alpha 2](https://paladin-t.github.io/articles/gb-basic-alpha-2.html) (May. 14, 2023)
 * [GB BASIC Alpha 1](https://paladin-t.github.io/articles/gb-basic-alpha-1.html) (Mar. 16, 2023)

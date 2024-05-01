@@ -8,10 +8,6 @@ To enable extension for the built-in emulator, click the main menu, then "Applic
 
 GB BASIC has implemented the kernel extension by taking use of a chunk of unused bus addresses of the original architecture. See the [Implementation Instructions](#implementation-instructions) section below for details.
 
-## Running Speed
-
-Under construction...
-
 ## Mouse and Touch
 
 GB BASIC is extended with a new set of [mouse and touch](/kits/gbb/manual.html#mouse-and-touch) API.
