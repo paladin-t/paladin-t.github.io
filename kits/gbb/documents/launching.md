@@ -45,9 +45,7 @@ gbbasic temp.gbb -o gbbasic.gb -r gbbvm.gb -s gbbvm.sym -f default.json
 * "-d OPT": whether declaration is required before using a variable; defaults to "true"
   * "true"
   * "false"
-* "-z": specify to enable code optimization for the following cases; omit to disable optimization
-  * Use `lshift` to optimize base 2 multiplications
-  * Use `rshift` to optimize base 2 divisions
+* "-z": specify to enable code optimization; omit to disable optimization
 * "-t NAME": specify program title
 * "-g TYPE": specify cartridge type, `TYPE` is combined with the following symbols and joined with "|"; defaults to "classic|colored"
   * "classic"
