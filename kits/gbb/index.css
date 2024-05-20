@@ -61,6 +61,9 @@ h6 {
 }
 .content {
   box-sizing: border-box;
+  min-height: calc(100vh - 4rem);
+  display: flex;
+  flex-direction: column;
 }
 
 /* Logo. */
@@ -739,6 +742,7 @@ footer {
   background-color: #88c070;
   width: 100%;
   height: fit-content;
+  margin-top: auto;
 }
 footer h6 {
   color: #343434;
