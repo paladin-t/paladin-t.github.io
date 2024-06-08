@@ -1,0 +1,14 @@
+[col=0x6f95abff]情報：iOS バージョン[/col]
+
+The Legend of Pomodoro が App Store
+にて配信開始されました。詳細は下記リンクを
+クリックしてご覧ください。
+
+<!--url>App Store|https://apps.apple.com/app/the-legend-of-pomodoro-timer/id1631659076</url-->
+
+The Legend of Pomodoro は独立したアプ
+リであり、バックエンドサーバーを必要としない形
+式で、安全性と高い応答性のユーザーエクスペ
+リエンスを提供しています。そのため、異なるプラッ
+トフォームの配信版はプロセスの保存を共有で
+きません。

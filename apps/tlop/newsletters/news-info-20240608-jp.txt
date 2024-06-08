@@ -1,0 +1,18 @@
+[col=0x6f95abff]翻訳に関する問題の報告[/col]
+
+The Legend of Pomodoro の日本語版は
+ベータテスト段階にあります。もしご意見や改善
+の余地がある翻訳の誤りを見つけた場合は、ゲ
+ームコミュニティにご提案ください。
+
+翻訳の問題を報告する際には、日本語または英
+語をご使用いただけます。
+
+あなたのフィードバックは開発作業に非常に重
+要です。どうかこのソフトウェアの改善にご協力
+ください！
+
+フィードバック URL:
+
+<!--url>Steam|https://steamcommunity.com/app/1799520/discussions/</url-->
+<!--url>Itch|https://tonywang.itch.io/tlop</url-->

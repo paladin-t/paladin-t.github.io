@@ -3,5 +3,5 @@
 <!--url>The Legend of Pomodoro - Homepage|https://paladin-t.github.io/apps/tlop/index.html</url-->
 <!--url>E-mail|https://paladin-t.github.io/</url-->
 <!--url>Message Board|https://paladin-t.github.io/message.html</url-->
-<!--url>Twitter|twitter://user?screen_name=wangrenxin</url-->
+<!--url>X|twitter://user?screen_name=wangrenxin</url-->
 <!--url>Review This App|https://apps.apple.com/app/id1631659076?action=write-review</url-->

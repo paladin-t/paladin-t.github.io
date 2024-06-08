@@ -1,0 +1,8 @@
+[col=0x6f95abff]Update notes v1.9.0:[/col]
+(App version: v1.4.0)
+
+* Added newsletter button to the adventure
+  screen to uniform with the town screen
+* Added Japanese localization
+* Improved the store UI
+* Improved the story UI
