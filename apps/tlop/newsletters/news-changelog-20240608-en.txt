@@ -3,12 +3,12 @@
 * Added newsletter button to the adventure
   screen to uniform with the town screen
 * Added Japanese localization
-* Improved the store UI
-* Improved the story UI
 * Added a quit (to desktop) button to
   the town and adventure screens
 * Added a mechanism to remember window
   position of the last session
 * Updated the language selection UI
+* Improved the store UI
+* Improved the story UI
 * Fixed a runtime error when maximize
   the window within adventure screen
