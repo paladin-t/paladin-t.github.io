@@ -1,0 +1,5 @@
+[col=0x6f95abff]Patch notes v1.9.1:[/col]
+(App version: v1.4.1)
+
+* Improved Japanese translation
+* Improved newsletter parsing

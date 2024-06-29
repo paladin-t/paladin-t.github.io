@@ -1,0 +1,5 @@
+[col=0x6f95abff]Patch notes v1.9.1:[/col]
+
+* Added Steam achievement integration
+* Improved Japanese translation
+* Improved newsletter parsing
