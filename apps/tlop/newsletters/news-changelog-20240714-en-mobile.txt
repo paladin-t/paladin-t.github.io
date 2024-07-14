@@ -1,0 +1,9 @@
+[col=0x6f95abff]Patch notes v1.9.2:[/col]
+(App version: v1.4.1)
+
+* Added a clickable URL to mark all
+  newsletters as read
+* Updated minimum rest interval from
+  5 to 2 min
+* Fixed a potential crash bug of
+  newsletter fetching
