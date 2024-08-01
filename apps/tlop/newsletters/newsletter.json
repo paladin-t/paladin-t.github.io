@@ -1,6 +1,22 @@
 {
   "english": [
     {
+      "id": "4",
+      "platform": [ "Windows", "Linux", "MacOS" ],
+      "revision_condition": {
+        "type": "<=",
+        "value": 11
+      },
+      "start_timepoint": "1970-01-01 00:00:00",
+      "end_timepoint": "9999-12-31 23:59:59",
+      "impressions": -1,
+      "created_timepoint": "2024-08-01 08:00:00",
+      "updated_timepoint": "2024-08-01 08:00:00",
+      "title": "Info: New Version!",
+      "url": "news://news-info-new-version-en.txt",
+      "font": "normal"
+    },
+    {
       "id": "2",
       "platform": [ "iOS" ],
       "revision_condition": {
@@ -419,6 +435,22 @@
   ],
   "chinese": [
     {
+      "id": "4",
+      "platform": [ "Windows", "Linux", "MacOS" ],
+      "revision_condition": {
+        "type": "<=",
+        "value": 11
+      },
+      "start_timepoint": "1970-01-01 00:00:00",
+      "end_timepoint": "9999-12-31 23:59:59",
+      "impressions": -1,
+      "created_timepoint": "2024-08-01 08:00:00",
+      "updated_timepoint": "2024-08-01 08:00:00",
+      "title": "资讯：新版本！",
+      "url": "news://news-info-new-version-zh.txt",
+      "font": "normal"
+    },
+    {
       "id": "2",
       "platform": [ "iOS" ],
       "revision_condition": {
@@ -836,6 +868,22 @@
     }
   ],
   "japanese": [
+    {
+      "id": "4",
+      "platform": [ "Windows", "Linux", "MacOS" ],
+      "revision_condition": {
+        "type": "<=",
+        "value": 11
+      },
+      "start_timepoint": "1970-01-01 00:00:00",
+      "end_timepoint": "9999-12-31 23:59:59",
+      "impressions": -1,
+      "created_timepoint": "2024-08-01 08:00:00",
+      "updated_timepoint": "2024-08-01 08:00:00",
+      "title": "情報：新しいバージョン！",
+      "url": "news://news-info-new-version-jp.txt",
+      "font": "normal"
+    },
     {
       "id": "3",
       "platform": [ "Windows", "Linux", "MacOS" ],

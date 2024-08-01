@@ -1,0 +1,5 @@
+[col=0x6f95abff]新版本！[/col]
+
+你的客户端版本过低，请更新。
+
+<!--url>The Legend of Pomodoro - 主页|https://paladin-t.github.io/apps/tlop/index-cn.html</url-->

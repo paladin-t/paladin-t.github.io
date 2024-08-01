@@ -1,6 +1,6 @@
 [col=0x6f95abff]情報：リンク[/col]
 
-<!--url>The Legend of Pomodoro - 主页|https://paladin-t.github.io/apps/tlop/index-cn.html</url-->
+<!--url>The Legend of Pomodoro - ホームページ|https://paladin-t.github.io/apps/tlop/index.html</url-->
 <!--url>E-mail|https://paladin-t.github.io/</url-->
 <!--url>掲示板|https://paladin-t.github.io/message.html</url-->
 <!--url>X|twitter://user?screen_name=wangrenxin</url-->

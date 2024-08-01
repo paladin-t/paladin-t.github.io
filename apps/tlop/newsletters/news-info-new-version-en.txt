@@ -1,0 +1,6 @@
+[col=0x6f95abff]New Version![/col]
+
+You are running an old version,
+please update it.
+
+<!--url>The Legend of Pomodoro - Homepage|https://paladin-t.github.io/apps/tlop/index.html</url-->
