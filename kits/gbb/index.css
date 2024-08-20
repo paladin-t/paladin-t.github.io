@@ -588,6 +588,11 @@ section {
   margin-bottom: 3rem;
 }
 
+.store_frame {
+  width: 552px;
+  height: 190px;
+}
+
 @media (min-width: 960px) {
   .more_box {
     padding-bottom: 2rem;
@@ -600,6 +605,12 @@ section {
 @media (min-width: 1024px) {
   .more_box article {
     max-width: 31%;
+  }
+}
+
+@media (max-width: 750px) {
+  .store_frame {
+    width: 100%;
   }
 }
 
