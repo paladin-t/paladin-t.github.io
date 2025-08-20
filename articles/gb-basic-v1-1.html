@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="GameBuilder BASIC (GB BASIC) is a retro Fantasy Console that generates ROMs compatible with the popular handheld game console. This article shows off what's new in the v1.1 release.">
+  <meta name="twitter:card" content="GameBuilder BASIC (GB BASIC) is a retro Fantasy Console that generates ROMs compatible with the popular handheld game console. This article shows off what's new in the v1.1 release.">
+  <meta name="twitter:image" property="twitter:image" content="https://user-images.githubusercontent.com/2062224/225692312-8333019c-b0ed-454e-8c2f-923565605de3.png">
+  <meta name="og:title" property="og:title" content="GB BASIC Is Available Now">
+  <meta name="og:description" property="og:description" content="GameBuilder BASIC (GB BASIC) is a retro Fantasy Console that generates ROMs compatible with the popular handheld game console. This article shows off what's new in the v1.1 release.">
+  <meta name="og:image" property="og:image" content="https://user-images.githubusercontent.com/2062224/225692312-8333019c-b0ed-454e-8c2f-923565605de3.png">
+  <title>Tony Wang - Articles</title>
+  <link rel="alternate" type="application/rss+xml" title="Tony Wang - Homepage" href="../feed.xml" />
+  <link rel="shortcut icon" href="../favicon.ico" />
+  <link rel="apple-touch-icon" href="../imgs/avatar.png" />
+  <link rel="stylesheet" type="text/css" href="../index.css">
+  <link rel="stylesheet" type="text/css" href="../prism.css">
+  <link rel="stylesheet" type="text/css" href="../article.css">
+</head>
+<body onclick>
+  <div class="sidenav">
+    <div class="sidebar">
+      <p align="center" class="title">
+        Contents
+      </p>
+      <a href="../#top">* Home</a>
+      <a href="../#kits">* Kits</a>
+      <a href="../#apps">* Apps</a>
+      <a href="../#games">* Games</a>
+      <a href="../#tiny">* Tiny</a>
+      <a href="../#articles">* Articles</a>
+      * <a href="../feed.xml" target="_blank" class="label" style="display: inline; color: white;">RSS</a>
+    </div>
+  </div>
+  <div class="page">
+    <a id="top" href="#top"></a>
+    <p align="center" class="title">
+      <a href="https://paladin-t.github.io/">Tony Wang</a>
+    </p>
+    <div class="content">
+      <p align="left">
+        <a href="https://store.steampowered.com/developer/tony">Steam</a> |
+        <a href="https://tonywang.itch.io/">Itch</a> |
+        <a href="https://twitter.com/wangrenxin">Twitter</a> |
+        <a href="https://github.com/paladin-t">GitHub</a>
+      </p>
+      <div id="container">
+        <div id="left">
+          <div id="article-avatar">
+            <img src="../imgs/avatar.png" id="avatar">
+          </div>
+        </div>
+        <div id="right">
+          <div class="article-title" id="article-title">
+            GB BASIC Is Available Now
+          </div>
+          <button class="button" id="font" style="width: 4em; font-size: 8px;">Font</button>
+        </div>
+      </div>
+
+      <hr>
+      <div id="article">
+        <div id="article-content" class="article-content" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">
+          <!-- BEGIN CONTENT -->
+<p>[<a href="https://paladin-t.github.io/">Home</a>|<a href="https://paladin-t.github.io/#articles">All articles</a>|<a href="https://paladin-t.github.io/articles/gb-basic-v1-1.html">Permalink</a>]</p>
+<!-- ## Previously on The Alpha -->
+
+<p>Previously on the project:</p>
+<ul>
+<li><a href="https://paladin-t.github.io/articles/introducing-gb-basic.html">Introducing GB BASIC</a><ul>
+<li><a href="https://github.com/gbbasic/prototype">Prototype release</a></li>
+</ul>
+</li>
+<li><a href="https://paladin-t.github.io/articles/gb-basic-alpha-1.html">GB BASIC Alpha 1</a><ul>
+<li><a href="https://tonywang.itch.io/gbbasic-alpha">Alpha 1 on itch.io</a></li>
+</ul>
+</li>
+<li><a href="https://paladin-t.github.io/articles/gb-basic-alpha-2.html">GB BASIC Alpha 2</a><ul>
+<li><a href="https://tonywang.itch.io/gbbasic-alpha">Alpha 2 on itch.io</a></li>
+</ul>
+</li>
+<li><a href="https://paladin-t.github.io/articles/gb-basic-alpha-3.html">GB BASIC Alpha 3</a><ul>
+<li><a href="https://tonywang.itch.io/gbbasic-alpha">Alpha 3 on itch.io</a></li>
+</ul>
+</li>
+<li><a href="https://paladin-t.github.io/articles/gb-basic-alpha-4.html">GB BASIC Alpha 4</a><ul>
+<li><a href="https://tonywang.itch.io/gbbasic-alpha">Alpha 4 on itch.io</a></li>
+</ul>
+</li>
+</ul>
+<hr>
+
+<!-- ## Get The v1.1 Release -->
+
+<p>This update introduces several key features, including auto-update mode, an emote module, GUI components (progress bars and menus), and Point&amp;Click controllers, while optimizing triggers, resource loading, controllers, touch/mouse handling, and thread handling. On the syntax side, new memory operations, data streaming, and macro scopes were added, along with improved label lookup. The editor significantly enhances functionality and usability, with improved map and trigger editing, code binding, resource sorting, and bitmap font support, refining the editing experience for maps, scenes, and other assets. Performance optimizations notably improve collision detection and camera tracking, while numerous bugs were fixed, memory mapping adjusted, and syntax refined for greater stability and efficiency.</p>
+<p>This update includes several breaking changes, primarily aimed at refining and optimizing the syntax and design from the Alpha phase. These modifications address earlier inconsistencies, bringing greater internal cohesion to the runtime, syntax rules, and editor components. Starting with this release, the API will enter a more stable phase, with future updates prioritizing backward compatibility.</p>
+<p>This marks a major milestone release for the project, with over 5,000 code commits since its inception - approximately 45% of which were submitted during this v1.1 iteration alone. For brevity, I won't delve into every change here, but the full changelog is provided below.</p>
+<p>As of the time of this writing, the latest version is available on <a href="https://store.steampowered.com/app/2308700/">Steam</a> (Windows/Linux/MacOS), <a href="https://tonywang.itch.io/gbbasic">itch.io</a> (Browser), and <a href="https://github.com/paladin-t/gbb/">GitHub</a> (Source Code)</p>
+<iframe src="https://store.steampowered.com/widget/2308700/" frameborder="0" width="552" height="190"></iframe>
+
+<iframe src="https://itch.io/embed/1706688?linkback=true&amp;border_width=0&amp;bg_color=ecfce8&amp;fg_color=222222&amp;link_color=327345&amp;border_color=adadad" frameborder="0" width="552" height="165">
+  <a href="https://tonywang.itch.io/gbbasic">GameBuilder BASIC (GB BASIC) by Tony Wang</a>
+</iframe>
+
+<p>This software supports Windows, Linux and MacOS natively.</p>
+<hr>
+
+<!-- ## Changelog -->
+
+<h3 id="changelog">Changelog</h3>
+<p>See the full changelog below of the release for new features and modifications.</p>
+<ul>
+<li>Runtime<ul>
+<li>Added a <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">MUSIC_POSITION</code> option for setting the position of music playback</li>
+<li>Added an <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">ENABLED_PROP</code> property to actor structure</li>
+<li>Added an <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">IS_16x16_GRID</code> property to the scene structure</li>
+<li><strong>Added an auto update mode</strong></li>
+<li><strong>Added an <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">AUTO_UPDATE_ENABLED</code> option to toggle update mode</strong></li>
+<li>Added an <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">INSTANTIATED_ACTORS</code> query key</li>
+<li><strong>Added an emote module</strong></li>
+<li>Added an <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">OBJECT_SPRITE_BASE</code> option to specify the start sprite index for actors, emotes, projectiles, etc.</li>
+<li><strong>Added trigger loading when loads a scene</strong></li>
+<li><strong>Added a progress bar GUI widget</strong></li>
+<li><strong>Added a menu GUI widget</strong></li>
+<li>Added a max size property to the font structure</li>
+<li>Added touch interaction for label paging</li>
+<li><strong>Added a <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">POINTNCLICK_PLAYER_WITH_MOUSE_BEHAVIOUR</code> controller</strong></li>
+<li><strong>Added a <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">POINTNCLICK_PLAYER_WITH_TOUCH_BEHAVIOUR</code> controller</strong></li>
+<li>Added a third parameter to the callback of <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">ON TOUCH(...)</code> statement for mouse button type</li>
+<li>Added an extension slot at the memory bus for platform flags</li>
+<li>Added a <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">PLATFORM_FLAGS</code> query key</li>
+<li>Added a <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">wait_until_confirm</code> native function to wait until the A/Start button has been pressed or anywhere of the screen has been tapped</li>
+<li><strong>Updated the top-down actor controller for better behaviour and performance</strong></li>
+<li>Added running support to the platformer controller</li>
+<li>Added builtin resources</li>
+<li>(Breaking) Updated the start address of <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">PEEK</code> and <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">POKE</code></li>
+<li>Updated the <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">LOAD SCENE</code> operation to clear all objects including projectiles and widgets if the <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">clear_objects</code> parameter is "true"</li>
+<li>Updated the scene loading operation to reset any effects</li>
+<li>Updated the actor behaving to ignore controlling if a thread is locking</li>
+<li>Updated the builtin elephant resource</li>
+<li>(Breaking) Changed the unit of the start and end parameters of parallax effect from pixel to tile</li>
+<li>(Breaking) Changed the RAM map of the extension area</li>
+<li>(Breaking) Changed the native function <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">wait_frames</code> to <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">wait_for</code></li>
+<li><strong>Optimized the trigger collision calculation</strong></li>
+<li><strong>Optimized the camera following calculation with an actor</strong></li>
+<li>Optimized touch handling</li>
+<li>Optimized the parallax effect</li>
+<li>Optimized signature calculation of the persistence module</li>
+<li>Optimized performance of the actor module and the associated controllers</li>
+<li><strong>Improved thread handling of input callback</strong></li>
+<li><strong>Improved actor activeness refreshing when scroll scenes</strong></li>
+<li>Improved image initialization with map assets to avoid glitches due to non-zero offset</li>
+<li>Improved thread handling by disabling some actor behaviours and input retrieval when a thread is locked</li>
+<li>Improved accuracy of touch position calculation for GUI</li>
+<li>Improved space handling when it's at the beginning of a line for label widget</li>
+<li>Improved computation of actor visibility</li>
+<li>Improved interaction and jump input handling for the platformer controller</li>
+<li>Improved handling of actor overlap for the platformer and top-down controllers</li>
+<li>Improved handling of actor's hidden property by ensuring motion processing is always applied</li>
+<li>Improved actor's interaction against a ladder</li>
+<li>Improved movement during player jump of the platformer controller</li>
+<li>Improved animation initialization when load an actor</li>
+<li>Improved direction refreshing when a top-down controller is blocked in scene</li>
+<li>Improved actor collision handling of the top-down controller</li>
+<li>Improved projectile collision calculation with specific actors' collision group</li>
+<li><strong>Improved a top-down actor's movement when it's blocked by a tile, now it aligns to the nearest passable position</strong></li>
+<li>(Breaking) Removed the <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">AUTO_ACTOR_SPRITE_ENABLED</code> option</li>
+<li>(Breaking) Removed the <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">LABEL_NEXT_BTN</code> option</li>
+<li>Fixed an actor animation index initialization issue</li>
+<li>Fixed an actor animation pause issue of the controllers</li>
+<li>Fixed a projectile rendering glitch</li>
+<li>Fixed a camera positioning issue</li>
+<li>Fixed a touch down and touch up detection issue</li>
+<li>Fixed a top-blocking bug of the platformer controller</li>
+<li>Fixed a word wrap issue</li>
+<li>Fixed a callback issue of the <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">ON TOUCH(...)</code> family statements</li>
+<li>Fixed a font module initialization issue when SRAM is enabled</li>
+<li>Fixed a base tile calculation issue with the GUI statements</li>
+<li>Fixed a base sprite calculation bug after specifying with <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">OPTION</code> statement</li>
+<li>Fixed a paging bug of text-based widgets when the rest space is still enough</li>
+<li>Fixed an indexed palette setting bug with classic device</li>
+<li>Fixed an offset calculation bug of the window layer for GUI widgets</li>
+<li>Fixed a hardware sprite hiding bug after deleting actor</li>
+<li>Fixed a loading issue of scrolling scene at edges</li>
+<li>Fixed a pinned actor drawing issue</li>
+<li>Fixed a ranging bug when load scene from right or bottom borders instantly</li>
+<li>Fixed an actor thread termination issue where the thread had already finished</li>
+<li>Fixed an argument passing bug with actor's stopping movement operation</li>
+<li>Fixed a calculation bug when move an actor relatively</li>
+<li>Fixed an emote loading bug with tiles asset</li>
+<li>Fixed an actor traversal bug with specific start object</li>
+<li>Fixed a camera positioning bug when load a scene</li>
+<li>Fixed a movement clamping bug of the top-down controller</li>
+<li>Fixed a definition reading bug of the projectile module</li>
+<li>Fixed a loading bug of attributes in the scene module</li>
+<li>Fixed an aligning to tile bug of the top-down controller</li>
+<li>Fixed a hanging bug when execute <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">SHELL</code> command on a non-extension device</li>
+<li>Upgraded the compiler of the runtime ROM from GBDK-2020 v4.2.0 to v4.4.0</li>
+</ul>
+</li>
+<li>Syntax<ul>
+<li><strong>Added an <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">IMAGE(...) = WITH MAP ...</code> function to draw map-based image with its corresponding tiles</strong></li>
+<li>Added a <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">DEF SCENE() = NOTHING</code> statement to reset scene states</li>
+<li><strong>Added <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">AUTO UPDATE ON</code> and <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">AUTO UPDATE ON</code> to toggle update mode</strong></li>
+<li><strong>Added <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">DEF PROGRESSBAR(...) = ...</code> and <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">PROGRESSBAR ...</code></strong></li>
+<li><strong>Added <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">DEF MENU(...) = ...</code>, <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">MENU ...</code> and <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">MENU NOTHING</code></strong></li>
+<li><strong>Added <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">ON MENU() START ...</code> and <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">OFF MENU</code></strong></li>
+<li>Added <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">DEF WIDGET() = NOTHING</code> to reset GUI states</li>
+<li><strong>Added <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">BEGIN DEF</code>/<code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">END DEF</code> to make macro scopes</strong></li>
+<li>Added <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">DEF ... = STACKN</code> to make stack reference aliases</li>
+<li><strong>Added a <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">MEMSET(...)</code> statement to set the value of a range of memory space</strong></li>
+<li><strong>Added a <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">MEMCPY(...)</code> statement to copy arbitrary data from an address in memory into another place</strong></li>
+<li><strong>Added a <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">MEMADD(...)</code> statement to add the specific value to the values of a range of space</strong></li>
+<li>Added <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">LOAD SCENE() = NOTHING</code> to unload scene and all objects</li>
+<li>Added <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">=WIDTH #pg|name, txt</code>, <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">=HEIGHT #pg|name, txt</code> to measure text width and height for GUI widgets</li>
+<li>Added support for specify the address of the data sequence by builtin names as <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">RESTORE "MAGIC"</code></li>
+<li>Added support for <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">READ</code> bytes into an array which was declared by <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">DIM</code></li>
+<li>Added support for <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">READ n</code> to skip <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">n</code> bytes, where <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">n</code> is a number constant</li>
+<li>Added support for <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">RESTORE array</code> to set the reading position of inline data sequence to the start address of the specific array</li>
+<li>Added <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">BANKOF(...)</code> and <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">ADDRESSOF(...)</code> operators to get the bank and address of variable/array identifiers or builtin entries</li>
+<li><strong>Added a <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">STREAM</code> statement to stream transfer data</strong></li>
+<li>Added a <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">DO NOTHING</code> statement which emits a <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">nop</code> instruction and do nothing</li>
+<li>Added an <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">x_offset</code> parameter to the <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">DEF LABEL</code> statement to specify the x offset of the label blit cursor</li>
+<li><strong>Added <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">DEF ... = n</code> to define macro of numeric constant</strong></li>
+<li>Added an <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">SRAM_ADDRESS</code> constant that points to the start address of SRAM</li>
+<li>Added a <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">FILE_ADDRESS</code> constant that points to the start address of each file</li>
+<li><strong>Added support to <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">EXIT</code> from <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">WHILE</code> and <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">REPEAT</code> loops</strong></li>
+<li>Added syntax highlight for jump destinitions</li>
+<li>Added <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">BEGIN DO</code>/<code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">END DO</code> to mark the beginning and end of a code block</li>
+<li>Added <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">DEF ... = var</code> to make variable alias</li>
+<li>Added <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">PACK</code>/<code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">UNPACK</code> statements to pack/unpack Bytes or Nibbles with Word</li>
+<li>Added an <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">ACTOR_HIT_WITH_DETAILS_ENABLED</code> constant for device option</li>
+<li>Added a new optional collision group parameter to the actor's hit callback</li>
+<li>Added a pair of <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">PEEK INT</code>/<code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">POKE INT</code> statements to peek and poke wordwise</li>
+<li>Added a parameter for actor handle to the actor's behave routine</li>
+<li>Added a <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">RESERVE ...</code> statement to reserve a number of slots on VM stack</li>
+<li>Added support for assigning value to <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">STACK</code> slots and their aliases</li>
+<li>Added <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">STOP ACTOR(...)</code> to stop an actor from moving</li>
+<li>Added a special animation value (8) for <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">PLAY ACTOR ...</code> to turn the actor's animation to idle</li>
+<li>Added <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">DEF ... = MACRO</code> to define macro alias</li>
+<li>Added a <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">flags</code> parameter to the <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">MOVE ACTOR(...) WITH ...</code> and <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">MOVE ACTOR(...) TO ...</code> statements to support specifying the rule of movement checking</li>
+<li>Added <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">MOVE ACTOR()</code> and or <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">STOP ACTOR()</code> to stop all actors from moving</li>
+<li><strong>Added a <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">SCROLL</code> statement to scroll tiles on the screen</strong></li>
+<li>Added support of <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">=RGB("{hex}")</code> to specify color in web hexadecimal format</li>
+<li>Added support of <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">PALETTE ..., #pg:n|name</code> to specify palette from palette name or index</li>
+<li>Added an <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">=HSV(h, s, v)</code> statement to create RGB color value from HSV components</li>
+<li>Updated <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">DEF FN ...</code> to support <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">BEGIN DEF</code>/<code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">END DEF</code></li>
+<li>(Breaking) Changed the tiles-based <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">IMAGE(...) = ...</code> function to <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">IMAGE(...) = WITH TILE ...</code></li>
+<li>(Breaking) Changed the <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">TICKS</code> variable to <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">TIME</code></li>
+<li>(Breaking) Changed the <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">GRAPHICS_MODE</code> to <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">OBJECTS_MODE</code>, and <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">DRAW_MODE</code> to <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">GRAPHICS_MODE</code></li>
+<li>(Breaking) Changed the <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">PALETTE ...</code> parameters to support setting colors for the sprite layer for classic devices</li>
+<li>(Breaking) Changed the parameter of the <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">MOVE ACTOR(...) WITH ...</code> statement to support specifying the relative movement duration</li>
+<li>(Breaking) Changed the <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">DEBUG</code> statement to <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">DBGINFO</code></li>
+<li><strong>Improved jump destination (for <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">GOTO</code>/<code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">GOSUB</code>/<code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">START</code>) lookup if a label is globally unique</strong></li>
+<li>(Breaking) Removed the <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">ON SCENE MOVE GOTO/GOSUB ...</code> and <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">OFF SCENE MOVE</code> statements</li>
+<li>(Breaking) Removed the <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">POLL()</code> statement</li>
+<li>(Breaking) Removed the <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">LABEL_BLIT_INTERVAL</code> option</li>
+<li>(Breaking) Removed the <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">ACTOR_HIT_WITH_DIRECTION_ENABLED</code> constant (consider <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">ACTOR_HIT_WITH_DETAILS_ENABLED</code> instead)</li>
+<li>(Breaking) Removed non-constant reference support for the <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">STACK(n)</code> statement</li>
+<li>(Breaking) Removed the <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">FRAME_PROP</code> actor property</li>
+<li>Fixed a case-insensitive bug of the <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">NOTHING</code>, <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">FALSE</code>, <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">TRUE</code> and <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">TIME</code> keywords</li>
+</ul>
+</li>
+<li>Compiler<ul>
+<li><strong>Added support for bitmap-based font</strong></li>
+<li><strong>Added a new set of escape rules starting with <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">\</code></strong></li>
+<li><strong>Added a new escape rule as <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">\uXXXX</code> for embedded characters, i.e. <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">\u266B</code></strong></li>
+<li>Added warning for unknown glyphs</li>
+<li>Added escape support to the <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">ASC(...)</code> function</li>
+<li>Added a <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">base</code> tile parameter to the <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">DEF MAP</code> and <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">DEF WINDOW</code> functions</li>
+<li>Added a <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">pitch</code> parameter to the <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">DEF MAP</code> and <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">DEF WINDOW</code> functions</li>
+<li>Added an <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">ENABLED_PROP</code> property to actor</li>
+<li>Added support for compiling custom icon to ROM</li>
+<li>Added support for <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">JOIN START ...</code></li>
+<li>Added an <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">offset</code> parameter to the <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">DEF MAP ...</code>/<code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">DEF WINDOW ...</code> statements</li>
+<li>Added palette pipeline to compile palette data into final ROM</li>
+<li>Added <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">SIZE_WIDTH_PROP</code> and <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">SIZE_HEIGHT_PROP</code> properties to scene</li>
+<li>Added <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">CAMERA_DEADZONE_PROP</code>, <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">CAMERA_DEADZONE_X_PROP</code> and <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">CAMERA_DEADZONE_Y_PROP</code> properties to scene</li>
+<li>Added detail size breakdown for code and all asset types to the compiler/pipeline</li>
+<li>Added accessing to tiles/map assets by their names</li>
+<li>Added warning when using file feature in code but cartridge does not have this function enabled</li>
+<li>Added warning when using RTC feature in code but cartridge does not have this function enabled</li>
+<li>Added static analyzing and highlight of macros</li>
+<li>Added builtin macros</li>
+<li>Updated the structure of font assets to support arbitrary data per font</li>
+<li>(Breaking) Changed the escape for stack pointer from <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">%#</code> to <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">\#</code></li>
+<li>(Breaking) Changed the parameter order of the <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">DEF LABEL(...)</code> statement</li>
+<li>Changed native symbol lookup to be case-insensitive</li>
+<li>(Breaking) Changed the default value of the <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">wait</code> parameter in <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">MOVE ACTOR ...</code> statements to "true"</li>
+<li>Optimized the <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">GOTO</code> statement to use near jump if possible</li>
+<li>Optimized the <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">FOR</code> loop when the condition and step are constants</li>
+<li>Improved glyph generation to use substitution font if the origin asset does not contain a glyph</li>
+<li>(Breaking) Improved the behaviour of the code optimization launching option, it defaults to "true" instead of "false"</li>
+<li>Improved parameter checking</li>
+<li>Improved unexpected token checking</li>
+<li>Improved positive/negative sign parsing of numbers</li>
+<li>Improved the asset finding algorithm to recommend asset with similar name</li>
+<li>Improved error raising for potential heap overflow</li>
+<li>Improved error raising for undeclared ID usage</li>
+<li>Improved AST serialization</li>
+<li>Improved unsolved native symbol error raising with possible correction suggestion</li>
+<li>Improved the <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">LET</code> declaration statement to support reusing variables that already have been declared by <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">FOR</code> loops</li>
+<li>Improved <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">FOR</code> loop step determination if it's not provided and guessable</li>
+<li>Improved location indicating of error report</li>
+<li>Improved compatibility when extension features are not enabled in project properties</li>
+<li>Improved compilation of actor from scene assets</li>
+<li>Improved compilation of <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">=GET ??? WIDTH(...)</code> and <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">=GET ??? HEIGHT(...)</code> to measure assets by their names</li>
+<li>Improved parsing of short single-line if statement, i.e. <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">IF ... THEN n ELSE ...</code> or <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">IF ... GOTO n ELSE ...</code></li>
+<li>(Breaking) Removed the <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">FLIPX_PROP</code>, <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">FLIPY_PROP</code> properties of sprite flip, reused the <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">HFLIP_PROP</code>, <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">VFLIP_PROP</code> instead</li>
+<li>(Breaking) Removed the <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">VISIBILITY_PROP</code> property of sprite visibility, reused the <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">HIDDEN_PROP</code> instead</li>
+<li>(Breaking) Removed the <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">ANIMATION_AUTO_PROP</code> property of actor</li>
+<li>(Breaking) Removed the <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">DETACH_OBSOLETE_THREAD_PROP</code> property of actor</li>
+<li>(Breaking) Removed the <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">DEACTIVE_DISTANCE_PROP</code> property of actor</li>
+<li>(Breaking) Removed the <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">HFLIP_PROP</code>, <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">VFLIP_PROP</code> properties of actor</li>
+<li>(Breaking) Removed the <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">BASE_SPRITE_PROP</code> property of actor</li>
+<li>(Breaking) Removed the <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">base_sprite</code> parameter of <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">DEF ACTOR</code></li>
+<li>(Breaking) Removed the <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">sprite_base_id</code> parameter of <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">LOAD SCENE</code></li>
+<li>Fixed a stack pollution bug of <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">FN</code> macro generation</li>
+<li>Fixed some comment parsing issues</li>
+<li>Fixed a jump target resolving bug for threads in non-first code page</li>
+<li>Fixed a non-saved code compilation issue with minor editor</li>
+<li>Fixed a no-parameter macro function evaluation issue</li>
+<li>Fixed a crash bug when compile music</li>
+<li>Fixed a potential operand emitting bug caused by wrong value capture of lambda</li>
+<li>Fixed a compilation with wrong source code revision bug when "undo" to a saved state</li>
+<li>Fixed a music lookup bug when get by name</li>
+<li>Fixed an SFX lookup bug when get by name</li>
+<li>Fixed a scene lookup bug when get by name</li>
+<li>Fixed a parsing bug when some statements end with comment</li>
+<li>Fixed a Unicode detection bug with the <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">ASC(...)</code> function</li>
+<li>Fixed a compilation bug when bank overflows</li>
+<li>Fixed a data sequence cursor restoring bug</li>
+<li>Fixed a crash bug of the compile-only mode</li>
+<li>Fixed a loading bug with Unicode path of the compile-only mode</li>
+<li>Fixed a project properties injection bug of the compile-only mode</li>
+<li>Fixed a states resetting bug after an AST node overflows at the emitting phase</li>
+<li>Fixed an image drawing bug on the window layer</li>
+<li>Fixed a VM crash bug caused by incorrect memory allocation of music resources</li>
+<li>Fixed a base tile calculation bug when using <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">IMAGE(...) = WITH MAP ...</code> with attributes layer</li>
+<li>Fixed a stack popping bug with the <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">PALETTE ...</code> statement</li>
+<li>Fixed a line wrap bug of end word for label widget</li>
+<li>Fixed a minus operator parsing bug after an array reading operation</li>
+<li>Fixed a stack popping issue when <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">RETURN</code> out of <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">FOR</code> loops</li>
+<li>Fixed a compilation bug in for loops with expressions as initial condition, termination condition, or step</li>
+<li>Fixed a parsing bug with <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">MOVE ACTOR(...) TO ...</code>/<code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">MOVE ACTOR(...) WITH ...</code> statements</li>
+<li>Fixed a projectile loading issue from an actor asset</li>
+</ul>
+</li>
+<li>Emulator<ul>
+<li>Added a graph indicator of CPU load</li>
+<li>Added a specialized shell command to pause emulation</li>
+<li>Added a specialized shell command to stop emulation</li>
+<li>Added a view menu to the emulator screen</li>
+<li>Added an option to toggle onscreen debug layer</li>
+<li>Added a mute button to the emulator</li>
+<li><strong>Added a specialized shell command to set cursor type</strong></li>
+<li><strong>Added a fast forward option</strong></li>
+<li><strong>Added two <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">KEYM</code> and <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">KEYC</code> registers to support keyboard input for extension</strong></li>
+<li>Updated the layout of the Select/Start buttons</li>
+<li>Improved input handling for the emulator when there's any opened popup</li>
+<li>Fixed an SRAM persistence bug when close a running project</li>
+<li>Fixed an emulation stopping bug when drag&amp;drop a project file into the window</li>
+<li>Fixed a potential crash bug when memory reading is out of bounds</li>
+</ul>
+</li>
+<li>Editor<ul>
+<li><strong>Added more export options</strong></li>
+<li>Added warning to report duplicate assets</li>
+<li>Added a sticky-line-number feature to the code editor</li>
+<li><strong>Added support for loading an image directly into map and its ref tiles</strong></li>
+<li>Added a pair of undo/redo buttons on the top buttons area</li>
+<li><strong>Added support of trigger editing in the scene editor</strong></li>
+<li>Added a max size property to the font editor</li>
+<li><strong>Added code binding feature to the actor editor</strong></li>
+<li><strong>Added code binding feature to the scene editor for triggers</strong></li>
+<li>Added cursor recording when capture GIF</li>
+<li>Added jump-to-object when double click an actor in the scene editor</li>
+<li>Added jump-to-code when double click a trigger in the scene editor</li>
+<li>Added an object list to the scene editor</li>
+<li>Added preview scale support to the font editor</li>
+<li>Added frame switching to the actor properties editor</li>
+<li>Added tooltips for map attributes and scene properties</li>
+<li>Added context menu items to quickly edit map attributes and scene properties</li>
+<li><strong>Added support for custom project icon</strong></li>
+<li><strong>Added a notepad mode (in which can open and edit a project file directly)</strong></li>
+<li>Added an actor selector popup to the scene editor</li>
+<li><strong>Added source code ejection feature</strong></li>
+<li>Added import/export feature to the code editor</li>
+<li>Added a menu entry heading to the palette editor</li>
+<li>Added sub menu items to the category tab to switch music/SFX mode</li>
+<li>Added an inplace import button for music when there's no asset</li>
+<li>Added tooltips for the music editor</li>
+<li>Added a view layer selecting menu to the scene editor</li>
+<li>Added property layer and other layer preview when edit a map in the scene editor</li>
+<li>Added a layer menu item to toggle grids for the tiles, map, scene and actor editors</li>
+<li>Added a layer menu item to toggle grids for the font editor</li>
+<li>Added a menu item to duplicate a font asset</li>
+<li>Added a name field to tiles asset</li>
+<li>Added a name field to map asset</li>
+<li>Added a name field to font asset</li>
+<li><strong>Added a menu entry to insert snippets to code editor</strong></li>
+<li>Added the first label as a code page's name</li>
+<li>Added names of assets as their pages' names</li>
+<li>Added "Find" and "Goto" menu items to the code editor</li>
+<li>Added an info icon with tooltips for the actor editor</li>
+<li>Added an info icon with tooltips for the code editor</li>
+<li>Added an info icon with tooltips for the font editor</li>
+<li>Added an info icon with tooltips for the tiles editor</li>
+<li>Added an info icon with tooltips for the map editor</li>
+<li>Added an info icon with tooltips for the scene editor</li>
+<li><strong>Added importing from image feature to the map editor</strong></li>
+<li>Added support of importing from clipboard to the tiles/map editor</li>
+<li><strong>Added possible suggestion when an identifier were not found</strong></li>
+<li><strong>Added a palette bits preview feature to the map, scene and actor editors</strong></li>
+<li>Added a trim paremeter to the font asset to indicate whether to trim font height when bake glyphs</li>
+<li>Added a launch option to let the application upgrade project only</li>
+<li>Added a map selection popup for scene ref selection</li>
+<li>Added a menu item to export map to image</li>
+<li>Added tooltips for animations to the actor editor</li>
+<li>Added Ctrl+Mouse Wheel or Cmd+Mouse Wheel to zoom in/out with editors</li>
+<li>Added Ctrl+Lasso or Cmd+Lasso to perform tilewise selection with tiles and actor editors</li>
+<li>Added automatic anchor computing of new actor frames</li>
+<li>Added a "Use gravity" option to the scene creation popup box</li>
+<li>Added "Copy" and "Paste" buttons to manipulate actor and scene definitions</li>
+<li>Added tooltips of the buttons for actor frame creation</li>
+<li>Added warning prompting for overlapped triggers</li>
+<li>Added builtin music library</li>
+<li>Added support for importing music from library</li>
+<li>Added routine overriding of actors for the scene editor</li>
+<li>Added an option to apply an actor's properties to all frames</li>
+<li><strong>Added bitwise operations including SET, AND, OR and XOR</strong></li>
+<li>Added a cartridge config dialog before building to ROM</li>
+<li>Added activity stat.</li>
+<li><strong>Updated the font editor to embed .ttf files into project instead of referencing them</strong></li>
+<li><strong>Updated the font editor to support bitmap-based font</strong></li>
+<li>Updated the music editor to start preview from active order</li>
+<li>Updated the exporter to prompt for browsing after exporting</li>
+<li>Updated the scene editor to support the new <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">IS_16x16_GRID</code> property</li>
+<li><strong>Updated the map and scene editors to support flip preview</strong></li>
+<li>Updated the default palette for tiles assets</li>
+<li>Updated code error prompting when there were multiple errors</li>
+<li>Updated actor editing in the scene editor for better UX</li>
+<li><strong>Updated the scene editor to allow direct map editing</strong></li>
+<li>Updated the font editor to support split area resizing</li>
+<li>Updated the apply button's color when there's modification</li>
+<li>Updated the editors to require non-empty name for assets</li>
+<li>Updated error handling, now switch to the page where the first error occurs</li>
+<li>(Breaking) Changed the max size limit of map/scene assets from 256 to 255</li>
+<li>Changed grids' visibility to "true" for the graphics editors</li>
+<li>Changed anchor setting to set for all frames by default</li>
+<li>Changed the persistent value of actor to "false" by default</li>
+<li>Optimized glyph generation if ' ' (space) is not represented in a .ttf file</li>
+<li>Optimized actor compacting by executing it in threaded work queue</li>
+<li>Optimized processing of actor definition with the pipeline</li>
+<li>Improved naming for the ROM exporter</li>
+<li>Improved the hierarchy of the top menu</li>
+<li>Improved UX of the scene editor</li>
+<li>Improved importing and exporting with data sequence of the scene editor</li>
+<li>Improved file drag&amp;drop</li>
+<li>Improved code font rendering with cyrillic letters</li>
+<li>Improved the UI/UX of ref</li>
+<li>Improved sizing of tool bar</li>
+<li>Improved support for Windows' dark mode</li>
+<li>Improved code highlight for binary number</li>
+<li>Improved input behaviour of paired characters like <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">"..."</code>, <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">(...)</code> and <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">[...]</code></li>
+<li>Improved asset naming to forbid blank name</li>
+<li>Improved the right side of the dual code editors opening behaviour to remember its last opened code page</li>
+<li>Improved experience with undo/redo with appliable operations</li>
+<li>Improved instrument length editing of music</li>
+<li>Improved view switching of the piano view when edit music</li>
+<li>Improved tile grid drawing of the tiles editor</li>
+<li>Improved the font editor to preview word wrap</li>
+<li>Improved scroll position handling for the code editor</li>
+<li>Improved continuous input of newline with indent for the code editor</li>
+<li>Improved shortcut handling when an input field is active</li>
+<li>Improved warning tips on the console icon</li>
+<li>Improved warning tips for the pipeline</li>
+<li>Improved key navigation of the projects</li>
+<li>Improved project filtering</li>
+<li><strong>Improved the asset editing to support sorting</strong></li>
+<li>Improved the header text of the map/scene layer selection box</li>
+<li>Improved actor behaviour persistence</li>
+<li>Improved the pipeline to optimize space allocation for assets</li>
+<li>Improved mouse scroll handling when the application window is at background</li>
+<li>Improved the default font baking</li>
+<li>Improved font importing to calculate the best fit font size and offset automatically</li>
+<li>Improved wordwise forward/backward navigation of the code editor</li>
+<li>Improved map importing to remember the "has attributes" property</li>
+<li>Improved palette determination of actor importing from image</li>
+<li>Improved sprite sheet importing for the actor editor by trimming blank frames</li>
+<li>Improved bounds computing when importing sprite sheets to actor</li>
+<li>Imporved sprite sheet importing for the actor editor by supporting automatic computation of frame count</li>
+<li>Improved sprite sheet importing for the actor editor by reserving routines</li>
+<li>Improved actor selection and deletion in the scene editor</li>
+<li>Improved Backspace/Delete handling of the text-based editors</li>
+<li>Improved animation interval editing for the actor editor</li>
+<li>Improved playable state refreshing for the music and SFX editors when a project is running</li>
+<li>Improved preview of music stroke</li>
+<li>Improved music name handling when import music from files</li>
+<li>Improved bitwise editing</li>
+<li>Improved the bitwise mask tool for the map and scene editors</li>
+<li>Moved the project closing menu item to the top menu</li>
+<li>Removed code copying when double-click the head of a code line</li>
+<li>Fixed a crash bug when drag&amp;drop an invalid file</li>
+<li>Fixed an example projects reloading issue</li>
+<li>Fixed a size calculation issue in the font editor</li>
+<li>Fixed a word selection bug of global search when using the dual code view</li>
+<li>Fixed a cross-page lookup bug of global search</li>
+<li>Fixed a crash bug after clearing recent projects</li>
+<li>Fixed a crash bug if export project when it's running</li>
+<li>Fixed a true-color to paletted conversion bug when load external images</li>
+<li>Fixed a palette pre-filling issue for actor assets</li>
+<li>Fixed some layer switching bugs of actor edit</li>
+<li>Fixed a font arbitrary saving issue</li>
+<li>Fixed a code page removing bug when minor code editor is active</li>
+<li>Fixed a project loading issue when it's transmitting</li>
+<li>Fixed a code text sync issue when major editor were not opened yet</li>
+<li>Fixed a crash bug when delete SFX</li>
+<li>Fixed a selection issue in the music editor</li>
+<li>Fixed crash bug of music editor</li>
+<li>Fixed an actor position and sizing issue after moved in the scene editor</li>
+<li>Fixed a crash bug when open property editor after resizing an actor</li>
+<li>Fixed a crash bug when selected the stamp tool for unsupported layers</li>
+<li>Fixed a glitch after painting on tiles and actor assets</li>
+<li>Fixed a saving issue when minor code editor is active</li>
+<li>Fixed a duplicated action issue for SFX shape generation</li>
+<li>Fixed a misdeclared warning of camera-out-of-bounds of the scene editor</li>
+<li>Fixed a preview camera size calculation issue under different scale in the scene editor</li>
+<li>Fixed a crash bug when decode paletted image from bytes</li>
+<li>Fixed a refreshing bug after changing palette of an actor</li>
+<li>Fixed an actor filling bug after resolving map ref of a scene asset which has resized</li>
+<li>Fixed a definition refreshing issue after importing an actor</li>
+<li>Fixed a C code serialization issue of actor frames</li>
+<li>Fixed a crash bug with the eyedropper tool in the map editor</li>
+</ul>
+</li>
+<li>Document, Examples, Starter Kits and Help<ul>
+<li><strong>Added starter kits</strong></li>
+<li>Updated the examples according to the modifications</li>
+<li>Updated the reference manual according to the new features and modifications</li>
+<li>Fixed an invalid explanation for <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">WAIT n</code></li>
+</ul>
+</li>
+</ul>
+<hr>
+
+<!-- ## Highlights -->
+
+<h3 id="project-icon">Project Icon</h3>
+<p>With the stabilization of the API in this version, the built-in example programs have been further enhanced. Each example focuses on illustrating a specific engine feature, and each has its own exclusive icon.</p>
+<img src="https://github.com/user-attachments/assets/5982f0ff-0a07-4f53-92cc-3e1ebb57f80d" style="display: block; margin-left: auto; margin-right: auto; width: 640px; image-rendering: pixelated;">
+<div align="center" style="color: gray; font-size: 8px;">Project icon</div>
+
+<hr class="hr">
+
+<h3 id="starter-kits">Starter Kits</h3>
+<p>To help developers get started quickly, I provide multiple starter kits covering common genres like Platformer, Top-Down, Point and Click, and others:</p>
+<img src="https://github.com/user-attachments/assets/dfd57677-32fc-410d-a57b-b0b5ad5a43d7" style="display: block; margin-left: auto; margin-right: auto; width: 640px; image-rendering: pixelated;">
+<div align="center" style="color: gray; font-size: 8px;">Platformer</div>
+
+<img src="https://github.com/user-attachments/assets/2611dbcf-a97c-4e35-9d69-d99fa33df690" style="display: block; margin-left: auto; margin-right: auto; width: 640px; image-rendering: pixelated;">
+<div align="center" style="color: gray; font-size: 8px;">Top-down</div>
+
+<img src="https://github.com/user-attachments/assets/7c4c5914-dc10-49e9-82d1-df47b7448a95" style="display: block; margin-left: auto; margin-right: auto; width: 640px; image-rendering: pixelated;">
+<div align="center" style="color: gray; font-size: 8px;">Point and Click</div>
+
+<img src="https://github.com/user-attachments/assets/bfc9e7b4-6429-427d-a455-f9ed97214836" style="display: block; margin-left: auto; margin-right: auto; width: 640px; image-rendering: pixelated;">
+<div align="center" style="color: gray; font-size: 8px;">Text Adventure</div>
+
+<img src="https://github.com/user-attachments/assets/66b6b53d-420e-4f24-bc4f-9b5943a20e61" style="display: block; margin-left: auto; margin-right: auto; width: 640px; image-rendering: pixelated;">
+<div align="center" style="color: gray; font-size: 8px;">Reversi</div>
+
+<img src="https://github.com/user-attachments/assets/15e4346f-247b-412b-96a0-2ec1709c46b7" style="display: block; margin-left: auto; margin-right: auto; width: 640px; image-rendering: pixelated;">
+<div align="center" style="color: gray; font-size: 8px;">Music Player</div>
+
+<img src="https://github.com/user-attachments/assets/c95b37fe-a44c-41da-970a-2645ac4cf28a" style="display: block; margin-left: auto; margin-right: auto; width: 640px; image-rendering: pixelated;">
+<div align="center" style="color: gray; font-size: 8px;">Mandelbrot Demo</div>
+
+<hr class="hr">
+
+<h3 id="basic-flavour">BASIC Flavour</h3>
+<p>With GB BASIC, it becomes possible to write code in the distinctive style of BASIC.</p>
+<img src="https://github.com/user-attachments/assets/9d09c748-66ec-40b7-a1ba-8e8880fe20ab" style="display: block; margin-left: auto; margin-right: auto; width: 640px; image-rendering: pixelated;">
+<div align="center" style="color: gray; font-size: 8px;">BASIC Maze</div>
+
+<hr class="hr">
+
+<h3 id="gui">GUI</h3>
+<p>Beyond the common game-specific features showcased in the starter kits, the GUI system has been further enhanced to empower developers in interface design.</p>
+<img src="https://github.com/user-attachments/assets/8c235796-b91a-4fde-8ccb-07808a92f571" style="display: block; margin-left: auto; margin-right: auto; width: 640px; image-rendering: pixelated;">
+<div align="center" style="color: gray; font-size: 8px;">Custom font</div>
+
+<img src="https://github.com/user-attachments/assets/c5a3cbd6-b27e-48ad-8e14-54ac4095d372" style="display: block; margin-left: auto; margin-right: auto; width: 640px; image-rendering: pixelated;">
+<div align="center" style="color: gray; font-size: 8px;">Widgets</div>
+
+<hr class="hr">
+
+<h3 id="colored">Colored</h3>
+<p>Of course, the engine supports the colored palette feature.</p>
+<img src="https://github.com/user-attachments/assets/aa147eb9-b680-454d-afe0-d3c74c7825bb" style="display: block; margin-left: auto; margin-right: auto; width: 640px; image-rendering: pixelated;">
+<div align="center" style="color: gray; font-size: 8px;">Colored</div>
+
+<hr class="hr">
+
+<h3 id="editors">Editors</h3>
+<p>Finally, the features and user experience of various editors have been stabilized, optimized, and enhanced.</p>
+<img src="https://github.com/user-attachments/assets/c3c138c1-05cb-4e90-b11e-0ce8c4e613e9" style="display: block; margin-left: auto; margin-right: auto; width: 640px; image-rendering: pixelated;">
+<div align="center" style="color: gray; font-size: 8px;">Code editor</div>
+
+<img src="https://github.com/user-attachments/assets/2c89bd41-6b76-448f-a107-6de2642bf2fe" style="display: block; margin-left: auto; margin-right: auto; width: 640px; image-rendering: pixelated;">
+<div align="center" style="color: gray; font-size: 8px;">Scene editor</div>
+
+<img src="https://github.com/user-attachments/assets/70b55bb1-56d3-4de0-a2f1-95b800b8dcca" style="display: block; margin-left: auto; margin-right: auto; width: 640px; image-rendering: pixelated;">
+<div align="center" style="color: gray; font-size: 8px;">Actor editor</div>
+
+<img src="https://github.com/user-attachments/assets/7289734b-be13-4396-bfec-1ead67ea8fa3" style="display: block; margin-left: auto; margin-right: auto; width: 640px; image-rendering: pixelated;">
+<div align="center" style="color: gray; font-size: 8px;">Font editor</div>
+
+<img src="https://github.com/user-attachments/assets/826230f7-7351-47d1-a851-5553e86208c0" style="display: block; margin-left: auto; margin-right: auto; width: 640px; image-rendering: pixelated;">
+<div align="center" style="color: gray; font-size: 8px;">Music editor</div>
+
+<img src="https://github.com/user-attachments/assets/55a80a61-765a-45d5-b17a-2ae2af4a6b4a" style="display: block; margin-left: auto; margin-right: auto; width: 640px; image-rendering: pixelated;">
+<div align="center" style="color: gray; font-size: 8px;">SFX editor</div>
+
+<hr class="hr">
+
+<!-- ## Development Plan -->
+
+<p>The functionality and API of GB BASIC are now complete and stable. You can use it to create your own GameBoy games! In future versions, GB BASIC will continue to receive improvements and updates. See the following for progress detail.</p>
+<p><img src="https://paladin-t.github.io/imgs/progresses/100.png" alt="100%"> 100% - Prototype progress (DONE):</p>
+<ul>
+<li>A working parser and a compiler</li>
+<li>A runtime that supports a number of programming interfaces</li>
+</ul>
+<p><img src="https://paladin-t.github.io/imgs/progresses/100.png" alt="100%"> 100% - Alpha 1 progress (DONE):</p>
+<ul>
+<li>A working assets processing pipeline flow</li>
+<li>Code, tiles, map, palette editors</li>
+<li>A built-in emulator</li>
+<li>A ROM exporter</li>
+<li>Migrated examples</li>
+<li>A Linux port</li>
+</ul>
+<p><img src="https://paladin-t.github.io/imgs/progresses/100.png" alt="100%"> 100% - Alpha 2 progress (DONE):</p>
+<ul>
+<li>Implement font, actor, scene editors</li>
+<li>Implement asset pipelines to process those real user made assets</li>
+</ul>
+<p><img src="https://paladin-t.github.io/imgs/progresses/100.png" alt="100%"> 100% - Alpha 3 progress (DONE):</p>
+<ul>
+<li>Implement an audio tracker and editor</li>
+<li>Implement an asset pipeline to process those real user made assets</li>
+<li>Fill in the reference manual</li>
+</ul>
+<p><img src="https://paladin-t.github.io/imgs/progresses/100.png" alt="100%"> 100% - Alpha 4 progress (DONE):</p>
+<ul>
+<li>Add <code class="language-auto" style="font: 16px Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace, sans-serif;">select case/case*/else/end select</code> statement for multi-conditional selection</li>
+<li>Improve the stack operation functions</li>
+<li>Add trigger and projectile modules</li>
+<li>Add a point&amp;click controller</li>
+<li>Improve the actor module</li>
+<li>Improve the API and modules</li>
+<li>Add a global search view to the code editor</li>
+<li>Add support for dual code editors as side by side</li>
+<li>Improve usability of the editors</li>
+<li>A lot of bugfix</li>
+<li>Update the examples</li>
+<li>Update the reference manual</li>
+</ul>
+<p><img src="https://paladin-t.github.io/imgs/progresses/100.png" alt="100%"> 100% - First release v1.1 progress (DONE):</p>
+<ul>
+<li>Improve usability of the editors</li>
+<li>Improve the API and modules</li>
+<li>Optimize performance of the VM</li>
+<li>Add more examples</li>
+<li>Add starter kits</li>
+<li>Update the reference manual to its stable version</li>
+<li>Port the project to other operating systems</li>
+</ul>
+<p><img src="https://paladin-t.github.io/imgs/progresses/5.png" alt="5%"> 5% - v1.2 progress (WIP):</p>
+<ul>
+<li><strong>Add support for custom kernel</strong></li>
+<li><strong>Add support for importing external ROM into library</strong></li>
+<li><strong>Add support for direct image drawing for map assets</strong></li>
+<li><strong>Add a debugger</strong></li>
+<li><strong>Improve the analyser</strong></li>
+<li>Improve usability of the editors</li>
+<li>Improve the API and modules</li>
+<li>Add more customization options</li>
+<li>Add more exporters</li>
+</ul>
+<p>More versions (TBD)?</p>
+<hr class="hr">
+
+<p>Stick around for future updates about GB BASIC, leave a message below if you got an idea or question. You can also support my development by getting my other projects listed on the main page of this site.</p>
+<p>[<a href="https://paladin-t.github.io/">Home</a>|<a href="https://paladin-t.github.io/#articles">All articles</a>|<a href="https://paladin-t.github.io/articles/gb-basic-v1-1.html">Permalink</a>]</p>
+          <!--  END CONTENT  -->
+          <br>
+          <br>
+          Loading content...
+        </div>
+        <div id="article-labels">
+        </div>
+        <div id="article-rss" style="padding-top: 8px;">
+        </div>
+        <hr>
+        <div id="article-comments" style="display: none;">
+          Loading comments...
+        </div>
+      </div>
+      <script src="https://utteranc.es/client.js"
+        repo="paladin-t/paladin-t.github.io" issue-number="9"
+        theme="github-light"
+        crossorigin="anonymous" async>
+      </script>
+
+      <hr>
+      <p align="center">
+        (C) 2018-2025 <a href="https://paladin-t.github.io/">Tony Wang</a>
+        <a href="../feed.xml" target="_blank" class="label" style="color: white;">RSS</a>
+      </p>
+    </div>
+  </div>
+  <script src="../polyfill.js"></script>
+  <script src="../marked.js"></script>
+  <script src="../prism.js"></script>
+  <script src="../article.js"></script>
+  <script src="../site-storage.js"></script>
+  <script src="../toggle-font.js"></script>
+  <script type="text/javascript">
+    // Article.
+    (function () {
+      var author = 'paladin-t';
+      var repo = 'paladin-t.github.io';
+      var id = '13';
+      var url = 'https://github.com/' + author + '/' + repo + '/issues/' + id.toString();
+      var title = 'GB BASIC Is Available Now';
+      var overview = 'GameBuilder BASIC (GB BASIC) is a retro Fantasy Console that generates ROMs compatible with the popular handheld game console. This article shows off what\'s new in the v1.1 release';
+
+      try {
+        //Article.attach('article-title', '<a href="' + url + '">' + title + '</a>');
+        //Article.attach('article-content', overview + '<br><br>Loading content...');
+        Article.read(author, repo, id, {
+            avatar: 'article-avatar',
+            title: 'article-title',
+            content: 'article-content',
+            labels: 'article-labels',
+            rss: 'article-rss',
+            comments: 'article-comments',
+            preprocess: function (html) {
+              return html
+                .replaceAll('<!--iframe', '<iframe')
+                .replaceAll('/iframe-->', '/iframe>')
+                .replaceAll('<code>', '<code class="language-auto">')
+                .replaceAll('language-c++', 'language-cpp');
+            },
+            highlight: function () {
+              Prism.highlightAll();
+
+              toggleFont();
+            }
+        });
+      } catch (_) {
+        //var html = 'Oops, cannot load article for the moment...<br>Try refersh or ';
+        //html += '<a href="' + url + '">click</a>';
+
+        //Article.attach('article-content', html);
+        //Article.attach('article-comments', 'Cannot load comments...');
+
+        toggleFont();
+      }
+    })();
+  </script>
+  <script async src="/cookieconsent.js"></script>
+  <script>
+      window.addEventListener('load', function () {
+      window.wpcc.init(
+        {
+          'border': 'thin',
+          'corners': 'small',
+          'colors': {
+            'popup': {
+              'background': '#f6f6f6',
+              'text': '#000000',
+              'border': '#555555'
+            },
+            'button': {
+              'background': '#555555',
+              'text': '#ffffff'
+            }
+          },
+          'content': {
+            'message': 'This website uses cookies to keep ensure the highest service quality. By continuing using the site, you agree to use cookies.'
+          }
+        }
+      );
+      var content = document.getElementsByClassName('wpcc-container');
+      if (content && content.length > 0)
+        content[0].style = 'font: 16px Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace, sans-serif;';
+      var btn = document.getElementsByClassName('wpcc-btn');
+      if (btn && btn.length > 0)
+        btn[0].style = 'border: 0; display: block; font-size: .9em; font-weight: 700; outline: 0; padding: .4em 0em; text-align: center; width: 100%; white-space: nowrap; -webkit-transition: background-color .2s ease; -moz-transition: background-color .2s ease; -ms-transition: background-color .2s ease; -o-transition: background-color .2s ease;';
+    });
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112501113-5"></script>
+  <script type="text/javascript">
+    window.dataLayer = window.dataLayer || [];
+    function gtag () {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-112501113-5');
+  </script>
+</body>
+</html>

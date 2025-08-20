@@ -20,7 +20,54 @@ Short answer: yes. Gameplay logic is organized by code, to be specific as the na
 
 # License
 
-Under construction...
+## The Fantasy Console
+
+```
+MIT License
+
+Copyright (C) 2023 - 2025 Tony Wang
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+```
+
+## Your Game
+
+GB BASIC's license terms and copyright do not apply to the content you create with it; you are free to license your games how you see best fit, and will be their sole copyright owner(s). Though not required, including i.e. "Powered by GB BASIC" in your game project/ROM credits would be sincerely appreciated by the developer. (You are not required to show anything related to "GB BASIC" in your game)
+
+Note however that the GB BASIC executable/binary that you would distribute with your game is a copy of the "Software" as defined in the license, and you are therefore required to include the copyright notice and license statement somewhere in your documentation.
+
+Consider that a link to this page in your game documentation or credits would be an acceptable way to satisfy the license terms.
+
+## Third-party Components
+
+GB BASIC uses several third-party libraries and code snippets, which are distributed under their own license and copyright statements. You can refer to the "Credits" section below for a brief overview of all third-party components used in GB BASIC and their respective licenses.
+
+## The Starter Kits
+
+Unless otherwise specified, all starter kits are released as public domain.
+
+## Disclaimer
+
+The above explanations of GB BASIC's license terms and their implications for its users do not constitute legal advice. They reflect the GB BASIC team's understanding of their own license terms and that of their third-party components; in case of doubt, please refer to your lawyer.
+
+## Licenses in Plain Text
+
+* [Licenses](/kits/gbb/licenses/Licenses.txt)
 
 # Credits
 
@@ -39,31 +86,40 @@ Under construction...
 
 * GBDK-2020 - from [gbdk-2020/gbdk-2020](https://github.com/gbdk-2020/gbdk-2020)
 * gbvm - from [untoxa/gbvm](https://github.com/untoxa/gbvm) and [chrismaltby/gbvm](https://github.com/chrismaltby/gbvm)
-* hUGEBuild - from [untoxa/hUGEBuild](https://github.com/untoxa/hUGEBuild)
+* hUGEDriver - from [SuperDisk/hUGEDriver](https://github.com/SuperDisk/hUGEDriver)
 * VGM2GBSFX - from [untoxa/VGM2GBSFX](https://github.com/untoxa/VGM2GBSFX)
 
 ### Other Libs
 
 * AudioFile - from [adamstark/AudioFile](https://github.com/adamstark/AudioFile)
-* b64 - from [jwerle/b64.c](https://github.com/jwerle/b64.c)
+* b64.c - from [jwerle/b64.c](https://github.com/jwerle/b64.c)
+* BigInt - from [faheel/BigInt](https://github.com/faheel/BigInt)
 * CivetWeb - from [civetweb/civetweb](https://github.com/civetweb/civetweb)
-* dirent - from [tronkko/dirent](https://github.com/tronkko/dirent)
+* clip - from [dacap/clip](https://github.com/dacap/clip)
+* Dirent - from [tronkko/dirent](https://github.com/tronkko/dirent)
 * ImGuiCodeEditor - from [paladin-t/sdl_code_edit](https://github.com/paladin-t/sdl_code_edit)
 * ImGuiSDL - from [gbbasic/imgui_sdl](https://github.com/gbbasic/imgui_sdl)
 * jo_gif - by [Jon Olick](https://www.jonolick.com/home/gif-writer)
 * Jpath - from [paladin-t/jpath](https://github.com/paladin-t/jpath)
 * MD4C - from [mity/md4c](http://github.com/mity/md4c)
 * mpc - from [orangeduck/mpc](https://github.com/orangeduck/mpc)
-* portable-file-dialogs - from [samhocevar/portable-file-dialogs](https://github.com/samhocevar/portable-file-dialogs)
+* Portable File Dialogs - from [samhocevar/portable-file-dialogs](https://github.com/samhocevar/portable-file-dialogs)
 * promise-cpp - from [xhawk18/promise-cpp](https://github.com/xhawk18/promise-cpp)
+* RapidFuzz - from [rapidfuzz/rapidfuzz-cpp](https://github.com/rapidfuzz/rapidfuzz-cpp)
 * stb - from [nothings/stb](https://github.com/nothings/stb)
 
 ## Fonts
 
-* SourceHanSans - by [Adobe](/kits/gbb/licenses/License_SourceHanSans.txt)
-* LanaPixel - by [eishiya](/kits/gbb/licenses/License_LanaPixel.txt)
+* LanaPixel - by [eishiya](/kits/gbb/licenses/LanaPixel_License.txt)
+* NotoSans - by [Adobe](/kits/gbb/licenses/NotoSans_License.txt)
+* SourceHanSans - by [Adobe](/kits/gbb/licenses/SourceHanSans_License.txt)
 
 ## Sounds
 
-* Sweet Sounds SFX - by [Coffee 'Valen' Bat](/kits/gbb/licenses/License_SweetSounds_SFX.txt)
-* Example song - from [untoxa/hUGEBuild](https://github.com/untoxa/hUGEBuild)
+* Unreal Superhero - from [untoxa](/kits/gbb/licenses/UnrealSuperhero_License.txt)
+* 8-Bit Gameboy Songs DX - by [TipTopTomCat](/kits/gbb/licenses/8BitGameboySongsDX_License.txt)
+* Sweet Sounds SFX - by [Coffee 'Valen' Bat](/kits/gbb/licenses/SweetSounds_SFX_License.txt)
+
+## Examples
+
+* Mandelbrot - ported from [Retro Basic Benchmarking with Mandelbrot](https://projects.drogon.net/retro-basic-benchmarking-with-mandelbrot/)

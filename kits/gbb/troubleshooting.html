@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>GB BASIC - Press Kit | Tony Wang</title>
+  <title>GB BASIC - Troubleshooting | Tony Wang</title>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
@@ -16,6 +16,7 @@
   <link rel="apple-touch-icon" href="/kits/gbb/icon.png" />
   <link rel="stylesheet" type="text/css" href="/kits/gbb/index.css">
   <link rel="stylesheet" type="text/css" href="/kits/gbb/docs.css">
+  <link rel="stylesheet" type="text/css" href="/kits/gbb/prism.css">
 </head>
 <body>
   <header>
@@ -62,37 +63,16 @@
       </div>
       <section style="padding-top: 100px;">
         <div class="term_box">
-          <div class="term_content">
-            <h2>Download Media</h2>
-            <div align="left" style="padding: 0px 0 0 0;">
-              <p>Screenshots, keypoints, icon, logos: <a href="/kits/gbb/press-kit.zip" target="_blank" style="color: #f052a1; text-decoration: revert;">Press Kit <img src="/kits/gbb/assets/icons/external-link.svg" style="width: 1.2em; filter: invert(48%) sepia(70%) saturate(2352%) hue-rotate(318deg) brightness(119%) contrast(119%);"></a></p>
-              <br>
-            </div>
-            <h2>Links</h2>
-            <div align="left" style="padding: 0px 0 0 0;">
-              <p>Steam: <a href="https://store.steampowered.com/app/2308700/" target="_blank" style="color: #f052a1; text-decoration: revert;">https://store.steampowered.com/app/2308700 <img src="/kits/gbb/assets/icons/external-link.svg" style="width: 1.2em; filter: invert(48%) sepia(70%) saturate(2352%) hue-rotate(318deg) brightness(119%) contrast(119%);"></a></p>
-              <p>Itch: <a href="https://tonywang.itch.io/gbbasic" target="_blank" style="color: #f052a1; text-decoration: revert;">https://tonywang.itch.io/gbbasic <img src="/kits/gbb/assets/icons/external-link.svg" style="width: 1.2em; filter: invert(48%) sepia(70%) saturate(2352%) hue-rotate(318deg) brightness(119%) contrast(119%);"></a></p>
-              <p>GitHub: <a href="https://github.com/paladin-t/gbb" target="_blank" style="color: #f052a1; text-decoration: revert;">https://github.com/paladin-t/gbb <img src="/kits/gbb/assets/icons/external-link.svg" style="width: 1.2em; filter: invert(48%) sepia(70%) saturate(2352%) hue-rotate(318deg) brightness(119%) contrast(119%);"></a></p>
-              <p>Website: <a href="/kits/gbb/index.html" style="color: #f052a1; text-decoration: revert;">https://paladin-t.github.io/kits/gbb/index.html</a></p>
-              <p>Developer: <a href="https://paladin-t.github.io/" target="_blank" style="color: #f052a1; text-decoration: revert;">https://paladin-t.github.io <img src="/kits/gbb/assets/icons/external-link.svg" style="width: 1.2em; filter: invert(48%) sepia(70%) saturate(2352%) hue-rotate(318deg) brightness(119%) contrast(119%);"></a></p>
-              <p>Screenshots, keypoints, icon, logos: <a href="/kits/gbb/press-kit.zip" target="_blank" style="color: #f052a1; text-decoration: revert;">Press Kit <img src="/kits/gbb/assets/icons/external-link.svg" style="width: 1.2em; filter: invert(48%) sepia(70%) saturate(2352%) hue-rotate(318deg) brightness(119%) contrast(119%);"></a></p>
-              <br>
-            </div>
-            <h2>Facts and Features</h2>
-            <div align="left" style="padding: 0px 0 0 0;">
-              <p>Programmable in a brand-new retro BASIC</p>
-              <p>Make assets with built-in editors</p>
-              <p>Import resources made with external tools</p>
-              <p>Includes example projects</p>
-              <p>Includes starter kits</p>
-              <p>Export to real ROMs that run on handheld game consoles or in emulators</p>
-              <br>
-            </div>
-            <h2>Short Description</h2>
-            <div align="left" style="padding: 0px 0 0 0;">
-              <p>A retro <a href="/kits/gbb/about.html#why-fantasy-console">Fantasy Console</a> that generates ROMs compatible with the popular handheld game console.</p>
-              <br>
-            </div>
+          <p class="docs_nav" align="left">
+            <a href="manual.html">Reference Manual</a> |
+            <a href="extensions.html">Extensions</a> |
+            <a href="launching.html">Launching</a> |
+            <a href="troubleshooting.html"><b>Troubleshooting</b></a> |
+            <a href="changelog.html">Changelog</a> |
+            <a href="about.html">About</a>
+          </p>
+          <div id="article-content" class="term_content">
+            Loading...
           </div>
         </div>
       </section>
@@ -174,6 +154,41 @@
           loading.hidden = true;
         }
       }, 60000); // One minute before timeout.
+    })();
+  </script>
+  <script src="/kits/gbb/marked.js"></script>
+  <script src="/kits/gbb/prism.js"></script>
+  <script src="/kits/gbb/article.js"></script>
+  <script type="text/javascript">
+    (function () {
+      var url = 'documents/troubleshooting.md';
+      var ref = 'documents/troubleshooting';
+
+      try {
+        Article.read(url, ref, {
+          content: 'article-content',
+          parse: function (markdown) {
+            return markdown
+              .replaceAll('## Troubleshooting', '# Troubleshooting')
+              .replaceAll('![](imgs/', '![](documents/imgs/');
+          },
+          preprocess: function (html) {
+            return html
+              .replaceAll('<code>', '<code class="language-auto">')
+              .replaceAll('language-bas', 'language-vbnet')
+              .replaceAll('<table>', '<div class="scrollable"><table>')
+              .replaceAll('</table>', '</table></div>');
+          },
+          highlight: function () {
+            Prism.highlightAll();
+          }
+        });
+      } catch (_) {
+        var html = 'Oops, cannot load content for the moment...<br>Try refersh or click to read the ';
+        html += '<a href="' + ref + '" target="_blank">plain version</a>';
+
+        Article.attach('article-content', html);
+      }
     })();
   </script>
   <script async src="/cookieconsent.js"></script>

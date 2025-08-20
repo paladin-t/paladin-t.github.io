@@ -1,25 +1,18 @@
 ## Changelog
 
-<!-- # Releases
+# Releases
 
-## Devlogs
+## GB BASIC v1.1
 
-* GB BASIC (TBD)
+This update introduces several key features, including auto-update mode, an emote module, GUI components (progress bars and menus), and Point&Click controllers, while optimizing triggers, resource loading, controllers, touch/mouse handling, and thread handling. On the syntax side, new memory operations, data streaming, and macro scopes were added, along with improved label lookup. The editor significantly enhances functionality and usability, with improved map and trigger editing, code binding, resource sorting, and bitmap font support, refining the editing experience for maps, scenes, and other assets. Performance optimizations notably improve collision detection and camera tracking, while numerous bugs were fixed, memory mapping adjusted, and syntax refined for greater stability and efficiency.
 
-## Downloads
+This update includes several breaking changes, primarily aimed at refining and optimizing the syntax and design from the Alpha phase. These modifications address earlier inconsistencies, bringing greater internal cohesion to the runtime, syntax rules, and editor components. Starting with this release, the API will enter a more stable phase, with future updates prioritizing backward compatibility.
 
-* Latest (TBD) -->
+This marks a major milestone release for the project, with over 5,000 code commits since its inception - approximately 45% of which were submitted during this v1.1 iteration alone. For brevity, I won't delve into every change here, but the full changelog is provided below.
 
-# Beta Versions
-
-## Devlogs
-
-* GB BASIC Beta 2 (TBD)
-* GB BASIC Beta 1 (WIP)
-
-## Download
-
-* Beta versions (WIP)
+* [Devlog](https://paladin-t.github.io/articles/gb-basic-v1-1.html) (Aug. 20, 2025)
+* Download on [Steam](https://store.steampowered.com/app/2308700/)
+* Also available on [Itch.io](https://tonywang.itch.io/gbbasic)
 
 # Alpha Versions
 

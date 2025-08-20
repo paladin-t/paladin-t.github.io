@@ -1,0 +1,88 @@
+[8-Bit Gameboy Songs DX​]
+
+The music tracks are made by TipTopTomCat, and converted to GB BASIC by Tony.
+To use these sound files in GB BASIC, just import "From Library".
+
+See the following text for the original copyright information.
+
+[Original copyright information]
+
+8-Bit Gameboy Songs DX​ © - Copyright 2025
+The provided assets by TipTopTomCat have the following rules for use:
+
+- If these assets are used with or without modification, credit is to be given to "TipTopTomCat"
+- These assets CAN be modified and used for commercial or non-commercial projects
+- The assets themselves CANNOT be redistributed / resold, uploaded to streaming platforms, or claimed as your own work, even after modification
+- A download of the asset(s) does not grant exclusive use rights, so it should be noted that these may be used by myself or others in projects
+
+All songs are original compositions by TipTopTomCat unless otherwise noted
+
+------- About 8-Bit Gameboy Songs DX © -------
+
+The .mod versions of each song was created with OpenMPT software (https://openmpt.org/).
+The .uge and .c versions of each song was created with hUGETracker software (https://nickfa.ro/wiki/HUGETracker)
+The .sav versions of each sound effect was made with FXHammer (https://www.pouet.net/prod.php?which=17337)
+The .mp3/.wav versions of each song were created with OpenMPT and hUGETracker
+
+All sounds were made using the limitations laid out by GB Studio (see https://www.gbstudio.dev/docs/music-gbt/)
+and should be able to run a .mod/.uge/.sav file as-is when placed in a GB Studio project.
+
+GB Studio can be downloaded at https://chrismaltby.itch.io/gb-studio. Note that As GBStudio is updated, new software
+quirks may appear or get patched out that impact file functionality
+
+OpenMPT/hUGETracker are able to export the .mod/.uge files into other formats if needed.
+
+------- FAQ Notes -------
+
+- Are the "DX" Vol 1/Vol 2 versions different than the orignials?
+I think technically all of the songs have been touched up or "remastered" in one way or another, mainly through volume
+balancing. I wouldn't consider the 'Vol 1 DX' or 'Vol 2 DX' versions as different songs, just a somewhat different mix
+NOTE: I would consider all songs in this collection my definitive, remastered versions. If you've been using these same
+songs from Vol 1 and 2 in the past, I'd recommend the COMPLETE COLLECTION versions ('DX' at the end of the filename),
+which have been more optimized for things like sound effects.
+
+- Why did the project take so long?
+Mostly it comes down to music being something I do on the side while having a much busier year than I expected. After
+that, I still had a lot to learn and quite a few corrections to existing songs as well. Even after the updates to
+hUGETracker (.uge) allowed for easier conversion, I still had to manually adjust each song, then I learned more about
+.sav formats for SFX and .c for GBDK, then there's the different speeds so people can drag-and-drop songs as-is into
+projects, learning that having the melody on Channel 2 messes with SFX, the drumless versions... I guess I fell into a
+bit of scope creep on top of everything else
+
+- The .uge sounds different than the .mod or the .mp3/.wav, why is that?
+The conversion from .mod to .uge isn't perfect, and it took some creative tweaking to make each pattern have a similar
+sound to their .mod counterpart for GB playback. While the .uge won't sound 100% the same as the .mod/.mp3, I believe
+these conversions keep the spirit of the original
+
+- The song speed sounds a little slow / a little fast, is it broken?
+As these GB songs only have discrete tempos to choose from, multiple different speeds that have been provided. For .mod,
+you can also try disabling 50/60 hertz speed conversion in the music menu (ctrl+4) to tweak it further. For .uge,
+you're free to use the GBStudio Music editor to make changes. Ultimately, playback in-hardware may just feel a bit
+different than the .mp3 samples exported from trackers.
+
+- Am I allowed modify the files?
+Go for it! Purchasing this pack doesn't stop you from adjusting the song for your needs, you just can't redistribute,
+re-sell, or upload these assets to streaming platforms, or claim them as your own work, even after modification
+
+- Why am I having trouble modifying the .uge speed further?
+My convention is to have both the overall tempo set to a certain speed as well as one or more tempo commands in the
+song (FXX, often in the noise channel). The FXX commands overide the overall tempo, but some songs have multiple FXX
+speed / BXX pattern changes in the middle of the song that you'll need to consider 
+
+- Why does the music sound weird or cut when there's a Sound Effect?
+Attempts have been made to keep melodies or "leads" on Duty Channel 2 and to provide "drumless" variations of all songs,
+but some songs have complexities that will be interrupted by sound effects due to GB sound chip limitaitons. In any case,
+in GBStudio you are free to adjust the songs to fit your needs!
+
+- I think there's something wrong with song playback?
+Feel free to leave a message on the itch.io project page with details on the song/format that's having issues and I will
+try to correct it as soon as possible
+
+- What does "No Loop" mean?
+Some songs have been composed in a way that the end of the song returns or "loops" back to the beginning of the song.
+Some songs will not have this loop and are only designed to play once, so there may be an extended silence after it
+ends. Note that for GBStudio, even if you let a "No Loop" song reach its "end", it will eventually start from the
+beginning again unless you have an event that interrupts it
+
+- Do you do commissions?
+Yes! Feel free to reach out to me at thetiptoptomcat@gmail.com for more details

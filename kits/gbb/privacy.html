@@ -25,7 +25,7 @@
         <li><a href="/kits/gbb/">Home</a></li>
         <li><a href="/kits/gbb/manual.html">Docs</a></li>
         <li><a href="/kits/gbb/download.html">Download</a></li>
-        <li><span class="nav_compact_disabled">GitHub (TBD) <img src="/kits/gbb/assets/icons/external-link.svg"></span></li>
+        <li><a href="https://github.com/paladin-t/gbb" target="_blank">GitHub <img src="/kits/gbb/assets/icons/external-link.svg"></a></li>
         <li><a href="/kits/gbb/about.html">About</a></li>
       </ul>
     </div>
@@ -34,7 +34,7 @@
         <li><a href="/kits/gbb/">Home</a></li>
         <li><a href="/kits/gbb/manual.html">Docs</a></li>
         <li><a href="/kits/gbb/download.html">Download</a></li>
-        <li><span class="nav_compact_disabled">GitHub (TBD) <img src="/kits/gbb/assets/icons/external-link.svg"></span></li>
+        <li><a href="https://github.com/paladin-t/gbb" target="_blank">GitHub <img src="/kits/gbb/assets/icons/external-link.svg"></a></li>
         <li><a href="/kits/gbb/about.html">About</a></li>
         <li><div class="theme_btn"></div></li>
       </ul>
@@ -132,7 +132,7 @@
           <h6>Production</h6>
           <ul>
             <li><a href="/kits/gbb/index.html#downloads">Get GB BASIC</a></li>
-            <li>GitHub (TBD) <img src="/kits/gbb/assets/icons/external-link.svg"></li>
+            <li><a href="https://github.com/paladin-t/gbb" target="_blank">GitHub <img src="/kits/gbb/assets/icons/external-link.svg"></a></li>
             <li><a href="/kits/gbb/privacy.html">Privacy & Terms</a></li>
           </ul>
         </div>
@@ -155,7 +155,7 @@
       </div>
       <div class="footer_copyright">
         <img src="/kits/gbb/icon.png" alt="logo" width="48">
-        <p>Copyright © 2023-2024 Tony Wang. All rights reserved.</p>
+        <p>Copyright © 2023-2025 Tony Wang. All rights reserved.</p>
       </div>
     </footer>
   </div>
@@ -197,5 +197,45 @@
       }, 60000); // One minute before timeout.
     })();
   </script>
+  <script async src="/cookieconsent.js"></script>
+  <script>
+    window.addEventListener('load', function () {
+      window.wpcc.init(
+        {
+          'border': 'thin',
+          'corners': 'small',
+          'colors': {
+            'popup': {
+              'background': '#f6f6f6',
+              'text': '#000000',
+              'border': '#555555'
+            },
+            'button': {
+              'background': '#555555',
+              'text': '#ffffff'
+            }
+          },
+          'content': {
+            'message': 'This website uses cookies to keep ensure the highest service quality. By continuing using the site, you agree to use cookies.'
+          }
+        }
+      );
+      const content = document.getElementsByClassName('wpcc-container');
+      if (content && content.length > 0) {
+        content[0].style = 'font: 16px Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace, sans-serif; left: 1.21em; bottom: 5em !important;';
+      }
+      const btn = document.getElementsByClassName('wpcc-btn');
+      if (btn && btn.length > 0) {
+        btn[0].style = 'background-color: rgb(80 177 110); border: 0; display: block; font-size: .9em; font-weight: 700; outline: 0; padding: .4em 0em; text-align: center; width: 100%; white-space: nowrap; -webkit-transition: background-color .2s ease; -moz-transition: background-color .2s ease; -ms-transition: background-color .2s ease; -o-transition: background-color .2s ease;';
+      }
+      const invisible = document.getElementsByClassName('wpcc-invisible');
+      if (invisible && invisible.length > 0) {
+        invisible[0]?.parentNode?.removeChild(invisible[0]);
+      }
+    });
+  </script>
+  <div class="gtranslate_wrapper" title="Machine translation"></div>
+  <script>window.gtranslateSettings = {"default_language":"en","native_language_names":true,"languages":["en","fr","de","it","es","pt","ru","ja","zh-CN"],"wrapper_selector":".gtranslate_wrapper"}</script>
+  <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
 </body>
 </html>

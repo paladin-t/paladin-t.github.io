@@ -8,8 +8,10 @@ GB BASIC accepts a number of launching options to customize some behaviours.
 
 * "-W PATH": specify current working directory of the application
 <!-- * "-L": specify to launch the application under command-line-only mode -->
+* "-U": specify to launch the application under upgrade-only mode to upgrade input project
 * "-Q": specify to not quit after compiling under the compile-only mode
 * "-A FPS": specify expected `FPS` for the application
+* "-N": specify to launch under the notepad mode
 * "-B": specify to enable borderless window
 * "-S WxH": specify the application window size with `W`x`H`
 * "-D": specify to disable high-DPI adaption if available
@@ -32,6 +34,7 @@ gbbasic temp.gbb -o gbbasic.gb -r gbbvm.gb -s gbbvm.sym -f default.json
 
 * "-r PATH": specify kernel ROM path for input
 * "-s PATH": specify symbols data path for input
+* "-l PATH": specify the confir file of symbol aliases; recommended not to fill this option
 * "-o PATH": specify ROM path for output, compile-only mode will be enabled only when this option is specified
 * "-a OUT": specify AST output method, `OUT` can be one of the following value; defaults to "none"
   * "none": disable AST output
@@ -45,7 +48,11 @@ gbbasic temp.gbb -o gbbasic.gb -r gbbvm.gb -s gbbvm.sym -f default.json
 * "-d OPT": whether declaration is required before using a variable; defaults to "true"
   * "true"
   * "false"
-* "-z": specify to enable code optimization; omit to disable optimization
+* "-b BANK": specify the bank of the bootstrap entry; recommended not to fill this option
+* "-h SIZE": specify the heap size; recommended not to fill this option
+* "-k SIZE": specify the stack size; recommended not to fill this option
+* "-z OPT": whether to enable code optimization; defaults to "true"
+* "-p OPT": whether to enable assets optimization; defaults to "true"; recommended not to fill this option
 * "-t NAME": specify program title
 * "-g TYPE": specify cartridge type, `TYPE` is combined with the following symbols and joined with "|"; defaults to "classic|colored"
   * "classic"
