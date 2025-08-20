@@ -1340,6 +1340,8 @@ In order to transfer map data in a way where the coordinates are not aligned, an
 
 The map editor can produce map assets, press **Ctrl+3/Cmd+3** in edit mode to switch to the map tab. GB BASIC allows importing external formats as map, besides creating from scratch.
 
+The hardware VRAM's map area is limited to 32x32 tiles. Although a map asset can be defined larger than this size in the asset editor, using the aforementioned map statements to fill the map will cause data to exceed this area. For complex scenes, consider using the [Scene](#scene) feature to support large maps, map scrolling, scene property definitions, object definitions, and more.
+
 Map data for a `def map` operation can also come from inline code. This data is arranged one tile after another, from left to right and top to down.
 
 ### Sprite
