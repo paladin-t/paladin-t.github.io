@@ -80,6 +80,7 @@
       - [Emulation Control](#emulation-control)
       - [Debugging](#debugging)
       - [Setting Mouse Cursor](#setting-mouse-cursor)
+      - [Syncing Modules](#syncing-modules)
 - [Import and Export](#import-and-export)
   - [Import](#import)
   - [Export](#export)
@@ -2598,6 +2599,8 @@ The "streaming" API supports transfering binary data from the VM to the host env
 * `shell cmd`: executes the specific shell command
   * `cmd`: the shell command string
 
+If `cmd` starts with "http://" or "https://", it will be treated as a URL and an attempt will be made to open the URL. If it starts with "file://", it will be treated as a file path and an attempt will be made to browse that path. Otherwise, it will be treated as a command-line command and an attempt will be made to execute the command.
+
 #### Emulation Control
 
 * `shell "||"`: executes a specialized command to pause emulation
@@ -2630,6 +2633,19 @@ This is a specialized version of the `shell` command for outputing some values i
 | `BUSY`        | For busy            |
 
 This is a specialized version of the `shell` command for setting the mouse cursor when it hovers on the emulation area.
+
+#### Syncing Modules
+
+* `shell "@{module}"`: syncs the specific module
+  * `"@{module}"`: the module name to sync; can be one of the following "Modules"
+
+| Modules   | Note        |
+|-----------|-------------|
+| `"@sram"` | SRAM module |
+
+For the moment only SRAM module is supported - `shell "@sram"` - this command notifies the emulator to save the SRAM. While not strictly required, it is recommended to ensure that the SRAM is saved when running within a GB BASIC emulator as part of an HTML export. Leaving this line unchanged is safe for other hardware and platforms.
+
+This is a specialized version of the `shell` command for syncing modules.
 
 [TOP](#reference-manual)
 
@@ -2761,7 +2777,7 @@ Higher priorities (larger numbers) take precedence over lower priorities (smalle
 | Support button interaction   | Yes                      | -                            | Yes                      |
 | Support touch interaction    | Yes                      | -                            | Yes                      |
 | Registering event callback   | -                        | -                            | `on menu() start ...`    |
-| unRegistering event callback | -                        | -                            | `off menu()`             |
+| Unregistering event callback | -                        | -                            | `off menu()`             |
 
 [TOP](#reference-manual)
 

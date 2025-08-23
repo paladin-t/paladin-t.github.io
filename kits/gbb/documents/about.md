@@ -57,9 +57,9 @@ Consider that a link to this page in your game documentation or credits would be
 
 GB BASIC uses several third-party libraries and code snippets, which are distributed under their own license and copyright statements. You can refer to the "Credits" section below for a brief overview of all third-party components used in GB BASIC and their respective licenses.
 
-## The Starter Kits
+## The Starter Kits and Examples
 
-Unless otherwise specified, all starter kits are released as public domain.
+Unless otherwise specified, all starter kits and examples are released as public domain.
 
 ## Disclaimer
 

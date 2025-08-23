@@ -293,4 +293,5 @@ Device takes further actions determined by the heading byte(s) of the read buffe
 | "[]"                    | Performs emulation stop        |
 | ">"                     | Performs debugging             |
 | "^"                     | Sets mouse cursor              |
+| "@"                     | Syncs modules                  |
 | Others                  | Executes the command literally |
