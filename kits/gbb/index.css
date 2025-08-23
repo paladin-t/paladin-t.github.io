@@ -359,6 +359,9 @@ header a {
   text-decoration: underline;
   text-shadow: 0px 0px 5px rgb(231, 217, 211), 0px 0px 4px rgb(137, 136, 136), -2px 2px 2px rgb(183, 155, 155);
 }
+.banner_title h1 {
+  font-size: 3rem;
+}
 .banner_img {
   width: auto;
   max-width: 100%;
@@ -426,6 +429,9 @@ header a {
 @media (max-width: 750px) {
   .banner_title {
     margin-bottom: 1em;
+  }
+  .banner_title h1 {
+    font-size: 2.1rem;
   }
 }
 
@@ -645,9 +651,13 @@ section {
   color: #1b1b1b;
   width: fit-content;
 }
-.store_frame {
+.store_frame_steam {
   width: 552px;
   height: 190px;
+}
+.store_frame_itch {
+  width: 552px;
+  height: 167px;
 }
 
 @media (min-width: 1200px) {
@@ -674,7 +684,10 @@ section {
 }
 
 @media (max-width: 750px) {
-  .store_frame {
+  .store_frame_steam {
+    width: 100%;
+  }
+  .store_frame_itch {
     width: 100%;
   }
 }
