@@ -1383,13 +1383,13 @@ Map data for a `def map` operation can also come from inline code. This data is 
   * `prop`: the property type; can be one of the following "Sprite properties" constants
   * `val`: the property value
 
-| Sprite properties | Value type | Default value     | Note                                                       |
-|-------------------|------------|-------------------|------------------------------------------------------------|
-| `PALETTE_PROP`    | Boolean    | `false` (OBJ0PAL) | Whether to use colors come from OBJ0PAL or OBJ1PAL         |
-| `HFLIP_PROP`      | Boolean    | `false`           | Whether to flip horizontally                               |
-| `VFLIP_PROP`      | Boolean    | `false`           | Whether to flip vertically                                 |
-| `PRIORITY_PROP`   | Boolean    | `false`           | Whether to draw the sprite below the background and window |
-| `HIDDEN_PROP`     | Boolean    | `false`           | Whether the sprite is hidden or visible                    |
+| Sprite properties | Value type | Default value     | Note                                                       | Access     |
+|-------------------|------------|-------------------|------------------------------------------------------------|------------|
+| `PALETTE_PROP`    | Boolean    | `false` (OBJ0PAL) | Whether to use colors come from OBJ0PAL or OBJ1PAL         | Read/write |
+| `HFLIP_PROP`      | Boolean    | `false`           | Whether to flip horizontally                               | Read/write |
+| `VFLIP_PROP`      | Boolean    | `false`           | Whether to flip vertically                                 | Read/write |
+| `PRIORITY_PROP`   | Boolean    | `false`           | Whether to draw the sprite below the background and window | Read/write |
+| `HIDDEN_PROP`     | Boolean    | `false`           | Whether the sprite is hidden or visible                    | Read/write |
 
 There is no dedicated builtin editor for producing sprite assets. Since sprite data is actually just tile slices, it accepts all kinds of tiles data as its content, and indexes this data for appearance.
 
@@ -1454,31 +1454,31 @@ A `def scene` operation can only fill map, attribute and property data to scene;
   * `prop`: the property type; can be one of the following "Scene properties" constants
   * `val`: the property value
 
-| Scene properties         | Value type               | Note                                                             |
-|--------------------------|--------------------------|------------------------------------------------------------------|
-| `IS_16x16_GRID`          | Boolean                  | Whether the scene grid is 16x16 or 8x8 for controlling           |
-| `IS_16x16_PLAYER`        | Boolean                  | Whether the player is approximately 16x16 or 8x8 for controlling |
-| `CLAMP_CAMERA_PROP`      | Boolean                  | Whether to clamp camera inside the scene                         |
-| `GRAVITY_PROP`           | Integer (8-bit unsigned) | Downward gravity value                                           |
-| `JUMP_GRAVITY_PROP`      | Integer (8-bit unsigned) | Upward gravity (jump)                                            |
-| `JUMP_MAX_COUNT_PROP`    | Integer (8-bit unsigned) | Max count the player can jump                                    |
-| `JUMP_MAX_TICKS_PROP`    | Integer (8-bit unsigned) | Max ticks the player can respond to jump instructions            |
-| `CLIMB_VELOCITY_PROP`    | Integer (8-bit unsigned) | Gravity for clambing                                             |
-| `WIDTH_PROP`             | Integer (8-bit unsigned) | Width of scene                                                   |
-| `HEIGHT_PROP`            | Integer (8-bit unsigned) | Height of scene                                                  |
-| `CAMERA_DEADZONE_PROP`   | Integer (8-bit unsigned) | Camera deadzone in both directions                               |
-| `CAMERA_DEADZONE_X_PROP` | Integer (8-bit unsigned) | Camera deadzone in x-axis                                        |
-| `CAMERA_DEADZONE_Y_PROP` | Integer (8-bit unsigned) | Camera deadzone in y-axis                                        |
+| Scene properties         | Value type               | Note                                                             | Access     |
+|--------------------------|--------------------------|------------------------------------------------------------------|------------|
+| `IS_16x16_GRID`          | Boolean                  | Whether the scene grid is 16x16 or 8x8 for controlling           | Read/write |
+| `IS_16x16_PLAYER`        | Boolean                  | Whether the player is approximately 16x16 or 8x8 for controlling | Read/write |
+| `CLAMP_CAMERA_PROP`      | Boolean                  | Whether to clamp camera inside the scene                         | Read/write |
+| `GRAVITY_PROP`           | Integer (8-bit unsigned) | Downward gravity value                                           | Read/write |
+| `JUMP_GRAVITY_PROP`      | Integer (8-bit unsigned) | Upward gravity (jump)                                            | Read/write |
+| `JUMP_MAX_COUNT_PROP`    | Integer (8-bit unsigned) | Max count the player can jump                                    | Read/write |
+| `JUMP_MAX_TICKS_PROP`    | Integer (8-bit unsigned) | Max ticks the player can respond to jump instructions            | Read/write |
+| `CLIMB_VELOCITY_PROP`    | Integer (8-bit unsigned) | Gravity for clambing                                             | Read/write |
+| `WIDTH_PROP`             | Integer (8-bit unsigned) | Width of scene                                                   | Read/write |
+| `HEIGHT_PROP`            | Integer (8-bit unsigned) | Height of scene                                                  | Read/write |
+| `CAMERA_DEADZONE_PROP`   | Integer (8-bit unsigned) | Camera deadzone in both directions                               | Read/write |
+| `CAMERA_DEADZONE_X_PROP` | Integer (8-bit unsigned) | Camera deadzone in x-axis                                        | Read/write |
+| `CAMERA_DEADZONE_Y_PROP` | Integer (8-bit unsigned) | Camera deadzone in y-axis                                        | Read/write |
 
-| Blocking properties   | Value type               | Note                                                                  |
-|-----------------------|--------------------------|-----------------------------------------------------------------------|
-| `BLOCKING_PROP`       | Integer (8-bit unsigned) | Readonly. Get full blocking information at the specific position      |
-| `BLOCKING_X_PROP`     | Integer (8-bit unsigned) | Readonly. Get blocking information in x-axis at the specific position |
-| `BLOCKING_LEFT_PROP`  | Integer (8-bit unsigned) | Readonly. Get blocking information in left at the specific position   |
-| `BLOCKING_RIGHT_PROP` | Integer (8-bit unsigned) | Readonly. Get blocking information in right at the specific position  |
-| `BLOCKING_Y_PROP`     | Integer (8-bit unsigned) | Readonly. Get blocking information in y-axis at the specific position |
-| `BLOCKING_UP_PROP`    | Integer (8-bit unsigned) | Readonly. Get blocking information in up at the specific position     |
-| `BLOCKING_DOWN_PROP`  | Integer (8-bit unsigned) | Readonly. Get blocking information in down at the specific position   |
+| Blocking properties   | Value type               | Note                                                        | Access    |
+|-----------------------|--------------------------|-------------------------------------------------------------|-----------|
+| `BLOCKING_PROP`       | Integer (8-bit unsigned) | Get full blocking information at the specific position      | Read-only |
+| `BLOCKING_X_PROP`     | Integer (8-bit unsigned) | Get blocking information in x-axis at the specific position | Read-only |
+| `BLOCKING_LEFT_PROP`  | Integer (8-bit unsigned) | Get blocking information in left at the specific position   | Read-only |
+| `BLOCKING_RIGHT_PROP` | Integer (8-bit unsigned) | Get blocking information in right at the specific position  | Read-only |
+| `BLOCKING_Y_PROP`     | Integer (8-bit unsigned) | Get blocking information in y-axis at the specific position | Read-only |
+| `BLOCKING_UP_PROP`    | Integer (8-bit unsigned) | Get blocking information in up at the specific position     | Read-only |
+| `BLOCKING_DOWN_PROP`  | Integer (8-bit unsigned) | Get blocking information in down at the specific position   | Read-only |
 
 The scene editor can produce scene assets, press **Ctrl+4/Cmd+4** in edit mode to switch to the scene tab. GB BASIC allows importing external formats as scene, besides creating from scratch.
 
@@ -1544,7 +1544,14 @@ The drawing elements of an actor consist of hardware sprites and their associate
     * `"{builtin}"`: the name of a builtin entry
     * `#pg`: actor page index
     * `name`: actor asset name
-* `set actor property(id, prop) = base, read|data ...|"{builtin}"|#pg|"{name}"`: sets the specific actor's property, in particular `FRAMES_PROP`
+* `set actor property(id, prop) = l, r, t, b`: sets the specific actor's property, in particular for `BOUNDS_PROP`
+  * `id`: the actor ID
+  * `prop`: the property type; can be one of the following "Actor properties" constants
+  * `l`: the left edge of the bounds
+  * `r`: the right edge of the bounds
+  * `t`: the top edge of the bounds
+  * `b`: the bottom edge of the bounds
+* `set actor property(id, prop) = base, read|data ...|"{builtin}"|#pg|"{name}"`: sets the specific actor's property, in particular for `FRAMES_PROP`
   * `id`: the actor ID
   * `prop`: the property type; must be `FRAMES_PROP` here
   * `base`: the base tile
@@ -1553,37 +1560,37 @@ The drawing elements of an actor consist of hardware sprites and their associate
     * `#pg`: actor page index
     * `name`: actor asset name
 
-| Actor properties              | Value type                                                       | Note                                                           |
-|-------------------------------|------------------------------------------------------------------|----------------------------------------------------------------|
-| `ACTIVE_PROP`                 | Boolean                                                          | Whether the actor is active                                    |
-| `ENABLED_PROP`                | Boolean                                                          | Whether the actor is enabled for refreshing when scene scrolls |
-| `HIDDEN_PROP`                 | Boolean                                                          | Whether the actor is hidden or visible                         |
-| `PINNED_PROP`                 | Boolean                                                          | Whether the actor is pinned on screen                          |
-| `PERSISTENT_PROP`             | Boolean                                                          | Whether the actor is persistent in scene                       |
-| `FOLLOWING_PROP`              | Boolean                                                          | Whether the actor is being followed by scene camera            |
-| `ANIMATION_LOOP_PROP`         | Boolean                                                          | Whether to loop the actor's animation                          |
-| `ANIMATION_PAUSED_PROP`       | Boolean                                                          | Whether the actor's animation is paused                        |
-| `MOVEMENT_INTERRUPT_PROP`     | Boolean                                                          | Whether to interrupt the actor's movement                      |
-| `POSITION_PROP`               | Point (16-bit unsigned integer for x, y)                         | The actor's position                                           |
-| `POSITION_X_PROP`             | Integer (16-bit unsigned)                                        | The actor's position in x-axis                                 |
-| `POSITION_Y_PROP`             | Integer (16-bit unsigned)                                        | The actor's position in y-axis                                 |
-| `DIRECTION_PROP`              | "Directions" (8-bit unsigned integer)                            | The actor's direction                                          |
-| `ANGLE_PROP`                  | Integer (8-bit unsigned)                                         | The actor's facing angle                                       |
-| `BOUNDS_PROP`                 | Bounding box (8-bit signed integer for left, right, top, bottom) | The actor's bounding box                                       |
-| `BOUNDS_LEFT_PROP`            | Integer (8-bit signed)                                           | The left value of the actor's bounding box                     |
-| `BOUNDS_RIGHT_PROP`           | Integer (8-bit signed)                                           | The right value of the actor's bounding box                    |
-| `BOUNDS_TOP_PROP`             | Integer (8-bit signed)                                           | The top value of the actor's bounding box                      |
-| `BOUNDS_BOTTOM_PROP`          | Integer (8-bit signed)                                           | The bottom value of the actor's bounding box                   |
-| `BASE_TILE_PROP`              | Integer (8-bit unsigned)                                         | The actor's base tile index                                    |
-| `FRAMES_PROP`                 | Asset                                                            | The actor's animation frames                                   |
-| `FRAME_INDEX_PROP`            | Integer (8-bit unsigned)                                         | The actor's current frame index                                |
-| `ANIMATION_INTERVAL_PROP`     | Integer (8-bit unsigned)                                         | The actor's animation interval; defaults to 15                 |
-| `ANIMATIONS_PROP`             | Asset                                                            | The actor's animations                                         |
-| `ANIMATION_PROP`              | Asset                                                            | One animation of the actor's animations                        |
-| `ANIMATION_INDEX_PROP`        | Integer (8-bit unsigned)                                         | The actor's current animation index                            |
-| `MOVE_SPEED_PROP`             | Integer (8-bit unsigned)                                         | The actor's move speed; defaults to 1                          |
-| `BEHAVIOUR_PROP`              | "Actor behaviours"                                               | The actor's behaviour/controller                               |
-| `COLLISION_GROUP_PROP`        | Integer (8-bit unsigned)                                         | The actor's collision group                                    |
+| Actor properties              | Value type                                                       | Note                                                           | Access     |
+|-------------------------------|------------------------------------------------------------------|----------------------------------------------------------------|------------|
+| `ACTIVE_PROP`                 | Boolean                                                          | Whether the actor is active                                    | Read-only  |
+| `ENABLED_PROP`                | Boolean                                                          | Whether the actor is enabled for refreshing when scene scrolls | Read/write |
+| `HIDDEN_PROP`                 | Boolean                                                          | Whether the actor is hidden or visible                         | Read/write |
+| `PINNED_PROP`                 | Boolean                                                          | Whether the actor is pinned on screen                          | Read/write |
+| `PERSISTENT_PROP`             | Boolean                                                          | Whether the actor is persistent in scene                       | Read/write |
+| `FOLLOWING_PROP`              | Boolean                                                          | Whether the actor is being followed by scene camera            | Read/write |
+| `ANIMATION_LOOP_PROP`         | Boolean                                                          | Whether to loop the actor's animation                          | Read/write |
+| `ANIMATION_PAUSED_PROP`       | Boolean                                                          | Whether the actor's animation is paused                        | Read/write |
+| `MOVEMENT_INTERRUPT_PROP`     | Boolean                                                          | Whether to interrupt the actor's movement                      | Read/write |
+| `POSITION_PROP`               | Point (16-bit unsigned integer for x, y)                         | The actor's position                                           | Read/write |
+| `POSITION_X_PROP`             | Integer (16-bit unsigned)                                        | The actor's position in x-axis                                 | Read/write |
+| `POSITION_Y_PROP`             | Integer (16-bit unsigned)                                        | The actor's position in y-axis                                 | Read/write |
+| `DIRECTION_PROP`              | "Directions" (8-bit unsigned integer)                            | The actor's direction                                          | Read/write |
+| `ANGLE_PROP`                  | Integer (8-bit unsigned)                                         | The actor's facing angle                                       | Read-only  |
+| `BOUNDS_PROP`                 | Bounding box (8-bit signed integer for left, right, top, bottom) | The actor's bounding box                                       | Write-only |
+| `BOUNDS_LEFT_PROP`            | Integer (8-bit signed)                                           | The left value of the actor's bounding box                     | Read/write |
+| `BOUNDS_RIGHT_PROP`           | Integer (8-bit signed)                                           | The right value of the actor's bounding box                    | Read/write |
+| `BOUNDS_TOP_PROP`             | Integer (8-bit signed)                                           | The top value of the actor's bounding box                      | Read/write |
+| `BOUNDS_BOTTOM_PROP`          | Integer (8-bit signed)                                           | The bottom value of the actor's bounding box                   | Read/write |
+| `BASE_TILE_PROP`              | Integer (8-bit unsigned)                                         | The actor's base tile index                                    | Read/write |
+| `FRAMES_PROP`                 | Asset                                                            | The actor's animation frames                                   | Write-only |
+| `FRAME_INDEX_PROP`            | Integer (8-bit unsigned)                                         | The actor's current frame index                                | Read/write |
+| `ANIMATION_INTERVAL_PROP`     | Integer (8-bit unsigned)                                         | The actor's animation interval; defaults to 15                 | Read/write |
+| `ANIMATIONS_PROP`             | Asset                                                            | The actor's animations                                         | Write-only |
+| `ANIMATION_PROP`              | Asset                                                            | One animation of the actor's animations                        | Write-only |
+| `ANIMATION_INDEX_PROP`        | Integer (8-bit unsigned)                                         | The actor's current animation index                            | Read/write |
+| `MOVE_SPEED_PROP`             | Integer (8-bit unsigned)                                         | The actor's move speed; defaults to 1                          | Read/write |
+| `BEHAVIOUR_PROP`              | "Actor behaviours"                                               | The actor's behaviour/controller                               | Read/write |
+| `COLLISION_GROUP_PROP`        | Integer (8-bit unsigned)                                         | The actor's collision group                                    | Read/write |
 
 | Directions  | Note                |
 |-------------|---------------------|
@@ -1798,7 +1805,14 @@ The drawing elements of a projectile consist of hardware sprites and their assoc
     * `"{builtin}"`: the name of a builtin entry
     * `#pg`: projectile page index
     * `name`: projectile asset name
-* `def projectile property(type, prop) = base, read|data ...|"{builtin}"|#pg|"{name}"`: sets the specific projectile's definition property, in particular `FRAMES_PROP`
+* `def projectile property(type, prop) = l, r, t, b`: sets the specific projectile's definition property, in particular for `BOUNDS_PROP`
+  * `type`: the projectile type, with range of values from 0 to 4
+  * `prop`: the property type; must be `FRAMES_PROP` here
+  * `l`: the left edge of the bounds
+  * `r`: the right edge of the bounds
+  * `t`: the top edge of the bounds
+  * `b`: the bottom edge of the bounds
+* `def projectile property(type, prop) = base, read|data ...|"{builtin}"|#pg|"{name}"`: sets the specific projectile's definition property, in particular for `FRAMES_PROP`
   * `type`: the projectile type, with range of values from 0 to 4
   * `prop`: the property type; must be `FRAMES_PROP` here
   * `base`: the base tile
@@ -1825,32 +1839,32 @@ The drawing elements of a projectile consist of hardware sprites and their assoc
   * `prop`: the property type; can be one of the following "Projectile instance properties" constants
   * `val`: the property value
 
-| Projectile definition properties | Value type                                                       | Note                                                |
-|----------------------------------|------------------------------------------------------------------|-----------------------------------------------------|
-| `BOUNDS_PROP`                    | Bounding box (8-bit signed integer for left, right, top, bottom) | The projectile's bounding box                       |
-| `BOUNDS_LEFT_PROP`               | Integer (8-bit signed)                                           | The left value of the projectile's bounding box     |
-| `BOUNDS_RIGHT_PROP`              | Integer (8-bit signed)                                           | The right value of the projectile's bounding box    |
-| `BOUNDS_TOP_PROP`                | Integer (8-bit signed)                                           | The top value of the projectile's bounding box      |
-| `BOUNDS_BOTTOM_PROP`             | Integer (8-bit signed)                                           | The bottom value of the projectile's bounding box   |
-| `BASE_TILE_PROP`                 | Integer (8-bit unsigned)                                         | The projectile's base tile index                    |
-| `FRAMES_PROP`                    | Asset                                                            | The projectile's animation frames                   |
-| `ANIMATION_INTERVAL_PROP`        | Integer (8-bit unsigned)                                         | The projectile's animation interval; defaults to 15 |
-| `ANIMATIONS_PROP`                | Asset                                                            | The projectile's animations                         |
-| `ANIMATION_PROP`                 | Asset                                                            | One animation of the projectile's animations        |
-| `LIFE_TIME_PROP`                 | Integer (8-bit unsigned)                                         | The projectile's life time                          |
-| `MOVE_SPEED_PROP`                | Integer (8-bit unsigned)                                         | The projectile's move speed; defaults to 1          |
-| `INITIAL_OFFSET_PROP`            | Integer (16-bit unsigned)                                        | The projectile's initial offset                     |
-| `COLLISION_GROUP_PROP`           | Integer (8-bit unsigned)                                         | The projectile's collision group                    |
+| Projectile definition properties | Value type                                                       | Note                                                | Access     |
+|----------------------------------|------------------------------------------------------------------|-----------------------------------------------------|------------|
+| `BOUNDS_PROP`                    | Bounding box (8-bit signed integer for left, right, top, bottom) | The projectile's bounding box                       | Write-only |
+| `BOUNDS_LEFT_PROP`               | Integer (8-bit signed)                                           | The left value of the projectile's bounding box     | Read/write |
+| `BOUNDS_RIGHT_PROP`              | Integer (8-bit signed)                                           | The right value of the projectile's bounding box    | Read/write |
+| `BOUNDS_TOP_PROP`                | Integer (8-bit signed)                                           | The top value of the projectile's bounding box      | Read/write |
+| `BOUNDS_BOTTOM_PROP`             | Integer (8-bit signed)                                           | The bottom value of the projectile's bounding box   | Read/write |
+| `BASE_TILE_PROP`                 | Integer (8-bit unsigned)                                         | The projectile's base tile index                    | Read/write |
+| `FRAMES_PROP`                    | Asset                                                            | The projectile's animation frames                   | Write-only |
+| `ANIMATION_INTERVAL_PROP`        | Integer (8-bit unsigned)                                         | The projectile's animation interval; defaults to 15 | Read/write |
+| `ANIMATIONS_PROP`                | Asset                                                            | The projectile's animations                         | Write-only |
+| `ANIMATION_PROP`                 | Asset                                                            | One animation of the projectile's animations        | Write-only |
+| `LIFE_TIME_PROP`                 | Integer (8-bit unsigned)                                         | The projectile's life time                          | Read/write |
+| `MOVE_SPEED_PROP`                | Integer (8-bit unsigned)                                         | The projectile's move speed; defaults to 1          | Read/write |
+| `INITIAL_OFFSET_PROP`            | Integer (16-bit unsigned)                                        | The projectile's initial offset                     | Read/write |
+| `COLLISION_GROUP_PROP`           | Integer (8-bit unsigned)                                         | The projectile's collision group                    | Read/write |
 
-| Projectile instance properties | Value type                                                         | Note                                                                   |
-|--------------------------------|--------------------------------------------------------------------|------------------------------------------------------------------------|
-| `ANIMATION_LOOP_PROP`          | Boolean                                                            | Whether to loop the projectile's animation                             |
-| `STRONG_PROP`                  | Boolean                                                            | Whether the projectile would pass through or be destroyed on collision |
-| `POSITION_PROP`                | Point (16-bit unsigned integer for x, y)                           | The projectile's position                                              |
-| `POSITION_X_PROP`              | Integer (16-bit unsigned)                                          | The projectile's position in x-axis                                    |
-| `POSITION_Y_PROP`              | Integer (16-bit unsigned)                                          | The projectile's position in y-axis                                    |
-| `FRAME_INDEX_PROP`             | Integer (8-bit unsigned)                                           | The projectile's frame cursor                                          |
-| `ANIMATION_INDEX_PROP`         | Integer (8-bit unsigned)                                           | The projectile's animation cursor                                      |
+| Projectile instance properties | Value type                                                         | Note                                                                   | Access     |
+|--------------------------------|--------------------------------------------------------------------|------------------------------------------------------------------------|------------|
+| `ANIMATION_LOOP_PROP`          | Boolean                                                            | Whether to loop the projectile's animation                             | Read/write |
+| `STRONG_PROP`                  | Boolean                                                            | Whether the projectile would pass through or be destroyed on collision | Read/write |
+| `POSITION_PROP`                | Point (16-bit unsigned integer for x, y)                           | The projectile's position                                              | Write-only |
+| `POSITION_X_PROP`              | Integer (16-bit unsigned)                                          | The projectile's position in x-axis                                    | Read/write |
+| `POSITION_Y_PROP`              | Integer (16-bit unsigned)                                          | The projectile's position in y-axis                                    | Read/write |
+| `FRAME_INDEX_PROP`             | Integer (8-bit unsigned)                                           | The projectile's frame cursor                                          | Read/write |
+| `ANIMATION_INDEX_PROP`         | Integer (8-bit unsigned)                                           | The projectile's animation cursor                                      | Read/write |
 
 * `=len projectile(#pg|"{name}")`: gets the total frame count of the specific projectile
   * objectives:
