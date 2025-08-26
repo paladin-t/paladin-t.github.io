@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>GB BASIC - Troubleshooting | Tony Wang</title>
+  <title>GB BASIC - More Kernels | Tony Wang</title>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
@@ -24,7 +24,7 @@
     <div class="nav_compact">
       <ul>
         <li><a href="/kits/gbb/">Home</a></li>
-        <li><a href="/kits/gbb/manual.html">Docs</a></li>
+        <li><a href="/kits/gbb/manual.html" class="active_nav_compact">Docs</a></li>
         <li><a style="filter: invert(50%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);">Tutorials (WIP) <img src="/kits/gbb/assets/icons/external-link.svg"></a></li>
         <li><a href="/kits/gbb/download.html">Download</a></li>
         <li><a href="https://github.com/paladin-t/gbb" target="_blank">GitHub <img src="/kits/gbb/assets/icons/external-link.svg"></a></li>
@@ -34,7 +34,7 @@
     <div class="nav_regular">
       <ul>
         <li><a href="/kits/gbb/">Home</a></li>
-        <li><a href="/kits/gbb/manual.html">Docs</a></li>
+        <li><a href="/kits/gbb/manual.html" class="active_nav_regular">Docs</a></li>
         <li><a style="filter: invert(50%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);">Tutorials (WIP) <img src="/kits/gbb/assets/icons/external-link.svg"></a></li>
         <li><a href="/kits/gbb/download.html">Download</a></li>
         <li><a href="https://github.com/paladin-t/gbb" target="_blank">GitHub <img src="/kits/gbb/assets/icons/external-link.svg"></a></li>
@@ -67,10 +67,10 @@
         <div class="term_box">
           <p class="docs_nav" align="left">
             <a href="manual.html">Reference Manual</a> |
-            <a>More Kernels (TBD)</a> |
+            <a href="kernels.html"><b>More Kernels (TBD)</b></a> |
             <a href="extensions.html">Extensions</a> |
             <a href="launching.html">Launching</a> |
-            <a href="troubleshooting.html"><b>Troubleshooting</b></a> |
+            <a href="troubleshooting.html">Troubleshooting</a> |
             <a href="changelog.html">Changelog</a> |
             <a href="about.html">About</a>
           </p>
@@ -164,15 +164,15 @@
   <script src="/kits/gbb/article.js"></script>
   <script type="text/javascript">
     (function () {
-      var url = 'documents/troubleshooting.md';
-      var ref = 'documents/troubleshooting';
+      var url = 'documents/kernels.md';
+      var ref = 'documents/kernels';
 
       try {
         Article.read(url, ref, {
           content: 'article-content',
           parse: function (markdown) {
             return markdown
-              .replaceAll('## Troubleshooting', '# Troubleshooting')
+              .replaceAll('## More Kernels', '# More Kernels')
               .replaceAll('![](imgs/', '![](documents/imgs/');
           },
           preprocess: function (html) {
