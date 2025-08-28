@@ -1466,7 +1466,7 @@ A `def scene` operation can only fill map, attribute and property data to scene;
 | `CLIMB_VELOCITY_PROP`    | Integer (8-bit unsigned) | Gravity for clambing                                             | Read/write |
 | `WIDTH_PROP`             | Integer (8-bit unsigned) | Width of scene                                                   | Read/write |
 | `HEIGHT_PROP`            | Integer (8-bit unsigned) | Height of scene                                                  | Read/write |
-| `CAMERA_DEADZONE_PROP`   | Integer (8-bit unsigned) | Camera deadzone in both directions                               | Read/write |
+| `CAMERA_DEADZONE_PROP`   | Integer (8-bit unsigned) | Camera deadzone in both directions                               | Write-only |
 | `CAMERA_DEADZONE_X_PROP` | Integer (8-bit unsigned) | Camera deadzone in x-axis                                        | Read/write |
 | `CAMERA_DEADZONE_Y_PROP` | Integer (8-bit unsigned) | Camera deadzone in y-axis                                        | Read/write |
 
@@ -1571,7 +1571,7 @@ The drawing elements of an actor consist of hardware sprites and their associate
 | `ANIMATION_LOOP_PROP`         | Boolean                                                          | Whether to loop the actor's animation                          | Read/write |
 | `ANIMATION_PAUSED_PROP`       | Boolean                                                          | Whether the actor's animation is paused                        | Read/write |
 | `MOVEMENT_INTERRUPT_PROP`     | Boolean                                                          | Whether to interrupt the actor's movement                      | Read/write |
-| `POSITION_PROP`               | Point (16-bit unsigned integer for x, y)                         | The actor's position                                           | Read/write |
+| `POSITION_PROP`               | Point (16-bit unsigned integer for x, y)                         | The actor's position                                           | Write-only |
 | `POSITION_X_PROP`             | Integer (16-bit unsigned)                                        | The actor's position in x-axis                                 | Read/write |
 | `POSITION_Y_PROP`             | Integer (16-bit unsigned)                                        | The actor's position in y-axis                                 | Read/write |
 | `DIRECTION_PROP`              | "Directions" (8-bit unsigned integer)                            | The actor's direction                                          | Read/write |
