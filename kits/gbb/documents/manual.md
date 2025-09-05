@@ -942,8 +942,9 @@ The values following all `data` statements are arranged in increasing order from
 * `=stack(n)`: gets the `n`th value of the stack in the order of bottom-up or top-down of the current thread, does not change the stack frames
   * `n`: the integer reference constant, if `n` is greater than or equal to `0` then gets the "stack **bottom** + `n`" value, otherwise `n` is less than `0` then gets the "stack **top** + `n`" value
   * returns the value
-* `=stack0|stack1|...|stackN`: gets the specific Nth value of the stack relative to its **bottom** of the current thread, does not change the stack frames
+* `=stack0|stack1|...|stackN`: gets the specific Nth value of the stack relative to its **bottom** of the current thread, does not change the stack frames; not applicable to `for` loop or `select case` statements
   * returns the value
+* `stack0|stack1|...|stackN = ...`: sets the specific Nth value of the stack relative to its **bottom** of the current thread, does not change the stack frames
 
 Alghough the `stack(n)` operation doesn't change the stack frames, outer statements such as assignment or printing may reserve stack space. So consider using positive `n` only within an expression.
 
@@ -1494,11 +1495,11 @@ Scene data for a `def scene` operation can also come from inline code. This data
 | Definition layer | `0x08` |
 | All layers       | `0x0F` |
 -->
-| Scene layers     | Value  |
-|------------------|--------|
-| Map layer        | `0x00` |
-| Attribute layer  | `0x01` |
-| Property layer   | `0x02` |
+| Scene layers    | Value  |
+|-----------------|--------|
+| Map layer       | `0x00` |
+| Attribute layer | `0x01` |
+| Property layer  | `0x02` |
 
 ### Actor
 
@@ -1744,6 +1745,14 @@ The following actor controllers are appliable to an actor to indicate its behavi
 | `POINTNCLICK_PLAYER_WITH_TOUCH_BEHAVIOUR` | An actor with this value behaves as a player controlled point&click character with touch support      |
 
 Both `POINTNCLICK_PLAYER_WITH_MOUSE_BEHAVIOUR` and `POINTNCLICK_PLAYER_WITH_TOUCH_BEHAVIOUR` controllers support obtaining user input from pointing devices, and will fall back to `POINTNCLICK_PLAYER_BEHAVIOUR` if no such device is available. The difference between the two lies in the fact that the "mouse"-driven behaviour moves a small distance according to the movement speed towards the input point each time, while the "touch"-driven behaviour moves immediately to the input point location.
+
+The following behaviour options can be used in conjunction with an actor behaviour to specify the actor's detailed behavior.
+
+| Behaviour options | Note                                                         | Applicable to                                        |
+|-------------------|--------------------------------------------------------------|------------------------------------------------------|
+| `RIGID_BEHAVIOUR` | An actor with this options barely overlaps with other actors | `TOPDOWN_PLAYER_BEHAVIOUR`, `TOPDOWN_MOVE_BEHAVIOUR` |
+
+Behaviour options can be set for an actor by performing a bitwise OR operation with their compatible actor behaviour.
 
 <!-- Extra kernels can provide more controllers. -->
 
@@ -2414,7 +2423,7 @@ The `RTC_ENABLED` must be on to use the RTC feature.
 | `RTC_START`                      | Integer (8-bit unsigned)               | Determined by clock  | Select the start state of the RTC device for writing                                            |
 | `RTC_LATCH`                      | Integer (8-bit unsigned)               | Determined by clock  | Select the latch state of the RTC device for writing                                            |
 
-For `VRAM_BANK`. This feature is for colored device only.
+For `VRAM_BANK`. This feature is for colored device only, which has more VRAM.
 
 | VRAM banks   | Note                                      |
 |--------------|-------------------------------------------|
