@@ -25,9 +25,11 @@
       - [Memory Management](#memory-management)
       - [Number Calculation](#number-calculation)
       - [Trigonometric Functions](#trigonometric-functions)
-    - [Function](#function)
+    - [Native Functions](#native-functions)
+    - [Macro Function](#macro-function)
+    - [Macro Expression](#macro-expression)
     - [Macro Constant](#macro-constant)
-    - [Identifier Alias](#identifier-alias)
+    - [Macro Identifier Alias](#macro-identifier-alias)
     - [Conditional](#conditional)
     - [Loop](#loop)
     - [Sub](#sub)
@@ -38,6 +40,7 @@
     - [Array](#array)
     - [Read Data](#read-data)
     - [Stack Operations](#stack-operations)
+      - [Macro Stack Reference](#macro-stack-reference)
     - [Others](#others)
   - [Libraries](#libraries)
     - [Basic](#basic)
@@ -176,17 +179,17 @@ The key bindings for operating a running program are configured in the applicati
 
 1. File menu and buttons
 2. View buttons
-3. Projects
+3. Projects: All recent projects will be placed here
 
 **Code editor**
 
 ![](imgs/code_editor.png)
 
-1. File menu and buttons
-2. View buttons
-3. Edit area
-4. Context area
-5. Extra area
+1. File menu and buttons: Create new asset pages, build and run project, undo and redo, etc.
+2. View buttons: Switch to other asset editors, etc.
+3. Edit area: Where to write code
+4. Context area: Switch to other asset pages, stat. etc.
+5. Extra area: Import, export, project properties, etc.
 
 Code editor accepts a number of additional implicit shortcuts.
 
@@ -210,11 +213,11 @@ Code editor accepts a number of additional implicit shortcuts.
 
 ![](imgs/asset_editor.png)
 
-1. File menu and buttons
-2. View buttons
-3. Edit area
-4. Context area
-5. Extra area
+1. File menu and buttons: Create new asset pages, build and run project, undo and redo, etc.
+2. View buttons: Switch to other asset editors, etc.
+3. Edit area: Where to paint, etc.
+4. Context area: Switch to other asset pages, stat. etc.
+5. Extra area: Import, export, layers, etc.
 
 Each code, graphics and music asset page has its dedicated undo/redo stack that doesn't affect another.
 
@@ -222,11 +225,11 @@ Each code, graphics and music asset page has its dedicated undo/redo stack that 
 
 ![](imgs/run.png)
 
-1. File menu and running buttons
-2. View buttons
-3. Emulator area
-4. Running information
-5. Extra area
+1. File menu and running buttons: Run, pause, resume, stop, etc.
+2. View buttons: Switch to other asset editors, etc.
+3. Emulator area: Where the emulation runs
+4. Running information: Device and cartridge information, FPS, etc.
+5. Extra area: Change running speed, mute and unmute, etc.
 
 [TOP](#reference-manual)
 
@@ -368,6 +371,10 @@ The "Escapes" rules apply to one or more of the following: `print fmt[, ...]`, `
   * `x`: the x location in pixels
   * `y`: the y location in pixels
 
+* `cls`: clears the screen
+
+These statements run under the `TEXT_MODE`.
+
 ### Jump
 
 * `goto lno|lbl|#pg:lno|#pg:lbl`: performs an unconditional jump to transfer the execution to the specific location
@@ -481,20 +488,23 @@ Due to the integer nature of GB BASIC, the domain of angle values and related tr
 
 The `=deg(angle)` function provides a convenient way to map angles with a domain of 0° to 360° to an internal representation ranging from 0 to 256.
 
-### Function
+### Native Functions
 
 * `call func[, ...]`: calls the specific native function
   * `func`: the native function to call, the name is case-sensitive; can be one of the following "Functions"
   * `...`: optional variadic arguments; numeric values separated by comma
 
-| Functions                 | Alternative | Note                                                                                                           |
-|---------------------------|-------------|----------------------------------------------------------------------------------------------------------------|
-| `call wait_for n`         | `wait n`    | Waits for `n` frames on the current thread                                                                     |
-| `call wait_until_confirm` | -           | Waits until the A/Start button has been pressed; or anywhere of the screen has been tapped (extension feature) |
-| `call error`              | -           | Raises an error                                                                                                |
-| `call camera_shake n, d`  | -           | Shake camera for `n` frames with ["Camera shake directions"](#scene) specified by `d`                          |
+| Functions                 | Short syntax | Note                                                                                                           |
+|---------------------------|--------------|----------------------------------------------------------------------------------------------------------------|
+| `call clear_text`         | `cls`        | Clears the screen for the `TEXT_MODE`                                                                          |
+| `call wait_for n`         | `wait n`     | Waits for `n` frames on the current thread                                                                     |
+| `call wait_until_confirm` | -            | Waits until the A/Start button has been pressed; or anywhere of the screen has been tapped (extension feature) |
+| `call error`              | -            | Raises an error                                                                                                |
+| `call camera_shake n, d`  | -            | Shake camera for `n` frames with ["Camera shake directions"](#scene) specified by `d`                          |
 
 <!-- Extra kernels can provide more native functions. -->
+
+### Macro Function
 
 * `def fn f(...) = ...`: defines a user function
   * `f`: the user defined function name
@@ -510,6 +520,21 @@ let a = f(1 + abs(-2), f(1, -3))
 ```
 
 By default, `fn` functions, like other symbols, are defined in the global scope. Additionally, GB BASIC supports defining local lexical scopes using `begin def/end def`, where an `fn` function is only valid within that specific scope. See the [Macro Scope](#macro-scope) section for detail.
+
+### Macro Expression
+
+* `def e = ...`: defins an alias of expression, i.e. `def meaningful = foo * (bar + (22 / 7)) mod baz`
+  * `e`: the macro name
+  * `...`: the expression
+
+A macro expression has higher priority than arithmetical operators. For example, the follows code results in `9`, rather than `7`:
+
+```bas
+def e = 2 + 1
+print 3 * e ' Expands into `3 * (2 + 1)`.
+```
+
+By default, expression alias defined by macro `def ... = ...`, like other symbols, are defined in the global scope. Additionally, GB BASIC supports defining local lexical scopes using `begin def/end def`, where a `def ... = ...` macro is only valid within that specific scope. See the [Macro Scope](#macro-scope) section for detail.
 
 ### Macro Constant
 
@@ -532,9 +557,9 @@ In addition to user-defined macro constants, the system also provides several bu
 
 These predefined macros are automatically determined at compile time and can be used like regular macro constants. Their values are resolved during compilation and remain fixed throughout the program.
 
-### Identifier Alias
+### Macro Identifier Alias
 
-* `def a = b`: defins an identifier alias of variable or array, i.e. `define meaningful = foo`
+* `def a = b`: defins an identifier alias of variable or array, i.e. `def meaningful = foo`
   * `a`: the macro name
   * `b`: the variable or array name
 
@@ -791,7 +816,7 @@ end do
 
 ### Macro Scope
 
-* `begin def/end def`: marks the beginning and end of a local lexical scope for macro definitions like function `def fn f(...) = ...`, constant `def c = 42`, alias `def a = b` and stack reference `def s = stackN`
+* `begin def/end def`: marks the beginning and end of a local lexical scope for macro definitions like function `def fn f(...) = ...`, expression `def e = (a + b) * (22 / 7)`, constant `def c = 42`, alias `def a = b` and stack reference `def s = stackN`
 
 Scoping example:
 
@@ -806,6 +831,19 @@ begin def
 end def
 
 print "f()=%d", f() ' Call the global function.
+```
+
+```bas
+' Scope for expression macro.
+def e = 3 - 2
+print "e=%d", e ' Evaluate the global expression.
+
+begin def
+  def e = 4 / 2
+  print "e=%d", e ' Evaluate the local expression.
+end def
+
+print "e=%d", e ' Evaluate the global expression.
 ```
 
 ```bas
@@ -935,6 +973,9 @@ The values following all `data` statements are arranged in increasing order from
 
 * `=pop`: pops a value from the stack of the current thread
   * returns the popped value
+* `=pop n`: pops a number of values from the stack of the current thread
+  * `n`: the number of values to be popped
+  * returns the last popped value
 
 * `=top`: gets the top value of the stack of the current thread, does not change the stack frames
   * returns the top value
@@ -949,6 +990,8 @@ The values following all `data` statements are arranged in increasing order from
 Alghough the `stack(n)` operation doesn't change the stack frames, outer statements such as assignment or printing may reserve stack space. So consider using positive `n` only within an expression.
 
 **Tips:** _Accessing global variables on different concurrent threads is **unsafe**. For instance, if one thread is reading the value of a global variable while another thread is writing to it, the reading thread may not obtain the correct value as intended. To address this issue, thread locks can be used, or the above mentioned stack operations, `stack(n)` or `stackN`, can be employed to manipulate thread local variables instead of global ones. The specific solution depends on the actual problem._
+
+#### Macro Stack Reference
 
 * `def ... = stack0|stack1|...|stackN`: defines a stack reference with an alias, i.e. `def meaningful = stack0`
 
