@@ -26,16 +26,18 @@
       - [Number Calculation](#number-calculation)
       - [Trigonometric Functions](#trigonometric-functions)
     - [Native Functions](#native-functions)
-    - [Macro Function](#macro-function)
-    - [Macro Expression](#macro-expression)
-    - [Macro Constant](#macro-constant)
-    - [Macro Identifier Alias](#macro-identifier-alias)
+    - [Macro Definitions](#macro-definitions)
+      - [Macro Function](#macro-function)
+      - [Macro Expression](#macro-expression)
+      - [Macro Constant](#macro-constant)
+      - [Macro Identifier Alias](#macro-identifier-alias)
     - [Conditional](#conditional)
     - [Loop](#loop)
     - [Sub](#sub)
     - [Thread](#thread)
-    - [Code Block](#code-block)
-    - [Macro Scope](#macro-scope)
+    - [Block and Scope](#block-and-scope)
+      - [Code Block](#code-block)
+      - [Macro Scope](#macro-scope)
     - [Peek and Poke](#peek-and-poke)
     - [Array](#array)
     - [Read Data](#read-data)
@@ -504,7 +506,11 @@ The `=deg(angle)` function provides a convenient way to map angles with a domain
 
 <!-- Extra kernels can provide more native functions. -->
 
-### Macro Function
+### Macro Definitions
+
+GB BASIC supports defining macros using `def`, which can be used to define functions, expressions, constants, and [stack references](#macro-stack-reference) (which will be described later).
+
+#### Macro Function
 
 * `def fn f(...) = ...`: defines a user function
   * `f`: the user defined function name
@@ -521,7 +527,7 @@ let a = f(1 + abs(-2), f(1, -3))
 
 By default, `fn` functions, like other symbols, are defined in the global scope. Additionally, GB BASIC supports defining local lexical scopes using `begin def/end def`, where an `fn` function is only valid within that specific scope. See the [Macro Scope](#macro-scope) section for detail.
 
-### Macro Expression
+#### Macro Expression
 
 * `def e = ...`: defins an alias of expression, i.e. `def meaningful = foo * (bar + (22 / 7)) mod baz`
   * `e`: the macro name
@@ -536,7 +542,7 @@ print 3 * e ' Expands into `3 * (2 + 1)`.
 
 By default, expression alias defined by macro `def ... = ...`, like other symbols, are defined in the global scope. Additionally, GB BASIC supports defining local lexical scopes using `begin def/end def`, where a `def ... = ...` macro is only valid within that specific scope. See the [Macro Scope](#macro-scope) section for detail.
 
-### Macro Constant
+#### Macro Constant
 
 * `def c = N`: defines a macro constant, i.e. `def meaningful = 42`
   * `c`: the macro name
@@ -557,7 +563,7 @@ In addition to user-defined macro constants, the system also provides several bu
 
 These predefined macros are automatically determined at compile time and can be used like regular macro constants. Their values are resolved during compilation and remain fixed throughout the program.
 
-### Macro Identifier Alias
+#### Macro Identifier Alias
 
 * `def a = b`: defins an identifier alias of variable or array, i.e. `def meaningful = foo`
   * `a`: the macro name
@@ -791,7 +797,9 @@ lbl:
 
 **See also:** _[Lookup Priority of Labeled Destination](#lookup-priority-of-labeled-destination)._
 
-### Code Block
+### Block and Scope
+
+#### Code Block
 
 * `begin do/end do`: marks the beginning and end of a code block
 
@@ -814,7 +822,7 @@ end do
 | `begin do`    | `begindo`    |
 | `end do`      | `enddo`      |
 
-### Macro Scope
+#### Macro Scope
 
 * `begin def/end def`: marks the beginning and end of a local lexical scope for macro definitions like function `def fn f(...) = ...`, expression `def e = (a + b) * (22 / 7)`, constant `def c = 42`, alias `def a = b` and stack reference `def s = stackN`
 
@@ -1789,7 +1797,7 @@ The following actor controllers are appliable to an actor to indicate its behavi
 
 Both `POINTNCLICK_PLAYER_WITH_MOUSE_BEHAVIOUR` and `POINTNCLICK_PLAYER_WITH_TOUCH_BEHAVIOUR` controllers support obtaining user input from pointing devices, and will fall back to `POINTNCLICK_PLAYER_BEHAVIOUR` if no such device is available. The difference between the two lies in the fact that the "mouse"-driven behaviour moves a small distance according to the movement speed towards the input point each time, while the "touch"-driven behaviour moves immediately to the input point location.
 
-The following behaviour options can be used in conjunction with an actor behaviour to specify the actor's detailed behavior.
+The following behaviour options can be used in conjunction with an actor behaviour to specify the actor's detailed behaviour.
 
 | Behaviour options | Note                                                         | Applicable to                                        |
 |-------------------|--------------------------------------------------------------|------------------------------------------------------|
