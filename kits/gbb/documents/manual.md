@@ -1407,6 +1407,13 @@ Map data for a `def map` operation can also come from inline code. This data is 
   * `x`: the x position in pixels
   * `y`: the y position in pixels
 
+The position should be calculated as follows for plain sprites:
+
+* x = Object's horizontal position on the screen + 8
+* y = Object's vertical position on the screen + 16
+
+For example, `sprite id, 8, 16` puts a sprite at the top-left corner of the screen, and `sprite id, 160, 152` puts a sprite at the bottom-right corner of the screen.
+
 * `fill sprite(first, n) = read|data ...|"{builtin}"|#pg|#pg:n|"{name}"`: fills the sprite area in VRAM
   * `first`: index of the first sprite tile to write to
   * `n`: the tile count
