@@ -360,7 +360,7 @@ Every `print` outputs a newline by default after all contents have been printed,
 | `%x`     | `print`, `text`, `label`, `menu`, `shell` | Integer (HEX)                                   |
 | `%c`     | `print`, `text`, `label`, `menu`, `shell` | Character                                       |
 | `%%`     | `print`, `text`, `label`, `menu`, `shell` | Percent sign                                    |
-| `\uXXXX` | `print`, `text`, `label`, `menu`, `shell` | Embedded character code, `XXXX` is in HEX       |
+| `\uXXXX` | `text`, `label`, `menu`                   | Embedded character code, `XXXX` is in HEX       |
 | `\#`     | `print`, `text`, `label`, `menu`, `shell` | The current stack pointer of the current thread |
 | `\\`     | `print`, `text`, `label`, `menu`, `shell` | Backslash                                       |
 | `\r`     | `label`                                   | Carriage return                                 |
