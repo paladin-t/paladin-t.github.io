@@ -2,15 +2,33 @@
 
 # Releases
 
+## GB BASIC v1.2
+
+<details open>
+<summary><b>Click Me</b></summary>
+<div>
+This release introduces a public Tutorials platform, which provides a learning environment that is easier to read and practice with than the built-in documentation. Currently, about one-third of the content is complete, with subsequent content to be updated gradually. You can find the entry point by clicking the main menu, then clicking Help. Additionally, this update enhances the syntax's adaptability and convenience for different coding styles and fixes some bugs in the runtime, compiler and asset pipeline, and the editors. This version also adds a new "Minimal" starter kit for quickly building your game framework.
+</div>
+</details>
+
+* [Changelog](documents/changelogs/Changelog_v1.2.txt) (Oct. 5, 2025)
+* Download on [Steam](https://store.steampowered.com/app/2308700/)
+* Also available on [Itch.io](https://tonywang.itch.io/gbbasic)
+
 ## GB BASIC v1.1
 
+<details>
+<summary><b>Click Me</b></summary>
+<div>
 This update introduces several key features, including auto-update mode, an emote module, GUI components (progress bars and menus), and Point&Click controllers, while optimizing triggers, resource loading, controllers, touch/mouse handling, and thread handling. On the syntax side, new memory operations, data streaming, and macro scopes were added, along with improved label lookup. The editor significantly enhances functionality and usability, with improved map and trigger editing, code binding, resource sorting, and bitmap font support, refining the editing experience for maps, scenes, and other assets. Performance optimizations notably improve collision detection and camera tracking, while numerous bugs were fixed, memory mapping adjusted, and syntax refined for greater stability and efficiency.
 
 This update includes several breaking changes, primarily aimed at refining and optimizing the syntax and design from the Alpha phase. These modifications address earlier inconsistencies, bringing greater internal cohesion to the runtime, syntax rules, and editor components. Starting with this release, the API will enter a more stable phase, with future updates prioritizing backward compatibility.
 
-This marks a major milestone release for the project, with over 5,000 code commits since its inception - approximately 45% of which were submitted during this v1.1 iteration alone. For brevity, I won't delve into every change here, but the full changelog is provided below.
+This marks a major milestone release for the project, with over 5,000 code commits since its inception - approximately 45% of which were submitted during this v1.1 iteration alone. For brevity.
+</div>
+</details>
 
-* [Devlog](https://paladin-t.github.io/articles/gb-basic-v1-1.html) (Aug. 20, 2025)
+* [Changelog](https://paladin-t.github.io/articles/gb-basic-v1-1.html) (Aug. 20, 2025)
 * Download on [Steam](https://store.steampowered.com/app/2308700/)
 * Also available on [Itch.io](https://tonywang.itch.io/gbbasic)
 

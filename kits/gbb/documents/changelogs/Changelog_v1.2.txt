@@ -1,0 +1,70 @@
+This release introduces a public Tutorials platform, which provides a learning
+environment that is easier to read and practice with than the built-in
+documentation. Currently, about one-third of the content is complete, with
+subsequent content to be updated gradually. You can find the entry point by
+clicking the main menu, then clicking Help. Additionally, this update enhances
+the syntax's adaptability and convenience for different coding styles and fixes
+some bugs in the runtime, compiler and asset pipeline, and the editors. This
+version also adds a new "Minimal" starter kit for quickly building your game
+framework.
+
+v1.2
+
+* Runtime
+  * Added a `RIGID_BEHAVIOUR` option to make an actor has less opportunity to overlap with other actors
+  * Improved error handling when an unexpected property was about to be accessed
+  * **Improved non-player movement for the top-down controller**
+  * **Fixed a VBL and LCD ISRs' uninstallation bug after changing from the text mode to another**
+  * **Fixed a game timing issue**
+  * Fixed a projectile collision bug under the manual update mode
+  * Fixed an execution bug of `SET PROJECTILE PROPERTY(..., BOUNDS_PROP) = ...`
+  * Fixed a callback bug of `TOUCHU`
+  * Fixed query bugs of `SYS_TIME` and `DIV_REG`
+  * Fixed return value issues of `SREAD` and `SWRITE`
+  * Fixed an `RTC_LATCH` setting bug
+* Syntax
+  * Added a `SHELL "@sram"` command to indicate (SRAM) I/O syncing
+  * **Added support for `INC stackN`/`DEC stackN`**
+  * **Added support for `SWAP stackM, stackN`**
+  * **Added support for `TOUCH(stackM, stackN)`**
+  * **Added support for `VIEWPORT stackM, stackN`**
+  * **Added support for `READ stack0, ... stackN`**
+  * **Added support for `UNPACK(stack0, ... stackN)`**
+  * Added a `CLS` statement to clear all text under the text mode
+  * **Added `POP n` syntax to pop multiple values from stack**
+  * **Added support for macro expressions like `DEF expr = ...`**
+* Compiler and Asset Pipeline
+  * Added error report for unsupported syntax while use macro with `FOR` loop and `SELECT CASE`
+  * Improved the compilation error report where there is a space between the negative sign and the number in the conditional expression
+  * Fixed a compilation bug of `GET PROJECTILE PROPERTY(...)`
+  * Fixed an error raising bug when syntax error occurs inside `BEGIN DEF`/`END DEF`
+  * **Fixed an actor tiles filling bug, when they are loaded from a scene**
+  * Fixed an argument evaluation bug of the `WAIT n` statement
+  * Fixed a compilation bug when use `PACK` as an argument
+  * Fixed a misreported warning about using extension feature with regular cartridge with the `BTN` family statements
+* Emulator
+  * Improved SRAM path resolving
+* Editor
+  * Added revision number to the "About" popup to identify built version
+  * **Added a launch option "-H" to hide the splash screen**
+  * Added a menu entry to open global searching popup
+  * Added an option to change property bit for all actor tiles
+  * Improved default text filling for the global search popup
+  * Improved SRAM path concatenation
+  * Improved ordering for projects created from starter kits
+  * Improved UX of code analyzing
+  * Improved shortcuts for frame switching in the actor editor
+  * Fixed an actor bounds rendering bug
+  * Fixed external event handling issue from JavaScript to HTML
+  * Fixed some shortcut key issues
+  * Fixed bug where dirty pixels appear when drawing tiles or actor assets after clicking the undo button
+  * Fixed an actor compacting issue of the actor editor
+  * Fixed a refreshing issue of paste overlay after pressing "Paste" more than once
+  * Fixed a code page lookup bug on the routine binding popup when the page doesn't not exist
+* Document, Examples, Starter Kits, Tutorials and Help
+  * **Added a tutorial system (draft page)**
+  * Added "Access" (Read/write or Read-only or Write-only) columns to the property tables
+  * Added a link to Discord, Reddit, and RedNote
+  * Added a "Minimal" starter kit
+  * Added a "README" program
+  * Updated the built-in resources
