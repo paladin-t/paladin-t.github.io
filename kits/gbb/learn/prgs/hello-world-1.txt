@@ -1,0 +1,58 @@
+<program>
+<info>
+{
+  "title": "Hello",
+  "cartridge_type": "classic|colored",
+  "sram_type": "0",
+  "has_rtc": false,
+  "case_insensitive": true,
+  "description": "",
+  "author": "Tony",
+  "genre": "Example",
+  "version": "1.0.0",
+  "url": "",
+  "icon": "",
+  "created": 1693927471,
+  "modified": 1752127915,
+  "preference": {
+    "font_size": [
+      -1,
+      13
+    ],
+    "font_offset": -1,
+    "font_is_two_bits_per_pixel": false,
+    "font_prefer_full_word": true,
+    "font_prefer_full_word_for_non_ascii": false,
+    "preview_palette_bits": true,
+    "use_byte_matrix": false,
+    "show_grids": true,
+    "code_page_for_binded_routine": 0,
+    "code_line_for_binded_routine": 0,
+    "map_ref": 0,
+    "music_preview_stroke": true,
+    "sfx_show_sound_shape": true,
+    "actor_apply_properties_to_all_frames": true,
+    "actor_uses_8x16_sprites": true,
+    "scene_ref_map": 0,
+    "scene_show_actors": true,
+    "scene_show_triggers": true,
+    "scene_show_properties": true,
+    "scene_show_attributes": false,
+    "scene_use_gravity": false
+  }
+}
+</info>
+<engine>
+1
+</engine>
+<palette>
+{"colors":[{"count":4,"data":[[224,248,208,255],[136,192,112,255],[52,104,86,255],[8,24,32,255]]},{"count":4,"data":[[0,160,80,255],[40,56,208,255],[104,160,32,255],[216,248,240,255]]},{"count":4,"data":[[152,232,32,255],[72,40,240,255],[8,208,16,255],[176,24,248,255]]},{"count":4,"data":[[32,0,128,255],[224,216,120,255],[0,136,72,255],[120,48,216,255]]},{"count":4,"data":[[64,24,0,255],[120,176,248,255],[144,48,128,255],[176,56,144,255]]},{"count":4,"data":[[56,0,56,255],[248,208,8,255],[64,168,48,255],[240,48,216,255]]},{"count":4,"data":[[112,0,8,255],[200,176,184,255],[64,24,128,255],[224,24,48,255]]},{"count":4,"data":[[168,16,0,255],[240,64,200,255],[112,128,24,255],[184,120,48,255]]},{"count":4,"data":[[224,248,208,0],[136,192,112,255],[52,104,86,255],[8,24,32,255]]},{"count":4,"data":[[0,160,80,255],[40,56,208,255],[104,160,32,255],[216,248,240,255]]},{"count":4,"data":[[152,232,32,255],[72,40,240,255],[8,208,16,255],[176,24,248,255]]},{"count":4,"data":[[32,0,128,255],[224,216,120,255],[0,136,72,255],[120,48,216,255]]},{"count":4,"data":[[64,24,0,255],[120,176,248,255],[144,48,128,255],[176,56,144,255]]},{"count":4,"data":[[56,0,56,255],[248,208,8,255],[64,168,48,255],[240,48,216,255]]},{"count":4,"data":[[112,0,8,255],[200,176,184,255],[64,24,128,255],[224,24,48,255]]},{"count":4,"data":[[168,16,0,255],[240,64,200,255],[112,128,24,255],[184,120,48,255]]}]}
+</palette>
+<font>
+{}
+</font>
+<code page="0">
+10 print "Hello"
+20 goto 10
+</code>
+</program>

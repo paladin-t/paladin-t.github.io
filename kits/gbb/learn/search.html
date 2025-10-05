@@ -1,0 +1,63 @@
+<!DOCTYPE html><html lang=en><link rel=stylesheet href=_.9c0506c3.css><meta charset=UTF-8><meta name=viewport content="width=device-width, initial-scale=1.0"><title>Search Results | GB BASIC</title><link rel=stylesheet href=_.b78df20d.css><link rel=stylesheet href=_.4d757744.css><link rel=stylesheet href=search.a2f5b685.css><body>
+  <header id=top-banner>
+    <button id=sidebar-toggle aria-label="Toggle sidebar">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <h1 id=app-title>Learn GB BASIC</h1>
+    <div id=search-container>
+      <i class="fa-search fas"></i>
+      <input id=global-search placeholder="Type / to search">
+    </div>
+    <div class=top-banner-buttons>
+      <button id=print-btn class=icon-btn aria-label="Print This Page">
+        <i class="fa-print fas"></i>
+      </button>
+      <button id=open-source-btn class=icon-btn aria-label="Open Source Software">
+        <i class="fa-brands fa-github"></i>
+      </button>
+      <button id=download-btn class=icon-btn aria-label=Download>
+        <i class="fa-download fas"></i>
+      </button>
+      <button id=home-btn class=icon-btn aria-label=Home>
+        <i class="fa-home fas"></i>
+      </button>
+      <button id=theme-toggle class=icon-btn aria-label="Toggle dark mode">
+        <i class="fa-moon fas"></i>
+      </button>
+    </div>
+  </header>
+
+  <div id=app>
+    <div id=doc>
+      <nav id=sidebar>
+        <div id=toc-search>
+          <i class="fa-filter fas"></i>
+          <input id=toc-search-input placeholder=Filter...>
+        </div>
+        <div id=toc></div>
+      </nav>
+      <main id=content>
+        <div id=content-and-pagination>
+          <div id=search-results class=search-results>
+            <div id=search-loading class=search-loading style=display:none>
+              <i class="fa-spin fa-spinner fas"></i> Searching...
+            </div>
+            
+          </div>
+        </div>
+      </main>
+      <div class=gtranslate_wrapper title="Machine translation"></div>
+      <script>window.gtranslateSettings={default_language:"en",native_language_names:!0,languages:["en","fr","de","it","es","pt","ru","ja","zh-CN"],wrapper_selector:".gtranslate_wrapper"};</script>
+      <script src=https://cdn.gtranslate.net/widgets/latest/float.js defer></script>
+      <div id=doc-overlay></div>
+    </div>
+  </div>
+  <div id=error-toast class=error-toast style=display:none></div>
+
+  <meta name=link-behaviour content=redirect>
+  <script type=module src=_.74befef1.js></script>
+  <script type=module src=search.03f0bbd7.js></script>
+
+

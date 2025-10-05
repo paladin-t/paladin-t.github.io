@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--
+GB BASIC
+Copyright (C) 2023 - 2025 Tony Wang, all rights reserved
+Learn more: https://paladin-t.github.io/kits/gbb/
+-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Powered by GB BASIC">
+    <meta name="twitter:card" content="Powered by GB BASIC">
+    <meta name="og:title" property="og:title" content="GB BASIC">
+    <meta name="og:description" property="og:description" content="Powered by GB BASIC">
+    <title>GB BASIC</title>
+    <link rel="shortcut icon" href="https://paladin-t.github.io/kits/gbb/favicon.ico" />
+    <link rel="apple-touch-icon" href="https://paladin-t.github.io/kits/gbb/icon.png" />
+    <link rel="stylesheet" type="text/css" href="index.css">
+  </head>
+  <body>
+    <div id="page">
+      <div id="content">
+        <div id="browser-tips">
+          <div id="browser-tips-container">
+            <div id="browser-tips-content"></div>
+          </div>
+          <span id="browser-tips-countdown">(10)</span>
+          <div id="browser-tips-close-button">[OK]</div>
+        </div>
+        <canvas id="canvas" width="480" height="320"></canvas>
+        <textarea id="clipping" style="display: none; width:0; height: 0; border:0;" aria-hidden="true"></textarea>
+        <div id="loading">
+          <figure id="spinner">
+            <div class="spinner">
+          </figure>
+          <span id="loading-suggestion"></span>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="index.js"></script>
+    <script async type="text/javascript" src="gbbasic.js"></script>
+  </body>
+</html>

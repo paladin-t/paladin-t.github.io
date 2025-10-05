@@ -1,0 +1,135 @@
+body {
+  margin: 0;
+  padding: 0;
+  overscroll-behavior: none;
+  background-color: #cbe1b4;
+  font-family: monospace, ui-sans-serif, sans-serif;
+  font-size: 1.3rem;
+  font-weight: normal;
+}
+
+#page {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+#content {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+
+#browser-tips {
+  display: none;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 40px;
+  padding-left: 25px;
+  padding-right: 25px;
+  line-height: 40px;
+  font-size: 20px;
+  font-family: fantasy;
+  font-weight: normal;
+  color: white;
+  background: #6a914d;
+  align-content: center;
+}
+#browser-tips-container {
+  display: inline-block;
+  width: calc(100% - 125px);
+  white-space: nowrap;
+  overflow: hidden;
+}
+#browser-tips-content {
+  display: inline-block;
+  padding-left: 100%;
+  animation: scroll 10s linear infinite;
+}
+#browser-tips-countdown {
+  display: inline-block;
+  right: 110px;
+  position: absolute;
+}
+#browser-tips-close-button {
+  display: inline-block;
+  right: 70px;
+  position: absolute;
+  cursor: pointer;
+}
+
+#canvas {
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+}
+
+#loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  z-index: 10;
+  text-align: center;
+}
+.spinner {
+  width: 50px;
+  height: 50px;
+  margin: 0px auto;
+  border-left: 10px solid rgb(78, 139, 73);
+  border-right: 10px solid rgb(78, 139, 73);
+  border-bottom: 10px solid rgb(78, 139, 73);
+  border-top: 10px solid rgb(37, 65, 32);
+  border-radius: 100%;
+  background-color: rgba(255, 255, 255, 0);
+  -webkit-animation: rotation .8s linear infinite;
+  -moz-animation: rotation .8s linear infinite;
+  -o-animation: rotation .8s linear infinite;
+  animation: rotation 0.8s linear infinite;
+}
+
+#loading-suggestion {
+  display: none;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif;
+  width: 400px;
+}
+
+@supports (font: -apple-system-body) {
+  #browser-tips {
+    font-family: -apple-system, 'Helvetica Neue', sans-serif;
+    font-weight: bolder;
+  }
+}
+
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+
+@-webkit-keyframes rotation {
+  from { -webkit-transform: rotate(0deg); }
+  to { -webkit-transform: rotate(360deg); }
+}
+@-moz-keyframes rotation {
+  from { -moz-transform: rotate(0deg); }
+  to { -moz-transform: rotate(360deg); }
+}
+@-o-keyframes rotation {
+  from { -o-transform: rotate(0deg); }
+  to { -o-transform: rotate(360deg); }
+}
+@keyframes rotation {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
