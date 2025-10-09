@@ -169,7 +169,7 @@ Game:
   end do
 ```
 <!-- prg
-!edit, run, title="Turn <code>auto update on</code>", style=""
+!edit, run, title="Add map and player", style=""
 auto update on
 join start Title
 goto Game

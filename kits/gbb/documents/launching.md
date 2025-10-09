@@ -8,7 +8,7 @@ GB BASIC accepts a number of launching options to customize some behaviours.
 
 * "-W PATH": specify current working directory of the application
 <!-- * "-L": specify to launch the application under command-line-only mode -->
-* "-U": specify to launch the application under upgrade-only mode to upgrade input project
+* "-U VER": specify to launch the application under upgrade-only mode to upgrade input project, `VER` can be a version number or "*" to leave as is
 * "-Q": specify to not quit after compiling under the compile-only mode
 * "-A FPS": specify expected `FPS` for the application
 * "-H": specify to launch without splash screen

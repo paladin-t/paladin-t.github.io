@@ -98,7 +98,7 @@ Threads can be terminated through the following means.
 <div class="content-warn" style="min-height: 48px;">
   <img src="imgs/logo-nokbd.png" class="logo-tip"></img>
   <span class="content-text">
-    The `kill` statement can terminate all other threads except the current one. However, there is a scenario, for example: when thread A starts thread B, and thread B calls `kill`, all threads except thread B (including thread A) will be terminated. This outcome is sometimes not desired.
+    The <code>kill</code> statement can terminate all other threads except the current one. However, there is a scenario, for example: when thread A starts thread B, and thread B calls <code>kill</code>, all threads except thread B (including thread A) will be terminated. This outcome is sometimes not desired.
   </span>
 </div>
 
@@ -149,7 +149,7 @@ If you encounter a similar situation, you can try using the `kill id` statement 
 <div class="content-warn" style="min-height: 48px;">
   <img src="imgs/logo-nokbd.png" class="logo-tip"></img>
   <span class="content-text">
-    Threads execute concurrently, so accessing shared resources requires special care. For example: suppose there are two threads, A and B, both attempting to modify the global variable `i`. This can lead to unpredictable results. If a third thread tries to read the variable `i`, its behaviour will also be unpredictable.
+    Threads execute concurrently, so accessing shared resources requires special care. For example: suppose there are two threads, A and B, both attempting to modify the global variable <code>i</code>. This can lead to unpredictable results. If a third thread tries to read the variable <code>i</code>, its behaviour will also be unpredictable.
   </span>
 </div>
 
@@ -227,7 +227,7 @@ For example, the above program can be modified into the version below.
 <div class="content-highlight" style="min-height: 48px;">
   <img src="imgs/logo-nokbd.png" class="logo-tip"></img>
   <span class="content-text">
-    We still simulate two threads with unknown execution order and timing, but by using thread's local stack references, accesses to `i` within each thread only affect that specific thread and do not interfere with others.
+    We still simulate two threads with unknown execution order and timing, but by using thread's local stack references, accesses to <code>i</code> within each thread only affect that specific thread and do not interfere with others.
   </span>
 </div>
 
