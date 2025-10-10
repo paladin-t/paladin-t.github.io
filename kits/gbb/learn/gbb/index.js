@@ -317,6 +317,19 @@ function nextTips() {
   }
 }
 function showTips({ content, type, timeout, ok }) {
+  switch (type) {
+    case 'error':
+      console.error(content);
+      break;
+    case 'warning':
+      console.warn(content);
+      break;
+    case 'info': // Fall through.
+    default:
+      console.log(content);
+      break;
+  }
+
   tipsQueue.push({ content, type, timeout: timeout || 10, ok: ok || '[OK]' });
 
   nextTips();
@@ -376,9 +389,14 @@ function isFileSyncSupported() {
   return true;
 };
 
+function isFileApiSuggestionTipsEnabled() { return false; }
 if (!isFileSyncSupported()) {
-  showTips({
-    content: 'A browser with <a href="https://caniuse.com/native-filesystem-api" target="_blank">File System Access API</a> capability is recommended.',
-    timeout: -1
-  });
+  if (isFileApiSuggestionTipsEnabled()) {
+    showTips({
+      content: 'A browser with <a href="https://caniuse.com/native-filesystem-api" target="_blank">File System Access API</a> capability is recommended.',
+      timeout: -1
+    });
+  } else {
+    console.warn('A browser with File System Access API capability is recommended.');
+  }
 }
