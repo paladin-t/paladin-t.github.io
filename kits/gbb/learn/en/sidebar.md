@@ -160,27 +160,29 @@
 
 ## [1. Actor Controllers](nothing)
 
-Ref to event overriding.
-
-Explain differences of collision handling and behaviours.
-
 ### [1.1 Platformer Controller](nothing)
-
-<!-- gem -->
 
 ### [1.2 Top-down Controller](nothing)
 
-<!-- gem -->
-
 ### [1.3 Point&Click Controller](nothing)
-
-<!-- gem -->
 
 ## [2. Making a Player Character](nothing)
 
 ## [3. Making a Non-Player Character](nothing)
 
-How to make NPCs without controllers.
+<!-- # [IX. Actor Behaviours](actor-behaviours)
+
+## [1. Actor Controllers](actor-controllers)
+
+### [1.1 Platformer Controller](platformer-controller)
+
+### [1.2 Top-down Controller](top-down-controller)
+
+### [1.3 Point&Click Controller](point-and-click-controller)
+
+## [2. Making a Player Character](making-a-player-character)
+
+## [3. Making a Non-Player Character](making-a-non-player-character) -->
 
 --------------------------------------------------------------------------------
 
