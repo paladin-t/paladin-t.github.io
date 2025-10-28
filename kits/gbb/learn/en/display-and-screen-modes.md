@@ -13,14 +13,14 @@ The following statements turn the screen on and off.
 
 ## Graphics Layers
 
-A game frame is consisted of at most three layers.
+A game frame is consisted of at most three layers. Note that these layers are hardware concepts, in later sections, we will learn about [scene layers](scene-layers.html).
 
 * Map layer: for scene background
 * Window layer: for HUD, GUI, and dialog boxes
 * Sprite layer: for movable characters, projectiles, etc.
 
 <div class="stacked-image-container">
-  <div class="stacked-image-set">
+  <div class="stacked-image-set" diagram-schematic>
     <div class="stacked-image">
       <img src="imgs/graphics-layer-map.png">
     </div>
@@ -35,6 +35,13 @@ A game frame is consisted of at most three layers.
 
 **See also**: <a class="nav-link" href="https://gbdev.io/pandocs/Rendering.html" target="_blank">Rendering overview <i class="fa-solid fa-up-right-from-square"></i></a>.
 
+<div class="content-highlight" style="min-height: 48px;">
+  <img src="imgs/logo-nokbd.png" class="logo-tip">
+  <span class="content-text">
+    <strong>See also</strong>: <a href="scene-layers.html" class="nav-link">Scene Layers</a>.
+  </span>
+</div>
+
 ## Screen Modes
 
 The following statement sets the screen mode.
@@ -47,3 +54,5 @@ The following statement sets the screen mode.
 | `TEXT_MODE`     | For [print](https://paladin-t.github.io/kits/gbb/manual.html#output)                                                                                                                                                                                                                                                                                                                                               |
 | `GRAPHICS_MODE` | For [graphics primitives](https://paladin-t.github.io/kits/gbb/manual.html#graphics)                                                                                                                                                                                                                                                                                                                               |
 | `OBJECTS_MODE`  | For [map](https://paladin-t.github.io/kits/gbb/manual.html#map), [sprite](https://paladin-t.github.io/kits/gbb/manual.html#sprite), [scene](https://paladin-t.github.io/kits/gbb/manual.html#scene), [actor](https://paladin-t.github.io/kits/gbb/manual.html#actor), [projectile](https://paladin-t.github.io/kits/gbb/manual.html#projectile), [GUI](https://paladin-t.github.io/kits/gbb/manual.html#gui), etc. |
+
+<!-- gem -->

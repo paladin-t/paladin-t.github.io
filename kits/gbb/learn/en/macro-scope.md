@@ -152,7 +152,7 @@ lbl:
 | `end def`     | `enddef`     |
 
 <div class="content-highlight" style="min-height: 48px;">
-  <img src="imgs/logo-nokbd.png" class="logo-tip"></img>
+  <img src="imgs/logo-nokbd.png" class="logo-tip">
   <span class="content-text">
     <strong>See also</strong>: <a href="code-block-and-scope.html" class="nav-link">Code Block and Scope</a>.
   </span>

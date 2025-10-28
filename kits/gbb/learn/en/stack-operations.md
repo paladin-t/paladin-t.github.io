@@ -38,8 +38,10 @@ Alghough the `stack(n)` operation doesn't change the stack frames, outer stateme
 **Tips:** _Accessing global variables on different concurrent threads is **unsafe**. For instance, if one thread is reading the value of a global variable while another thread is writing to it, the reading thread may not obtain the correct value as intended. To address this issue, thread locks can be used, or the above mentioned stack operations, `stack(n)` or `stackN`, can be employed to manipulate thread's local variables instead of global ones. The specific solution depends on the actual problem._
 
 <div class="content-highlight" style="min-height: 48px;">
-  <img src="imgs/logo-nokbd.png" class="logo-tip"></img>
+  <img src="imgs/logo-nokbd.png" class="logo-tip">
   <span class="content-text">
-    <strong>See also</strong>: <a href="the-memory-model.html" class="nav-link">The Memory Model</a> and <a href="macro-stack-reference-aliases.html" class="nav-link">Macro Stack Reference Aliases</a>.
+    <strong>See also</strong>: <a href="the-memory-model.html" class="nav-link">The Memory Model</a>, and <a href="macro-stack-reference-aliases.html" class="nav-link">Macro Stack Reference Aliases</a>.
   </span>
 </div>
+
+<!-- gem -->

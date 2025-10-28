@@ -30,7 +30,7 @@ Loop:
   goto Loop
 ```
 <!-- prg
-!edit, run, title="Poll user input", style=""
+!edit, run, title="Polling user input", style=""
 join start Title
 goto Game
 end
@@ -117,7 +117,7 @@ OnDown:
   end
 ```
 <!-- prg
-!edit, run, title="Use input callback", style=""
+!edit, run, title="Using input callback", style=""
 join start Title
 goto Game
 end

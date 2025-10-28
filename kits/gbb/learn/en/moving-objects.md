@@ -28,7 +28,7 @@ DrawPlayer:
   return
 ```
 <!-- prg
-!edit, run, title="Move the player", style=""
+!edit, run, title="Moving the player", style=""
 auto update on
 join start Title
 goto Game

@@ -16,7 +16,7 @@ url://prgs/hello-world-1.txt
 -->
 
 <div class="content-highlight" style="min-height: 48px;">
-  <img src="imgs/logo-nokbd.png" class="logo-tip"></img>
+  <img src="imgs/logo-nokbd.png" class="logo-tip">
   <span class="content-text">
     You can click the "EDIT" and "RUN" buttons above the code snippets at any time to load and use the code in the in-page environment. It is recommended to try out these codes and making any modifications to see what happens.
   </span>
@@ -25,3 +25,5 @@ url://prgs/hello-world-1.txt
 That's awesome! Now you have written your first program in GB BASIC.
 
 In next episode, we will introduce the basic syntax and program structure of GB BASIC.
+
+<!-- gem -->

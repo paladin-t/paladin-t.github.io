@@ -3,7 +3,7 @@
 [Prev]() [Next]()
 
 <div class="content-gray" style="min-height: 48px;">
-  <img src="imgs/logo-nokbd.png" class="logo-tip"></img>
+  <img src="imgs/logo-nokbd.png" class="logo-tip">
   <span class="content-text">
     If you already have this knowledge from the <a href="https://paladin-t.github.io/kits/gbb/manual.html" target="_blank" class="nav-link">reference manual</a>, you can skip this chapter.
   </span>
@@ -28,7 +28,7 @@ loop:
 -->
 
 <div class="content-highlight" style="min-height: 48px;">
-  <img src="imgs/logo-nokbd.png" class="logo-tip"></img>
+  <img src="imgs/logo-nokbd.png" class="logo-tip">
   <span class="content-text">
     In actual projects, you can choose whether to use line numbers based on your preference.
   </span>
@@ -75,11 +75,19 @@ The target running system of GB BASIC has quite restricted resources, so to sati
 GB BASIC programs do not have a designated entry point; they begin execution from the first executable statement on the initial code page and proceed linearly. When the end of a code page is reached, the program concludes as if an `end` statement were present at the page's termination. Control can migrate between code pages, allowing for non-linear execution.
 
 <div class="content-highlight" style="min-height: 48px;">
-  <img src="imgs/logo-nokbd.png" class="logo-tip"></img>
+  <img src="imgs/logo-nokbd.png" class="logo-tip">
   <span class="content-text">
     A game program typically consists of an initialization sequence where one-time setup instructions are executed. Following this, the program enters a persistent loop, often referred to as the update routine. Within this loop, the program cycles through a series of operations, including capturing user input, advancing the game's state, and rendering objects.
   </span>
 </div>
+
+## Multiple Pages
+
+Most asset types in GB BASIC (including code, graphics assets, fonts, and audio assets) support paging management for better project organization and efficiency. You can directly click to add new asset pages or switch between existing ones in the editor.
+
+<img src="imgs/editor-code-paging.png" class="diagram-image diagram-screenshot">
+
+<div class="small-note">Multiple asset pages</div>
 
 ## Notational Conventions
 

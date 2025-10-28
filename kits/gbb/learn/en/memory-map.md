@@ -2,9 +2,11 @@
 
 [Prev]() [Next]()
 
-The CPU addresses other devices, including RAM, VRAM, ROM, and other I/O devices, uniformly as the address space on the memory bus. With this 16-bit address bus, its maximum addressing capability is 64KB. However, through the bank switching technique, certain regions can be mapped to different hardware "banks", enabling support for larger ROMs, as well as expanded RAM and VRAM on color-capable devices, among other features.
+## The Memory Bus
 
-Understanding the memory layout helps in comprehending how the console works. Usually, there is no need to directly access memory addresses in BASIC code, but in certain special cases, it is possible to read or write to memory addresses directly with the `peek` and `poke` statements.
+The CPU addresses other components, including RAM, VRAM, ROM, and other I/O devices, uniformly as the address space on one memory bus. With this 16-bit address bus, its maximum addressing capability is 64KB. However, through the bank switching technique, certain regions can be mapped to different hardware "banks", enabling support for larger ROMs, as well as expanded RAM and VRAM on color-capable devices, among other features.
+
+Understanding the memory layout helps in comprehending how the console works. Usually, there is no need to directly access memory addresses in BASIC code, values and resources are often accessed by higher-level programming statements. But in certain special cases, it is possible to read or write to memory addresses directly with the `peek` and `poke` statements.
 
 ## Overall Memory Map
 
@@ -46,7 +48,7 @@ Understanding the memory layout helps in comprehending how the console works. Us
 
 See the follows for VRAM visualisation.
 
-<svg class="diagram-svg" style="max-width: 800px;" viewBox="0 0 680 710" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" id="vram_map">
+<svg class="diagram-svg diagram-schematic" style="display: block; max-width: 800px;" viewBox="0 0 680 710" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" id="vram_map">
   <defs>
     <rect id="tile" x="0" y="0" width="12" height="12" class="highlight"></rect>
     <rect id="entry" x="0" y="0" width="6" height="6" class="highlight"></rect>
@@ -330,7 +332,7 @@ LCDC is the main LCD Control register. Its bits toggle what elements are display
 * **BG&Window enable/priority [Different meaning in CGB Mode]**: 0 = Off; 1 = On
 
 <div class="content-error">
-  <img src="imgs/logo-nokbd.png" class="logo-tip"></img>
+  <img src="imgs/logo-nokbd.png" class="logo-tip">
   <span class="content-text">
     <strong>CAUTION!</strong>
     <br>
@@ -352,7 +354,7 @@ This register can be written to change VRAM banks. Only bit 0 matters, all other
 
 In CGB Mode, 32KB of internal RAM are available. This memory is divided into 8 banks of 4KB each. Bank 0 is always available in memory at 0xC000-0xCFFF, banks 1-7 can be selected into the address space at 0xD000-0xDFFF.
 
-<table>
+<table style="display: table;">
   <thead>
     <tr>
       <th> </th>

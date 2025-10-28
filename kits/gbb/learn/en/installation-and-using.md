@@ -2,7 +2,7 @@
 
 [Prev]() [Next]()
 
-<img src="imgs/icon.png" class="icon-image"></img>
+<img src="imgs/icon.png" class="icon-image">
 
 You may have already noticed that this tutorial series includes an HTML version of GB BASIC right on the page. You can run it directly in your browser while reading and learning, with no need to download or install anything.
 

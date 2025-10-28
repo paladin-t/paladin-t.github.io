@@ -23,7 +23,7 @@
 * `unlock`: releases and unlocks exclusive dispatching permission obtained by the current thread
 
 <div class="content-warn" style="min-height: 48px;">
-  <img src="imgs/logo-nokbd.png" class="logo-tip"></img>
+  <img src="imgs/logo-nokbd.png" class="logo-tip">
   <span class="content-text">
     A thread ID can only be assigned to a variable as handle reference. Arrays or stack references are not accepted.
   </span>
@@ -71,7 +71,7 @@ lbl:
 
 It's helpful to review the previous thread model diagram, as it will help understand the content of this section.
 
-<img src="imgs/gbbvm-kernel-memory-layout.png" class="diagram-image"></img>
+<img src="imgs/gbbvm-kernel-memory-layout.png" class="diagram-image diagram-schematic">
 
 ### Thread Creation
 
@@ -96,7 +96,7 @@ Threads can be terminated through the following means.
 ### Avoiding Unexpected Thread Termination
 
 <div class="content-warn" style="min-height: 48px;">
-  <img src="imgs/logo-nokbd.png" class="logo-tip"></img>
+  <img src="imgs/logo-nokbd.png" class="logo-tip">
   <span class="content-text">
     The <code>kill</code> statement can terminate all other threads except the current one. However, there is a scenario, for example: when thread A starts thread B, and thread B calls <code>kill</code>, all threads except thread B (including thread A) will be terminated. This outcome is sometimes not desired.
   </span>
@@ -147,7 +147,7 @@ If you encounter a similar situation, you can try using the `kill id` statement 
 ### Avoiding Unexpected Concurrent State Access
 
 <div class="content-warn" style="min-height: 48px;">
-  <img src="imgs/logo-nokbd.png" class="logo-tip"></img>
+  <img src="imgs/logo-nokbd.png" class="logo-tip">
   <span class="content-text">
     Threads execute concurrently, so accessing shared resources requires special care. For example: suppose there are two threads, A and B, both attempting to modify the global variable <code>i</code>. This can lead to unpredictable results. If a third thread tries to read the variable <code>i</code>, its behaviour will also be unpredictable.
   </span>
@@ -225,7 +225,7 @@ If you encounter a similar situation, there are two approaches to handle it.
 For example, the above program can be modified into the version below.
 
 <div class="content-highlight" style="min-height: 48px;">
-  <img src="imgs/logo-nokbd.png" class="logo-tip"></img>
+  <img src="imgs/logo-nokbd.png" class="logo-tip">
   <span class="content-text">
     We still simulate two threads with unknown execution order and timing, but by using thread's local stack references, accesses to <code>i</code> within each thread only affect that specific thread and do not interfere with others.
   </span>
@@ -300,8 +300,10 @@ B:
 -->
 
 <div class="content-highlight" style="min-height: 48px;">
-  <img src="imgs/logo-nokbd.png" class="logo-tip"></img>
+  <img src="imgs/logo-nokbd.png" class="logo-tip">
   <span class="content-text">
     <strong>See also</strong>: <a href="stack-operations.html" class="nav-link">Stack Operations</a>, <a href="the-memory-model.html" class="nav-link">The Memory Model</a>, <a href="the-thread-model.html" class="nav-link">The Thread Model</a>, and <a href="macro-stack-reference-aliases.html" class="nav-link">Macro Stack Reference Aliases</a>.
   </span>
 </div>
+
+<!-- gem -->

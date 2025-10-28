@@ -1,0 +1,475 @@
+<program>
+<info>
+{
+  "title": "Dynamic Palette 1",
+  "cartridge_type": "classic|colored",
+  "sram_type": "0",
+  "has_rtc": false,
+  "case_insensitive": true,
+  "description": "",
+  "author": "Tony",
+  "genre": "Example",
+  "version": "1.3.0",
+  "url": "",
+  "icon": "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",
+  "created": 1696413941,
+  "modified": 1761465425,
+  "order": 200,
+  "preference": {
+    "font_size": [
+      -1,
+      13
+    ],
+    "font_offset": -1,
+    "font_is_two_bits_per_pixel": false,
+    "font_prefer_full_word": true,
+    "font_prefer_full_word_for_non_ascii": false,
+    "preview_palette_bits": true,
+    "use_byte_matrix": false,
+    "show_grids": true,
+    "code_page_for_binded_routine": 0,
+    "code_line_for_binded_routine": 0,
+    "map_ref": 0,
+    "music_preview_stroke": true,
+    "sfx_show_sound_shape": true,
+    "actor_apply_properties_to_all_tiles": false,
+    "actor_apply_properties_to_all_frames": true,
+    "actor_uses_8x16_sprites": true,
+    "scene_ref_map": 0,
+    "scene_show_actors": true,
+    "scene_show_triggers": true,
+    "scene_show_properties": true,
+    "scene_show_attributes": false,
+    "scene_use_gravity": false
+  }
+}
+</info>
+<engine>
+1
+</engine>
+<palette>
+{"colors":[{"count":4,"data":[[224,248,208,255],[136,192,112,255],[52,104,86,255],[8,24,32,255]]},{"count":4,"data":[[0,160,80,255],[40,56,208,255],[104,160,32,255],[216,248,240,255]]},{"count":4,"data":[[152,232,32,255],[72,40,240,255],[8,208,16,255],[176,24,248,255]]},{"count":4,"data":[[32,0,128,255],[224,216,120,255],[0,136,72,255],[120,48,216,255]]},{"count":4,"data":[[64,24,0,255],[120,176,248,255],[144,48,128,255],[176,56,144,255]]},{"count":4,"data":[[56,0,56,255],[248,208,8,255],[64,168,48,255],[240,48,216,255]]},{"count":4,"data":[[112,0,8,255],[200,176,184,255],[64,24,128,255],[224,24,48,255]]},{"count":4,"data":[[168,16,0,255],[240,64,200,255],[112,128,24,255],[184,120,48,255]]},{"count":4,"data":[[224,248,208,0],[136,192,112,255],[52,104,86,255],[8,24,32,255]]},{"count":4,"data":[[0,160,80,255],[40,56,208,255],[104,160,32,255],[216,248,240,255]]},{"count":4,"data":[[152,232,32,255],[72,40,240,255],[8,208,16,255],[176,24,248,255]]},{"count":4,"data":[[32,0,128,255],[224,216,120,255],[0,136,72,255],[120,48,216,255]]},{"count":4,"data":[[64,24,0,255],[120,176,248,255],[144,48,128,255],[176,56,144,255]]},{"count":4,"data":[[56,0,56,255],[248,208,8,255],[64,168,48,255],[240,48,216,255]]},{"count":4,"data":[[112,0,8,255],[200,176,184,255],[64,24,128,255],[224,24,48,255]]},{"count":4,"data":[[168,16,0,255],[240,64,200,255],[112,128,24,255],[184,120,48,255]]}]}
+</palette>
+<font>
+{}
+</font>
+<code page="0">
+' Press A to randomize the map palette on colored devices, B to randomize the actor palette.
+' Press Up to fade in on classic devices, Down to fade out.
+
+' Setup the randomizer.
+option SCREEN_MODE, TEXT_MODE
+if not query IS_CGB then
+  print "Invalid device"
+  end
+end if
+print "Press any key..."
+wait_for_input:
+  if not btnu then    ' Wait for user input.
+    update
+    goto wait_for_input
+  end if
+  randomize           ' Initialize the random number generator.
+option SCREEN_MODE, OBJECTS_MODE
+
+' Initialize the game.
+auto update on ' Turn on the auto update mode.
+
+' Load the scene.
+load scene(0, 0) = #0
+
+' Setup the input handlers.
+on btnu(A_BTN) start RandomizeMapPalette
+on btnu(B_BTN) start RandomizeActorPalette
+on btnu(UP_BTN) start FadeIn
+on btnu(DOWN_BTN) start FadeOut
+
+end
+
+RandomizeMapPalette:
+  ' Randomize the map palette.
+  lock
+    palette MAP_LAYER, 0, 0, rgb(rnd(255), rnd(255), rnd(255))
+    palette MAP_LAYER, 0, 1, rgb(rnd(255), rnd(255), rnd(255))
+    palette MAP_LAYER, 0, 2, rgb(rnd(255), rnd(255), rnd(255))
+    palette MAP_LAYER, 0, 3, rgb(rnd(255), rnd(255), rnd(255))
+    palette MAP_LAYER, 1, 0, rgb(rnd(255), rnd(255), rnd(255))
+    palette MAP_LAYER, 1, 1, rgb(rnd(255), rnd(255), rnd(255))
+    palette MAP_LAYER, 1, 2, rgb(rnd(255), rnd(255), rnd(255))
+    palette MAP_LAYER, 1, 3, rgb(rnd(255), rnd(255), rnd(255))
+    palette MAP_LAYER, 2, 0, rgb(rnd(255), rnd(255), rnd(255))
+    palette MAP_LAYER, 2, 1, rgb(rnd(255), rnd(255), rnd(255))
+    palette MAP_LAYER, 2, 2, rgb(rnd(255), rnd(255), rnd(255))
+    palette MAP_LAYER, 2, 3, rgb(rnd(255), rnd(255), rnd(255))
+    palette MAP_LAYER, 3, 0, rgb(rnd(255), rnd(255), rnd(255))
+    palette MAP_LAYER, 3, 1, rgb(rnd(255), rnd(255), rnd(255))
+    palette MAP_LAYER, 3, 2, rgb(rnd(255), rnd(255), rnd(255))
+    palette MAP_LAYER, 3, 3, rgb(rnd(255), rnd(255), rnd(255))
+    palette MAP_LAYER, 4, 0, rgb(rnd(255), rnd(255), rnd(255))
+    palette MAP_LAYER, 4, 1, rgb(rnd(255), rnd(255), rnd(255))
+    palette MAP_LAYER, 4, 2, rgb(rnd(255), rnd(255), rnd(255))
+    palette MAP_LAYER, 4, 3, rgb(rnd(255), rnd(255), rnd(255))
+    palette MAP_LAYER, 5, 0, rgb(rnd(255), rnd(255), rnd(255))
+    palette MAP_LAYER, 5, 1, rgb(rnd(255), rnd(255), rnd(255))
+    palette MAP_LAYER, 5, 2, rgb(rnd(255), rnd(255), rnd(255))
+    palette MAP_LAYER, 5, 3, rgb(rnd(255), rnd(255), rnd(255))
+    palette MAP_LAYER, 6, 0, rgb(rnd(255), rnd(255), rnd(255))
+    palette MAP_LAYER, 6, 1, rgb(rnd(255), rnd(255), rnd(255))
+    palette MAP_LAYER, 6, 2, rgb(rnd(255), rnd(255), rnd(255))
+    palette MAP_LAYER, 6, 3, rgb(rnd(255), rnd(255), rnd(255))
+    palette MAP_LAYER, 7, 0, rgb(rnd(255), rnd(255), rnd(255))
+    palette MAP_LAYER, 7, 1, rgb(rnd(255), rnd(255), rnd(255))
+    palette MAP_LAYER, 7, 2, rgb(rnd(255), rnd(255), rnd(255))
+    palette MAP_LAYER, 7, 3, rgb(rnd(255), rnd(255), rnd(255))
+  unlock
+  end
+
+RandomizeActorPalette:
+  ' Randomize the actor palette.
+  lock
+    palette SPRITE_LAYER, 0, 0, rgb(rnd(255), rnd(255), rnd(255))
+    palette SPRITE_LAYER, 0, 1, rgb(rnd(255), rnd(255), rnd(255))
+    palette SPRITE_LAYER, 0, 2, rgb(rnd(255), rnd(255), rnd(255))
+    palette SPRITE_LAYER, 0, 3, rgb(rnd(255), rnd(255), rnd(255))
+    palette SPRITE_LAYER, 1, 0, rgb(rnd(255), rnd(255), rnd(255))
+    palette SPRITE_LAYER, 1, 1, rgb(rnd(255), rnd(255), rnd(255))
+    palette SPRITE_LAYER, 1, 2, rgb(rnd(255), rnd(255), rnd(255))
+    palette SPRITE_LAYER, 1, 3, rgb(rnd(255), rnd(255), rnd(255))
+    palette SPRITE_LAYER, 2, 0, rgb(rnd(255), rnd(255), rnd(255))
+    palette SPRITE_LAYER, 2, 1, rgb(rnd(255), rnd(255), rnd(255))
+    palette SPRITE_LAYER, 2, 2, rgb(rnd(255), rnd(255), rnd(255))
+    palette SPRITE_LAYER, 2, 3, rgb(rnd(255), rnd(255), rnd(255))
+    palette SPRITE_LAYER, 3, 0, rgb(rnd(255), rnd(255), rnd(255))
+    palette SPRITE_LAYER, 3, 1, rgb(rnd(255), rnd(255), rnd(255))
+    palette SPRITE_LAYER, 3, 2, rgb(rnd(255), rnd(255), rnd(255))
+    palette SPRITE_LAYER, 3, 3, rgb(rnd(255), rnd(255), rnd(255))
+    palette SPRITE_LAYER, 4, 0, rgb(rnd(255), rnd(255), rnd(255))
+    palette SPRITE_LAYER, 4, 1, rgb(rnd(255), rnd(255), rnd(255))
+    palette SPRITE_LAYER, 4, 2, rgb(rnd(255), rnd(255), rnd(255))
+    palette SPRITE_LAYER, 4, 3, rgb(rnd(255), rnd(255), rnd(255))
+    palette SPRITE_LAYER, 5, 0, rgb(rnd(255), rnd(255), rnd(255))
+    palette SPRITE_LAYER, 5, 1, rgb(rnd(255), rnd(255), rnd(255))
+    palette SPRITE_LAYER, 5, 2, rgb(rnd(255), rnd(255), rnd(255))
+    palette SPRITE_LAYER, 5, 3, rgb(rnd(255), rnd(255), rnd(255))
+    palette SPRITE_LAYER, 6, 0, rgb(rnd(255), rnd(255), rnd(255))
+    palette SPRITE_LAYER, 6, 1, rgb(rnd(255), rnd(255), rnd(255))
+    palette SPRITE_LAYER, 6, 2, rgb(rnd(255), rnd(255), rnd(255))
+    palette SPRITE_LAYER, 6, 3, rgb(rnd(255), rnd(255), rnd(255))
+    palette SPRITE_LAYER, 7, 0, rgb(rnd(255), rnd(255), rnd(255))
+    palette SPRITE_LAYER, 7, 1, rgb(rnd(255), rnd(255), rnd(255))
+    palette SPRITE_LAYER, 7, 2, rgb(rnd(255), rnd(255), rnd(255))
+    palette SPRITE_LAYER, 7, 3, rgb(rnd(255), rnd(255), rnd(255))
+  unlock
+  end
+
+FadeIn:
+  ' Fade in.
+  lock
+    gosub Fade1
+    wait 2
+    gosub Fade2
+    wait 2
+    gosub Fade3
+  unlock
+  end
+
+FadeOut:
+  ' Fade out.
+  lock
+    gosub Fade2
+    wait 2
+    gosub Fade1
+    wait 2
+    gosub Fade0
+  unlock
+  end
+
+FadeGrades:
+  ' The four fade grades for map and sprite layers.
+  Fade0:
+    palette MAP_LAYER, 0b00000000
+      palette MAP_LAYER, 0, 0, "BG0:0"
+      palette MAP_LAYER, 0, 1, "BG0:0"
+      palette MAP_LAYER, 0, 2, "BG0:0"
+      palette MAP_LAYER, 0, 3, "BG0:0"
+      palette MAP_LAYER, 1, 0, "BG1:0"
+      palette MAP_LAYER, 1, 1, "BG1:0"
+      palette MAP_LAYER, 1, 2, "BG1:0"
+      palette MAP_LAYER, 1, 3, "BG1:0"
+      palette MAP_LAYER, 2, 0, "BG2:0"
+      palette MAP_LAYER, 2, 1, "BG2:0"
+      palette MAP_LAYER, 2, 2, "BG2:0"
+      palette MAP_LAYER, 2, 3, "BG2:0"
+      palette MAP_LAYER, 3, 0, "BG3:0"
+      palette MAP_LAYER, 3, 1, "BG3:0"
+      palette MAP_LAYER, 3, 2, "BG3:0"
+      palette MAP_LAYER, 3, 3, "BG3:0"
+      palette MAP_LAYER, 4, 0, "BG4:0"
+      palette MAP_LAYER, 4, 1, "BG4:0"
+      palette MAP_LAYER, 4, 2, "BG4:0"
+      palette MAP_LAYER, 4, 3, "BG4:0"
+      palette MAP_LAYER, 5, 0, "BG5:0"
+      palette MAP_LAYER, 5, 1, "BG5:0"
+      palette MAP_LAYER, 5, 2, "BG5:0"
+      palette MAP_LAYER, 5, 3, "BG5:0"
+      palette MAP_LAYER, 6, 0, "BG6:0"
+      palette MAP_LAYER, 6, 1, "BG6:0"
+      palette MAP_LAYER, 6, 2, "BG6:0"
+      palette MAP_LAYER, 6, 3, "BG6:0"
+      palette MAP_LAYER, 7, 0, "BG7:0"
+      palette MAP_LAYER, 7, 1, "BG7:0"
+      palette MAP_LAYER, 7, 2, "BG7:0"
+      palette MAP_LAYER, 7, 3, "BG7:0"
+    palette SPRITE_LAYER, 0b00000000
+      palette SPRITE_LAYER, 0, 0, "OBJ0:0"
+      palette SPRITE_LAYER, 0, 1, "OBJ0:0"
+      palette SPRITE_LAYER, 0, 2, "OBJ0:0"
+      palette SPRITE_LAYER, 0, 3, "OBJ0:0"
+      palette SPRITE_LAYER, 1, 0, "OBJ1:0"
+      palette SPRITE_LAYER, 1, 1, "OBJ1:0"
+      palette SPRITE_LAYER, 1, 2, "OBJ1:0"
+      palette SPRITE_LAYER, 1, 3, "OBJ1:0"
+      palette SPRITE_LAYER, 2, 0, "OBJ2:0"
+      palette SPRITE_LAYER, 2, 1, "OBJ2:0"
+      palette SPRITE_LAYER, 2, 2, "OBJ2:0"
+      palette SPRITE_LAYER, 2, 3, "OBJ2:0"
+      palette SPRITE_LAYER, 3, 0, "OBJ3:0"
+      palette SPRITE_LAYER, 3, 1, "OBJ3:0"
+      palette SPRITE_LAYER, 3, 2, "OBJ3:0"
+      palette SPRITE_LAYER, 3, 3, "OBJ3:0"
+      palette SPRITE_LAYER, 4, 0, "OBJ4:0"
+      palette SPRITE_LAYER, 4, 1, "OBJ4:0"
+      palette SPRITE_LAYER, 4, 2, "OBJ4:0"
+      palette SPRITE_LAYER, 4, 3, "OBJ4:0"
+      palette SPRITE_LAYER, 5, 0, "OBJ5:0"
+      palette SPRITE_LAYER, 5, 1, "OBJ5:0"
+      palette SPRITE_LAYER, 5, 2, "OBJ5:0"
+      palette SPRITE_LAYER, 5, 3, "OBJ5:0"
+      palette SPRITE_LAYER, 6, 0, "OBJ6:0"
+      palette SPRITE_LAYER, 6, 1, "OBJ6:0"
+      palette SPRITE_LAYER, 6, 2, "OBJ6:0"
+      palette SPRITE_LAYER, 6, 3, "OBJ6:0"
+      palette SPRITE_LAYER, 7, 0, "OBJ7:0"
+      palette SPRITE_LAYER, 7, 1, "OBJ7:0"
+      palette SPRITE_LAYER, 7, 2, "OBJ7:0"
+      palette SPRITE_LAYER, 7, 3, "OBJ7:0"
+    return
+  Fade1:
+    palette MAP_LAYER, 0b01000000
+      palette MAP_LAYER, 0, 0, "BG0:0"
+      palette MAP_LAYER, 0, 1, "BG0:0"
+      palette MAP_LAYER, 0, 2, "BG0:0"
+      palette MAP_LAYER, 0, 3, "BG0:1"
+      palette MAP_LAYER, 1, 0, "BG1:0"
+      palette MAP_LAYER, 1, 1, "BG1:0"
+      palette MAP_LAYER, 1, 2, "BG1:0"
+      palette MAP_LAYER, 1, 3, "BG1:1"
+      palette MAP_LAYER, 2, 0, "BG2:0"
+      palette MAP_LAYER, 2, 1, "BG2:0"
+      palette MAP_LAYER, 2, 2, "BG2:0"
+      palette MAP_LAYER, 2, 3, "BG2:1"
+      palette MAP_LAYER, 3, 0, "BG3:0"
+      palette MAP_LAYER, 3, 1, "BG3:0"
+      palette MAP_LAYER, 3, 2, "BG3:0"
+      palette MAP_LAYER, 3, 3, "BG3:1"
+      palette MAP_LAYER, 4, 0, "BG4:0"
+      palette MAP_LAYER, 4, 1, "BG4:0"
+      palette MAP_LAYER, 4, 2, "BG4:0"
+      palette MAP_LAYER, 4, 3, "BG4:1"
+      palette MAP_LAYER, 5, 0, "BG5:0"
+      palette MAP_LAYER, 5, 1, "BG5:0"
+      palette MAP_LAYER, 5, 2, "BG5:0"
+      palette MAP_LAYER, 5, 3, "BG5:1"
+      palette MAP_LAYER, 6, 0, "BG6:0"
+      palette MAP_LAYER, 6, 1, "BG6:0"
+      palette MAP_LAYER, 6, 2, "BG6:0"
+      palette MAP_LAYER, 6, 3, "BG6:1"
+      palette MAP_LAYER, 7, 0, "BG7:0"
+      palette MAP_LAYER, 7, 1, "BG7:0"
+      palette MAP_LAYER, 7, 2, "BG7:0"
+      palette MAP_LAYER, 7, 3, "BG7:1"
+    palette SPRITE_LAYER, 0b01000000
+      palette SPRITE_LAYER, 0, 0, "OBJ0:0"
+      palette SPRITE_LAYER, 0, 1, "OBJ0:0"
+      palette SPRITE_LAYER, 0, 2, "OBJ0:0"
+      palette SPRITE_LAYER, 0, 3, "OBJ0:1"
+      palette SPRITE_LAYER, 1, 0, "OBJ1:0"
+      palette SPRITE_LAYER, 1, 1, "OBJ1:0"
+      palette SPRITE_LAYER, 1, 2, "OBJ1:0"
+      palette SPRITE_LAYER, 1, 3, "OBJ1:1"
+      palette SPRITE_LAYER, 2, 0, "OBJ2:0"
+      palette SPRITE_LAYER, 2, 1, "OBJ2:0"
+      palette SPRITE_LAYER, 2, 2, "OBJ2:0"
+      palette SPRITE_LAYER, 2, 3, "OBJ2:1"
+      palette SPRITE_LAYER, 3, 0, "OBJ3:0"
+      palette SPRITE_LAYER, 3, 1, "OBJ3:0"
+      palette SPRITE_LAYER, 3, 2, "OBJ3:0"
+      palette SPRITE_LAYER, 3, 3, "OBJ3:1"
+      palette SPRITE_LAYER, 4, 0, "OBJ4:0"
+      palette SPRITE_LAYER, 4, 1, "OBJ4:0"
+      palette SPRITE_LAYER, 4, 2, "OBJ4:0"
+      palette SPRITE_LAYER, 4, 3, "OBJ4:1"
+      palette SPRITE_LAYER, 5, 0, "OBJ5:0"
+      palette SPRITE_LAYER, 5, 1, "OBJ5:0"
+      palette SPRITE_LAYER, 5, 2, "OBJ5:0"
+      palette SPRITE_LAYER, 5, 3, "OBJ5:1"
+      palette SPRITE_LAYER, 6, 0, "OBJ6:0"
+      palette SPRITE_LAYER, 6, 1, "OBJ6:0"
+      palette SPRITE_LAYER, 6, 2, "OBJ6:0"
+      palette SPRITE_LAYER, 6, 3, "OBJ6:1"
+      palette SPRITE_LAYER, 7, 0, "OBJ7:0"
+      palette SPRITE_LAYER, 7, 1, "OBJ7:0"
+      palette SPRITE_LAYER, 7, 2, "OBJ7:0"
+      palette SPRITE_LAYER, 7, 3, "OBJ7:1"
+    return
+  Fade2:
+    palette MAP_LAYER, 0b10010000
+      palette MAP_LAYER, 0, 0, "BG0:0"
+      palette MAP_LAYER, 0, 1, "BG0:0"
+      palette MAP_LAYER, 0, 2, "BG0:1"
+      palette MAP_LAYER, 0, 3, "BG0:2"
+      palette MAP_LAYER, 1, 0, "BG1:0"
+      palette MAP_LAYER, 1, 1, "BG1:0"
+      palette MAP_LAYER, 1, 2, "BG1:1"
+      palette MAP_LAYER, 1, 3, "BG1:2"
+      palette MAP_LAYER, 2, 0, "BG2:0"
+      palette MAP_LAYER, 2, 1, "BG2:0"
+      palette MAP_LAYER, 2, 2, "BG2:1"
+      palette MAP_LAYER, 2, 3, "BG2:2"
+      palette MAP_LAYER, 3, 0, "BG3:0"
+      palette MAP_LAYER, 3, 1, "BG3:0"
+      palette MAP_LAYER, 3, 2, "BG3:1"
+      palette MAP_LAYER, 3, 3, "BG3:2"
+      palette MAP_LAYER, 4, 0, "BG4:0"
+      palette MAP_LAYER, 4, 1, "BG4:0"
+      palette MAP_LAYER, 4, 2, "BG4:1"
+      palette MAP_LAYER, 4, 3, "BG4:2"
+      palette MAP_LAYER, 5, 0, "BG5:0"
+      palette MAP_LAYER, 5, 1, "BG5:0"
+      palette MAP_LAYER, 5, 2, "BG5:1"
+      palette MAP_LAYER, 5, 3, "BG5:2"
+      palette MAP_LAYER, 6, 0, "BG6:0"
+      palette MAP_LAYER, 6, 1, "BG6:0"
+      palette MAP_LAYER, 6, 2, "BG6:1"
+      palette MAP_LAYER, 6, 3, "BG6:2"
+      palette MAP_LAYER, 7, 0, "BG7:0"
+      palette MAP_LAYER, 7, 1, "BG7:0"
+      palette MAP_LAYER, 7, 2, "BG7:1"
+      palette MAP_LAYER, 7, 3, "BG7:2"
+    palette SPRITE_LAYER, 0b10010000
+      palette SPRITE_LAYER, 0, 0, "OBJ0:0"
+      palette SPRITE_LAYER, 0, 1, "OBJ0:0"
+      palette SPRITE_LAYER, 0, 2, "OBJ0:1"
+      palette SPRITE_LAYER, 0, 3, "OBJ0:2"
+      palette SPRITE_LAYER, 1, 0, "OBJ1:0"
+      palette SPRITE_LAYER, 1, 1, "OBJ1:0"
+      palette SPRITE_LAYER, 1, 2, "OBJ1:1"
+      palette SPRITE_LAYER, 1, 3, "OBJ1:2"
+      palette SPRITE_LAYER, 2, 0, "OBJ2:0"
+      palette SPRITE_LAYER, 2, 1, "OBJ2:0"
+      palette SPRITE_LAYER, 2, 2, "OBJ2:1"
+      palette SPRITE_LAYER, 2, 3, "OBJ2:2"
+      palette SPRITE_LAYER, 3, 0, "OBJ3:0"
+      palette SPRITE_LAYER, 3, 1, "OBJ3:0"
+      palette SPRITE_LAYER, 3, 2, "OBJ3:1"
+      palette SPRITE_LAYER, 3, 3, "OBJ3:2"
+      palette SPRITE_LAYER, 4, 0, "OBJ4:0"
+      palette SPRITE_LAYER, 4, 1, "OBJ4:0"
+      palette SPRITE_LAYER, 4, 2, "OBJ4:1"
+      palette SPRITE_LAYER, 4, 3, "OBJ4:2"
+      palette SPRITE_LAYER, 5, 0, "OBJ5:0"
+      palette SPRITE_LAYER, 5, 1, "OBJ5:0"
+      palette SPRITE_LAYER, 5, 2, "OBJ5:1"
+      palette SPRITE_LAYER, 5, 3, "OBJ5:2"
+      palette SPRITE_LAYER, 6, 0, "OBJ6:0"
+      palette SPRITE_LAYER, 6, 1, "OBJ6:0"
+      palette SPRITE_LAYER, 6, 2, "OBJ6:1"
+      palette SPRITE_LAYER, 6, 3, "OBJ6:2"
+      palette SPRITE_LAYER, 7, 0, "OBJ7:0"
+      palette SPRITE_LAYER, 7, 1, "OBJ7:0"
+      palette SPRITE_LAYER, 7, 2, "OBJ7:1"
+      palette SPRITE_LAYER, 7, 3, "OBJ7:2"
+    return
+  Fade3:
+    palette MAP_LAYER, 0b11100100
+      palette MAP_LAYER, 0, 0, "BG0:0"
+      palette MAP_LAYER, 0, 1, "BG0:1"
+      palette MAP_LAYER, 0, 2, "BG0:2"
+      palette MAP_LAYER, 0, 3, "BG0:3"
+      palette MAP_LAYER, 1, 0, "BG1:0"
+      palette MAP_LAYER, 1, 1, "BG1:1"
+      palette MAP_LAYER, 1, 2, "BG1:2"
+      palette MAP_LAYER, 1, 3, "BG1:3"
+      palette MAP_LAYER, 2, 0, "BG2:0"
+      palette MAP_LAYER, 2, 1, "BG2:1"
+      palette MAP_LAYER, 2, 2, "BG2:2"
+      palette MAP_LAYER, 2, 3, "BG2:3"
+      palette MAP_LAYER, 3, 0, "BG3:0"
+      palette MAP_LAYER, 3, 1, "BG3:1"
+      palette MAP_LAYER, 3, 2, "BG3:2"
+      palette MAP_LAYER, 3, 3, "BG3:3"
+      palette MAP_LAYER, 4, 0, "BG4:0"
+      palette MAP_LAYER, 4, 1, "BG4:1"
+      palette MAP_LAYER, 4, 2, "BG4:2"
+      palette MAP_LAYER, 4, 3, "BG4:3"
+      palette MAP_LAYER, 5, 0, "BG5:0"
+      palette MAP_LAYER, 5, 1, "BG5:1"
+      palette MAP_LAYER, 5, 2, "BG5:2"
+      palette MAP_LAYER, 5, 3, "BG5:3"
+      palette MAP_LAYER, 6, 0, "BG6:0"
+      palette MAP_LAYER, 6, 1, "BG6:1"
+      palette MAP_LAYER, 6, 2, "BG6:2"
+      palette MAP_LAYER, 6, 3, "BG6:3"
+      palette MAP_LAYER, 7, 0, "BG7:0"
+      palette MAP_LAYER, 7, 1, "BG7:1"
+      palette MAP_LAYER, 7, 2, "BG7:2"
+      palette MAP_LAYER, 7, 3, "BG7:3"
+    palette SPRITE_LAYER, 0b11100100
+      palette SPRITE_LAYER, 0, 0, "OBJ0:0"
+      palette SPRITE_LAYER, 0, 1, "OBJ0:1"
+      palette SPRITE_LAYER, 0, 2, "OBJ0:2"
+      palette SPRITE_LAYER, 0, 3, "OBJ0:3"
+      palette SPRITE_LAYER, 1, 0, "OBJ1:0"
+      palette SPRITE_LAYER, 1, 1, "OBJ1:1"
+      palette SPRITE_LAYER, 1, 2, "OBJ1:2"
+      palette SPRITE_LAYER, 1, 3, "OBJ1:3"
+      palette SPRITE_LAYER, 2, 0, "OBJ2:0"
+      palette SPRITE_LAYER, 2, 1, "OBJ2:1"
+      palette SPRITE_LAYER, 2, 2, "OBJ2:2"
+      palette SPRITE_LAYER, 2, 3, "OBJ2:3"
+      palette SPRITE_LAYER, 3, 0, "OBJ3:0"
+      palette SPRITE_LAYER, 3, 1, "OBJ3:1"
+      palette SPRITE_LAYER, 3, 2, "OBJ3:2"
+      palette SPRITE_LAYER, 3, 3, "OBJ3:3"
+      palette SPRITE_LAYER, 4, 0, "OBJ4:0"
+      palette SPRITE_LAYER, 4, 1, "OBJ4:1"
+      palette SPRITE_LAYER, 4, 2, "OBJ4:2"
+      palette SPRITE_LAYER, 4, 3, "OBJ4:3"
+      palette SPRITE_LAYER, 5, 0, "OBJ5:0"
+      palette SPRITE_LAYER, 5, 1, "OBJ5:1"
+      palette SPRITE_LAYER, 5, 2, "OBJ5:2"
+      palette SPRITE_LAYER, 5, 3, "OBJ5:3"
+      palette SPRITE_LAYER, 6, 0, "OBJ6:0"
+      palette SPRITE_LAYER, 6, 1, "OBJ6:1"
+      palette SPRITE_LAYER, 6, 2, "OBJ6:2"
+      palette SPRITE_LAYER, 6, 3, "OBJ6:3"
+      palette SPRITE_LAYER, 7, 0, "OBJ7:0"
+      palette SPRITE_LAYER, 7, 1, "OBJ7:1"
+      palette SPRITE_LAYER, 7, 2, "OBJ7:2"
+      palette SPRITE_LAYER, 7, 3, "OBJ7:3"
+    return
+
+</code>
+<tiles page="0">
+{"ref":0,"name":"Tiles0","magnification":-1,"pixels":{"width":32,"height":8,"depth":6,"data":[0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3]}}
+</tiles>
+<map page="0">
+{"ref":0,"tiles":{"tiles":{"count":[4,1]},"width":20,"height":18,"data":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]},"has_attributes":true,"attributes":{"tiles":{"count":[16,16]},"width":20,"height":18,"data":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,3,3,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,4,4,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,5,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6,6,6,6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7,7,7,7,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]},"name":"Map0","magnification":-1,"optimize":true}
+</map>
+<actor page="0">
+{"figure":0,"name":"Actor0","magnification":0,"as_actor":true,"definition":{"enabled":true,"hidden":false,"pinned":false,"persistent":false,"following":false,"direction":0,"behaviour":"none","life_time":0,"initial_offset":0,"bounds":{"left":0,"right":31,"top":0,"bottom":63},"sprite_bank":0,"sprite_frames":0,"animation_interval":15,"animations":[{"begin":0,"end":0},{"begin":0,"end":0},{"begin":0,"end":0},{"begin":0,"end":0},{"begin":0,"end":0},{"begin":0,"end":0},{"begin":0,"end":0},{"begin":0,"end":0}],"move_speed":16,"collision_group":0},"frames":{"is_8x16":false,"count":1,"data":[{"anchor":{"x":0,"y":0},"pixels":{"width":32,"height":64,"depth":2,"data":[0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3]},"properties":{"width":4,"height":8,"depth":8,"data":[0,0,0,0,1,1,1,1,2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6,7,7,7,7]}}]}}
+</actor>
+<scene page="0">
+{"ref_map":0,"layers":{"width":20,"height":18,"properties":[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],"actors":[255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,0,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255],"triggers":[],"has_attributes":true,"has_properties":false,"has_actors":true,"has_triggers":false},"name":"Scene0","magnification":-1,"definition":{"is_16x16_grid":false,"gravity":0,"jump_gravity":0,"jump_max_count":0,"jump_max_ticks":0,"climb_velocity":0,"camera_position":{"x":0,"y":0},"camera_deadzone":{"x":0,"y":0}},"actor_routine_overridings":null}
+</scene>
+</program>

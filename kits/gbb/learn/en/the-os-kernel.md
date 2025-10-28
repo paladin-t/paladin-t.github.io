@@ -7,7 +7,7 @@ Our game is ultimately compiled into a User Program and runs on top of a layer o
 The kernel came along with binary distributions is precompiled from its C/Assembly source code. The GB BASIC compiler compiles BASIC code into GBBVM instructions, which are then linked with this precompiled kernel to form the final ROM. In future versions, it will be possible to modify and precompile your own kernel to replace the default version, or to install and use kernels modified by others, allowing for customization or addition of features beyond the default feature set.
 
 <div class="content-highlight" style="min-height: 48px;">
-  <img src="imgs/logo-nokbd.png" class="logo-tip"></img>
+  <img src="imgs/logo-nokbd.png" class="logo-tip">
   <span class="content-text">
     <strong>See also</strong>: <a href="page-not-found.html" class="nav-link">Creating a Custom Kernel</a>.
   </span>
@@ -17,7 +17,7 @@ The kernel came along with binary distributions is precompiled from its C/Assemb
 
 From the perspective of an RTOS, this operating system layer can be divided into the following modules.
 
-<img src="imgs/gbbvm-os-kernel-components.png" class="diagram-image"></img>
+<img src="imgs/gbbvm-os-kernel-components.png" class="diagram-image diagram-schematic">
 
 * **Execution engine**: Runs GBBVM instructions
 * **Memory management**: Responsible for memory access, stack operations, general direct memory access, and game object allocation and release

@@ -2,11 +2,11 @@
 
 [Prev]() [Next]()
 
-The Game Boy's CPU is single-core, therefore in GB BASIC, threads run [concurrently](https://en.wikipedia.org/wiki/Concurrent_computing) but not in [parallel](https://en.wikipedia.org/wiki/Parallel_computing). In other words, the thread scheduler divides all threads into small execution time slices. After running one thread's time slice, the scheduler switches execution to the next thread's time slice; at any given moment, only one thread is running. In GB BASIC, the introduction of threads makes developing concurrent behavior and asynchronous processes simpler.
+The Game Boy's CPU is single-core, therefore in GB BASIC, threads run [concurrently](https://en.wikipedia.org/wiki/Concurrent_computing) but not in [parallel](https://en.wikipedia.org/wiki/Parallel_computing). In other words, the thread scheduler divides all threads into small execution time slices. After running one thread's time slice, the scheduler switches execution to the next thread's time slice; at any given moment, only one thread is running. In GB BASIC, the introduction of threads makes developing concurrent behaviour and asynchronous processes simpler.
 
 The diagram below illustrates the thread states.
 
-<img src="imgs/gbbvm-thread-states.png" class="diagram-image"></img>
+<img src="imgs/gbbvm-thread-states.png" class="diagram-image diagram-schematic">
 
 * **New**: When a new thread is created, it is in the new state.
 * **Runnable**: A thread that is ready to run is moved to a runnable state.
@@ -27,7 +27,7 @@ Thread creation and termination can be caused by the following operations.
 * Thread creation
   * User `start`
   * Input callbacks like `btn`, `touch`, etc.
-  * `actor` behavior and collision callbacks
+  * `actor` behaviour and collision callbacks
   * `trigger` event callbacks
   * `menu` event callbacks
 * Thread termination
@@ -43,4 +43,6 @@ When a thread is in the running state, the scheduler allocates a time slice (qua
 
 The diagram below illustrates a typical thread execution flow.
 
-<img src="imgs/gbbvm-thread-execution-model.png" class="diagram-image"></img>
+<img src="imgs/gbbvm-thread-execution-model.png" class="diagram-image diagram-schematic">
+
+<!-- gem -->

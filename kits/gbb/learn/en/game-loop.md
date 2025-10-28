@@ -10,7 +10,7 @@ In GB BASIC, there are two update modes, manual mode and auto mode. In manual mo
 By default, GB BASIC operates in the manual mode. The command `auto update on` enables the auto mode, while `auto update off` disables it.
 
 <div class="content-highlight" style="min-height: 48px;">
-  <img src="imgs/logo-nokbd.png" class="logo-tip"></img>
+  <img src="imgs/logo-nokbd.png" class="logo-tip">
   <span class="content-text">
     In most cases, it is recommended to use the automatic update mode.
   </span>
@@ -21,3 +21,12 @@ By default, GB BASIC operates in the manual mode. The command `auto update on` e
   * returns the system time
 
 In manual update mode, programmers need to explicitly call `update` once per cycle in main loop to notify the runtime that the current frame has completed and allow the runtime to update internal states.
+
+<div class="content-gray" style="min-height: 48px;">
+  <img src="imgs/logo-nokbd.png" class="logo-tip"></img>
+  <span class="content-text">
+    If advanced objects such as actors, projectiles, and etc. are used in a program, they will not be updated and may not be visible until update is performed. If you encounter this issue in your project, especially during early development, try calling <code>update</code> once, or establish a formal game loop as soon as possible.
+  </span>
+</div>
+
+<!-- gem -->

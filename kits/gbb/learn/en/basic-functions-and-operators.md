@@ -50,7 +50,7 @@
   * returns random value, with range of values from `lo` to `hi`
 
 <div class="content-highlight" style="min-height: 48px;">
-  <img src="imgs/logo-nokbd.png" class="logo-tip"></img>
+  <img src="imgs/logo-nokbd.png" class="logo-tip">
   <span class="content-text">
     The Game Boy is a very simple 8-bit system. Unlike more complex software and hardware systems, it has almost no inherent randomness. Therefore, to achieve more realistic randomness, it is common to call <code>randomize</code> to initialize the random number generator after player input has been received. This ensures that the random seed is different each time the program runs.
   </span>

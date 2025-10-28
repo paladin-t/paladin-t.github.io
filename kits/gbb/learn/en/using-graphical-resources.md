@@ -1,6 +1,6 @@
 # Using Graphical Resources
 
-[Prev: Declaring Graphical Resources](declaring-graphical-resources.md) [Next: Scenes and Object System](page-not-found.md)
+[Prev]() [Next]()
 
 In this section, we'll incorporate the graphical resources we created in the previous section into our game and use the corresponding graphical statements to draw them for the main game flow.
 
@@ -37,7 +37,7 @@ DrawPlayer:
 ' The inline data sequences are omitted.
 ```
 <!-- prg
-!edit, run, title="Use graphical resources", style=""
+!edit, run, title="Using graphical resources", style=""
 auto update on
 join start Title
 goto Game
@@ -160,9 +160,9 @@ data 0x5a, 0x3c, 0xe3, 0x42, 0x7c, 0x99, 0xeb, 0xa5, 0xfb, 0xa5, 0x66, 0x99, 0xe
 In the upcoming chapters, we will introduce how to use resources created from the editors, as well as some more advanced features to enable more efficient game development.
 
 <div class="content-highlight" style="min-height: 48px;">
-  <img src="imgs/logo-nokbd.png" class="logo-tip"></img>
+  <img src="imgs/logo-nokbd.png" class="logo-tip">
   <span class="content-text">
-    <strong>See also</strong>: <a href="page-not-found.html" class="nav-link">Tiles</a>, <a href="page-not-found.html" class="nav-link">Maps</a>, and <a href="page-not-found.html" class="nav-link">Sprites</a>.
+    <strong>See also</strong>: <a href="page-not-found.html" class="nav-link">Tiles</a>, <a href="page-not-found.html" class="nav-link">Map</a>, and <a href="page-not-found.html" class="nav-link">Sprite</a>.
   </span>
 </div>
 

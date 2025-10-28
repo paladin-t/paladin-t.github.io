@@ -130,7 +130,7 @@ Game:
 Excellent! Now we have a rudimentary title screen and a working main game loop. In the next sections, we will add some game logic.
 
 <div class="content-highlight" style="min-height: 48px;">
-  <img src="imgs/logo-nokbd.png" class="logo-tip"></img>
+  <img src="imgs/logo-nokbd.png" class="logo-tip">
   <span class="content-text">
     <strong>See also</strong>: <a href="game-loop.html" class="nav-link">Game Loop</a>.
   </span>

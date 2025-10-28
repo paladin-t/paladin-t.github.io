@@ -62,6 +62,8 @@
 
 ### [4.1. Display and Screen Modes](display-and-screen-modes)
 
+### [4.2. Gray-Scales and Colors](gray-scales-and-colors)
+
 ## [5. Audio Module](audio-module)
 
 ## [6. Input Module](input-module)
@@ -118,65 +120,67 @@
 
 --------------------------------------------------------------------------------
 
-# [VIII. Scenes and Object System](nothing)
+# [VIII. Scene and Object System](scene-and-object-system)
 
-## [1. Scenes](nothing)
+## [1. Scene](scene)
 
-Ref to event overriding.
+### [1.1 Referencing to Map](referencing-to-map)
 
-### [1.1 Scene Definition and Loading](nothing)
+### [1.2 Scene Layers](scene-layers)
 
-How to reset a scene.
+### [1.3 Scene Properties](scene-properties)
 
-## [2. Triggers](nothing)
+### [1.4 Scene Definition and Loading](scene-definition-and-loading)
 
-## [3. Actors](nothing)
+## [2. Trigger](trigger)
 
-How to iterate actors.
+## [3. Actor](actor)
 
-Explain routines and callbacks.
+## [4. Projectile](projectile)
 
-## [4. Projectiles](nothing)
+## [5. Emote](emote)
 
-How to create projectiles.
+## [6. Camera and Viewport](camera-and-viewport)
 
-## [5. Object Interaction](nothing)
+## [7. Object Interaction](object-interaction)
 
-### [5.1 Collision Detection and Response](nothing)
+### [7.1 Collision Detection and Response](collision-detection-and-response)
 
-How to set collision groups.
+### [7.2 Event Binding](event-binding)
 
-### [5.2 Event Binding](nothing)
+## [8. Color Features](color-features)
 
-Explain event overriding.
+### [8.1 Palette](palette)
 
-Explain stack parameters.
-
-Emphasize `reserve`.
-
-## [6. Emotes](nothing)
-
-## [7. Color Features](nothing)
-
-### [7.1 Palette](nothing)
-
-### [7.2 VRAM Banking](nothing)
+### [8.2 VRAM Banking](vram-banking)
 
 --------------------------------------------------------------------------------
 
-# [IX. Actor Controllers](nothing)
+# [IX. Actor Behaviours](nothing)
+
+## [1. Actor Controllers](nothing)
 
 Ref to event overriding.
 
 Explain differences of collision handling and behaviours.
 
+### [1.1 Platformer Controller](nothing)
+
+<!-- gem -->
+
+### [1.2 Top-down Controller](nothing)
+
+<!-- gem -->
+
+### [1.3 Point&Click Controller](nothing)
+
+<!-- gem -->
+
+## [2. Making a Player Character](nothing)
+
+## [3. Making a Non-Player Character](nothing)
+
 How to make NPCs without controllers.
-
-## [1. Platformer Controller](nothing)
-
-## [2. Top-down Controller](nothing)
-
-## [3. Point&Click Controller](nothing)
 
 --------------------------------------------------------------------------------
 
@@ -202,7 +206,11 @@ How to make NPCs without controllers.
 
 ## [1. Playing Music](nothing)
 
+<!-- gem -->
+
 ## [2. Playing Sound Effects](nothing)
+
+<!-- gem -->
 
 ## [3. Using the Music Editor](nothing)
 
@@ -216,6 +224,12 @@ How to make NPCs without controllers.
 
 ## [1. Using Fonts](nothing)
 
+Font for text mode.
+
+Font for objects mode.
+
+<!-- gem -->
+
 ## [2. Using Unicode Strings](nothing)
 
 --------------------------------------------------------------------------------
@@ -224,7 +238,9 @@ How to make NPCs without controllers.
 
 ## [1. Window Layer](nothing)
 
-## [2. Label](nothing)
+## [2. Label and Dialog](nothing)
+
+<!-- gem -->
 
 ## [3. Progress Bar](nothing)
 
@@ -242,9 +258,11 @@ How to make NPCs without controllers.
 
 --------------------------------------------------------------------------------
 
-# [XV. Advanced Features](nothing)
+# [XV. I/O Features](nothing)
 
 ## [1. Persistence with SRAM Save Files](nothing)
+
+<!-- gem -->
 
 ## [2. Using the Real-Time Clock (RTC)](nothing)
 
@@ -267,37 +285,47 @@ How to make NPCs without controllers.
 
 ## [3. Graphics Primitives](nothing)
 
+<!-- gem -->
+
 ## [4. Tiles](nothing)
 
-## [5. Maps](nothing)
+## [5. Map](nothing)
 
-## [6. Images](nothing)
+## [6. Window](nothing)
 
-## [7. Sprites](nothing)
+## [7. Image](nothing)
+
+## [8. Sprite](nothing)
 
 Explain flip, direction, rotate.
 
-## [8. User Input and Interaction](nothing)
+## [9. User Input](nothing)
 
-### [8.1 Gamepad Input](nothing)
+### [9.1 Gamepad Input](nothing)
 
-### [8.2 Mouse and Touch Input](nothing)
-
-Extension feature.
-
-### [8.3 Keyboard Input](nothing)
+### [9.2 Mouse and Touch Input](nothing)
 
 Extension feature.
 
-## [9. Camera Management](nothing)
+<!-- gem -->
 
-## [10. Scroll](nothing)
+### [9.3 Keyboard Input](nothing)
 
-## [11. Special Effects](nothing)
+Extension feature.
 
-## [12. Device](nothing)
+## [10. Camera](nothing)
 
-## [13. Extension Features](nothing)
+## [11. Scrolling](nothing)
+
+<!-- gem -->
+
+## [12. Special Effects](nothing)
+
+## [13. Hits](nothing)
+
+## [14. Device](nothing)
+
+## [15. Extension Features](nothing)
 
 Extension feature.
 
@@ -324,11 +352,17 @@ Extension feature.
 * `shell ">fmt"[, ...]`
 * `dbginfo`
 
+<!-- gem -->
+
 ## [2. Building the ROM](nothing)
+
+<!-- gem -->
 
 ## [3. Exporting for Web Emulator](nothing)
 
 ## [4. Exporting as a Desktop Application](nothing)
+
+<!-- gem -->
 
 --------------------------------------------------------------------------------
 
@@ -342,7 +376,11 @@ Extension feature.
 
 ## [1. Compiler Architecture](nothing)
 
+<!-- gem -->
+
 ## [2. Kernel Architecture](nothing)
+
+<!-- gem -->
 
 --------------------------------------------------------------------------------
 
@@ -354,7 +392,11 @@ Extension feature.
 
 ## [3. Developing Custom Features](nothing)
 
+<!-- gem -->
+
 ## [4. Distribution and Installation](nothing)
+
+<!-- gem -->
 
 --------------------------------------------------------------------------------
 

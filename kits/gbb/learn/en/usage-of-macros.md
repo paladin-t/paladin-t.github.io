@@ -3,9 +3,9 @@
 [Prev]() [Next]()
 
 <div class="content-gray" style="min-height: 48px;">
-  <img src="imgs/logo-nokbd.png" class="logo-tip"></img>
+  <img src="imgs/logo-nokbd.png" class="logo-tip">
   <span class="content-text">
-    If you already have this knowledge from the <a href="https://paladin-t.github.io/kits/gbb/manual.html" target="_blank" class="nav-link">reference manual</a>, you can skip this chapter, but be sure not to miss the sections on <a href="macro-stack-reference-aliases.html" class="nav-link">Macro Stack Reference Aliases</a> and <a href="macro-scope.html" class="nav-link">Macro Scope</a>.
+    If you already have this knowledge from the <a href="https://paladin-t.github.io/kits/gbb/manual.html" target="_blank" class="nav-link">reference manual</a>, you can skip this chapter, but be sure not to miss the sections on <a href="macro-stack-reference-aliases.html" class="nav-link">Macro Stack Reference Aliases</a>, and <a href="macro-scope.html" class="nav-link">Macro Scope</a>.
   </span>
 </div>
 

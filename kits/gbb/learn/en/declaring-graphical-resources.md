@@ -8,7 +8,7 @@ In this chapter, we will temporarily use inline data sequences to declare graphi
 
 We use the following image as tile-elements to construct our map later.
 
-<img src="imgs/asset-tiles-simple-map.png" class="diagram-image"></img>
+<img src="imgs/asset-tiles-simple-map.png" class="diagram-image diagram-schematic">
 
 Following the tile pixel conversion rules introduced in the previous section, we convert the above pixel image into tile data as follows.
 
@@ -28,7 +28,7 @@ data 0x04, 0x04, 0x04, 0x04, 0x0a, 0x0a, 0x12, 0x12, 0x66, 0x00, 0x99, 0x77, 0x9
 
 The above tile data consists of 3 tiles, with indices 0, 1, and 2 respectively. The Game Boy's 160x144 screen can be composed of 20x18 tiles, and references to tiles are arranged in order from left to right and top to bottom. The map design is as follows.
 
-<img src="imgs/asset-map-simple-map.png" class="diagram-image"></img>
+<img src="imgs/asset-map-simple-map.png" class="diagram-image diagram-schematic">
 
 According to the rules, we list the map data as follows.
 
@@ -80,7 +80,7 @@ In 8-bit era game consoles and computers, sprites are commonly used to represent
 
 Here we use an 8x8 pixel sprite tile for our game framework.
 
-<img src="imgs/asset-tiles-simple-sprite.png" class="diagram-image"></img>
+<img src="imgs/asset-tiles-simple-sprite.png" class="diagram-image diagram-schematic">
 
 Its data is as follows.
 
@@ -93,8 +93,8 @@ data 0x5a, 0x3c, 0xe3, 0x42, 0x7c, 0x99, 0xeb, 0xa5, 0xfb, 0xa5, 0x66, 0x99, 0xe
 -->
 
 <div class="content-highlight" style="min-height: 48px;">
-  <img src="imgs/logo-nokbd.png" class="logo-tip"></img>
+  <img src="imgs/logo-nokbd.png" class="logo-tip">
   <span class="content-text">
-    <strong>See also</strong>: <a href="video-module.html#palette-layout" class="nav-link">Palette Layout</a>, <a href="video-module.html#tile-layout" class="nav-link">Tile Layout</a>, <a href="video-module.html#map-layout" class="nav-link">Map Layout</a>, and <a href="video-module.html#sprite-layout" class="nav-link">Sprite Layout</a>.
+    <strong>See also</strong>: <a href="video-module.html#palette-layout" class="nav-link">Palette Layout</a>, <a href="video-module.html#tiles-layout" class="nav-link">Tiles Layout</a>, <a href="video-module.html#map-layout" class="nav-link">Map Layout</a>, and <a href="video-module.html#sprite-layout" class="nav-link">Sprite Layout</a>.
   </span>
 </div>

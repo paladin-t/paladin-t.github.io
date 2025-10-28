@@ -6,7 +6,7 @@
 
 The OS kernel of GB BASIC is based on the <a class="nav-link" href="https://github.com/untoxa/gbvm" target="_blank">GBVM <i class="fa-solid fa-up-right-from-square"></i></a> project. The following diagram gives a complete overview of the thread model.
 
-<img src="imgs/gbbvm-kernel-memory-layout.png" class="diagram-image"></img>
+<img src="imgs/gbbvm-kernel-memory-layout.png" class="diagram-image diagram-schematic">
 
 * Compiled instructions can be stored in different ROM banks if necessary
 * The kernel supports up to 16 threads with concurrent contexts
@@ -18,7 +18,7 @@ The OS kernel of GB BASIC is based on the <a class="nav-link" href="https://gith
 
 The following diagram gives a detailed overview of the kernel RAM layout.
 
-<img src="imgs/gbbvm-thread-local-memory-layout.png" class="diagram-image"></img>
+<img src="imgs/gbbvm-thread-local-memory-layout.png" class="diagram-image diagram-schematic">
 
 * Each thread context has its own stack for:
   * thread parameters (optional),
@@ -92,15 +92,17 @@ For event callbacks, in the vast majority of cases, developers also do not need 
 However, in situations where developers use `reserve`, they must determine on their own whether a `pop` is necessary. A common approach is to omit the `pop` within a thread, allowing the stack space to be released collectively upon thread termination. In contrast, within a subroutine entered via `gosub`, the developer may need to perform a `pop` manually to ensure the subroutine remains reentrant.
 
 <div class="content-warn" style="min-height: 48px;">
-  <img src="imgs/logo-nokbd.png" class="logo-tip"></img>
+  <img src="imgs/logo-nokbd.png" class="logo-tip">
   <span class="content-text">
     The stack space for threads is limited (typically 64 16-bit words per thread). If the stack space is insufficient, it will lead to a stack overflow error. During development, care must be taken to avoid overly complex expressions, deeply nested structures, recursive calls, etc.
   </span>
 </div>
 
 <div class="content-highlight" style="min-height: 48px;">
-  <img src="imgs/logo-nokbd.png" class="logo-tip"></img>
+  <img src="imgs/logo-nokbd.png" class="logo-tip">
   <span class="content-text">
-    <strong>See also</strong>: <a href="stack-operations.html" class="nav-link">Stack Operations</a> and <a href="macro-stack-reference-aliases.html" class="nav-link">Macro Stack Reference Aliases</a>.
+    <strong>See also</strong>: <a href="stack-operations.html" class="nav-link">Stack Operations</a>, and <a href="macro-stack-reference-aliases.html" class="nav-link">Macro Stack Reference Aliases</a>.
   </span>
 </div>
+
+<!-- gem -->

@@ -54,7 +54,7 @@ Game:
   end do
 ```
 <!-- prg
-!edit, run, title="Turn <code>auto update on</code>", style=""
+!edit, run, title="Turning <code>auto update on</code>", style=""
 auto update on ' Enable auto update mode.
 join start Title
 goto Game
@@ -169,7 +169,7 @@ Game:
   end do
 ```
 <!-- prg
-!edit, run, title="Add map and player", style=""
+!edit, run, title="Adding map and player", style=""
 auto update on
 join start Title
 goto Game
@@ -261,7 +261,7 @@ Game:
 -->
 
 <div class="content-highlight" style="min-height: 48px;">
-  <img src="imgs/logo-nokbd.png" class="logo-tip"></img>
+  <img src="imgs/logo-nokbd.png" class="logo-tip">
   <span class="content-text">
     <strong>See also</strong>: <a href="game-loop.html" class="nav-link">Game Loop</a>.
   </span>

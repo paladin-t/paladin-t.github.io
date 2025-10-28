@@ -44,7 +44,7 @@ GB BASIC also supports to declare 16-bit integer values other than 8-bit ones wi
 The values following all `data` statements are arranged in increasing order from code page 0 to the following pages, and from the first line to the following lines. Regardless of whether the `data` statement is inside a conditional or loop statement, the sequence of values is processed once and only once. The maximum supported size for the `data` sequence declared in code is 16,380 bytes or approximately 15.996KB.
 
 <div class="content-gray" style="min-height: 48px;">
-  <img src="imgs/logo-nokbd.png" class="logo-tip"></img>
+  <img src="imgs/logo-nokbd.png" class="logo-tip">
   <span class="content-text">
     Inline data does not occupy RAM space but is solidified in ROM.
   </span>

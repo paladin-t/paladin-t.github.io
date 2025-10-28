@@ -3,9 +3,9 @@
 [Prev]() [Next]()
 
 <div class="content-gray" style="min-height: 48px;">
-  <img src="imgs/logo-nokbd.png" class="logo-tip"></img>
+  <img src="imgs/logo-nokbd.png" class="logo-tip">
   <span class="content-text">
-    The previous two chapters covered topics related to basic syntax, data types, and memory stack. Before continuing with the software application aspects of GB BASIC, this chapter will first provide an overview of the hardware and operating system. You can skip this chapter for now and refer back to it when you encounter system-related knowledge needed in subsequent learning. However, it is recommended to take some time to read the sections on <a href="memory-map.html" class="nav-link">Memory Map</a>, <a href="the-os-kernel.html" class="nav-link">The OS Kernel</a>, and <a href="video-module.html" class="nav-link">Video Module</a>.
+    The previous two chapters covered topics related to basic syntax, data types, and memory stack. Before continuing with the software programming aspects of GB BASIC, this chapter will first provide an overview of the hardware and operating system. You can skip this chapter for now and refer back to it when you encounter system-related knowledge needed in subsequent learning. However, it is recommended to take some time to read the sections on <a href="memory-map.html" class="nav-link">Memory Map</a>, <a href="the-os-kernel.html" class="nav-link">The OS Kernel</a>, and <a href="video-module.html" class="nav-link">Video Module</a>.
   </span>
 </div>
 
@@ -157,4 +157,4 @@ Different hardware models support different technical specifications, as detaile
 
 The games we write are compiled into user-mode programs that run on the kernel (which in this tutorial series can also be referred to as the operating system or virtual machine), and the kernel runs on its compatible real or virtual devices. The entire system stack is shown in the figure below.
 
-<img src="imgs/system-system-stack.png" class="diagram-image"></img>
+<img src="imgs/system-system-stack.png" class="diagram-image diagram-schematic">

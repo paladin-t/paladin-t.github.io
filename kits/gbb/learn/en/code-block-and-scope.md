@@ -48,7 +48,7 @@ Variables and arrays are always defined in the global scope, which means they ca
 By default, macros are defined in the global scope, which means they can be referenced anywhere in the program. By using <a href="macro-scope.html"><code style="color: #f052a1; text-decoration: underline;">begin def/end def</code></a> statements to declare the start and end of a scope, macro definitions within the code block can be made available only within that scope. Macro scopes support nesting, and references to macros will search from the innermost scope outward to the top-level scope.
 
 <div class="content-highlight" style="min-height: 48px;">
-  <img src="imgs/logo-nokbd.png" class="logo-tip"></img>
+  <img src="imgs/logo-nokbd.png" class="logo-tip">
   <span class="content-text">
     <strong>See also</strong>: <a href="macro-scope.html" class="nav-link">Macro Scope</a>.
   </span>

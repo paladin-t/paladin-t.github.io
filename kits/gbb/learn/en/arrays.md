@@ -9,7 +9,7 @@ GB BASIC supports array of number with up to 4 dimensions. The index is 0-based 
 Each array element takes one word (two bytes) of allocated space in memory. The memory of the array is set to 0 immediately after declaration.
 
 <div class="content-highlight" style="min-height: 48px;">
-  <img src="imgs/logo-nokbd.png" class="logo-tip"></img>
+  <img src="imgs/logo-nokbd.png" class="logo-tip">
   <span class="content-text">
     Note that GB BASIC array indices are 0-based, consistent with most modern programming languages.
   </span>
@@ -44,7 +44,7 @@ next
 -->
 
 <div class="content-warn" style="min-height: 48px;">
-  <img src="imgs/logo-nokbd.png" class="logo-tip"></img>
+  <img src="imgs/logo-nokbd.png" class="logo-tip">
   <span class="content-text">
     Both variables and arrays are arranged in the order they are declared. GB BASIC does not perform bounds checking on array access, so caution is required during programming.
   </span>
@@ -99,7 +99,7 @@ show_array:
 -->
 
 <div class="content-highlight" style="min-height: 48px;">
-  <img src="imgs/logo-nokbd.png" class="logo-tip"></img>
+  <img src="imgs/logo-nokbd.png" class="logo-tip">
   <span class="content-text">
     <strong>See also</strong>: <a href="memory-management.html" class="nav-link">Memory Management</a>.
   </span>
