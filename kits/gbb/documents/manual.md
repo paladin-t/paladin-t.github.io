@@ -177,11 +177,15 @@ The key bindings for operating a running program are configured in the applicati
 
 **Recent/library**
 
+This is the first screen when launching the application in normal mode. It is used to create a new project, load an existing project from local disk, or open a recent project.
+
 ![](imgs/recent.png)
 
 1. File menu and buttons
 2. View buttons
 3. Projects: All recent projects will be placed here
+
+In addition to editable project files, GB BASIC also supports adding ".gb", ".gbc", and ".zip" ROM files to the library for centralized browsing. A zip file must contain a valid ROM file (gb, gbc) and an optional icon file (png, jpg, bmp, tga). All files should be at the root directory of the zip file. The icon file will be used as the thumbnail of the ROM file.
 
 **Code editor**
 
@@ -444,7 +448,7 @@ An expression is a syntactic entity that may be evaluated to determine its value
 There are two fundamental data types in GB BASIC, String and Integer. Besides, it also supports Byte, Boolean, ID and Nothing, which are just type aliases of Integer, the purpose of these aliases is that they indicate different semantic meanings.
 
 * String
-  * is used by `print`, `text`, `label`, etc. for literal text or formatting
+  * is used by `print`, `text`, `label`, `menu`, etc. for literal text or formatting
 * Integer (16-bit signed)
   * denotes most of the numeric data in GB BASIC
 * Byte (8-bit signed/unsigned)
@@ -1442,13 +1446,15 @@ For example, `sprite id, 8, 16` puts a sprite at the top-left corner of the scre
   * `prop`: the property type; can be one of the following "Sprite properties" constants
   * `val`: the property value
 
-| Sprite properties | Value type | Default value     | Note                                                       | Access     |
-|-------------------|------------|-------------------|------------------------------------------------------------|------------|
-| `PALETTE_PROP`    | Boolean    | `false` (OBJ0PAL) | Whether to use colors come from OBJ0PAL or OBJ1PAL         | Read/write |
-| `HFLIP_PROP`      | Boolean    | `false`           | Whether to flip horizontally                               | Read/write |
-| `VFLIP_PROP`      | Boolean    | `false`           | Whether to flip vertically                                 | Read/write |
-| `PRIORITY_PROP`   | Boolean    | `false`           | Whether to draw the sprite below the background and window | Read/write |
-| `HIDDEN_PROP`     | Boolean    | `false`           | Whether the sprite is hidden or visible                    | Read/write |
+| Sprite properties | Value type | Default value     | Note                                                                  | Access     |
+|-------------------|------------|-------------------|-----------------------------------------------------------------------|------------|
+| `PALETTE_PROP`    | Integer    | `0`               | The palette color index used for this sprite; for colored device only | Read/write |
+| `BANK_PROP`       | Integer    | `0`               | The VRAM bank used for this sprite; for colored device only           | Read/write |
+| `OBJPAL_PROP`     | Integer    | `0` (OBJ0PAL)     | Whether to use colors come from OBJ0PAL or OBJ1PAL                    | Read/write |
+| `HFLIP_PROP`      | Boolean    | `false`           | Whether to flip horizontally                                          | Read/write |
+| `VFLIP_PROP`      | Boolean    | `false`           | Whether to flip vertically                                            | Read/write |
+| `PRIORITY_PROP`   | Boolean    | `false`           | Whether to draw the sprite below the background and window            | Read/write |
+| `HIDDEN_PROP`     | Boolean    | `false`           | Whether the sprite is hidden or visible                               | Read/write |
 
 There is no dedicated builtin editor for producing sprite assets. Since sprite data is actually just tile slices, it accepts all kinds of tiles data as its content, and indexes this data for appearance.
 
@@ -1488,7 +1494,7 @@ The elements of a scene consist of map layers and placed objects.
     * `name`: scene asset name
 * `load scene() = nothing`: unloads a scene; this operation resets the scene status, and deletes all objects including actors, triggers, projectiles and widgets; it also resets all effects
 
-A `def scene` operation can only fill map, attribute and property data to scene; a `load scene` does it further to fill actors, triggers, and definitions from an asset page. They are similar but `load scene` should be preferred for most cases.
+A `def scene` operation can only fill map, attribute and property data to scene; a `load scene` does it further to fill tiles, actors, triggers, and definitions from an asset page. They are similar but `load scene` should be preferred for most cases.
 
 * `=get scene width(#pg|"{name}")`: gets the width in tiles of the specific asset page
   * objectives:
@@ -1772,8 +1778,8 @@ An actor's behaving (`start`) routine is a routine that takes one parameter for 
 An actor's `hits` callback is a routine that takes two parameters for the first and second objects respectively that collide with each other by default; it can also accept two extra parameters for target's collision group and hit direction, when the `ACTOR_HIT_WITH_DETAILS_ENABLED` feature is enabled, the direction value represents the direction from the first object toward the second object. When an actor collides with another, the first two parameters are both actors, when an actor collides with a projectile, the former is the actor and the latter is the projectile. An actor only collides with projectiles that share overlapping collision bits. See the following callback signature for detail.
 
 * signature of `hits` callback `(obj0, obj1[, group, dir])`
-  * `obj0`: the first object, either actor or projectile
-  * `obj1`: the second object, either actor or projectile
+  * `obj0`: the first object, an actor
+  * `obj1`: the second object, either an actor or a projectile
   * `group`: the collision group of the second object; this is only available when the `ACTOR_HIT_WITH_DETAILS_ENABLED` feature is enabled
   * `dir`: the hit direction; this is only available when the `ACTOR_HIT_WITH_DETAILS_ENABLED` feature is enabled
 
@@ -1816,7 +1822,9 @@ Behaviour options can be set for an actor by performing a bitwise OR operation w
 
 ### Emote
 
-The drawing elements of an emote consist of hardware sprites and their associated tiles. The emote module raises small icons represented by 2x2 tiles, these icons are often used to express highlights and other emotions of characters. An emotion icon takes two 8x16 sprites, which the right half can be mirrored from the left if the mirrored flag is specified.
+The drawing elements of an emote consist of hardware sprites and their associated tiles. The emote module raises small icons represented by 2x2 tiles, these icons are often used to express highlights and other emotions of characters.
+
+A normal emotion icon takes four 8x8 sprites or two 8x16 sprites according to runtime state. When the mirrored flag is specified, the right half can be mirrored from the left, and it takes two 8x8 sprites or one 8x16 sprite. All 8x16 sprites are aligned to 2 tiles when referencing to them, meaning the starting tile index for each 8x16 emote should be an even number.
 
 * `emote(x, y, base_tile = 0, mirrored = false[, pal]) = read|data ...|"{builtin}"|#pg|"{name}"`: emotes with the specific tiles data
   * `x`: the x position to emote
@@ -1896,7 +1904,6 @@ The drawing elements of a projectile consist of hardware sprites and their assoc
   * `id`: the projectile ID
   * `prop`: the property type; can be one of the following "Projectile instance properties" constants
   * returns the property value
-
 <!-- * `set projectile property(type, prop) = val`: sets the specific projectile's definition property
   * `type`: the projectile type, with range of values from 0 to 4
   * `prop`: the property type; can be one of the following "Projectile definition properties" constants
@@ -2458,7 +2465,7 @@ The `RTC_ENABLED` must be on to use the RTC feature.
 | `FAST_CPU_ENABLED`               | Boolean                                | Determined by device | Whether to enable the fast CPU mode for the current program, only available on a colored device |
 | `AUTO_UPDATE_ENABLED`            | Boolean                                | `false`              | Whether to enable the automatic update feature                                                  |
 | `ACTOR_HIT_WITH_DETAILS_ENABLED` | Boolean                                | `false`              | Whether to pass hit details for actor collision callback                                        |
-| `OBJECT_SPRITE_BASE`             | Integer (8-bit unsigned)               | 0                    | The start sprite index for actors, emotes, projectiles, etc.                                    |
+| `OBJECT_SPRITE_BASE`             | Integer (8-bit unsigned)               | `0`                  | The start sprite index for actors, emotes, projectiles, etc.                                    |
 | `SRAM_BANK`                      | Integer (8-bit unsigned)               | `0`                  | Select the SRAM bank                                                                            |
 | `SRAM_ENABLED`                   | Boolean                                | `false`              | Whether to enable the SRAM                                                                      |
 | `VRAM_BANK`                      | "VRAM banks" (8-bit unsigned integer)  | `VRAM_BANK0`         | Select the VRAM bank                                                                            |
@@ -2471,7 +2478,7 @@ The `RTC_ENABLED` must be on to use the RTC feature.
 | `SPRITE8x16_ENABLED`             | Boolean                                | `false`              | Whether to enable the 8x16 sprite mode or 8x8 mode                                              |
 | `ACTIVE_TRIGGERS`                | Integer (8-bit unsigned)               | `0`                  | Specify the active trigger count                                                                |
 | `SOUND_ENABLED`                  | Boolean                                | `false`              | Whether to enable the sound hardware                                                            |
-| `MUSIC_POSITION`                 | Integer (8-bit unsigned)               | 0                    | The music position to start from                                                                |
+| `MUSIC_POSITION`                 | Integer (8-bit unsigned)               | `0`                  | The music position to start from                                                                |
 | `SERIAL_ENABLED`                 | Boolean                                | `false`              | Whether to enable the serial port                                                               |
 | `RTC_SEC`                        | Integer (8-bit unsigned)               | Determined by clock  | Select the second state of the RTC device for writing                                           |
 | `RTC_MIN`                        | Integer (8-bit unsigned)               | Determined by clock  | Select the minute state of the RTC device for writing                                           |

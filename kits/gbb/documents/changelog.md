@@ -2,9 +2,22 @@
 
 # Releases
 
-## GB BASIC v1.2
+## GB BASIC v1.3
 
 <details open>
+<summary><b>Click Me</b></summary>
+<div>
+This release introduces support for importing and managing external ROMs, providing greater flexibility for developers working with existing game assets. There are two new sprite properties available <code>BANK_PROP</code> and <code>OBJPAL_PROP</code> which enhanced coding flexibility for CGB sprites. Now emotes support 8x8px-per-tile based sprites. Fixed some known bugs, improved usability and compatibility. Added new tutorials chapters and content.
+</div>
+</details>
+
+* [Changelog](documents/changelogs/Changelog_v1.3.txt) (Oct. 28, 2025)
+* Download on [Steam](https://store.steampowered.com/app/2308700/)
+* Also available on [Itch.io](https://tonywang.itch.io/gbbasic)
+
+## GB BASIC v1.2
+
+<details>
 <summary><b>Click Me</b></summary>
 <div>
 This release introduces a public Tutorials platform, which provides a learning environment that is easier to read and practice with than the built-in documentation. Currently, about one-third of the content is complete, with subsequent content to be updated gradually. You can find the entry point by clicking the main menu, then clicking Help. Additionally, this update enhances the syntax's adaptability and convenience for different coding styles and fixes some bugs in the runtime, compiler and asset pipeline, and the editors. This version also adds a new "Minimal" starter kit for quickly building your game framework.

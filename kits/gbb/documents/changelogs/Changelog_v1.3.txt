@@ -1,0 +1,40 @@
+This release introduces support for importing and managing external ROMs,
+providing greater flexibility for developers working with existing game assets.
+There are two new sprite properties available `BANK_PROP` and `OBJPAL_PROP`
+which enhanced coding flexibility for CGB sprites. Now emotes support
+8x8px-per-tile based sprites. Fixed some known bugs, improved usability and
+compatibility. Added new tutorials chapters and content.
+
+v1.3
+
+* Runtime
+  * Added support for `BANK_PROP` and `PALETTE_PROP` for sprite
+  * **Added support for emotes with 8x8px-per-tile based sprites**
+  * Updated support for `OBJPAL_PROP` for sprite
+  * Optimized mirrored emote loading
+* Syntax
+  * Added `VAR` and `UINT` as reserved words
+  * **Added `BANK_PROP` for sprites**
+  * **Changed `PALETTE_PROP` for sprites**
+  * (Breaking) Renamed `PALETTE_PROP` to `OBJPAL_PROP`
+* Compiler and Asset Pipeline
+  * Fixed an asset resolving bug in `SET ACTOR PROPERTY(..., FRAMES_PROP) = ...` with asset names
+  * Fixed an animation frame serialization issue of actor assets when it is set to a value greater than the actual total frames
+  * Optimized mirrored emote packing
+* Emulator
+  * Improved SRAM file path resolving
+* Editor
+  * **Added support for importing and managing external ROMs**
+  * Added project version specifying support to the upgrade launch option
+  * Added a menu entry to run a project directly from the home screen
+  * Improved the example reloading strategy
+  * Improved project importing, should remove if failed to load
+  * Improved compatibility of uppercase file extensions
+  * Improved code export
+  * Improved actor selection in the scene editor
+  * Fixed a sizing bug of camera preview in the scene editor
+  * Fixed a tiles invalidation issue of the map and scene editors after resizing the application window
+  * Fixed a map invalidation issue in the scene editor after the map's tiles have been changed
+  * Fixed a palette validation issue of the actor editor
+* Document, Examples, Starter Kits, Tutorials and Help
+  * Added new tutorials chapters and content
