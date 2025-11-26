@@ -1,0 +1,11 @@
+[col=0x6f95abff]Patch notes v1.9.3:[/col]
+(App version: v1.4.1)
+
+* Fixed an outline mistake of the
+  fishing girl sprite
+* Improved tasks refreshing when play
+  from one day to the next
+* Improved character tips handling
+  when running under immersive mode
+* Improved Japanese translation
+* Fixed an achievement issue

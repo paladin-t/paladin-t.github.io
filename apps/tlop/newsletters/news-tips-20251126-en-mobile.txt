@@ -1,0 +1,18 @@
+[col=0x6f95abff]Tips: Dietary Favor[/col]
+
+The Legend of Pomodoro respects
+various dietary preferences and
+provides options to enable vegetarian
+mode or disable fish-related trades.
+Please note that these options only
+affect how items are presented and do
+not impact numerical progression in
+the game. For example, enabling
+vegetarian mode will replace some
+meat-based foods with vegetarian
+alternatives, and disabling fish will
+replace fish-based foods with other
+items. Purchase, upgrade, and
+progression calculations remain
+unaffected and are consistent for all
+players, regardless of preference.

@@ -5,7 +5,7 @@
       "platform": [ "Windows", "Linux", "MacOS" ],
       "revision_condition": {
         "type": "<=",
-        "value": 11
+        "value": 12
       },
       "start_timepoint": "1970-01-01 00:00:00",
       "end_timepoint": "9999-12-31 23:59:59",
@@ -46,6 +46,38 @@
       "updated_timepoint": "2022-06-30 08:00:00",
       "title": "Info: iOS Version",
       "url": "news://news-info-20220630-en.txt",
+      "font": "normal"
+    },
+    {
+      "id": "104",
+      "platform": [ "iOS", "Android" ],
+      "revision_condition": {
+        "type": ">=",
+        "value": 1
+      },
+      "start_timepoint": "1970-01-01 00:00:00",
+      "end_timepoint": "9999-12-31 23:59:59",
+      "impressions": -1,
+      "created_timepoint": "2025-12-31 08:00:00",
+      "updated_timepoint": "2025-12-31 08:00:00",
+      "title": "Tips: Dietary Favor",
+      "url": "news://news-tips-20251126-en-mobile.txt",
+      "font": "normal"
+    },
+    {
+      "id": "103",
+      "platform": [ "Windows", "Linux", "MacOS" ],
+      "revision_condition": {
+        "type": ">=",
+        "value": 1
+      },
+      "start_timepoint": "1970-01-01 00:00:00",
+      "end_timepoint": "9999-12-31 23:59:59",
+      "impressions": -1,
+      "created_timepoint": "2025-12-31 08:00:00",
+      "updated_timepoint": "2025-12-31 08:00:00",
+      "title": "Tips: Dietary Favor",
+      "url": "news://news-tips-20251126-en.txt",
       "font": "normal"
     },
     {
@@ -94,6 +126,38 @@
       "updated_timepoint": "2022-04-01 08:00:00",
       "title": "Tips: Startup Options",
       "url": "news://news-tips-20220401-en.txt",
+      "font": "normal"
+    },
+    {
+      "id": "322",
+      "platform": [ "iOS", "Android" ],
+      "revision_condition": {
+        "type": ">=",
+        "value": 13
+      },
+      "start_timepoint": "1970-01-01 00:00:00",
+      "end_timepoint": "9999-12-31 23:59:59",
+      "impressions": -1,
+      "created_timepoint": "2024-01-01 08:00:00",
+      "updated_timepoint": "2024-01-01 08:00:00",
+      "title": "Changelog #20",
+      "url": "news://news-changelog-20251126-en-mobile.txt",
+      "font": "normal"
+    },
+    {
+      "id": "321",
+      "platform": [ "Windows", "Linux", "MacOS" ],
+      "revision_condition": {
+        "type": ">=",
+        "value": 13
+      },
+      "start_timepoint": "1970-01-01 00:00:00",
+      "end_timepoint": "9999-12-31 23:59:59",
+      "impressions": -1,
+      "created_timepoint": "2025-01-01 08:00:00",
+      "updated_timepoint": "2024-01-01 08:00:00",
+      "title": "Changelog #20",
+      "url": "news://news-changelog-20251126-en.txt",
       "font": "normal"
     },
     {
@@ -439,7 +503,7 @@
       "platform": [ "Windows", "Linux", "MacOS" ],
       "revision_condition": {
         "type": "<=",
-        "value": 11
+        "value": 12
       },
       "start_timepoint": "1970-01-01 00:00:00",
       "end_timepoint": "9999-12-31 23:59:59",
@@ -480,6 +544,38 @@
       "updated_timepoint": "2022-06-30 08:00:00",
       "title": "资讯：iOS 版本",
       "url": "news://news-info-20220630-zh.txt",
+      "font": "normal"
+    },
+    {
+      "id": "104",
+      "platform": [ "iOS", "Android" ],
+      "revision_condition": {
+        "type": ">=",
+        "value": 1
+      },
+      "start_timepoint": "1970-01-01 00:00:00",
+      "end_timepoint": "9999-12-31 23:59:59",
+      "impressions": -1,
+      "created_timepoint": "2025-12-31 08:00:00",
+      "updated_timepoint": "2025-12-31 08:00:00",
+      "title": "小贴士：饮食偏好",
+      "url": "news://news-tips-20251126-zh-mobile.txt",
+      "font": "normal"
+    },
+    {
+      "id": "103",
+      "platform": [ "Windows", "Linux", "MacOS" ],
+      "revision_condition": {
+        "type": ">=",
+        "value": 1
+      },
+      "start_timepoint": "1970-01-01 00:00:00",
+      "end_timepoint": "9999-12-31 23:59:59",
+      "impressions": -1,
+      "created_timepoint": "2025-12-31 08:00:00",
+      "updated_timepoint": "2025-12-31 08:00:00",
+      "title": "小贴士：饮食偏好",
+      "url": "news://news-tips-20251126-zh.txt",
       "font": "normal"
     },
     {
@@ -528,6 +624,38 @@
       "updated_timepoint": "2022-04-01 08:00:00",
       "title": "小贴士：启动选项",
       "url": "news://news-tips-20220401-zh.txt",
+      "font": "normal"
+    },
+    {
+      "id": "322",
+      "platform": [ "iOS", "Android" ],
+      "revision_condition": {
+        "type": ">=",
+        "value": 13
+      },
+      "start_timepoint": "1970-01-01 00:00:00",
+      "end_timepoint": "9999-12-31 23:59:59",
+      "impressions": -1,
+      "created_timepoint": "2024-01-01 08:00:00",
+      "updated_timepoint": "2024-01-01 08:00:00",
+      "title": "更新日志 #20",
+      "url": "news://news-changelog-20251126-zh-mobile.txt",
+      "font": "normal"
+    },
+    {
+      "id": "321",
+      "platform": [ "Windows", "Linux", "MacOS" ],
+      "revision_condition": {
+        "type": ">=",
+        "value": 13
+      },
+      "start_timepoint": "1970-01-01 00:00:00",
+      "end_timepoint": "9999-12-31 23:59:59",
+      "impressions": -1,
+      "created_timepoint": "2025-01-01 08:00:00",
+      "updated_timepoint": "2024-01-01 08:00:00",
+      "title": "更新日志 #20",
+      "url": "news://news-changelog-20251126-zh.txt",
       "font": "normal"
     },
     {
@@ -873,7 +1001,7 @@
       "platform": [ "Windows", "Linux", "MacOS" ],
       "revision_condition": {
         "type": "<=",
-        "value": 11
+        "value": 12
       },
       "start_timepoint": "1970-01-01 00:00:00",
       "end_timepoint": "9999-12-31 23:59:59",
@@ -933,6 +1061,38 @@
       "font": "normal"
     },
     {
+      "id": "104",
+      "platform": [ "iOS", "Android" ],
+      "revision_condition": {
+        "type": ">=",
+        "value": 1
+      },
+      "start_timepoint": "1970-01-01 00:00:00",
+      "end_timepoint": "9999-12-31 23:59:59",
+      "impressions": -1,
+      "created_timepoint": "2025-12-31 08:00:00",
+      "updated_timepoint": "2025-12-31 08:00:00",
+      "title": "小さなヒント：食事の偏好",
+      "url": "news://news-tips-20251126-jp-mobile.txt",
+      "font": "normal"
+    },
+    {
+      "id": "103",
+      "platform": [ "Windows", "Linux", "MacOS" ],
+      "revision_condition": {
+        "type": ">=",
+        "value": 1
+      },
+      "start_timepoint": "1970-01-01 00:00:00",
+      "end_timepoint": "9999-12-31 23:59:59",
+      "impressions": -1,
+      "created_timepoint": "2025-12-31 08:00:00",
+      "updated_timepoint": "2025-12-31 08:00:00",
+      "title": "小さなヒント：食事の偏好",
+      "url": "news://news-tips-20251126-jp.txt",
+      "font": "normal"
+    },
+    {
       "id": "102",
       "platform": [ "iOS", "Android" ],
       "revision_condition": {
@@ -978,6 +1138,38 @@
       "updated_timepoint": "2022-04-01 08:00:00",
       "title": "小さなヒント：起動オプション",
       "url": "news://news-tips-20220401-jp.txt",
+      "font": "normal"
+    },
+    {
+      "id": "322",
+      "platform": [ "iOS", "Android" ],
+      "revision_condition": {
+        "type": ">=",
+        "value": 13
+      },
+      "start_timepoint": "1970-01-01 00:00:00",
+      "end_timepoint": "9999-12-31 23:59:59",
+      "impressions": -1,
+      "created_timepoint": "2024-01-01 08:00:00",
+      "updated_timepoint": "2024-01-01 08:00:00",
+      "title": "変更履歴 #20",
+      "url": "news://news-changelog-20251126-jp-mobile.txt",
+      "font": "normal"
+    },
+    {
+      "id": "321",
+      "platform": [ "Windows", "Linux", "MacOS" ],
+      "revision_condition": {
+        "type": ">=",
+        "value": 13
+      },
+      "start_timepoint": "1970-01-01 00:00:00",
+      "end_timepoint": "9999-12-31 23:59:59",
+      "impressions": -1,
+      "created_timepoint": "2025-01-01 08:00:00",
+      "updated_timepoint": "2024-01-01 08:00:00",
+      "title": "変更履歴 #20",
+      "url": "news://news-changelog-20251126-jp.txt",
       "font": "normal"
     },
     {
