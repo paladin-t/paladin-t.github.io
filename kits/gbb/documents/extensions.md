@@ -241,8 +241,9 @@ The `EXTF` can be one of the following codes; a device writes to this register w
 | Extension status | Description            |
 |------------------|------------------------|
 | 0x00             | Without extension      |
-| 0x21             | Classic with extension |
-| 0x31             | Colored with extension |
+| 0x11             | Classic with extension |
+| 0x21             | Colored with extension |
+| 0x51             | SGB with extension     |
 
 The `PLTF` can be one of the following codes; a device writes to this register with the specific value determined by the device itself after booting.
 

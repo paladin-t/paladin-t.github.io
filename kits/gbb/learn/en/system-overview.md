@@ -56,6 +56,8 @@ Different hardware models support different technical specifications, as detaile
       <th>CGB</th>
       <th>GBB (grayscale)</th>
       <th>GBB (colored)</th>
+      <th>SGB</th>
+      <th>SGB ext.</th>
     </tr>
   </thead>
   <tr>
@@ -65,6 +67,8 @@ Different hardware models support different technical specifications, as detaile
     <td>8.38MHz</td>
     <td>4.19MHz</td>
     <td>8.38MHz</td>
+    <td>4.19MHz</td>
+    <td>4.19MHz</td>
   </tr>
   <tr>
     <td>RAM</td>
@@ -72,6 +76,8 @@ Different hardware models support different technical specifications, as detaile
     <td>4KB + 4KB x 7 (banked)</td>
     <td>4KB + 4KB</td>
     <td>4KB + 4KB x 7 (banked)</td>
+    <td>4KB + 4KB</td>
+    <td>4KB + 4KB</td>
   </tr>
   <tr>
     <td>VRAM</td>
@@ -79,6 +85,8 @@ Different hardware models support different technical specifications, as detaile
     <td>8KB x 2 (banked)</td>
     <td>8KB</td>
     <td>8KB x 2 (banked)</td>
+    <td>8KB</td>
+    <td>8KB</td>
   </tr>
   <tr>
     <td>Screen</td>
@@ -86,9 +94,13 @@ Different hardware models support different technical specifications, as detaile
     <td>160x144</td>
     <td>160x144</td>
     <td>160x144</td>
+    <td>160x144 (256x224 border)</td>
+    <td>160x144 (256x224 border)</td>
   </tr>
   <tr>
     <td>Audio output</td>
+    <td>4 channels</td>
+    <td>4 channels</td>
     <td>4 channels</td>
     <td>4 channels</td>
     <td>4 channels</td>
@@ -100,12 +112,16 @@ Different hardware models support different technical specifications, as detaile
     <td>8 buttons</td>
     <td>8 buttons</td>
     <td>8 buttons</td>
+    <td>8 buttons</td>
+    <td>8 buttons</td>
   </tr>
   <tr>
     <td>Pointing device</td>
     <td>-</td>
     <td>-</td>
     <td>Supported</td>
+    <td>Supported</td>
+    <td>-</td>
     <td>Supported</td>
   </tr>
   <tr>
@@ -114,9 +130,13 @@ Different hardware models support different technical specifications, as detaile
     <td>-</td>
     <td>Supported</td>
     <td>Supported</td>
+    <td>-</td>
+    <td>Supported</td>
   </tr>
   <tr>
     <td>Serial port</td>
+    <td>Supported</td>
+    <td>Supported</td>
     <td>Supported</td>
     <td>Supported</td>
     <td>Supported</td>
@@ -128,9 +148,13 @@ Different hardware models support different technical specifications, as detaile
     <td>Supported</td>
     <td>-</td>
     <td>TBD</td>
+    <td>-</td>
+    <td>-</td>
   </tr>
   <tr>
     <td>Cartridge slot</td>
+    <td>1 slot</td>
+    <td>1 slot</td>
     <td>1 slot</td>
     <td>1 slot</td>
     <td>1 slot</td>
@@ -143,6 +167,8 @@ Different hardware models support different technical specifications, as detaile
     <td>Supported</td>
     <td>Supported</td>
     <td>Supported</td>
+    <td>Supported</td>
+    <td>Supported</td>
   </tr>
   <tr>
     <td>RTC</td>
@@ -150,8 +176,16 @@ Different hardware models support different technical specifications, as detaile
     <td>Supported</td>
     <td>Supported</td>
     <td>Supported</td>
+    <td>Supported</td>
+    <td>Supported</td>
   </tr>
 </table>
+
+The working clock speed of different hardware SGB models can be different as follows.
+
+* NTSC SGB: 21.477 MHz master clock, 4.2955 MHz GB master clock, 2.41% fast
+* PAL SGB: 21.281 MHz master clock, 4.2563 MHz GB master clock, 1.48% fast
+* NTSC SGB2: separate 20.972 MHz crystal, correct speed
 
 ## The System Stack
 

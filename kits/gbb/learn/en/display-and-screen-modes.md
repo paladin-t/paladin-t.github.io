@@ -38,7 +38,7 @@ A game frame is consisted of at most three layers. Note that these layers are ha
 <div class="content-highlight" style="min-height: 48px;">
   <img src="imgs/logo-nokbd.png" class="logo-tip">
   <span class="content-text">
-    <strong>See also</strong>: <a href="scene-layers.html" class="nav-link">Scene Layers</a>.
+    <strong>See also</strong>: <a href="scene-layers.html" class="nav-link">Scene Layers</a> and <a href="page-not-found.html" class="nav-link">Map</a> for layers in the software context; and <a href="page-not-found.html" class="nav-link">SGB Features</a> for extended palettes and border supported by SGB models.
   </span>
 </div>
 

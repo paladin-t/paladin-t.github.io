@@ -1,0 +1,55 @@
+This release introduces support for SGB features. It also includes a number of
+quality of life improvements, for instance, direct preview for map, scene, and
+actor assets with one-click. The memory related statements have been updated to
+support getting bank and address of assets, inline data sequence. Added new
+tutorials chapters and content. There are also some other improvements and bug
+fixes.
+
+v1.4
+
+* Runtime
+  * Added a `peek_banked` native function for `=PEEK(bank, addr)` and `=PEEK INT(bank, addr)`
+  * Added a `VM_DATA_PTR` instruction
+  * Added a `send_sgb_packet` native function to send packet to SGB devices
+  * **Added SGB border loading mechanism**
+  * **Added SGB palettes loading mechanism**
+  * Updated the `PALETTE` instruction to support changing SGB palettes
+  * (Breaking) Updated the values of the status register of hardware extension to support SGB models
+  * Fixed a motion stopping bug after moving an actor relatively with `MOVE ACTOR(...) WITH ...`
+  * Fixed a movement issue of the `MOVE ACTOR(...) TO ...` statement when the actor is right at the target position
+* Syntax
+  * **Added `GET {ASSET} ADDRESSOF(...)` statement, where `{ASSET}` can be one of `PALETTE`, `TILE`, `MAP`, `SCENE`, `ACTOR`, `PROJECTILE`, `MUSIC`, and `SFX`**
+  * **Added `GET {ASSET} BANKOF(...)` statement, where `{ASSET}` can be one of `PALETTE`, `TILE`, `MAP`, `SCENE`, `ACTOR`, `PROJECTILE`, `MUSIC`, and `SFX`**
+  * **Added `ADDRESSOF READ` and `BANKOF READ` to get the pointer of the current reading position of inline data sequence**
+  * **Added `=PEEK(bank, addr)` and `=PEEK INT(bank, addr)`**
+  * Added support of `CALL` to native functions with return values
+  * **Added constants `SGB_PALETTE_01`, `SGB_PALETTE_23`, `SGB_PALETTE_03`, `SGB_PALETTE_12` for SGB palettes**
+  * **Added support for setting SGB palettes with the `PALETTE` statement**
+* Compiler and Asset Pipeline
+  * Added compiling of `GET {ASSET} ADDRESSOF(...)` and `GET {ASSET} BANKOF(...)` statements
+  * Added compiling of `=PEEK(bank, addr)` and `=PEEK INT(bank, addr)` statements
+  * **Added SGB border compiling and resource injection**
+  * **Added SGB palette compiling and resource injection**
+  * Added an option to specify whether to compile in strict mode (treats some warnings as errors)
+  * Added warning when there are multiple actors assigned with player controllers in a scene
+  * Optimized instruction generation when a code page ends with `END`
+  * Improved parameters pushing orders for native functions
+* Emulator
+  * **Added emulation for SGB features**
+* Editor
+  * **Added preview for map, scene, and actor assets**
+  * **Added SGB border setting to the project property dialog**
+  * **Added SGB palette setting to the project property dialog**
+  * Added an option to the actor editor to toggle whether to show the anchor point
+  * Added a launch option to specify whether to compile in strict mode
+  * Added support for moving editing area by MMB
+  * Updated the project property dialog with tab grouping
+  * Updated the status bar of the emulator to support handy preference settings
+  * Fixed a crash bug when importing a scene with unavailable actors
+  * Fixed an active actor hovering issue when the mouse is out of the scene editor
+  * Fixed handling of illegal characters in filenames when saving files
+  * Improved handling of unmatched layer size for scene importing
+* Document, Examples, Starter Kits, Tutorials and Help
+  * Added document of SGB features
+  * Added example of SGB features
+  * Added example of the `SCROLL` statement

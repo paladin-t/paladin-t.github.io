@@ -41,9 +41,9 @@ Below are common settings for key actor properties.
 * **Persistent**: This property is typically turned off; enable it only for specific needs, such as an actor that does not deactivate when the scene scrolls
 * **Following**: Enable this property for the player actor to allow camera following; keep it off for other actor types
 * **Bounds**: Defines the actor's collision area and can be adjusted manually
-* **Animations**: Defines the actor's animations for different behaviours, related to [Actor Behaviours](page-not-found.html)
-* **Behaviour**: Defines the actor's behaviour, refer to [Actor Behaviours](page-not-found.html)
-* **Collision group**: Defines the actor's collision group, refer to [Collision Detection and Response](collision-detection-and-response.html) and is related to [Actor Behaviours](page-not-found.html)
+* **Animations**: Defines the actor's animations for different behaviours, related to [Actor Behaviours](actor-behaviours.html)
+* **Behaviour**: Defines the actor's behaviour, refer to [Actor Behaviours](actor-behaviours.html)
+* **Collision group**: Defines the actor's collision group, refer to [Collision Detection and Response](collision-detection-and-response.html) and is related to [Actor Behaviours](actor-behaviours.html)
 
 ### Instantiating Actors in Scene Editor
 
@@ -84,7 +84,7 @@ on actor(a) hits start OnHits ' Does nothing in this program, this line only sho
 <!-- prg
 !edit, run, title="Using actor in code", style=""
 ' Initialize the game.
-auto update on ' Turn on the auto update mode,
+auto update on ' Turn on the auto update mode.
 
 ' Prepare.
 sprite on
@@ -189,7 +189,7 @@ start actor a, BehaveNpc1
 url://prgs/actor-threading-1.txt
 -->
 
-The [Event Binding](event-binding.html) section will provide a detailed introduction to actor behavior events and collision events. This includes how to bind code both in the editor and in code, as well as a detailed explanation of thread parameters, etc.
+The [Event Binding](event-binding.html) section will provide a detailed introduction to actor behaviour events and collision events. This includes how to bind code both in the editor and in code, as well as a detailed explanation of thread parameters, etc.
 
 <div class="content-highlight" style="min-height: 48px;">
   <img src="imgs/logo-nokbd.png" class="logo-tip">
@@ -328,7 +328,7 @@ The [Event Binding](event-binding.html) section will provide a detailed introduc
   * `offset`: the start actor ID; this is used to implement iteration over actors
   * returns the first matched actor ID, or `nothing` for not found
 * `=find actor(bhvr[, offset])`: finds any actor that matches the specific condition
-  * `bhvr`: the behaviour type; can be one of the "Actor behaviours" constants in the [Actor Behaviours](page-not-found.html) section
+  * `bhvr`: the behaviour type; can be one of the "Actor behaviours" constants in the [Actor Controllers](actor-controllers.html) section
   * `offset`: the start actor ID; this is used to implement iteration over actors
   * returns the first matched actor ID, or `nothing` for not found
 
@@ -367,7 +367,7 @@ The [Event Binding](event-binding.html) section will provide a detailed introduc
 
 * `control actor id, bhvr`: applies the specific actor controller to the actor
   * `id`: the actor ID
-  * `bhvr`: the behaviour type; can be one of the "Actor behaviours" constants in the [Actor Behaviours](page-not-found.html) section
+  * `bhvr`: the behaviour type; can be one of the "Actor behaviours" constants in the [Actor Controllers](actor-controllers.html) section
 
 ### Animating Actors
 
@@ -390,7 +390,7 @@ The [Event Binding](event-binding.html) section will provide a detailed introduc
 
 ### Threading of Actors
 
-* `=start actor id, lno|lbl|#pg:lno|#pg:lbl`: starts a thread from the specific location, and assigns it to the specific actor as a behave routine
+* `=start actor id, lno|lbl|#pg:lno|#pg:lbl`: starts a thread from the specific location, and assigns it to the specific actor as a `behave` routine
   * `id`: the actor ID
   * objectives:
     * `lno`: line number
@@ -451,6 +451,6 @@ url://prgs/actor-1.txt
 <div class="content-highlight" style="min-height: 48px;">
   <img src="imgs/logo-nokbd.png" class="logo-tip">
   <span class="content-text">
-    <strong>See also</strong>: <a href="event-binding.html" class="nav-link">Event Binding</a>, and <a href="page-not-found.html" class="nav-link">Actor Behaviours</a>.
+    <strong>See also</strong>: <a href="event-binding.html" class="nav-link">Event Binding</a>, and <a href="actor-behaviours.html" class="nav-link">Actor Behaviours</a>.
   </span>
 </div>

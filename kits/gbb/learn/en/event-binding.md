@@ -8,7 +8,7 @@ This section will introduce how to define events for actors and triggers, bind h
 
 ### Trigger Events
 
-A trigger is used to play a role of interactable area that fires an event when a player walks into it or leaves from it. For the built-in [Actor Behaviours](page-not-found.html), triggers only collide with actors that perform player controllers.
+A trigger is used to play a role of interactable area that fires an event when a player walks into it or leaves from it. For the built-in [Actor Behaviours](actor-behaviours.html), triggers only collide with actors that perform player controllers.
 
 #### Defining Trigger Event in Scene Editor
 
@@ -32,7 +32,7 @@ Select and bind an event handler for the trigger.
 
 ### Actor Events
 
-Generally, for the built-in [Actor Behaviours](page-not-found.html), you can assign an event handler to an actor to handle collisions and interactions.
+Generally, for the built-in [Actor Behaviours](actor-behaviours.html), you can assign an event handler to an actor to handle collisions and interactions.
 
 #### Defining Actor Event in Actor Editor
 
@@ -176,7 +176,7 @@ url://prgs/trigger-event-1.txt
 
 ##### Simple Parameters of Actor Events
 
-When a player actor collides with other actors, an on hits event is triggered, and a callback routine is started as a thread on the event owner actor. The event owner actor and the actor that caused the event are passed as parameters to the event handler routine as its stack local variables. The space for these parameters is automatically allocated and released when the callback thread ends. In most cases, manual release is not required.
+When a player actor collides with other actors, an `on hits` event is triggered, and a callback routine is started as a thread on the event owner actor. The event owner actor and the actor that caused the event are passed as parameters to the event handler routine as its stack local variables. The space for these parameters is automatically allocated and released when the callback thread ends. In most cases, manual release is not required.
 
 ```basic
 ' Load the scene.
@@ -214,7 +214,7 @@ url://prgs/actor-event-1.txt
 <div class="content-gray" style="min-height: 48px;">
   <img src="imgs/logo-nokbd.png" class="logo-tip">
   <span class="content-text">
-    In the program above, we created two actors in the actor editor and binded their event handlers, then instantiated them in the scene editor. Whether actors overlap is determined by <a href="page-not-found.html" class="nav-link">Actor Controllers</a>. In this example, the Top-down controller we use does not cause actors to overlap. For demonstration purposes, we used a simple shell function to output trigger event information to the simulator's debug layer.
+    In the program above, we created two actors in the actor editor and binded their event handlers, then instantiated them in the scene editor. Whether actors overlap is determined by <a href="actor-controllers.html" class="nav-link">Actor Controllers</a>. In this example, the Top-down controller we use does not cause actors to overlap. For demonstration purposes, we used a simple shell function to output trigger event information to the simulator's debug layer.
     <br>
     Try running the program and move the player character to touch the other two actors in the scene. Then see the output.
   </span>
@@ -280,7 +280,7 @@ url://prgs/actor-event-2.txt
 
 #### Parameters of Projectile Events
 
-When a projectile hits an actor, an on hits event is triggered, and a callback routine is started as a thread on the actor. The event owner actor and the projectile that caused the event are passed as parameters to the event handler routine as its stack local variables. The space for these parameters is automatically allocated and released when the callback thread ends. In most cases, manual release is not required.
+When a projectile hits an actor, an `on hits` event is triggered, and a callback routine is started as a thread on the actor. The event owner actor and the projectile that caused the event are passed as parameters to the event handler routine as its stack local variables. The space for these parameters is automatically allocated and released when the callback thread ends. In most cases, manual release is not required.
 
 Similar to actor events, GB BASIC supports detailed parameters for projectile events. To use this feature, you need to turn on the `option ACTOR_HIT_WITH_DETAILS_ENABLED, true`. With this option on, the event handler routine receives the collision group and the direction of the event as extra parameters.
 
@@ -369,18 +369,18 @@ For more detailed information, review the [Avoiding Unexpected Concurrent State 
 Let's review the program demonstrated in [Actor Routines](actor.html#actor-routines). We used the `reserve` statement to allocate local variables on the stack for the current thread. We'll borrow code to adapt that program here.
 
 ```basic
-BehaveNpc1:
-  ' Behave as NPC1.
+BehaveNpc:
+  ' Behave the NPC.
   begin def
     reserve 1        ' Reserve for `dir`.
     def dir = stack1 ' Allocated by the above `reserve` statement.
     def obj = stack0 ' Allocated by the kernel for this type of callback.
 
-    UpdateNpc1:
+    UpdateNpc:
       dir = rnd(START_DIR, END_DIR)
       set actor property(obj, DIRECTION_PROP) = dir
       ...
-      goto UpdateNpc1
+      goto UpdateNpc
       end
   end def
 ```
@@ -406,21 +406,21 @@ Note that the variables we reserved and the callback parameters are on the same 
 
 #### How to Use Local Variables
 
-By using [Macro Stack Reference Aliases](macro-stack-reference-aliases.html) to define aliases to stack references, we can work with stack variables more intuitively. Now let's combine the knowledge we've learned into a single program. We declare some stack local variables in both `BehaveNpc1` and `OnHits` respectively. These two routines may execute concurrently and can work perfectly without interfering with each other.
+By using [Macro Stack Reference Aliases](macro-stack-reference-aliases.html) to define aliases to stack references, we can work with stack variables more intuitively. Now let's combine the knowledge we've learned into a single program. We declare some stack local variables in both `BehaveNpc` and `OnHits` respectively. These two routines may execute concurrently and can work perfectly without interfering with each other.
 
 ```basic
-BehaveNpc1:
-  ' Behave as NPC1.
+BehaveNpc:
+  ' Behave the NPC.
   begin def
     reserve 1        ' Reserve for `dir`.
     def dir = stack1 ' Allocated by the above `reserve` statement.
     def obj = stack0 ' Allocated by the kernel for this type of callback.
 
-    UpdateNpc1:
+    UpdateNpc:
       dir = rnd(START_DIR, END_DIR)
       set actor property(obj, DIRECTION_PROP) = dir
       ...
-      goto UpdateNpc1
+      goto UpdateNpc
       end
   end def
 
@@ -455,7 +455,7 @@ url://prgs/using-local-variables-1.txt
 <div class="content-highlight" style="min-height: 48px;">
   <img src="imgs/logo-nokbd.png" class="logo-tip">
   <span class="content-text">
-    <strong>See also</strong>: <a href="stack-operations.html" class="nav-link">Stack Operations</a>, <a href="the-memory-model.html" class="nav-link">The Memory Model</a>, <a href="the-thread-model.html" class="nav-link">The Thread Model</a>, <a href="macro-stack-reference-aliases.html" class="nav-link">Macro Stack Reference Aliases</a>, <a href="thread-operations.html" class="nav-link">Thread Operations</a>, <a href="collision-detection-and-response.html" class="nav-link">Collision Detection and Response</a>, and <a href="page-not-found.html" class="nav-link">Actor Behaviours</a>.
+    <strong>See also</strong>: <a href="stack-operations.html" class="nav-link">Stack Operations</a>, <a href="the-memory-model.html" class="nav-link">The Memory Model</a>, <a href="the-thread-model.html" class="nav-link">The Thread Model</a>, <a href="macro-stack-reference-aliases.html" class="nav-link">Macro Stack Reference Aliases</a>, <a href="thread-operations.html" class="nav-link">Thread Operations</a>, <a href="collision-detection-and-response.html" class="nav-link">Collision Detection and Response</a>, and <a href="actor-behaviours.html" class="nav-link">Actor Behaviours</a>.
   </span>
 </div>
 

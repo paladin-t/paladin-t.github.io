@@ -26,7 +26,7 @@ You don't have to read these tutorials word-for-word; you can pick and choose th
 * **Chapter VII** uses a practical project to demonstrate how to build a typical minimal game framework. This chapter will walk you through creating a basic game flow from scratch. This approach is not the only way, but it is a recommended practice.
 * **Chapters VIII to IX** are intermediate tutorials, suitable for readers with some foundational knowledge. They introduce more advanced concepts and techniques, including how to use scenes, triggers, actors, projectiles, emotes, colored features, and make behaviours for actors. Mastering these chapters is essential for writing more complex and engaging games.
 * **Chapter X** uses a practical project to demonstrate how to create a more complex game. This chapter provides a step-by-step guide to creating, organizing, and using advanced resources.
-* **Chapters XI to XIII** are intermediate tutorials, suitable for readers with some foundational knowledge. They cover modules for music, sound effects, fonts and Unicode handling, GUI, and how to use these modules to create a more immersive game experience.
+* **Chapters XI to XIII** are intermediate tutorials, suitable for readers with some foundational knowledge. They cover modules for music, sound effects, GUI, fonts and Unicode handling, and how to use these modules to create a more immersive game experience.
 * **Chapter XIV** uses several practical projects to demonstrate how to write specific types of games, such as platformers, top-down games, and point-and-click adventures.
 * **Chapters XV to XVI** are advanced tutorials. They teach I/O features like persistence and using the RTC (Real-Time Clock), and also cover low-level operations such as direct memory access, graphics primitives, tile manipulation, user input handling, camera control, and extension features, etc.
 * **Chapter XVII** is an advanced tutorial that teaches how to debug programs and publish your own ROMs.
@@ -34,7 +34,11 @@ You don't have to read these tutorials word-for-word; you can pick and choose th
 * **Chapter XIX** is an appendix explaining the compiler and kernel architectures.
 * **Chapter XX** is an appendix explaining how to create a custom kernel.
 
+### Important Sections
+
 In addition, see the following highlighted links for must-reads.
+
+<!-- // TODO: Suggested Learning Roadmap and Milestones -->
 
 * Data Types and Memory Stack
   * [Stack Operations](stack-operations.html)
@@ -53,12 +57,21 @@ In addition, see the following highlighted links for must-reads.
     * [Collision Detection and Response](collision-detection-and-response.html)
     * [Event Binding](event-binding.html)
 * Actor Behaviours
-  * [Actor Controllers](page-not-found.html)
-    * [Platformer Controller](page-not-found.html)
-    * [Top-down Controller](page-not-found.html)
-    * [Point&Click Controller](page-not-found.html)
-  * [Making a Player Character](page-not-found.html)
-  * [Making a Non-Player Character](page-not-found.html)
+  * [Actor Controllers](actor-controllers.html)
+    * [Platformer Controller](platformer-controller.html)
+    * [Top-down Controller](top-down-controller.html)
+    * [Point&Click Controller](point-and-click-controller.html)
+  * [Making a Player Character](making-a-player-character.html)
+  * [Making a Non-Player Character](making-a-non-player-character.html)
+  * [Making a Cutscene](making-a-cutscene.html)
+* Low-Level Features
+  * [Tiles](page-not-found.html)
+  * [Map](page-not-found.html)
+  * [Sprite](page-not-found.html)
+* Debugging and Release
+  * [Debugging Techniques](page-not-found.html)
+
+### Translation
 
 This tutorial series is written in English. For the moment, it contains a machine translation mechanism. You can switch languages at any time by clicking the translator widget on the web page, and choose your preference.
 

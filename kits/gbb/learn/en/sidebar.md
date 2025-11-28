@@ -156,21 +156,7 @@
 
 --------------------------------------------------------------------------------
 
-# [IX. Actor Behaviours](nothing)
-
-## [1. Actor Controllers](nothing)
-
-### [1.1 Platformer Controller](nothing)
-
-### [1.2 Top-down Controller](nothing)
-
-### [1.3 Point&Click Controller](nothing)
-
-## [2. Making a Player Character](nothing)
-
-## [3. Making a Non-Player Character](nothing)
-
-<!-- # [IX. Actor Behaviours](actor-behaviours)
+# [IX. Actor Behaviours](actor-behaviours)
 
 ## [1. Actor Controllers](actor-controllers)
 
@@ -182,37 +168,33 @@
 
 ## [2. Making a Player Character](making-a-player-character)
 
-## [3. Making a Non-Player Character](making-a-non-player-character) -->
+## [3. Making a Non-Player Character](making-a-non-player-character)
+
+## [4. Making a Cutscene](making-a-cutscene)
 
 --------------------------------------------------------------------------------
 
-# [X. Practical Project: Item Collection Game](nothing)
+# [X. Practical Project: Item Collecting](practical-project-item-collecting)
 
-## [1. Minimal Game Framework](nothing)
+## [1. Creating Resources](creating-resources)
 
-## [2. Creating Resources](nothing)
+## [2. Creating Game Framework](creating-game-framework)
 
-## [3. Using Controllers](nothing)
+## [3. Adding a Player Character](adding-a-player-character)
 
-## [4. Using Event Callbacks](nothing)
+## [4. Adding Non-Player Characters](adding-non-player-characters)
 
-## [5. Moving Objects in Another Way](nothing)
+## [5. Adding Event Callbacks](adding-event-callbacks)
 
-## [6. Adding a Player Controller](nothing)
-
-## [7. Completing Game Logic](nothing)
+## [6. Completing Game Logic](completing-game-logic)
 
 --------------------------------------------------------------------------------
 
-# [XI. Audio and Sound Effects](nothing)
+# [XI. Audio](nothing)
 
 ## [1. Playing Music](nothing)
 
-<!-- gem -->
-
 ## [2. Playing Sound Effects](nothing)
-
-<!-- gem -->
 
 ## [3. Using the Music Editor](nothing)
 
@@ -222,31 +204,23 @@
 
 --------------------------------------------------------------------------------
 
-# [XII. Fonts and Unicode](nothing)
-
-## [1. Using Fonts](nothing)
-
-Font for text mode.
-
-Font for objects mode.
-
-<!-- gem -->
-
-## [2. Using Unicode Strings](nothing)
-
---------------------------------------------------------------------------------
-
-# [XIII. GUI](nothing)
+# [XII. GUI](nothing)
 
 ## [1. Window Layer](nothing)
 
 ## [2. Label and Dialog](nothing)
 
-<!-- gem -->
-
 ## [3. Progress Bar](nothing)
 
 ## [4. Menu](nothing)
+
+--------------------------------------------------------------------------------
+
+# [XIII. Fonts and Unicode](nothing)
+
+## [1. Using Fonts](nothing)
+
+## [2. Using Unicode Strings](nothing)
 
 --------------------------------------------------------------------------------
 
@@ -264,8 +238,6 @@ Font for objects mode.
 
 ## [1. Persistence with SRAM Save Files](nothing)
 
-<!-- gem -->
-
 ## [2. Using the Real-Time Clock (RTC)](nothing)
 
 ## [3. Serial Communication](nothing)
@@ -278,28 +250,17 @@ Font for objects mode.
 
 ## [2. Memory Operations](nothing)
 
-* `memcpy`/`memset`/`memadd`
-* `bankof`/`addressof`
-* `peek`/`poke`
-* `pack`/`unpack`
-* `swap`
-* `inc`/`dec`
-
 ## [3. Graphics Primitives](nothing)
-
-<!-- gem -->
 
 ## [4. Tiles](nothing)
 
 ## [5. Map](nothing)
 
-## [6. Window](nothing)
+## [6. Sprite](nothing)
 
-## [7. Image](nothing)
+## [7. Window](nothing)
 
-## [8. Sprite](nothing)
-
-Explain flip, direction, rotate.
+## [8. Image](nothing)
 
 ## [9. User Input](nothing)
 
@@ -307,19 +268,11 @@ Explain flip, direction, rotate.
 
 ### [9.2 Mouse and Touch Input](nothing)
 
-Extension feature.
-
-<!-- gem -->
-
 ### [9.3 Keyboard Input](nothing)
-
-Extension feature.
 
 ## [10. Camera](nothing)
 
 ## [11. Scrolling](nothing)
-
-<!-- gem -->
 
 ## [12. Special Effects](nothing)
 
@@ -327,21 +280,13 @@ Extension feature.
 
 ## [14. Device](nothing)
 
-## [15. Extension Features](nothing)
+### [14.1 Querying Device States](nothing)
 
-Extension feature.
+### [14.2 Setting Device Options](nothing)
 
-* Compatibility detection
-* Platform detection
-* Mouse and touch input
-* Keyboard input
-* Streaming
-* Shell command
-  * Executing host commands
-  * Emulation control
-  * Debugging
-  * Setting mouse cursor
-  * Syncing modules
+## [15. SGB Features](nothing)
+
+## [16. Extension Features](nothing)
 
 --------------------------------------------------------------------------------
 
@@ -349,22 +294,11 @@ Extension feature.
 
 ## [1. Debugging Techniques](nothing)
 
-Extension feature.
-
-* `shell ">fmt"[, ...]`
-* `dbginfo`
-
-<!-- gem -->
-
 ## [2. Building the ROM](nothing)
-
-<!-- gem -->
 
 ## [3. Exporting for Web Emulator](nothing)
 
 ## [4. Exporting as a Desktop Application](nothing)
-
-<!-- gem -->
 
 --------------------------------------------------------------------------------
 
@@ -378,11 +312,7 @@ Extension feature.
 
 ## [1. Compiler Architecture](nothing)
 
-<!-- gem -->
-
 ## [2. Kernel Architecture](nothing)
-
-<!-- gem -->
 
 --------------------------------------------------------------------------------
 
@@ -394,11 +324,7 @@ Extension feature.
 
 ## [3. Developing Custom Features](nothing)
 
-<!-- gem -->
-
 ## [4. Distribution and Installation](nothing)
-
-<!-- gem -->
 
 --------------------------------------------------------------------------------
 

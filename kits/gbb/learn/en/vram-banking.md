@@ -1,6 +1,6 @@
 # VRAM Banking
 
-[Prev: Palette](palette.md) [Next: Actor Behaviours](page-not-found.md)
+[Prev]() [Next]()
 
 By switching VRAM banks on colored devices, you can load a large number of tiles, enabling the creation of large maps and complex actors etc.
 
@@ -373,6 +373,6 @@ url://prgs/vram-banking-9.txt
 <div class="content-highlight" style="min-height: 48px;">
   <img src="imgs/logo-nokbd.png" class="logo-tip">
   <span class="content-text">
-    <strong>See also</strong>: <a href="memory-map.html#vram-memory-map" class="nav-link">VRAM Memory Map</a>, and <a href="memory-map.html#cgb-features" class="nav-link">CGB Features</a>.
+    <strong>See also</strong>: <a href="memory-map.html#vram-memory-map" class="nav-link">VRAM Memory Map</a>, and <a href="memory-map.html#cgb-features" class="nav-link">CGB Features</a>; <a href="page-not-found.html" class="nav-link">SGB Features</a>.
   </span>
 </div>

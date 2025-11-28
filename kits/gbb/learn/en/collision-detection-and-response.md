@@ -4,23 +4,23 @@
 
 ## Collision Detection
 
-In GB BASIC, collision detection between advanced objects is handled by [Actor Controllers](page-not-found.html). Their behaviour encompasses collisions between actors and the scene map, between actors themselves, between the player actor and triggers, and between actors and projectiles. The specifics will be detailed in the following sections: [Event Binding](event-binding.html) and [Actor Behaviours](page-not-found.html).
+In GB BASIC, collision detection between advanced objects is handled by [Actor Controllers](actor-controllers.html). Their behaviour encompasses collisions between actors and the scene map, between actors themselves, between the player actor and triggers, and between actors and projectiles. The specifics will be detailed in the following sections: [Event Binding](event-binding.html) and [Actor Behaviours](actor-behaviours.html).
 
 This section introduces prerequisite concepts such as collision grouping and object typing.
 
 ## Collision Grouping
 
-In GB BASIC, whether objects (including actors, triggers, and projectiles) collide and how they respond to collisions depends on their collision group and the specific [Actor Controllers](page-not-found.html).
+In GB BASIC, whether objects (including actors, triggers, and projectiles) collide and how they respond to collisions depends on their collision group and the specific [Actor Controllers](actor-controllers.html).
 
 ### Grouping Rules
 
-Actors and projectiles have a collision group property. Generally, for the built-in [Actor Behaviours](page-not-found.html), if two objects both have the same bit set to 1, they are enabled in the same collision group for that bit.
+Actors and projectiles have a collision group property. Generally, for the built-in [Actor Behaviours](actor-behaviours.html), if two objects both have the same bit set to 1, they are enabled in the same collision group for that bit.
 
-Triggers do not have collision groups. For the built-in [Actor Behaviours](page-not-found.html), triggers only collide with actors that perform player controllers.
+Triggers do not have collision groups. For the built-in [Actor Behaviours](actor-behaviours.html), triggers only collide with actors that perform player controllers.
 
 ### Response Rules
 
-For the built-in [Actor Behaviours](page-not-found.html), only actors and triggers can have collision handlers.
+For the built-in [Actor Behaviours](actor-behaviours.html), only actors and triggers can have collision handlers.
 
 When a player enters or leaves a trigger, its collision handler callback is invoked to process collisions between the player and the trigger. This can be used for operations such as scene switching or trap damage handling.
 
@@ -54,7 +54,7 @@ In collision handlers, it's often necessary to distinguish between different typ
 <div class="content-highlight" style="min-height: 48px;">
   <img src="imgs/logo-nokbd.png" class="logo-tip">
   <span class="content-text">
-    <strong>See also</strong>: <a href="page-not-found.html" class="nav-link">Actor Behaviours</a>, and <a href="page-not-found.html" class="nav-link">Hits</a>.
+    <strong>See also</strong>: <a href="actor-behaviours.html" class="nav-link">Actor Behaviours</a>, and <a href="page-not-found.html" class="nav-link">Hits</a>.
   </span>
 </div>
 

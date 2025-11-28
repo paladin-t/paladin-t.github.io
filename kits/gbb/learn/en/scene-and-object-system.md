@@ -28,100 +28,100 @@ Among the objects and operations introduced in this chapter, some can be perform
       <td rowspan="2">Scene</td>
       <td rowspan="2">Scene</td>
       <td><a href="scene-layers.html" class="nav-link">Defining scenes' data and properties</a></td>
-      <td>YES</td>
+      <td>Yes</td>
       <td></td>
     </tr>
     <tr>
       <td><a href="scene-definition-and-loading.html" class="nav-link">Loading scenes into memory</a></td>
       <td></td>
-      <td>YES</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <td rowspan="10">Objects</td>
       <td rowspan="3">Trigger</td>
       <td><a href="trigger.html" class="nav-link">Defining triggers</a></td>
-      <td>YES (in scene editor)</td>
-      <td>YES</td>
+      <td>Yes (in scene editor)</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <td><a href="trigger.html" class="nav-link">Loading triggers</a></td>
-      <td>YES (in scene editor)</td>
-      <td>YES</td>
+      <td>Yes (in scene editor)</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <td><a href="trigger.html" class="nav-link">Binding event handlers for triggers</a></td>
-      <td>YES (in scene editor)</td>
-      <td>YES</td>
+      <td>Yes (in scene editor)</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <td rowspan="3">Actor</td>
       <td><a href="actor.html" class="nav-link">Defining actors</a></td>
-      <td>YES (in actor editor)</td>
+      <td>Yes (in actor editor)</td>
       <td></td>
     </tr>
     <tr>
       <td><a href="actor.html" class="nav-link">Loading actors</a></td>
-      <td>YES (in scene editor)</td>
-      <td>YES</td>
+      <td>Yes (in scene editor)</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <td><a href="actor.html" class="nav-link">Binding event handlers for actors</a></td>
-      <td>YES (in actor or scene editors)</td>
-      <td>YES</td>
+      <td>Yes (in actor or scene editors)</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <td rowspan="2">Projectile</td>
       <td><a href="projectile.html" class="nav-link">Defining projectiles</a></td>
-      <td>YES (in actor/projectile editor)</td>
+      <td>Yes (in actor/projectile editor)</td>
       <td></td>
     </tr>
     <tr>
       <td><a href="projectile.html" class="nav-link">Loading projectiles</a></td>
       <td></td>
-      <td>YES</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <td rowspan="2">Emote</td>
       <td><a href="emote.html" class="nav-link">Defining emotes</a></td>
-      <td>YES (in tiles editor)</td>
-      <td>YES</td>
+      <td>Yes (in tiles editor)</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <td><a href="emote.html" class="nav-link">Loading emotes</a></td>
       <td></td>
-      <td>YES</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <td rowspan="6">Colored features</td>
       <td rowspan="3">Palette</td>
       <td><a href="palette.html" class="nav-link">Setting palette colors</a></td>
-      <td>YES (in palette editor)</td>
-      <td>YES</td>
+      <td>Yes (in palette editor)</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <td><a href="palette.html" class="nav-link">Assigning palettes for maps or scenes</a></td>
-      <td>YES (in map or scene editors)</td>
-      <td>YES</td>
+      <td>Yes (in map or scene editors)</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <td><a href="palette.html" class="nav-link">Assigning palettes for actors</a></td>
-      <td>YES (in actor editor)</td>
-      <td>YES</td>
+      <td>Yes (in actor editor)</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <td rowspan="3">VRAM banking</td>
       <td><a href="vram-banking.html" class="nav-link">Loading assets to different VRAM banks<a></td>
       <td></td>
-      <td>YES</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <td><a href="vram-banking.html" class="nav-link">Specifying VRAM bank for maps or scenes</a></td>
-      <td>YES (in map or scene editors)</td>
-      <td>YES</td>
+      <td>Yes (in map or scene editors)</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <td><a href="vram-banking.html" class="nav-link">Specifying VRAM bank for actors</a></td>
-      <td>YES (in actor editor)</td>
+      <td>Yes (in actor editor)</td>
       <td></td>
     </tr>
   </tbody>

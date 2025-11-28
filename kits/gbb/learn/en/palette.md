@@ -298,6 +298,6 @@ The following functions are used to assign colors corresponding to entries in a 
 <div class="content-highlight" style="min-height: 48px;">
   <img src="imgs/logo-nokbd.png" class="logo-tip">
   <span class="content-text">
-    <strong>See also</strong>: <a href="video-module.html" class="nav-link">Video Module</a>, and <a href="gray-scales-and-colors.html" class="nav-link">Gray-Scales and Colors</a>.
+    <strong>See also</strong>: <a href="video-module.html" class="nav-link">Video Module</a>, and <a href="gray-scales-and-colors.html" class="nav-link">Gray-Scales and Colors</a>; <a href="page-not-found.html" class="nav-link">SGB Features</a>.
   </span>
 </div>

@@ -29,6 +29,6 @@ end if
 <div class="content-highlight" style="min-height: 48px;">
   <img src="imgs/logo-nokbd.png" class="logo-tip">
   <span class="content-text">
-    <strong>See also</strong>: <a href="video-module.html" class="nav-link">Video Module</a>.
+    <strong>See also</strong>: <a href="video-module.html" class="nav-link">Video Module</a>; <a href="page-not-found.html" class="nav-link">SGB Features</a>.
   </span>
 </div>

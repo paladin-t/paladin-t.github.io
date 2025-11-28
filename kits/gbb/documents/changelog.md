@@ -2,9 +2,22 @@
 
 # Releases
 
-## GB BASIC v1.3
+## GB BASIC v1.4
 
 <details open>
+<summary><b>Click Me</b></summary>
+<div>
+This release introduces support for SGB features. It also includes a number of quality of life improvements, for instance, direct preview for map, scene, and actor assets with one-click. The memory related statements have been updated to support getting bank and address of assets, inline data sequence. Added new tutorials chapters and content. There are also some other improvements and bug fixes.
+</div>
+</details>
+
+* [Changelog](documents/changelogs/Changelog_v1.4.txt) (Nov. 28, 2025)
+* Download on [Steam](https://store.steampowered.com/app/2308700/)
+* Also available on [Itch.io](https://tonywang.itch.io/gbbasic)
+
+## GB BASIC v1.3
+
+<details>
 <summary><b>Click Me</b></summary>
 <div>
 This release introduces support for importing and managing external ROMs, providing greater flexibility for developers working with existing game assets. There are two new sprite properties available <code>BANK_PROP</code> and <code>OBJPAL_PROP</code> which enhanced coding flexibility for CGB sprites. Now emotes support 8x8px-per-tile based sprites. Fixed some known bugs, improved usability and compatibility. Added new tutorials chapters and content.

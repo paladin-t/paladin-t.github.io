@@ -96,7 +96,7 @@ In advanced graphical objects such as actors, multiple animation frames and each
 <div class="content-highlight" style="min-height: 48px;">
   <img src="imgs/logo-nokbd.png" class="logo-tip">
   <span class="content-text">
-    <strong>See also</strong>: <a href="memory-map.html#vram-memory-map" class="nav-link">VRAM Memory Map</a>; <a href="page-not-found.html" class="nav-link">Tiles</a>, <a href="page-not-found.html" class="nav-link">Map</a>, and <a href="page-not-found.html" class="nav-link">Sprite</a>; <a href="colored-features.html" class="nav-link">Colored Features</a>.
+    <strong>See also</strong>: <a href="memory-map.html#vram-memory-map" class="nav-link">VRAM Memory Map</a>; <a href="page-not-found.html" class="nav-link">Tiles</a>, <a href="page-not-found.html" class="nav-link">Map</a>, and <a href="page-not-found.html" class="nav-link">Sprite</a>; <a href="colored-features.html" class="nav-link">Colored Features</a>; <a href="page-not-found.html" class="nav-link">SGB Features</a>.
   </span>
 </div>
 

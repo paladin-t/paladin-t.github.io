@@ -48,7 +48,7 @@ RaiseEmote:
 <!-- prg
 !edit, run, title="Using emote in code", style=""
 ' Initialize the game.
-auto update on ' Turn on the auto update mode,
+auto update on ' Turn on the auto update mode.
 
 ' Prepare.
 sprite on

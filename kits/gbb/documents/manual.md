@@ -99,6 +99,7 @@
   - [Cheat Sheet of Collision Rules](#cheat-sheet-of-collision-rules)
   - [Cheat Sheet of GUI Widgets](#cheat-sheet-of-gui-widgets)
   - [Cheat Sheet of Devices](#cheat-sheet-of-devices)
+  - [SGB Features](#sgb-features)
   - [ASCII Table](#ascii-table)
 
 <!-- End Table of Content -->
@@ -128,6 +129,7 @@
 * **Persistence**: supported
 * **RTC**: supported
 * **Serial port**: supported
+* **SGB features**: supports palettes and border
 
 [TOP](#reference-manual)
 
@@ -334,6 +336,7 @@ This document uses elements such as identifiers, delimiters, and symbols to repr
 * `#pg:n`: represents a code page or asset page with a specific sub index
 * `"{builtin}"`: represents name of a builtin entry
 * `"{name}"`: represents asset name
+* `{asset}`: represents asset type
 
 [TOP](#reference-manual)
 
@@ -496,17 +499,24 @@ The `=deg(angle)` function provides a convenient way to map angles with a domain
 
 ### Native Functions
 
-* `call func[, ...]`: calls the specific native function
+* `call func[, ...]`: calls the specific native function without return value
   * `func`: the native function to call, the name is case-sensitive; can be one of the following "Functions"
   * `...`: optional variadic arguments; numeric values separated by comma
+* `=call func[, ...]`: calls the specific native function with return value
+  * `func`: the native function to call, the name is case-sensitive; can be one of the following "Functions"
+  * `...`: optional variadic arguments; numeric values separated by comma
+  * returns the return value of the native function
 
-| Functions                 | Short syntax | Note                                                                                                           |
-|---------------------------|--------------|----------------------------------------------------------------------------------------------------------------|
-| `call clear_text`         | `cls`        | Clears the screen for the `TEXT_MODE`                                                                          |
-| `call wait_for n`         | `wait n`     | Waits for `n` frames on the current thread                                                                     |
-| `call wait_until_confirm` | -            | Waits until the A/Start button has been pressed; or anywhere of the screen has been tapped (extension feature) |
-| `call error`              | -            | Raises an error                                                                                                |
-| `call camera_shake n, d`  | -            | Shake camera for `n` frames with ["Camera shake directions"](#scene) specified by `d`                          |
+| Functions                                                            | Short syntax              | Note                                                                                                           |
+|----------------------------------------------------------------------|---------------------------|----------------------------------------------------------------------------------------------------------------|
+| `=call peek_banked bank, addr, wordwise`                             | `=peek [int](bank, addr)` | Gets the value at the specific banked memory address                                                           |
+| `call clear_text`                                                    | `cls`                     | Clears the screen for the `TEXT_MODE`                                                                          |
+| `call wait_for n`                                                    | `wait n`                  | Waits for `n` frames on the current thread                                                                     |
+| `call wait_until_confirm`                                            | -                         | Waits until the A/Start button has been pressed; or anywhere of the screen has been tapped (extension feature) |
+| `call send_sgb_packet bank, addr, sz`                                | -                         | Sends a packet of bytes to SGB devices                                                                         |
+| `call set_sgb_border pb, paddr, psz, tb, taddr, tsz, mb, maddr, msz` | -                         | Sets border frame for SGB devices                                                                              |
+| `call error`                                                         | -                         | Raises an error                                                                                                |
+| `call camera_shake n, d`                                             | -                         | Shake camera for `n` frames with ["Camera shake directions"](#scene) specified by `d`                          |
 
 <!-- Extra kernels can provide more native functions. -->
 
@@ -915,18 +925,26 @@ lbl:
 
 ### Peek and Poke
 
-* `=peek(pos)`: gets the value at the specific bus address
-  * `pos`: the address to access
-  * returns the value in byte
-* `poke(pos, val)`: sets the value at the specific bus address
+* `poke(pos, val)`: sets the value at the specific memory address
   * `pos`: the address to access
   * `val`: the value in byte
-* `=peek int(pos)`: gets the value at the specific bus address wordwise
-  * `pos`: the address to access
-  * returns the value in word (two bytes)
-* `poke int(pos, val)`: sets the value at the specific bus address wordwise
+* `poke int(pos, val)`: sets the value at the specific memory address wordwise
   * `pos`: the address to access
   * `val`: the value in word (two bytes)
+* `=peek(pos)`: gets the value at the specific memory address
+  * `pos`: the address to access
+  * returns the value in byte
+* `=peek int(pos)`: gets the value at the specific memory address wordwise
+  * `pos`: the address to access
+  * returns the value in word (two bytes)
+* `=peek(bank, addr)`: gets the value at the specific banked memory address
+  * `bank`: the bank to access
+  * `addr`: the address to access
+  * returns the value in byte
+* `=peek int(bank, addr)`: gets the value at the specific banked memory address wordwise
+  * `bank`: the bank to access
+  * `addr`: the address to access
+  * returns the value in word (two bytes)
 
 ### Array
 
@@ -1153,6 +1171,41 @@ The data following all `filler` statements are arranged in increasing order from
 * `=addressof("{builtin}")`: gets the address of the specific builtin entry
   * objectives:
     * `"{builtin}"`: the name of a builtin entry
+  * returns the address of the entry
+
+* `=bankof read`: gets the bank of the current reading position of inline data sequence
+  * returns the bank of the current reading position of inline data sequence
+* `=addressof read`: gets the address of the current reading position of inline data sequence
+  * returns the address of the current reading position of inline data sequence
+
+* `=get {asset} bankof(#pg|#pg:n|"{name}")`: gets the bank of the specific asset
+  * `{asset}`: the type of a asset; can be one of `tile`, `map`, `scene`, `actor`, `projectile`, `music`, and `sfx`
+  * objectives:
+    * `#pg`: asset page index
+    * `#pg:n`: asset page index and sub index
+    * `name`: asset name
+  * returns the bank of the entry
+* `=get {asset} addressof(#pg|#pg:n|"{name}")`: gets the address of the specific asset
+  * `{asset}`: the type of a asset; can be one of `tile`, `map`, `scene`, `actor`, `projectile`, `music`, and `sfx`
+  * objectives:
+    * `#pg`: asset page index
+    * `#pg:n`: asset page index and sub index
+    * `name`: asset name
+  * returns the address of the entry
+
+* `=get palette bankof([#pg|#pg:n|"{name}|"{name:n}"])`: gets the bank of the default palette asset
+  * objectives:
+    * `#pg`: palette asset index, with range of value from `#0` to `#7` for "BG0" to "BG7", and `#8` to `#15` for "OBJ0" to "OBJ7"
+      * `n`: color index, with range of value from 0 to 3
+    * `name`: palette asset name, with range of value from "BG0" to "BG7", and "OBJ0" to "OBJ7"
+      * `n`: color index, with range of value from 0 to 3
+  * returns the bank of the entry
+* `=get palette addressof([#pg|#pg:n|"{name}|"{name:n}"])`: gets the address of the default palette asset
+  * objectives:
+    * `#pg`: palette asset index, with range of value from `#0` to `#7` for "BG0" to "BG7", and `#8` to `#15` for "OBJ0" to "OBJ7"
+      * `n`: color index, with range of value from 0 to 3
+    * `name`: palette asset name, with range of value from "BG0" to "BG7", and "OBJ0" to "OBJ7"
+      * `n`: color index, with range of value from 0 to 3
   * returns the address of the entry
 
 ### Gamepad
@@ -1456,7 +1509,7 @@ For example, `sprite id, 8, 16` puts a sprite at the top-left corner of the scre
 | `PRIORITY_PROP`   | Boolean    | `false`           | Whether to draw the sprite below the background and window            | Read/write |
 | `HIDDEN_PROP`     | Boolean    | `false`           | Whether the sprite is hidden or visible                               | Read/write |
 
-There is no dedicated builtin editor for producing sprite assets. Since sprite data is actually just tile slices, it accepts all kinds of tiles data as its content, and indexes this data for appearance.
+There is no dedicated builtin editor for producing sprite assets. Since sprite data is actually just tile slices, it accepts all kinds of tiles data as its content, and indices this data for appearance.
 
 ### Scene
 
@@ -1730,7 +1783,7 @@ The drawing elements of an actor consist of hardware sprites and their associate
   * `id`: the actor ID
   * `anim`: the animation index, with range of values from 0 to 7; the meaning of the values depends on the actor's controller, see the following "Actor animations" constants
 
-| Actor animations | Platformer controller                     | Topdown controller                        | Point&Click controller |
+| Actor animations | Platformer controller                     | Top-down controller                       | Point&Click controller |
 |------------------|-------------------------------------------|-------------------------------------------|------------------------|
 | 0                | Down idle                                 | Down idle                                 | Normal                 |
 | 1                | Right idle                                | Right idle                                | Hovering               |
@@ -1743,7 +1796,7 @@ The drawing elements of an actor consist of hardware sprites and their associate
 | 16               | Turn to idle without changing direction   | Turn to idle without changing direction   |                        |
 | 17               | Turn to moving without changing direction | Turn to moving without changing direction |                        |
 
-* `=start actor id, lno|lbl|#pg:lno|#pg:lbl`: starts a thread from the specific location, and assigns it to the specific actor as a behave routine
+* `=start actor id, lno|lbl|#pg:lno|#pg:lbl`: starts a thread from the specific location, and assigns it to the specific actor as a `behave` routine
   * `id`: the actor ID
   * objectives:
     * `lno`: line number
@@ -1785,7 +1838,7 @@ An actor's `hits` callback is a routine that takes two parameters for the first 
 
 All hit callbacks by `goto`, `gosub` and `start` work with the manual update mode, and only callbacks by `start` work with the auto update mode.
 
-Actor assets' default behave threads and hit callbacks can be binded in the actor editor, the bindings will be assigned automatically during scene loading. These bindings can then be overridden for specific actor instances in the scene editor.
+Actor assets' default `behave` threads and hit callbacks can be binded in the actor editor, the bindings will be assigned automatically during scene loading. These bindings can then be overridden for specific actor instances in the scene editor.
 
 The actor editor can produce actor assets, press **Ctrl+5/Cmd+5** in edit mode to switch to the actor/projectile tab. GB BASIC allows importing external formats as actor/projectile, besides creating from scratch.
 
@@ -1801,9 +1854,9 @@ The following actor controllers are appliable to an actor to indicate its behavi
 | `PLATFORMER_PLAYER_BEHAVIOUR`             | An actor with this value behaves as a player controlled platformer character                          |
 | `PLATFORMER_MOVE_BEHAVIOUR`               | An actor with this value behaves as a moving platformer character, not required to `move actor`       |
 | `PLATFORMER_IDLE_BEHAVIOUR`               | An actor with this value behaves as an idle platformer character, not required for a non-moving actor |
-| `TOPDOWN_PLAYER_BEHAVIOUR`                | An actor with this value behaves as a player controlled topdown character                             |
-| `TOPDOWN_MOVE_BEHAVIOUR`                  | An actor with this value behaves as a moving topdown character, not required to `move actor`          |
-| `TOPDOWN_IDLE_BEHAVIOUR`                  | An actor with this value behaves as an idle topdown character, not required for a non-moving actor    |
+| `TOPDOWN_PLAYER_BEHAVIOUR`                | An actor with this value behaves as a player controlled top-down character                            |
+| `TOPDOWN_MOVE_BEHAVIOUR`                  | An actor with this value behaves as a moving top-down character, not required to `move actor`         |
+| `TOPDOWN_IDLE_BEHAVIOUR`                  | An actor with this value behaves as an idle top-down character, not required for a non-moving actor   |
 | `POINTNCLICK_PLAYER_BEHAVIOUR`            | An actor with this value behaves as a player controlled point&click character                         |
 | `POINTNCLICK_PLAYER_WITH_MOUSE_BEHAVIOUR` | An actor with this value behaves as a player controlled point&click character with mouse support      |
 | `POINTNCLICK_PLAYER_WITH_TOUCH_BEHAVIOUR` | An actor with this value behaves as a player controlled point&click character with touch support      |
@@ -2306,10 +2359,25 @@ The SFX editor can produce SFX assets, press **Ctrl+8/Cmd+8** in edit mode to sw
       * `n`: color index, with range of value from 0 to 3
     * `name`: palette asset name, with range of value from "BG0" to "BG7", and "OBJ0" to "OBJ7"
       * `n`: color index, with range of value from 0 to 3
+* `palette plt, col0|#pg:n_0|"{name:n_0}", col1|#pg:n_1|"{name:n_1}", ..., col6|#pg:n_6|"{name:n_6}"`: sets the SGB palette with RGB values for the specific slot; for SGB device only
+  * `plt`: the palette indices to modify; can be one of the following "SGB palettes" constants
+  * objectives:
+    * `col`: the RGB color value; the format is bitpacked BGR-555 in a 16-bit unsigned integer
+    * `#pg`: palette asset index, with range of value from `#0` to `#7` for "BG0" to "BG7", and `#8` to `#15` for "OBJ0" to "OBJ7"
+      * `n`: color index, with range of value from 0 to 3
+    * `name`: palette asset name, with range of value from "BG0" to "BG7", and "OBJ0" to "OBJ7"
+      * `n`: color index, with range of value from 0 to 3
+
+| SGB palettes     | Value   | Note                     |
+|------------------|---------|--------------------------|
+| `SGB_PALETTE_01` | `0x01`  | Sets SGB palette 0 and 1 |
+| `SGB_PALETTE_23` | `0x09`  | Sets SGB palette 2 and 3 |
+| `SGB_PALETTE_03` | `0x11`  | Sets SGB palette 0 and 3 |
+| `SGB_PALETTE_12` | `0x19`  | Sets SGB palette 1 and 2 |
 
 ### Scroll
 
-* `scroll(x, y, w, h, layer = WINDOW_LAYER) with t[, attr[, dir]]`: draws an image from tiles data
+* `scroll(x, y, w, h, layer = WINDOW_LAYER) with t[, attr[, dir]]`: scrolls a rectangle area of VRAM tilemap one row up or down
   * `x`: the x position in tiles to scroll
   * `y`: the y position in tiles to scroll
   * `w`: the width of the area to scroll
@@ -2832,24 +2900,35 @@ Higher priorities (larger numbers) take precedence over lower priorities (smalle
 
 ## Cheat Sheet of Collision Rules
 
+In GB BASIC, whether collision events are triggered, along with their conditions and timing, is determined by the player controller, actor, projectile, and trigger modules. For collisions between actors, and between actors and projectiles, the collision group bits are evaluated. Objects sharing any common bit set to `1` are considered part of the same group; objects with no common bits set to `1` are in different groups. Events that trigger `on hits` can be categorized into two types: those triggered automatically and those triggered "on action" (i.e. by pressing an "action" key or clicking the mouse).
+
 **Between actors**
 
-| Collision types | Platformer controller | Topdown controller | Point&Click controller |
-|-----------------|-----------------------|--------------------|------------------------|
-| Overlap         | Same group            | Same group         |                        |
-| Action          | Different group       | Different group    | Any group              |
+When two actors collide, if they meet the criteria and have binded event callbacks, the callbacks for both actors will be invoked. Besides event triggering, the colliding actors might also stop moving. Details are as follows.
+
+| Collision reactions           | Platformer player controller | Top-down player controller | Point&Click player controller |
+|-------------------------------|------------------------------|----------------------------|-------------------------------|
+| Fires `on hits` automatically | Same group                   | Same group                 |                               |
+| Fires `on hits` on action     | Different group              | Different group            | Any group (non-zero)          |
+| Stops on collision            |                              | Same group                 |                               |
 
 **Between actor and projectile**
 
-| Collision types | Platformer controller | Topdown controller | Point&Click controller |
-|-----------------|-----------------------|--------------------|------------------------|
-| Overlap         | Same group            | Same group         | Same group             |
+When an actor and a projectile collide, the event callback binded to the actor is invoked. The projectile itself does not require and cannot have an event callback binded to it. For any builtin controller, it only interacts with projectiles that share at least one collision group bit set to `1`.
+
+| Collision reactions           | Platformer player controller | Top-down player controller | Point&Click player controller |
+|-------------------------------|------------------------------|----------------------------|-------------------------------|
+| Fires `on hits` automatically | Same group                   | Same group                 | Same group                    |
 
 **Between actor and trigger**
 
-| Collision types | Platformer controller | Topdown controller | Point&Click controller |
-|-----------------|-----------------------|--------------------|------------------------|
-| Overlap         | Any group             | Any group          | Any group              |
+When an actor and a trigger collide, the event callback binded to the trigger is invoked. Since triggers do not have group assignments, they can interact with any qualifying actor. Trigger collision callbacks are divided into `enter` and `leave` events.
+
+| Collision reactions                   | Platformer player controller | Top-down player controller | Point&Click player controller |
+|---------------------------------------|------------------------------|----------------------------|-------------------------------|
+| Fires `on hits` `enter` automatically | Any                          | Any                        |                               |
+| Fires `on hits` `leave` automatically | Any                          | Any                        |                               |
+| Fires `on hits` `enter` on action     |                              |                            | Any                           |
 
 [TOP](#reference-manual)
 
@@ -2871,22 +2950,36 @@ Higher priorities (larger numbers) take precedence over lower priorities (smalle
 
 ## Cheat Sheet of Devices
 
-| Features                      | Classic | Colored | Classic with extension | Colored with extension |
-|-------------------------------|---------|---------|------------------------|------------------------|
-| Colored                       | No      | Yes     | No                     | Yes                    |
-| CPU                           | 4.19MHz | 8.38MHz | 4.19MHz                | 8.38MHz                |
-| Platform detection            | No      | No      | Yes                    | Yes                    |
-| Supports mouse and touch      | No      | No      | Yes                    | Yes                    |
-| Supports keyboard input       | No      | No      | Yes                    | Yes                    |
-| Supports streaming            | No      | No      | Yes                    | Yes                    |
-| Supports shell command        | No      | No      | Yes                    | Yes                    |
-| Supports emulation control    | No      | No      | Yes                    | Yes                    |
-| Supports debugging            | No      | No      | Yes                    | Yes                    |
-| Supports setting mouse cursor | No      | No      | Yes                    | Yes                    |
+| Features                      | Classic | Colored | Classic with extension | Colored with extension | Super (SGB) | Super with extension |
+|-------------------------------|---------|---------|------------------------|------------------------|-------------|----------------------|
+| Colored                       | No      | Yes     | No                     | Yes                    | No          | No                   |
+| CPU                           | 4.19MHz | 8.38MHz | 4.19MHz                | 8.38MHz                | 4.19MHz     | 4.19MHz              |
+| Platform detection            | No      | No      | Yes                    | Yes                    | No          | Yes                  |
+| Supports mouse and touch      | No      | No      | Yes                    | Yes                    | No          | Yes                  |
+| Supports keyboard input       | No      | No      | Yes                    | Yes                    | No          | Yes                  |
+| Supports streaming            | No      | No      | Yes                    | Yes                    | No          | Yes                  |
+| Supports shell command        | No      | No      | Yes                    | Yes                    | No          | Yes                  |
+| Supports emulation control    | No      | No      | Yes                    | Yes                    | No          | Yes                  |
+| Supports debugging            | No      | No      | Yes                    | Yes                    | No          | Yes                  |
+| Supports setting mouse cursor | No      | No      | Yes                    | Yes                    | No          | Yes                  |
 
 The global device type can be specified from the application's device preferences. A cartridge can also specify whether it prefers a classic or a colored device with/without extension features.
 
+The working clock speed of different hardware SGB models can be different as follows:
+
+* NTSC SGB: 21.477 MHz master clock, 4.2955 MHz GB master clock, 2.41% fast
+* PAL SGB: 21.281 MHz master clock, 4.2563 MHz GB master clock, 1.48% fast
+* NTSC SGB2: separate 20.972 MHz crystal, correct speed
+
 [TOP](#reference-manual)
+
+## SGB Features
+
+The SGB features can be specified from a project's "Advanced" properties.
+
+![](imgs/sgb_settings.png)
+
+These settings allow the specification of multiple palettes for the SGB platform. A border image can also be designated, with dimensions of 256x224px. This border contains a central window matching the game screen size of 160x144px for displaying the game viewport. Full transparency (alpha value of 0) or magenta (#FF00FF) can be used in this image to represent the transparent areas of the window.
 
 ## ASCII Table
 
