@@ -223,4 +223,5 @@
   }
 
   toggle('toggle-tiny', 'more-tiny');
+  toggle('toggle-games', 'more-games');
 })();

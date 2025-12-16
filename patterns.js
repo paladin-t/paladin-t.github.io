@@ -11,7 +11,7 @@
   var appstore = '<a href="https://apps.apple.com/developer/id856262887">App Store</a>';
   var steam = '<a href="https://store.steampowered.com/developer/tony">Steam</a>';
   var itch = '<a href="https://tonywang.itch.io/">Itch</a>';
-  var twitter = '<a href="https://twitter.com/wangrenxin">Twitter</a>';
+  var twitter = '<a href="https://x.com/wangrenxin">X</a>';
   var github = '<a href="https://github.com/paladin-t">GitHub</a>';
   var rss = '<a href="https://paladin-t.github.io/feed.xml" target="_blank" class="label" style="display: inline; color: white;">RSS</a>';
   var donate = '<a href="donate.html">Donate</a>';
