@@ -50,6 +50,7 @@ v1.4
   * Fixed handling of illegal characters in filenames when saving files
   * Improved handling of unmatched layer size for scene importing
 * Document, Examples, Starter Kits, Tutorials and Help
+  * Added new tutorials chapters and content
   * Added document of SGB features
   * Added example of SGB features
   * Added example of the `SCROLL` statement

@@ -192,6 +192,23 @@ Launch:
 | `FRAME_INDEX_PROP`             | Integer (8-bit unsigned)                                           | The projectile's frame cursor                                          | Read/write |
 | `ANIMATION_INDEX_PROP`         | Integer (8-bit unsigned)                                           | The projectile's animation cursor                                      | Read/write |
 
+The base value for movement speed controlled by the `MOVE_SPEED_PROP` property is 16, that is, dividing the property value by 16 gives the speed multiplier. As shown in the table below.
+
+| Property value | Multiplier | Editor display value |
+|----------------|------------|----------------------|
+| 0              | 0.0        | x0                   |
+| 1              | 0.0625     | x0.06                |
+| 2              | 0.125      | x0.13                |
+| ...            | ...        | ...                  |
+| 15             | 0.9375     | x0.94                |
+| 16             | 1.0        | x1                   |
+| 17             | 1.0625     | x1.06                |
+| ...            | ...        | ...                  |
+| 254            | 15.875     | x15.88               |
+| 255            | 15.9375    | x15.94               |
+
+<!-- Extra kernels can provide more projectile properties. -->
+
 #### Getting Information of Projectile Assets
 
 * `=len projectile(#pg|"{name}")`: gets the total frame count of the specific projectile
@@ -224,6 +241,14 @@ Launch:
   * `dx`: the offset x position to launch the projectile
   * `dy`: the offset y position to launch the projectile
   * `da`: the offset angle to launch the projectile
+  * `flags`: the launching flags, can be a combination of the following "Projectile flags" constants
+  * `id`: the actor ID to start with
+  * returns the projectile ID
+* `=start projectile(type, dx = 0, dy = 0, angle = 0, flags = PROJECTILE_NONE_FLAG) on actor(id)`: launches a projectile instance from the specific template at the specific actor's relevant position, but with the projectile's own angle
+  * `type`: the projectile template type, with range of values from 0 to 4
+  * `dx`: the offset x position to launch the projectile
+  * `dy`: the offset y position to launch the projectile
+  * `angle`: the angle to launch the projectile
   * `flags`: the launching flags, can be a combination of the following "Projectile flags" constants
   * `id`: the actor ID to start with
   * returns the projectile ID

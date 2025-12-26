@@ -2,9 +2,22 @@
 
 # Releases
 
-## GB BASIC v1.4
+## GB BASIC v1.5
 
 <details open>
+<summary><b>Click Me</b></summary>
+<div>
+This release introduces support for custom kernels, allowing users to replace the default game runtime for their projects. The editor now supports installing and selecting custom kernels. Added new syntax to support more flexible actor control. It also includes many other improvements and bug fixes to the runtime, compiler, and usability. A new "Scroll Shooting" kernel and a starter kit which takes use of it were also added. Added new tutorials chapters and content. There are also other updates to the examples and documents.
+</div>
+</details>
+
+* [Changelog](documents/changelogs/Changelog_v1.5.txt) (Dec. 26, 2025)
+* Download on [Steam](https://store.steampowered.com/app/2308700/)
+* Also available on [Itch.io](https://tonywang.itch.io/gbbasic)
+
+## GB BASIC v1.4
+
+<details>
 <summary><b>Click Me</b></summary>
 <div>
 This release introduces support for SGB features. It also includes a number of quality of life improvements, for instance, direct preview for map, scene, and actor assets with one-click. The memory related statements have been updated to support getting bank and address of assets, inline data sequence. Added new tutorials chapters and content. There are also some other improvements and bug fixes.

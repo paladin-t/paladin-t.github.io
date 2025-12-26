@@ -10,7 +10,7 @@ This section focuses on creating a player character. Non-player characters are c
 
 <img src="imgs/asset-actor-frames-topdown.png" class="diagram-image diagram-schematic">
 
-A top-down player character asset requires at lease 4-8 animation sequences, totaling 8-12 frames. This includes 8 frames for walking in four directions, and optionally 4 frames for idleing in each direction. More frames can be added as needed. Non-player characters typically need the same amount of animation sequences and frames for all the motions.
+A top-down player character asset requires at least 4-8 animation sequences, totaling 8-12 frames. This includes 8 frames for walking in four directions, and optionally 4 frames for idleing in each direction. More frames can be added as needed. Non-player characters typically need the same amount of animation sequences and frames for all the motions.
 
 Ensure the actor has properties like "8x16", "Size", and "Anchor" correctly set.
 

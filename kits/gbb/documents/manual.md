@@ -93,6 +93,11 @@
   - [Building a ROM](#building-a-rom)
   - [Building for HTML](#building-for-html)
   - [Building for Desktop](#building-for-desktop)
+- [Kernels](#kernels)
+  - [About OS Kernel](#about-os-kernel)
+  - [Default Kernel](#default-kernel)
+  - [Scroll Shooting Kernel](#scroll-shooting-kernel)
+  - [Custom Kernel](#custom-kernel)
 - [Appendix](#appendix)
   - [Lookup Priority of Labeled Destination](#lookup-priority-of-labeled-destination)
   - [Cheat Sheet of Objects](#cheat-sheet-of-objects)
@@ -167,7 +172,7 @@ Most of the shortcut keys are listed aside the corresponding GUI elements, besid
 * **Ctrl+Alt+3**: resize the window to x3 size
 * **Ctrl+Alt+4**: resize the window to x4 size
 * **Ctrl+Alt+=**: centralize the window
-* **Alt+Enter**: toggle fullscreen
+* **Ctrl+Enter**: toggle fullscreen
 * **F1**: open the manual
 * **F6**: take a screenshot
 * **F7**: start recording GIF
@@ -518,7 +523,7 @@ The `=deg(angle)` function provides a convenient way to map angles with a domain
 | `call error`                                                         | -                         | Raises an error                                                                                                |
 | `call camera_shake n, d`                                             | -                         | Shake camera for `n` frames with ["Camera shake directions"](#scene) specified by `d`                          |
 
-<!-- Extra kernels can provide more native functions. -->
+**See also:** _Extra [Kernels](#kernels) can provide more native functions._
 
 ### Macro Definitions
 
@@ -1108,7 +1113,7 @@ By default, `stack` references defined by `def ... = stackN`, like other symbols
 * `=time`: gets the system time that increments once per Frame; will wrap around every ~18 minutes
   * returns the system time
 
-* `dbginfo(full = false)`: outputs the thread context(s) to the debug layer via shell (extension feature)
+* `dbginfo(full = true)`: outputs the thread context(s) to the debug layer via shell (extension feature); each element shows the offset of a stack pointer, number for offset, "-" for not active
   * `full`: `true` to debug all threads, `false` for the current thread
 
 * `do nothing`: emits a "NOP" instruction that does nothing but takes a VM cycle
@@ -1588,6 +1593,8 @@ A `def scene` operation can only fill map, attribute and property data to scene;
 | `CAMERA_DEADZONE_X_PROP` | Integer (8-bit unsigned) | Camera deadzone in x-axis                                        | Read/write |
 | `CAMERA_DEADZONE_Y_PROP` | Integer (8-bit unsigned) | Camera deadzone in y-axis                                        | Read/write |
 
+**See also:** _Extra [Kernels](#kernels) can provide more scene properties._
+
 | Blocking properties   | Value type               | Note                                                        | Access    |
 |-----------------------|--------------------------|-------------------------------------------------------------|-----------|
 | `BLOCKING_PROP`       | Integer (8-bit unsigned) | Get full blocking information at the specific position      | Read-only |
@@ -1706,7 +1713,7 @@ The drawing elements of an actor consist of hardware sprites and their associate
 | `ANIMATIONS_PROP`             | Asset                                                            | The actor's animations                                         | Write-only |
 | `ANIMATION_PROP`              | Asset                                                            | One animation of the actor's animations                        | Write-only |
 | `ANIMATION_INDEX_PROP`        | Integer (8-bit unsigned)                                         | The actor's current animation index                            | Read/write |
-| `MOVE_SPEED_PROP`             | Integer (8-bit unsigned)                                         | The actor's move speed; defaults to 1                          | Read/write |
+| `MOVE_SPEED_PROP`             | Integer (8-bit unsigned)                                         | The actor's move speed; defaults to 16                         | Read/write |
 | `BEHAVIOUR_PROP`              | "Actor behaviours"                                               | The actor's behaviour/controller                               | Read/write |
 | `COLLISION_GROUP_PROP`        | Integer (8-bit unsigned)                                         | The actor's collision group                                    | Read/write |
 
@@ -1717,6 +1724,23 @@ The drawing elements of an actor consist of hardware sprites and their associate
 | `UP_DIR`    | Upward direction    |
 | `LEFT_DIR`  | Leftward direction  |
 | `NONE_DIR`  | None direction      |
+
+The base value for movement speed controlled by the `MOVE_SPEED_PROP` property is 16, that is, dividing the property value by 16 gives the speed multiplier. As shown in the table below.
+
+| Property value | Multiplier | Editor display value |
+|----------------|------------|----------------------|
+| 0              | 0.0        | x0                   |
+| 1              | 0.0625     | x0.06                |
+| 2              | 0.125      | x0.13                |
+| ...            | ...        | ...                  |
+| 15             | 0.9375     | x0.94                |
+| 16             | 1.0        | x1                   |
+| 17             | 1.0625     | x1.06                |
+| ...            | ...        | ...                  |
+| 254            | 15.875     | x15.88               |
+| 255            | 15.9375    | x15.94               |
+
+**See also:** _Extra [Kernels](#kernels) can provide more actor properties._
 
 * `=len actor(#pg|"{name}")`: gets the total frame count of the specific actor
   * objectives:
@@ -1783,18 +1807,18 @@ The drawing elements of an actor consist of hardware sprites and their associate
   * `id`: the actor ID
   * `anim`: the animation index, with range of values from 0 to 7; the meaning of the values depends on the actor's controller, see the following "Actor animations" constants
 
-| Actor animations | Platformer controller                     | Top-down controller                       | Point&Click controller |
-|------------------|-------------------------------------------|-------------------------------------------|------------------------|
-| 0                | Down idle                                 | Down idle                                 | Normal                 |
-| 1                | Right idle                                | Right idle                                | Hovering               |
-| 2                | Up idle                                   | Up idle                                   |                        |
-| 3                | Left idle                                 | Left idle                                 |                        |
-| 4                | Down walk                                 | Down walk                                 |                        |
-| 5                | Right walk                                | Right walk                                |                        |
-| 6                | Up walk                                   | Up walk                                   |                        |
-| 7                | Left walk                                 | Left walk                                 |                        |
-| 16               | Turn to idle without changing direction   | Turn to idle without changing direction   |                        |
-| 17               | Turn to moving without changing direction | Turn to moving without changing direction |                        |
+| Actor animations | Platformer controller                     | Top-down controller                       | Point&Click controller | Scroll Shooting controller                |
+|------------------|-------------------------------------------|-------------------------------------------|------------------------|-------------------------------------------|
+| 0                | Downward idle                             | Downward idle                             | Normal                 | Downward idle                             |
+| 1                | Rightward idle                            | Rightward idle                            | Hovering               | Rightward idle                            |
+| 2                | Upward idle                               | Upward idle                               |                        | Upward idle                               |
+| 3                | Leftward idle                             | Leftward idle                             |                        | Leftward idle                             |
+| 4                | Move down                                 | Move down                                 |                        | Move down                                 |
+| 5                | Move right                                | Move right                                |                        | Move right                                |
+| 6                | Move up                                   | Move up                                   |                        | Move up                                   |
+| 7                | Move left                                 | Move left                                 |                        | Move left                                 |
+| 16               | Turn to idle without changing direction   | Turn to idle without changing direction   |                        | Turn to idle without changing direction   |
+| 17               | Turn to moving without changing direction | Turn to moving without changing direction |                        | Turn to moving without changing direction |
 
 * `=start actor id, lno|lbl|#pg:lno|#pg:lbl`: starts a thread from the specific location, and assigns it to the specific actor as a `behave` routine
   * `id`: the actor ID
@@ -1848,18 +1872,21 @@ Actor data (frame, animations, animation) can also come from inline code. These 
 
 The following actor controllers are appliable to an actor to indicate its behaviours and interactions with other objects or a scene.
 
-| Actor behaviours                          | Note                                                                                                  |
-|-------------------------------------------|-------------------------------------------------------------------------------------------------------|
-| `NONE_BEHAVIOUR`                          | An actor with this value behaves nothing                                                              |
-| `PLATFORMER_PLAYER_BEHAVIOUR`             | An actor with this value behaves as a player controlled platformer character                          |
-| `PLATFORMER_MOVE_BEHAVIOUR`               | An actor with this value behaves as a moving platformer character, not required to `move actor`       |
-| `PLATFORMER_IDLE_BEHAVIOUR`               | An actor with this value behaves as an idle platformer character, not required for a non-moving actor |
-| `TOPDOWN_PLAYER_BEHAVIOUR`                | An actor with this value behaves as a player controlled top-down character                            |
-| `TOPDOWN_MOVE_BEHAVIOUR`                  | An actor with this value behaves as a moving top-down character, not required to `move actor`         |
-| `TOPDOWN_IDLE_BEHAVIOUR`                  | An actor with this value behaves as an idle top-down character, not required for a non-moving actor   |
-| `POINTNCLICK_PLAYER_BEHAVIOUR`            | An actor with this value behaves as a player controlled point&click character                         |
-| `POINTNCLICK_PLAYER_WITH_MOUSE_BEHAVIOUR` | An actor with this value behaves as a player controlled point&click character with mouse support      |
-| `POINTNCLICK_PLAYER_WITH_TOUCH_BEHAVIOUR` | An actor with this value behaves as a player controlled point&click character with touch support      |
+| Actor behaviours                          | Note                                                                                                       | Kernel          |
+|-------------------------------------------|------------------------------------------------------------------------------------------------------------|-----------------|
+| `NONE_BEHAVIOUR`                          | An actor with this value behaves nothing                                                                   | Default         |
+| `PLATFORMER_PLAYER_BEHAVIOUR`             | An actor with this value behaves as a player controlled platformer character                               | Default         |
+| `PLATFORMER_MOVE_BEHAVIOUR`               | An actor with this value behaves as a moving platformer character, not required to `move actor`            | Default         |
+| `PLATFORMER_IDLE_BEHAVIOUR`               | An actor with this value behaves as an idle platformer character, not required for a non-moving actor      | Default         |
+| `TOPDOWN_PLAYER_BEHAVIOUR`                | An actor with this value behaves as a player controlled top-down character                                 | Default         |
+| `TOPDOWN_MOVE_BEHAVIOUR`                  | An actor with this value behaves as a moving top-down character, not required to `move actor`              | Default         |
+| `TOPDOWN_IDLE_BEHAVIOUR`                  | An actor with this value behaves as an idle top-down character, not required for a non-moving actor        | Default         |
+| `POINTNCLICK_PLAYER_BEHAVIOUR`            | An actor with this value behaves as a player controlled point&click character                              | Default         |
+| `POINTNCLICK_PLAYER_WITH_MOUSE_BEHAVIOUR` | An actor with this value behaves as a player controlled point&click character with mouse support           | Default         |
+| `POINTNCLICK_PLAYER_WITH_TOUCH_BEHAVIOUR` | An actor with this value behaves as a player controlled point&click character with touch support           | Default         |
+| `SHOOTING_PLAYER_BEHAVIOUR`               | An actor with this value behaves as a player controlled scroll shooting character                          | Scroll Shooting |
+| `SHOOTING_MOVE_BEHAVIOUR`                 | An actor with this value behaves as a moving scroll shooting character, not required to `move actor`       | Scroll Shooting |
+| `SHOOTING_IDLE_BEHAVIOUR`                 | An actor with this value behaves as an idle scroll shooting character, not required for a non-moving actor | Scroll Shooting |
 
 Both `POINTNCLICK_PLAYER_WITH_MOUSE_BEHAVIOUR` and `POINTNCLICK_PLAYER_WITH_TOUCH_BEHAVIOUR` controllers support obtaining user input from pointing devices, and will fall back to `POINTNCLICK_PLAYER_BEHAVIOUR` if no such device is available. The difference between the two lies in the fact that the "mouse"-driven behaviour moves a small distance according to the movement speed towards the input point each time, while the "touch"-driven behaviour moves immediately to the input point location.
 
@@ -1871,7 +1898,9 @@ The following behaviour options can be used in conjunction with an actor behavio
 
 Behaviour options can be set for an actor by performing a bitwise OR operation with their compatible actor behaviour.
 
-<!-- Extra kernels can provide more controllers. -->
+The "Default Kernel" distributed with GB BASIC binaries includes the None, Platformer, Top-down, and Point&Click controllers. Additionally, the "Scroll Shooting" kernel includes the Scroll Shooting controller.
+
+**See also:** _Extra [Kernels](#kernels) can provide more controllers._
 
 ### Emote
 
@@ -1979,7 +2008,7 @@ The drawing elements of a projectile consist of hardware sprites and their assoc
 | `ANIMATIONS_PROP`                | Asset                                                            | The projectile's animations                         | Write-only |
 | `ANIMATION_PROP`                 | Asset                                                            | One animation of the projectile's animations        | Write-only |
 | `LIFE_TIME_PROP`                 | Integer (8-bit unsigned)                                         | The projectile's life time                          | Read/write |
-| `MOVE_SPEED_PROP`                | Integer (8-bit unsigned)                                         | The projectile's move speed; defaults to 1          | Read/write |
+| `MOVE_SPEED_PROP`                | Integer (8-bit unsigned)                                         | The projectile's move speed; defaults to 16         | Read/write |
 | `INITIAL_OFFSET_PROP`            | Integer (16-bit unsigned)                                        | The projectile's initial offset                     | Read/write |
 | `COLLISION_GROUP_PROP`           | Integer (8-bit unsigned)                                         | The projectile's collision group                    | Read/write |
 
@@ -1992,6 +2021,23 @@ The drawing elements of a projectile consist of hardware sprites and their assoc
 | `POSITION_Y_PROP`              | Integer (16-bit unsigned)                                          | The projectile's position in y-axis                                    | Read/write |
 | `FRAME_INDEX_PROP`             | Integer (8-bit unsigned)                                           | The projectile's frame cursor                                          | Read/write |
 | `ANIMATION_INDEX_PROP`         | Integer (8-bit unsigned)                                           | The projectile's animation cursor                                      | Read/write |
+
+The base value for movement speed controlled by the `MOVE_SPEED_PROP` property is 16, that is, dividing the property value by 16 gives the speed multiplier. As shown in the table below.
+
+| Property value | Multiplier | Editor display value |
+|----------------|------------|----------------------|
+| 0              | 0.0        | x0                   |
+| 1              | 0.0625     | x0.06                |
+| 2              | 0.125      | x0.13                |
+| ...            | ...        | ...                  |
+| 15             | 0.9375     | x0.94                |
+| 16             | 1.0        | x1                   |
+| 17             | 1.0625     | x1.06                |
+| ...            | ...        | ...                  |
+| 254            | 15.875     | x15.88               |
+| 255            | 15.9375    | x15.94               |
+
+**See also:** _Extra [Kernels](#kernels) can provide more projectile properties._
 
 * `=len projectile(#pg|"{name}")`: gets the total frame count of the specific projectile
   * objectives:
@@ -2021,6 +2067,14 @@ The drawing elements of a projectile consist of hardware sprites and their assoc
   * `dx`: the offset x position to launch the projectile
   * `dy`: the offset y position to launch the projectile
   * `da`: the offset angle to launch the projectile
+  * `flags`: the launching flags, can be a combination of the following "Projectile flags" constants
+  * `id`: the actor ID to start with
+  * returns the projectile ID
+* `=start projectile(type, dx = 0, dy = 0, angle = 0, flags = PROJECTILE_NONE_FLAG) on actor(id)`: launches a projectile instance from the specific template at the specific actor's relevant position, but with the projectile's own angle
+  * `type`: the projectile template type, with range of values from 0 to 4
+  * `dx`: the offset x position to launch the projectile
+  * `dy`: the offset y position to launch the projectile
+  * `angle`: the angle to launch the projectile
   * `flags`: the launching flags, can be a combination of the following "Projectile flags" constants
   * `id`: the actor ID to start with
   * returns the projectile ID
@@ -2097,6 +2151,8 @@ The drawing elements of window layer consist of hardware map and its associated 
 * `window x, y`: puts the window in VRAM on the screen at the specific position; (7, 0) is the top left corner of the screen in window coordinates
   * `x`: the x position in pixels, actual displayed location will be `x - 7`
   * `y`: the y position in pixels
+
+The window layer is visible (if "on") when both coordinates are in the ranges `x`=0 to 166, `x`=0 to 143 respectively. Values `x`=7, `y`=0 place the window at the top left of the screen, completely covering the background.
 
 * `fill window(first, n) = read|data ...|"{builtin}"|#pg|#pg:n|"{name}"`: fills the window area in VRAM; this is equivalent to a `fill tile` operation
   * `first`: index of the first map tile to write to
@@ -2855,13 +2911,43 @@ See the following instructions for running exported binaries.
 
 * Linux
   * Extract files from the package
-  * Apply execution permission to the executable (i.e. "chmod 777 x64/gbbasic")
+  * Apply execution permission to the executable (i.e. "chmod u+rwx x64/gbbasic")
   * Execute "play.sh" or "x64/gbbasic"
 
 * MacOS
   * Extract files from the package
-  * Apply execution permission to the executable (i.e. "xattr -cr gbbasic_emu.app", then "chmod 777 gbbasic_emu.app/Contents/MacOS/gbbasic_emu")
+  * Apply execution permission to the executable (i.e. "xattr -cr gbbasic_emu.app", then "chmod u+rwx gbbasic_emu.app/Contents/MacOS/gbbasic_emu")
   * Execute "gbbasic_emu.app"
+
+[TOP](#reference-manual)
+
+# Kernels
+
+## About OS Kernel
+
+In GB BASIC, a game is ultimately compiled into a User Program and runs on top of a layer of software abstraction. This runtime layer is commonly referred to as the "kernel", and its responsibilities are almost identical to those of a Virtual Machine or an embedded Real-Time Operating System (RTOS).
+
+The kernels came along with binary distributions are precompiled from their C/Assembly source code. The GB BASIC compiler compiles BASIC code into GBBVM instructions, which are then linked with these precompiled kernels to form the final ROMs.
+
+**See also:** _[The OS Kernel](https://paladin-t.github.io/kits/gbb/learn/the-os-kernel.html), [Compiler and Kernel](https://paladin-t.github.io/kits/gbb/learn/compiler-and-kernel.html), and [Creating a Custom Kernel](https://paladin-t.github.io/kits/gbb/learn/creating-a-custom-kernel.html)._
+
+[TOP](#reference-manual)
+
+## Default Kernel
+
+The default kernel includes all the general-purpose libraries, functions, properties, and object systems described in this documentation, and implements Platformer, Top-down, and Point&Click behaviours for the actor controller. This kernel can meet the needs of the vast majority of game development in GB BASIC.
+
+[TOP](#reference-manual)
+
+## Scroll Shooting Kernel
+
+The scroll shooting kernel is an extension of the default kernel. In addition to the features provided by the default kernel, it implements an extra Scroll Shooting behaviour for the actor controller, enabling the creation of common scrolling shooter games.
+
+[TOP](#reference-manual)
+
+## Custom Kernel
+
+GB BASIC also supports user-defined kernels and allows for custom distributions. For details, refer to _[Creating a Custom Kernel](https://paladin-t.github.io/kits/gbb/learn/creating-a-custom-kernel.html)._
 
 [TOP](#reference-manual)
 
@@ -2906,29 +2992,29 @@ In GB BASIC, whether collision events are triggered, along with their conditions
 
 When two actors collide, if they meet the criteria and have binded event callbacks, the callbacks for both actors will be invoked. Besides event triggering, the colliding actors might also stop moving. Details are as follows.
 
-| Collision reactions           | Platformer player controller | Top-down player controller | Point&Click player controller |
-|-------------------------------|------------------------------|----------------------------|-------------------------------|
-| Fires `on hits` automatically | Same group                   | Same group                 |                               |
-| Fires `on hits` on action     | Different group              | Different group            | Any group (non-zero)          |
-| Stops on collision            |                              | Same group                 |                               |
+| Collision reactions           | Platformer player controller | Top-down player controller | Point&Click player controller | Scrol Shooting player controller |
+|-------------------------------|------------------------------|----------------------------|-------------------------------|----------------------------------|
+| Fires `on hits` automatically | Same group                   | Same group                 |                               | Same group                       |
+| Fires `on hits` on action     | Different group              | Different group            | Any group (non-zero)          | Different group                  |
+| Stops on collision            |                              | Same group                 |                               |                                  |
 
 **Between actor and projectile**
 
 When an actor and a projectile collide, the event callback binded to the actor is invoked. The projectile itself does not require and cannot have an event callback binded to it. For any builtin controller, it only interacts with projectiles that share at least one collision group bit set to `1`.
 
-| Collision reactions           | Platformer player controller | Top-down player controller | Point&Click player controller |
-|-------------------------------|------------------------------|----------------------------|-------------------------------|
-| Fires `on hits` automatically | Same group                   | Same group                 | Same group                    |
+| Collision reactions           | Platformer player controller | Top-down player controller | Point&Click player controller | Scrol Shooting player controller |
+|-------------------------------|------------------------------|----------------------------|-------------------------------|----------------------------------|
+| Fires `on hits` automatically | Same group                   | Same group                 | Same group                    | Same group                       |
 
 **Between actor and trigger**
 
 When an actor and a trigger collide, the event callback binded to the trigger is invoked. Since triggers do not have group assignments, they can interact with any qualifying actor. Trigger collision callbacks are divided into `enter` and `leave` events.
 
-| Collision reactions                   | Platformer player controller | Top-down player controller | Point&Click player controller |
-|---------------------------------------|------------------------------|----------------------------|-------------------------------|
-| Fires `on hits` `enter` automatically | Any                          | Any                        |                               |
-| Fires `on hits` `leave` automatically | Any                          | Any                        |                               |
-| Fires `on hits` `enter` on action     |                              |                            | Any                           |
+| Collision reactions                   | Platformer player controller | Top-down player controller | Point&Click player controller | Scrol Shooting player controller |
+|---------------------------------------|------------------------------|----------------------------|-------------------------------|----------------------------------|
+| Fires `on hits` `enter` automatically | Any                          | Any                        |                               | Any                              |
+| Fires `on hits` `leave` automatically | Any                          | Any                        |                               | Any                              |
+| Fires `on hits` `enter` on action     |                              |                            | Any                           |                                  |
 
 [TOP](#reference-manual)
 

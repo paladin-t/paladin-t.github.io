@@ -1,6 +1,6 @@
 # Completing Game Logic
 
-[Prev: Adding a Player Controller](adding-a-player-controller.md) [Next: Audio](page-not-found.md)
+[Prev]() [Next]()
 
 Finally, we will complete the game logic by adding collection counting and implementing NPC reactions based on different collection states.
 

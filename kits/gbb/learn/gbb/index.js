@@ -1,6 +1,6 @@
 /*
 ** GB BASIC
-** Copyright (C) 2023 - 2025 Tony Wang, all rights reserved
+** Copyright (C) 2023 - 2026 Tony Wang, all rights reserved
 ** Learn more: https://paladin-t.github.io/kits/gbb/
 */
 
@@ -214,6 +214,10 @@ function isFileSyncDisabled() {
 }
 // Transfer the project data.
 /*function getProjectData() {
+  return '';
+}*/
+// Transfer the input text.
+/*function getInputText() {
   return '';
 }*/
 // Returns the custom splash image.

@@ -166,6 +166,8 @@
 
 ### [1.3 Point&Click Controller](point-and-click-controller)
 
+### [1.4 Scroll Shooting Controller](scroll-shooting-controller)
+
 ## [2. Making a Player Character](making-a-player-character)
 
 ## [3. Making a Non-Player Character](making-a-non-player-character)
@@ -224,13 +226,9 @@
 
 --------------------------------------------------------------------------------
 
-# [XIV. Practical Projects: Three Unique Games](nothing)
+# [XIV. Practical Projects: Starter Kits](practical-projects-starter-kits)
 
-## [1. Platformer Game](nothing)
-
-## [2. Top-down Game](nothing)
-
-## [3. Point-and-Click Game](nothing)
+## [1. Starter Kit List](starter-kit-list)
 
 --------------------------------------------------------------------------------
 
@@ -290,41 +288,39 @@
 
 --------------------------------------------------------------------------------
 
-# [XVII. Debugging and Release](nothing)
+# [XVII. Debugging and Releasing](nothing)
 
 ## [1. Debugging Techniques](nothing)
 
-## [2. Building the ROM](nothing)
+## [2. Releasing](nothing)
 
-## [3. Exporting for Web Emulator](nothing)
+### [2.1 Building the ROM](nothing)
 
-## [4. Exporting as a Desktop Application](nothing)
+### [2.2 Exporting for Web Emulator](nothing)
 
---------------------------------------------------------------------------------
-
-# [XVIII. Starter Kits](nothing)
-
-## [1. Starter Kit List](nothing)
+### [2.3 Exporting as a Desktop Application](nothing)
 
 --------------------------------------------------------------------------------
 
-# [XIX. Compiler and Kernel](nothing)
+# [XVIII. Compiler and Kernel](compiler-and-kernel)
 
-## [1. Compiler Architecture](nothing)
+## [1. Compiler Architecture](compiler-architecture)
 
-## [2. Kernel Architecture](nothing)
+## [2. Kernel Linking](kernel-linking)
+
+## [3. Switching Kernel](switching-kernel)
 
 --------------------------------------------------------------------------------
 
-# [XX. Creating a Custom Kernel](nothing)
+# [XIX. Creating a Custom Kernel](creating-a-custom-kernel)
 
-## [1. Obtaining the Source Code](nothing)
+## [1. Obtaining the Source Code](obtaining-the-source-code)
 
-## [2. Setting Up the Development Environment](nothing)
+## [2. Setting Up the Development Environment](setting-up-the-development-environment)
 
-## [3. Developing Custom Features](nothing)
+## [3. Developing Custom Features](developing-custom-features)
 
-## [4. Distribution and Installation](nothing)
+## [4. Distribution and Installation](distribution-and-installation)
 
 --------------------------------------------------------------------------------
 

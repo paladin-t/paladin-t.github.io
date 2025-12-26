@@ -22,10 +22,12 @@ Short answer: yes. Gameplay logic is organized by code, to be specific as the na
 
 ## The Fantasy Console
 
+The main development environment of GB BASIC, including components such as the compiler, asset pipeline, editors, etc. and the kernel (VM), is open-sourced under the MIT license.
+
 ```
 MIT License
 
-Copyright (C) 2023 - 2025 Tony Wang
+Copyright (C) 2023 - 2026 Tony Wang
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in

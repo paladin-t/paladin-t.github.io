@@ -94,7 +94,7 @@ url://prgs/character-non-player-2.txt
 <details open>
 <summary><b>Details</b></summary>
 <div class="details-text">
-By setting the actor's direction in code and specifying `PLATFORMER_MOVE_BEHAVIOUR` or `TOPDOWN_MOVE_BEHAVIOUR`, the actor will move automatically. This approach is not recommended unless specific needs require it.
+By setting the actor's direction in code and specifying `PLATFORMER_MOVE_BEHAVIOUR`, `TOPDOWN_MOVE_BEHAVIOUR`, or `SHOOTING_MOVE_BEHAVIOUR`, the actor will move automatically. This approach is not recommended unless specific needs require it.
 
 ```basic
 ...
@@ -263,7 +263,7 @@ url://prgs/character-non-player-7.txt
 <details open>
 <summary><b>Details</b></summary>
 <div class="details-text">
-By specifying `PLATFORMER_IDLE_BEHAVIOUR` or `TOPDOWN_IDLE_BEHAVIOUR` in code, the actor will remain stationary. This approach is not recommended unless specific needs require it.
+By specifying `PLATFORMER_IDLE_BEHAVIOUR`, `TOPDOWN_IDLE_BEHAVIOUR`, or `SHOOTING_IDLE_BEHAVIOUR` in code, the actor will remain stationary. This approach is not recommended unless specific needs require it.
 
 ```basic
 ...

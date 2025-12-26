@@ -1,0 +1,47 @@
+This release introduces support for custom kernels, allowing users to replace
+the default game runtime for their projects. The editor now supports installing
+and selecting custom kernels. Added new syntax to support more flexible actor
+control. It also includes many other improvements and bug fixes to the runtime,
+compiler, and usability. A new "Scroll Shooting" kernel and a starter kit which
+takes use of it were also added. Added new tutorials chapters and content. There
+are also other updates to the examples and documents.
+
+v1.5
+
+* Runtime
+  * Optimized relative moving of actor
+  * Improved stability of extension compatibility detection
+  * Improved the `DBGINFO(...)` statement
+  * Fixed a re-entering issue of the text mode
+* Syntax
+  * Added `=START PROJECTILE(...) ON ACTOR(...)` to launch a projectile at an actor's position but with its own initial angle
+  * Changed the default value of the parameter `full` in `DBGINFO(...)` from `FALSE` to `TRUE`
+* Compiler and Asset Pipeline
+  * **Added support for custom kernel**
+  * **Added compilation of `=START PROJECTILE(...) ON ACTOR(...)`**
+  * Fixed a compiling bug when a unary operator `NOT` or `BNOT` comes after other operators
+  * Fixed an argument popping issue of the `SEND_SGB_PACKET` and `SET_SGB_BORDER` native functions
+  * Fixed a loading bug of scene layers with only a map layer enabled
+* Editor
+  * **Added installation of custom kernels**
+  * **Added selection of custom kernels**
+  * **Added a project option to enable run-on-open**
+  * Added a menu item to edit a project's property from the home screen directly
+  * **Added menu entries to take screen shots and recordings**
+  * Added external events to transfer keyboard and text input from JavaScript to WebAssembly
+  * Added tooltip items to show actor routines in the scene editor
+  * Optimized the structure of the project menu
+  * Optimized the shortcut keys
+  * Improved UX of actor anchor modification
+  * Fixed an SGB palette initialization issue when create a new project
+  * Fixed a kernel ejection issue
+  * Fixed a potential locale issue
+  * Fixed a project reloading issue if there are work queue tasks
+* Document, Examples, Starter Kits, Tutorials and Help
+  * Added new tutorials chapters and content
+  * **Added a new Scroll Shooting kernel**
+  * **Added a new Scroll Shooting starter kit**
+  * Added documents for custom kernel
+  * Added new song "Phenomenon" to the music library
+  * Optimized the README.gbb project
+  * Fixed stack popping issues of the starter kits when switched scene

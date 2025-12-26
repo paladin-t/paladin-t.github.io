@@ -10,7 +10,7 @@ This section focuses on creating a player character. Non-player characters are c
 
 <img src="imgs/asset-actor-frames-pointnclick.png" class="diagram-image diagram-schematic">
 
-A point&click player character asset requires at lease 2 animation sequences, totaling 2 frames. This includes two frames representing the normal and clickable states of a user-controlled cursor respectively. More frames can be added as needed. The number of animations and frames required for non-player characters depends on specific requirements - for instance: using a single frame for static interactive objects, and multiple frames for objects with rich animations.
+A point&click player character asset requires at least 2 animation sequences, totaling 2 frames. This includes two frames representing the normal and clickable states of a user-controlled cursor respectively. More frames can be added as needed. The number of animations and frames required for non-player characters depends on specific requirements - for instance: using a single frame for static interactive objects, and multiple frames for objects with rich animations.
 
 Ensure the actor has properties like "8x16", "Size", and "Anchor" correctly set.
 

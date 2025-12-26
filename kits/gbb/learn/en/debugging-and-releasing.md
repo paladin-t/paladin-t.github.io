@@ -1,4 +1,4 @@
-# Point&Click Game
+# Debugging and Releasing
 
 [Prev]() [Next]()
 

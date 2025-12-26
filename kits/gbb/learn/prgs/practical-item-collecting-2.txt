@@ -2,15 +2,17 @@
 <info>
 {
   "title": "Practical: Item Collecting 2",
+  "kernel": "default",
   "cartridge_type": "classic|colored",
   "sram_type": "0",
   "has_rtc": false,
   "description": "",
   "author": "Tony",
   "genre": "Example",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "url": "",
   "icon": "iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABvUlEQVR4XmN88OPCfwYoWHFiAQM9QIRFAtwaFmTLkSVo6RCQR2F2gR2ALECKxRoKAViV33iwASyOTx5mJwslljeswO4AmMUwh6C7EiQPkgPZzUKNoF6z4hleY5DTFno0MzEMMKBKCIRESDE0RGzA6RV0X4OCHxQNoChkoXYAwNIFuoNwRQPVo4BQekD3MAu9kgByiEQ8QBREVA+BKxtOkeQnqoUArjIB5hpcZQJFDiAl/+MKlqFbDsDyMi6fESNPcVGMK14JxTuyo+FpgFDNRqvsCnYArHbCZgk+OWo4CiMXhBS0wc1dM6GK5uUUSdkQPZpwJTSYOL6GCUwOwwHovka2BD3RwWo09GCCRRvMwdgKKby1Ib5ogNVqyFUsMRUQLjVERwHM99garqD2AHIoXIE2DZBDD6QGmyOwOgClQpmAGsDoIYBsKLpD0KMG2VyqtglJySro6YjkyghWr8PqdGRfhUQEEHQLeosZqwPQXYnPVELVMLJeZLUYuQA55WOzEL3bBuPjSt3I6vHlkoGvjsHZagUD3mY1tsIIvbBBDjV09dgqOlB0gOyG947p1TOGORRWnjChCzDQASAXZgC/kuJ/1r4yqgAAAABJRU5ErkJggg==",
+  "run_on_open": false,
   "case_insensitive": true,
   "strict_on": true,
   "super_features": {
@@ -38,7 +40,7 @@
     }
   },
   "created": 1696413941,
-  "modified": 1764317082,
+  "modified": 1766644544,
   "order": 200,
   "preference": {
     "font_size": [
@@ -54,17 +56,17 @@
     "use_byte_matrix": false,
     "show_grids": true,
     "code_page_for_binded_routine": 0,
-    "code_line_for_binded_routine": "OnHitsCoin",
+    "code_line_for_binded_routine": 0,
     "map_ref": 0,
     "music_preview_stroke": true,
     "sfx_show_sound_shape": true,
-    "actor_apply_properties_to_all_tiles": true,
+    "actor_apply_properties_to_all_tiles": false,
     "actor_apply_properties_to_all_frames": true,
     "actor_uses_8x16_sprites": true,
     "scene_ref_map": 0,
     "scene_show_actors": true,
-    "scene_show_triggers": false,
-    "scene_show_properties": false,
+    "scene_show_triggers": true,
+    "scene_show_properties": true,
     "scene_show_attributes": false,
     "scene_use_gravity": false
   }
@@ -80,6 +82,12 @@
 {}
 </font>
 <code page="0">
+if not query IS_CGB then
+  print "This program runs on";
+  print "a colored console"
+  end
+end if
+
 auto update on  ' Turn on the auto update mode.
 join start Logo ' Show the logo and wait until it fades out.
 goto Title      ' Goto the title.
@@ -236,7 +244,8 @@ BlinkStart:
 GotoScene1:
   ' Goto scene 1.
   gosub FadeOut
-  goto Scene1
+  start Scene1
+  end
 
 </code>
 <code page="3">

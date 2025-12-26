@@ -4,12 +4,12 @@
 
 Our game is ultimately compiled into a User Program and runs on top of a layer of software abstraction. This runtime layer is commonly referred to as the "kernel", and its responsibilities are almost identical to those of a Virtual Machine or an embedded Real-Time Operating System (RTOS). In this section, we will examine this layer from the perspective of an OS.
 
-The kernel came along with binary distributions is precompiled from its C/Assembly source code. The GB BASIC compiler compiles BASIC code into GBBVM instructions, which are then linked with this precompiled kernel to form the final ROM. In future versions, it will be possible to modify and precompile your own kernel to replace the default version, or to install and use kernels modified by others, allowing for customization or addition of features beyond the default feature set.
+The kernels came along with binary distributions are precompiled from their C/Assembly source code. The GB BASIC compiler compiles BASIC code into GBBVM instructions, which are then linked with these precompiled kernels to form final ROMs. Further more, it is also possible to modify and precompile your own kernel to replace the default one, or to install and use kernels modified by others, allowing for customization or addition of features beyond the default feature set.
 
 <div class="content-highlight" style="min-height: 48px;">
   <img src="imgs/logo-nokbd.png" class="logo-tip">
   <span class="content-text">
-    <strong>See also</strong>: <a href="page-not-found.html" class="nav-link">Creating a Custom Kernel</a>.
+    <strong>See also</strong>: <a href="compiler-and-kernel.html" class="nav-link">Compiler and Kernel</a>, and <a href="creating-a-custom-kernel.html" class="nav-link">Creating a Custom Kernel</a>.
   </span>
 </div>
 

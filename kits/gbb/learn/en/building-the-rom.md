@@ -3,5 +3,3 @@
 [Prev]() [Next]()
 
 // TODO
-
-<!-- gem -->

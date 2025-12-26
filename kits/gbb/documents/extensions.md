@@ -215,28 +215,28 @@ The "Feature flag" can be a value combined by the following masks.
 
 ### RAM Map
 
-| Address | End    | Length (bytes) | Name   | Description                    | Access     |
-|---------|--------|----------------|--------|--------------------------------|------------|
-| 0xFEA0  | -      | 1              | `EXTF` | Extension status               | Read-only  |
-| 0xFEA1  | -      | 1              | `PLTF` | Platform flags                 | Read-only  |
-| 0xFEA2  | -      | 1              | -      | Reserved                       | -          |
-| 0xFEA3  | -      | 1              | -      | Reserved                       | -          |
-| 0xFEA4  | -      | 1              | `TCHX` | Touch x                        | Read-only  |
-| 0xFEA5  | -      | 1              | `TCHY` | Touch y                        | Read-only  |
-| 0xFEA6  | -      | 1              | `TCHF` | Touch pressed status           | Read-only  |
-| 0xFEA7  | -      | 1              | -      | Reserved                       | -          |
-| 0xFEA8  | -      | 1              | `KEYM` | Key modifier flags             | Read-only  |
-| 0xFEA9  | -      | 1              | `KEYC` | First valid key code in buffer | Read/write |
-| 0xFEAA  | -      | 1              | -      | Reserved                       | -          |
-| 0xFEAB  | -      | 1              | -      | Reserved                       | -          |
-| 0xFEAC  | -      | 1              | `STMF` | Streaming status               | Read/write |
-| 0xFEAD  | -      | 1              | `STMB` | Streaming byte                 | Read/write |
-| 0xFEAE  | -      | 1              | -      | Reserved                       | -          |
-| 0xFEAF  | -      | 1              | `TRSF` | Transfer status                | Read/write |
-| 0xFEB0  | 0xFEEF | 64             | `TRSC` | Transfer buffer                | Read/write |
-| 0xFEF0  | 0xFEFF | 16             | -      | Reserved                       | -          |
+| Address | End    | Length (bytes) | Initial value         | Name   | Description                    | Access     |
+|---------|--------|----------------|-----------------------|--------|--------------------------------|------------|
+| 0xFEA0  | -      | 1              | Determined at runtime | `EXTF` | Extension status               | Read-only  |
+| 0xFEA1  | -      | 1              | Determined at runtime | `PLTF` | Platform flags                 | Read-only  |
+| 0xFEA2  | -      | 1              | -                     | -      | Reserved                       | -          |
+| 0xFEA3  | -      | 1              | -                     | -      | Reserved                       | -          |
+| 0xFEA4  | -      | 1              | 0x00                  | `TCHX` | Touch x                        | Read-only  |
+| 0xFEA5  | -      | 1              | 0x00                  | `TCHY` | Touch y                        | Read-only  |
+| 0xFEA6  | -      | 1              | 0x00                  | `TCHF` | Touch pressed status           | Read-only  |
+| 0xFEA7  | -      | 1              | -                     | -      | Reserved                       | -          |
+| 0xFEA8  | -      | 1              | 0x00                  | `KEYM` | Key modifier flags             | Read-only  |
+| 0xFEA9  | -      | 1              | 0x00                  | `KEYC` | First valid key code in buffer | Read/write |
+| 0xFEAA  | -      | 1              | -                     | -      | Reserved                       | -          |
+| 0xFEAB  | -      | 1              | -                     | -      | Reserved                       | -          |
+| 0xFEAC  | -      | 1              | 0x00                  | `STMF` | Streaming status               | Read/write |
+| 0xFEAD  | -      | 1              | 0x00                  | `STMB` | Streaming byte                 | Read/write |
+| 0xFEAE  | -      | 1              | -                     | -      | Reserved                       | -          |
+| 0xFEAF  | -      | 1              | 0x00                  | `TRSF` | Transfer status                | Read/write |
+| 0xFEB0  | 0xFEEF | 64             | 0x00                  | `TRSC` | Transfer buffer                | Read/write |
+| 0xFEF0  | 0xFEFF | 16             | -                     | -      | Reserved                       | -          |
 
-The `EXTF` can be one of the following codes; a device writes to this register with the specific value determined by the device itself after booting.
+The `EXTF` can be one of the following codes; a device writes to this register with the specific value determined by the device itself after booting. When detecting a device's extension capabilities, the ROM reads `EXTF` and `TRSF`. If the former is set to a valid extension value and the latter is 0x00, the device is determined to support extension functions. Please ensure all extension bytes are set to the correct initial values.
 
 | Extension status | Description            |
 |------------------|------------------------|

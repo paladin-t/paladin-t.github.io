@@ -48,7 +48,7 @@ url://prgs/character-player-2.txt
 
 ### Aligning to Tile
 
-Platformer and point&click type controllers allow characters to move freely within scenes, while the top-down type is special, it supports aligning to tiles in either 8x8 or 16x16 pixels. Although this alignment may be interrupted by collisions between actors or launching projectiles, the character will attempt to realign when moving again.
+Platformer, point&click, and scroll shooting type controllers allow characters to move freely along one or two coordinate axes within scenes, while the top-down type is special, it supports aligning to tiles in either 8x8 or 16x16 pixels. Although this alignment may be interrupted by collisions between actors or launching projectiles, the character will attempt to realign when moving again.
 
 Try the program below. Move slowly and observe how the character aligns to tiles.
 
@@ -85,6 +85,12 @@ url://prgs/character-player-4.txt
 <!-- prg
 !edit, run, title="Camera following for top-down controller", style=""
 url://prgs/character-player-5.txt
+-->
+
+![edit, run, style="width: 640px;"](imgs/editor-scene-definition-camera-dead-zone-for-scroll-shooting.png)
+<!-- prg
+!edit, run, title="Camera following for scroll shooting controller", style=""
+url://prgs/character-player-6.txt
 -->
 
 <div class="content-gray" style="min-height: 48px;">
@@ -137,7 +143,7 @@ SetupPlayer:
 ```
 <!-- prg
 !edit, run, title="Projectile as bullet", style=""
-url://prgs/character-player-6.txt
+url://prgs/character-player-7.txt
 -->
 
 ```basic
@@ -189,7 +195,7 @@ SetupPlayer:
 ```
 <!-- prg
 !edit, run, title="Projectile as sword", style=""
-url://prgs/character-player-7.txt
+url://prgs/character-player-8.txt
 -->
 
 <div class="content-highlight" style="min-height: 48px;">
@@ -218,29 +224,29 @@ In GB BASIC, whether collision events are triggered, along with their conditions
 
 When two actors collide, if they meet the criteria and have binded event callbacks, the callbacks for both actors will be invoked. Besides event triggering, the colliding actors might also stop moving. Details are as follows.
 
-| Collision reactions           | Platformer player controller | Top-down player controller | Point&Click player controller |
-|-------------------------------|------------------------------|----------------------------|-------------------------------|
-| Fires `on hits` automatically | Same group                   | Same group                 |                               |
-| Fires `on hits` on action     | Different group              | Different group            | Any group (non-zero)          |
-| Stops on collision            |                              | Same group                 |                               |
+| Collision reactions           | Platformer player controller | Top-down player controller | Point&Click player controller | Scrol Shooting player controller |
+|-------------------------------|------------------------------|----------------------------|-------------------------------|----------------------------------|
+| Fires `on hits` automatically | Same group                   | Same group                 |                               | Same group                       |
+| Fires `on hits` on action     | Different group              | Different group            | Any group (non-zero)          | Different group                  |
+| Stops on collision            |                              | Same group                 |                               |                                  |
 
 **Between actor and projectile**
 
 When an actor and a projectile collide, the event callback binded to the actor is invoked. The projectile itself does not require and cannot have an event callback binded to it. For any built-in controller, it only interacts with projectiles that share at least one collision group bit set to `1`.
 
-| Collision reactions           | Platformer player controller | Top-down player controller | Point&Click player controller |
-|-------------------------------|------------------------------|----------------------------|-------------------------------|
-| Fires `on hits` automatically | Same group                   | Same group                 | Same group                    |
+| Collision reactions           | Platformer player controller | Top-down player controller | Point&Click player controller | Scrol Shooting player controller |
+|-------------------------------|------------------------------|----------------------------|-------------------------------|----------------------------------|
+| Fires `on hits` automatically | Same group                   | Same group                 | Same group                    | Same group                       |
 
 **Between actor and trigger**
 
 When an actor and a trigger collide, the event callback binded to the trigger is invoked. Since triggers do not have group assignments, they can interact with any qualifying actor. Trigger collision callbacks are divided into `enter` and `leave` events.
 
-| Collision reactions                   | Platformer player controller | Top-down player controller | Point&Click player controller |
-|---------------------------------------|------------------------------|----------------------------|-------------------------------|
-| Fires `on hits` `enter` automatically | Any                          | Any                        |                               |
-| Fires `on hits` `leave` automatically | Any                          | Any                        |                               |
-| Fires `on hits` `enter` on action     |                              |                            | Any                           |
+| Collision reactions                   | Platformer player controller | Top-down player controller | Point&Click player controller | Scrol Shooting player controller |
+|---------------------------------------|------------------------------|----------------------------|-------------------------------|----------------------------------|
+| Fires `on hits` `enter` automatically | Any                          | Any                        |                               | Any                              |
+| Fires `on hits` `leave` automatically | Any                          | Any                        |                               | Any                              |
+| Fires `on hits` `enter` on action     |                              |                            | Any                           |                                  |
 
 For instance, collision groups for players, player projectiles, enemies, and NPCs can be assigned as follows:
 
@@ -248,7 +254,9 @@ For instance, collision groups for players, player projectiles, enemies, and NPC
 * Player's projectiles: `0b00000010` (inverse of player's collision group to avoid colliding with the owner player)
 * Enemies: `0b00000011` (can collide with players or their projectiles)
 * NPCs
-  * Platformer or Top-down: `0b00000000` (set to all zeros, only responds to "action")
+  * Platformer: `0b00000000` (set to all zeros, only responds to "action")
+  * Top-down: `0b00000000` (set to all zeros, only responds to "action")
+  * Scroll Shooting: `0b00000000` (set to all zeros, only responds to "action")
   * Point&Click: `0b00000001` (must be non-zero to respond to "action")
 
 You can design your own collision group convention for actual needs.
@@ -258,6 +266,6 @@ You can design your own collision group convention for actual needs.
 <div class="content-highlight" style="min-height: 48px;">
   <img src="imgs/logo-nokbd.png" class="logo-tip">
   <span class="content-text">
-    <strong>See also</strong>: <a href="platformer-controller.html" class="nav-link">Platformer Controller</a>, <a href="top-down-controller.html" class="nav-link">Top-down Controller</a>, and <a href="point-and-click-controller.html" class="nav-link">Point&Click Controller</a>.
+    <strong>See also</strong>: <a href="platformer-controller.html" class="nav-link">Platformer Controller</a>, <a href="top-down-controller.html" class="nav-link">Top-down Controller</a>, <a href="point-and-click-controller.html" class="nav-link">Point&Click Controller</a>, and <a href="scroll-shooting-controller.html" class="nav-link">Scroll Shooting Controller</a>.
   </span>
 </div>

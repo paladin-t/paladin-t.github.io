@@ -134,7 +134,8 @@ BlinkStart:
 GotoScene1:
   ' Goto scene 1.
   gosub FadeOut
-  goto Scene1
+  start Scene1
+  end
 ```
 
 ## Common Routines

@@ -50,6 +50,8 @@ Expand the definition section in the scene editor to define the definition data 
 | `CAMERA_DEADZONE_X_PROP` | Integer (8-bit unsigned) | Camera deadzone in x-axis                                        | Read/write |
 | `CAMERA_DEADZONE_Y_PROP` | Integer (8-bit unsigned) | Camera deadzone in y-axis                                        | Read/write |
 
+<!-- Extra kernels can provide more scene properties. -->
+
 | Blocking properties   | Value type               | Note                                                        | Access    |
 |-----------------------|--------------------------|-------------------------------------------------------------|-----------|
 | `BLOCKING_PROP`       | Integer (8-bit unsigned) | Get full blocking information at the specific position      | Read-only |

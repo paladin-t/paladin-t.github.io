@@ -11,6 +11,8 @@ The drawing elements of window layer consist of hardware map and its associated 
   * `x`: the x position in pixels, actual displayed location will be `x - 7`
   * `y`: the y position in pixels
 
+The window layer is visible (if "on") when both coordinates are in the ranges `x`=0 to 166, `x`=0 to 143 respectively. Values `x`=7, `y`=0 place the window at the top left of the screen, completely covering the background.
+
 * `fill window(first, n) = read|data ...|"{builtin}"|#pg|#pg:n|"{name}"`: fills the window area in VRAM; this is equivalent to a `fill tile` operation
   * `first`: index of the first map tile to write to
   * `n`: the tile count

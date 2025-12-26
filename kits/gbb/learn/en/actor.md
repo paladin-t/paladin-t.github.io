@@ -302,6 +302,23 @@ The [Event Binding](event-binding.html) section will provide a detailed introduc
 | `LEFT_DIR`  | Leftward direction  |
 | `NONE_DIR`  | None direction      |
 
+The base value for movement speed controlled by the `MOVE_SPEED_PROP` property is 16, that is, dividing the property value by 16 gives the speed multiplier. As shown in the table below.
+
+| Property value | Multiplier | Editor display value |
+|----------------|------------|----------------------|
+| 0              | 0.0        | x0                   |
+| 1              | 0.0625     | x0.06                |
+| 2              | 0.125      | x0.13                |
+| ...            | ...        | ...                  |
+| 15             | 0.9375     | x0.94                |
+| 16             | 1.0        | x1                   |
+| 17             | 1.0625     | x1.06                |
+| ...            | ...        | ...                  |
+| 254            | 15.875     | x15.88               |
+| 255            | 15.9375    | x15.94               |
+
+<!-- Extra kernels can provide more actor properties. -->
+
 * `=len actor(#pg|"{name}")`: gets the total frame count of the specific actor
   * objectives:
     * `#pg`: actor page index
@@ -375,18 +392,18 @@ The [Event Binding](event-binding.html) section will provide a detailed introduc
   * `id`: the actor ID
   * `anim`: the animation index, with range of values from 0 to 7; the meaning of the values depends on the actor's controller, see the following "Actor animations" constants
 
-| Actor animations | Platformer controller                     | Topdown controller                        | Point&Click controller |
-|------------------|-------------------------------------------|-------------------------------------------|------------------------|
-| 0                | Down idle                                 | Down idle                                 | Normal                 |
-| 1                | Right idle                                | Right idle                                | Hovering               |
-| 2                | Up idle                                   | Up idle                                   |                        |
-| 3                | Left idle                                 | Left idle                                 |                        |
-| 4                | Down walk                                 | Down walk                                 |                        |
-| 5                | Right walk                                | Right walk                                |                        |
-| 6                | Up walk                                   | Up walk                                   |                        |
-| 7                | Left walk                                 | Left walk                                 |                        |
-| 16               | Turn to idle without changing direction   | Turn to idle without changing direction   |                        |
-| 17               | Turn to moving without changing direction | Turn to moving without changing direction |                        |
+| Actor animations | Platformer controller                     | Top-down controller                       | Point&Click controller | Scroll Shooting controller                |
+|------------------|-------------------------------------------|-------------------------------------------|------------------------|-------------------------------------------|
+| 0                | Downward idle                             | Downward idle                             | Normal                 | Downward idle                             |
+| 1                | Rightward idle                            | Rightward idle                            | Hovering               | Rightward idle                            |
+| 2                | Upward idle                               | Upward idle                               |                        | Upward idle                               |
+| 3                | Leftward idle                             | Leftward idle                             |                        | Leftward idle                             |
+| 4                | Move down                                 | Move down                                 |                        | Move down                                 |
+| 5                | Move right                                | Move right                                |                        | Move right                                |
+| 6                | Move up                                   | Move up                                   |                        | Move up                                   |
+| 7                | Move left                                 | Move left                                 |                        | Move left                                 |
+| 16               | Turn to idle without changing direction   | Turn to idle without changing direction   |                        | Turn to idle without changing direction   |
+| 17               | Turn to moving without changing direction | Turn to moving without changing direction |                        | Turn to moving without changing direction |
 
 ### Threading of Actors
 

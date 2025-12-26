@@ -128,18 +128,21 @@ control actor a, TOPDOWN_PLAYER_BEHAVIOUR
 
 The following actor controllers are appliable to an actor to indicate its behaviours and interactions with other objects or a scene.
 
-| Actor behaviours                          | Note                                                                                                  |
-|-------------------------------------------|-------------------------------------------------------------------------------------------------------|
-| `NONE_BEHAVIOUR`                          | An actor with this value behaves nothing                                                              |
-| `PLATFORMER_PLAYER_BEHAVIOUR`             | An actor with this value behaves as a player controlled platformer character                          |
-| `PLATFORMER_MOVE_BEHAVIOUR`               | An actor with this value behaves as a moving platformer character, not required to `move actor`       |
-| `PLATFORMER_IDLE_BEHAVIOUR`               | An actor with this value behaves as an idle platformer character, not required for a non-moving actor |
-| `TOPDOWN_PLAYER_BEHAVIOUR`                | An actor with this value behaves as a player controlled top-down character                            |
-| `TOPDOWN_MOVE_BEHAVIOUR`                  | An actor with this value behaves as a moving top-down character, not required to `move actor`         |
-| `TOPDOWN_IDLE_BEHAVIOUR`                  | An actor with this value behaves as an idle top-down character, not required for a non-moving actor   |
-| `POINTNCLICK_PLAYER_BEHAVIOUR`            | An actor with this value behaves as a player controlled point&click character                         |
-| `POINTNCLICK_PLAYER_WITH_MOUSE_BEHAVIOUR` | An actor with this value behaves as a player controlled point&click character with mouse support      |
-| `POINTNCLICK_PLAYER_WITH_TOUCH_BEHAVIOUR` | An actor with this value behaves as a player controlled point&click character with touch support      |
+| Actor behaviours                          | Note                                                                                                       | Kernel          |
+|-------------------------------------------|------------------------------------------------------------------------------------------------------------|-----------------|
+| `NONE_BEHAVIOUR`                          | An actor with this value behaves nothing                                                                   | Default         |
+| `PLATFORMER_PLAYER_BEHAVIOUR`             | An actor with this value behaves as a player controlled platformer character                               | Default         |
+| `PLATFORMER_MOVE_BEHAVIOUR`               | An actor with this value behaves as a moving platformer character, not required to `move actor`            | Default         |
+| `PLATFORMER_IDLE_BEHAVIOUR`               | An actor with this value behaves as an idle platformer character, not required for a non-moving actor      | Default         |
+| `TOPDOWN_PLAYER_BEHAVIOUR`                | An actor with this value behaves as a player controlled top-down character                                 | Default         |
+| `TOPDOWN_MOVE_BEHAVIOUR`                  | An actor with this value behaves as a moving top-down character, not required to `move actor`              | Default         |
+| `TOPDOWN_IDLE_BEHAVIOUR`                  | An actor with this value behaves as an idle top-down character, not required for a non-moving actor        | Default         |
+| `POINTNCLICK_PLAYER_BEHAVIOUR`            | An actor with this value behaves as a player controlled point&click character                              | Default         |
+| `POINTNCLICK_PLAYER_WITH_MOUSE_BEHAVIOUR` | An actor with this value behaves as a player controlled point&click character with mouse support           | Default         |
+| `POINTNCLICK_PLAYER_WITH_TOUCH_BEHAVIOUR` | An actor with this value behaves as a player controlled point&click character with touch support           | Default         |
+| `SHOOTING_PLAYER_BEHAVIOUR`               | An actor with this value behaves as a player controlled scroll shooting character                          | Scroll Shooting |
+| `SHOOTING_MOVE_BEHAVIOUR`                 | An actor with this value behaves as a moving scroll shooting character, not required to `move actor`       | Scroll Shooting |
+| `SHOOTING_IDLE_BEHAVIOUR`                 | An actor with this value behaves as an idle scroll shooting character, not required for a non-moving actor | Scroll Shooting |
 
 Both `POINTNCLICK_PLAYER_WITH_MOUSE_BEHAVIOUR` and `POINTNCLICK_PLAYER_WITH_TOUCH_BEHAVIOUR` controllers support obtaining user input from pointing devices, and will fall back to `POINTNCLICK_PLAYER_BEHAVIOUR` if no such device is available. The difference between the two lies in the fact that the "mouse"-driven behaviour moves a small distance according to the movement speed towards the input point each time, while the "touch"-driven behaviour moves immediately to the input point location.
 
@@ -153,18 +156,20 @@ The following behaviour options can be used in conjunction with an actor behavio
 
 Behaviour options can be set for an actor by performing a bitwise OR operation with their compatible actor behaviour.
 
+The "Default Kernel" distributed with GB BASIC includes the None, Platformer, Top-down, and Point&Click controllers. Additionally, the "Scroll Shooting" kernel includes the Scroll Shooting controllers.
+
 <!-- Extra kernels can provide more controllers. -->
 
 <div class="content-gray" style="min-height: 48px;">
   <img src="imgs/logo-nokbd.png" class="logo-tip">
   <span class="content-text">
-    The next three subsections will respectively introduce several built-in controllers: <a href="platformer-controller.html" class="nav-link">Platformer Controller</a>, <a href="top-down-controller.html" class="nav-link">Top-down Controller</a>, and <a href="point-and-click-controller.html" class="nav-link">Point&Click Controller</a>.
+    The next four subsections will respectively introduce several built-in controllers: <a href="platformer-controller.html" class="nav-link">Platformer Controller</a>, <a href="top-down-controller.html" class="nav-link">Top-down Controller</a>, <a href="point-and-click-controller.html" class="nav-link">Point&Click Controller</a>, and <a href="scroll-shooting-controller.html" class="nav-link">Scroll Shooting Controller</a>.
   </span>
 </div>
 
 <div class="content-highlight" style="min-height: 48px;">
   <img src="imgs/logo-nokbd.png" class="logo-tip">
   <span class="content-text">
-    <strong>See also</strong>: <a href="event-binding.html" class="nav-link">Event Binding</a>, <a href="page-not-found.html" class="nav-link">Practical Projects: Three Unique Games</a>, and <a href="page-not-found.html" class="nav-link">Compiler and Kernel</a>.
+    <strong>See also</strong>: <a href="event-binding.html" class="nav-link">Event Binding</a>, <a href="page-not-found.html" class="nav-link">Practical Projects: Four Unique Games</a>, and <a href="compiler-and-kernel.html" class="nav-link">Compiler and Kernel</a>.
   </span>
 </div>
