@@ -7,6 +7,6 @@ The fantasy console has a variety of input devices, including an eight buttons g
 <div class="content-highlight" style="min-height: 48px;">
   <img src="imgs/logo-nokbd.png" class="logo-tip">
   <span class="content-text">
-    <strong>See also</strong>: <a href="page-not-found.html" class="nav-link">User Input</a>.
+    <strong>See also</strong>: <a href="user-input.html" class="nav-link">User Input</a>.
   </span>
 </div>

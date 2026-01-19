@@ -7,9 +7,11 @@ Comments will not be compiled into final ROM, they are sidenotes that explain a 
 ```basic
 ' Comment.
 REM Comment after REMark.
+REM 注释里可以写 Unicode。
 ```
 <!-- prg
 !edit, run, title="Comments", style=""
 ' Comment.
 REM Comment after REMark.
+REM 注释里可以写 Unicode。
 -->

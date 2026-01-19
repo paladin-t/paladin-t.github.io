@@ -2,6 +2,8 @@
 
 [Prev]() [Next]()
 
+## API
+
 * `=option(what, val)`: sets a device setting
   * `what`: the setting type; can be one of the following "Option keys" constants
   * `val`: the option value, with data type determined by "Option keys"
@@ -48,4 +50,3 @@ For `VRAM_USAGE`. This feature is for colored device only.
 | `VRAM_TILES`      | Select regular map and normal tiles       |
 | `VRAM_ATTRIBUTES` | Select map attributes and extra tile bank |
 
-// TODO

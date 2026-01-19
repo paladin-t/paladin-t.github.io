@@ -35,7 +35,7 @@ The `VRAM_BANK` and `VRAM_USAGE` options are aliases for the same operation. The
 <div class="content-highlight" style="min-height: 48px;">
   <img src="imgs/logo-nokbd.png" class="logo-tip">
   <span class="content-text">
-    <strong>See also</strong>: <a href="page-not-found.html" class="nav-link">Device</a> for more about <code>option</code>.
+    <strong>See also</strong>: <a href="device.html" class="nav-link">Device</a> for more about <code>option</code>.
   </span>
 </div>
 
@@ -67,7 +67,7 @@ url://prgs/vram-banking-1.txt
 <div class="content-highlight" style="min-height: 48px;">
   <img src="imgs/logo-nokbd.png" class="logo-tip">
   <span class="content-text">
-    <strong>See also</strong>: <a href="page-not-found.html" class="nav-link">Tiles</a>, <a href="page-not-found.html" class="nav-link">Map</a>, and <a href="page-not-found.html" class="nav-link">Window</a>.
+    <strong>See also</strong>: <a href="tiles.html" class="nav-link">Tiles</a>, <a href="map.html" class="nav-link">Map</a>, and <a href="window.html" class="nav-link">Window</a>.
   </span>
 </div>
 
@@ -109,7 +109,7 @@ url://prgs/vram-banking-3.txt
 <div class="content-highlight" style="min-height: 48px;">
   <img src="imgs/logo-nokbd.png" class="logo-tip">
   <span class="content-text">
-    <strong>See also</strong>: <a href="page-not-found.html" class="nav-link">Tiles</a>, and <a href="page-not-found.html" class="nav-link">Sprite</a>.
+    <strong>See also</strong>: <a href="tiles.html" class="nav-link">Tiles</a>, and <a href="sprite.html" class="nav-link">Sprite</a>.
   </span>
 </div>
 
@@ -366,13 +366,13 @@ url://prgs/vram-banking-9.txt
 <div class="content-highlight" style="min-height: 48px;">
   <img src="imgs/logo-nokbd.png" class="logo-tip">
   <span class="content-text">
-    <strong>See also</strong>: <a href="page-not-found.html" class="nav-link">Tiles</a>, <a href="page-not-found.html" class="nav-link">Map</a>, and <a href="page-not-found.html" class="nav-link">Sprite</a>.
+    <strong>See also</strong>: <a href="tiles.html" class="nav-link">Tiles</a>, <a href="map.html" class="nav-link">Map</a>, and <a href="sprite.html" class="nav-link">Sprite</a>.
   </span>
 </div>
 
 <div class="content-highlight" style="min-height: 48px;">
   <img src="imgs/logo-nokbd.png" class="logo-tip">
   <span class="content-text">
-    <strong>See also</strong>: <a href="memory-map.html#vram-memory-map" class="nav-link">VRAM Memory Map</a>, and <a href="memory-map.html#cgb-features" class="nav-link">CGB Features</a>; <a href="page-not-found.html" class="nav-link">SGB Features</a>.
+    <strong>See also</strong>: <a href="memory-map.html#vram-memory-map" class="nav-link">VRAM Memory Map</a>, and <a href="memory-map.html#cgb-features" class="nav-link">CGB Features</a>; <a href="sgb-features.html" class="nav-link">SGB Features</a>.
   </span>
 </div>

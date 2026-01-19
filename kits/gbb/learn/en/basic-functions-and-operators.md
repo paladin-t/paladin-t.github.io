@@ -73,7 +73,6 @@ print "%d, %d, %d, %d, %d", rnd, rnd, rnd, rnd, rnd
 No matter when `randomize` is called, it incorporates the internal `SYS_TIME` and `DIV_REG` when initializing the random number generator. While the latter is influenced by user input. You can try calling `randomize` at a time when user input has already been received. Please try running the following code multiple times again.
 
 ```basic
-print "Press any key..."
 wait_for_input:
   if not btnu then ' Wait for user input.
     update

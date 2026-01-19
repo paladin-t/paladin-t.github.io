@@ -707,7 +707,7 @@ url://prgs/character-non-player-16.txt
 
 ## Talking with Dialogues
 
-Using [GUI](page-not-found.html) functionality, it is possible to create a dialogue system. This can be triggered by actor collisions, player actions, or other logic.
+Using [GUI](gui.html) functionality, it is possible to create a dialogue system. This can be triggered by actor collisions, player actions, or other logic.
 
 Try the program below.
 
@@ -769,6 +769,6 @@ url://prgs/character-non-player-17.txt
 <div class="content-highlight" style="min-height: 48px;">
   <img src="imgs/logo-nokbd.png" class="logo-tip">
   <span class="content-text">
-    <strong>See also</strong>: <a href="page-not-found.html" class="nav-link">GUI</a>.
+    <strong>See also</strong>: <a href="gui.html" class="nav-link">GUI</a>, <a href="label-and-dialog.html" class="nav-link">Label and Dialog</a>.
   </span>
 </div>

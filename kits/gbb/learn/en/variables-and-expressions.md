@@ -48,6 +48,8 @@ let a = 22
 let b = 7
 let c = a / b
 print "%d/%d=%d", a, b, c
+let 变量 = 42
+print "Unicode allowed %d", 变量
 ```
 <!-- prg
 !edit, run, title="Variables and expressions", style=""
@@ -55,4 +57,6 @@ let a = 22
 let b = 7
 let c = a / b
 print "%d/%d=%d", a, b, c
+let 变量 = 42
+print "Unicode allowed %d", 变量
 -->

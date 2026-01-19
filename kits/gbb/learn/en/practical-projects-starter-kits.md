@@ -19,11 +19,11 @@ Each pre-built starter kit can serve as an example or starting setup for a speci
 
 ## License
 
-Unless otherwise specified, all starter kits and examples are released as public domain.
+Unless otherwise specified, all starter kits and examples are released as public domain. Note that some assets used in the starter kits and examples are made by third-party authors, see the details in program, or the link below.
 
 <div class="content-highlight" style="min-height: 48px;">
   <img src="imgs/logo-nokbd.png" class="logo-tip">
   <span class="content-text">
-    <strong>See also</strong>: <a href="https://paladin-t.github.io/kits/gbb/about.html#license" class="nav-link">License</a>.
+    <strong>See also</strong>: <a href="https://paladin-t.github.io/kits/gbb/about.html#license" target="_blank" class="nav-link">License</a>.
   </span>
 </div>

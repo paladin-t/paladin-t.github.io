@@ -2,6 +2,8 @@
 
 [Prev]() [Next]()
 
+## API
+
 * `camera x, y`: puts the camera to the specific position that counts for putting maps and sprites
   * `x`: the x position in pixels
   * `y`: the y position in pixels

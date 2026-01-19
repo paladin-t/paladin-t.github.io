@@ -2,6 +2,10 @@
 
 [Prev]() [Next]()
 
+This section includes several functions that were implemented as native functions in the kernel.
+
+## API
+
 * `call func[, ...]`: calls the specific native function without return value
   * `func`: the native function to call, the name is case-sensitive; can be one of the following "Functions"
   * `...`: optional variadic arguments; numeric values separated by comma
@@ -9,6 +13,15 @@
   * `func`: the native function to call, the name is case-sensitive; can be one of the following "Functions"
   * `...`: optional variadic arguments; numeric values separated by comma
   * returns the return value of the native function
+
+Some native functions have corresponding short syntax forms that are semantically equivalent.
+
+<div class="content-highlight" style="min-height: 48px;">
+  <img src="imgs/logo-nokbd.png" class="logo-tip">
+  <span class="content-text">
+    If a short syntax is available, it is recommended to use it whenever possible.
+  </span>
+</div>
 
 | Functions                                                            | Short syntax              | Note                                                                                                           |
 |----------------------------------------------------------------------|---------------------------|----------------------------------------------------------------------------------------------------------------|
@@ -19,13 +32,13 @@
 | `call send_sgb_packet bank, addr, sz`                                | -                         | Sends a packet of bytes to SGB devices                                                                         |
 | `call set_sgb_border pb, paddr, psz, tb, taddr, tsz, mb, maddr, msz` | -                         | Sets border frame for SGB devices                                                                              |
 | `call error`                                                         | -                         | Raises an error                                                                                                |
-| `call camera_shake n, d`                                             | -                         | Shake camera for `n` frames with ["Camera shake directions"](#scene) specified by `d`                          |
+| `call camera_shake n, d`                                             | -                         | Shake camera for `n` frames with ["Camera shake directions"](camera.html) specified by `d`                     |
 
 <!-- Extra kernels can provide more native functions. -->
 
 <div class="content-highlight" style="min-height: 48px;">
   <img src="imgs/logo-nokbd.png" class="logo-tip">
   <span class="content-text">
-    <strong>See also</strong>: <a href="thread-operations.html" class="nav-link">Thread Operations</a>; <a href="page-not-found.html" class="nav-link">Memory Operations</a>; <a href="page-not-found.html" class="nav-link">Camera</a>; <a href="page-not-found.html" class="nav-link">SGB Features</a>.
+    <strong>See also</strong>: <a href="thread-operations.html" class="nav-link">Thread Operations</a>; <a href="memory-operations.html" class="nav-link">Memory Operations</a>; <a href="camera.html" class="nav-link">Camera</a>; <a href="sgb-features.html" class="nav-link">SGB Features</a>.
   </span>
 </div>

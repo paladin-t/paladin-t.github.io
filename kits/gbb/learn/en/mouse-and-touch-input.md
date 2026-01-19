@@ -4,6 +4,96 @@
 
 _The "touch" API family supports direct interaction with GB BASIC programs on the screen through pointing devices. The introduction of this extended feature stems from a thought of mine: what could we do if we were to reinterpret old handheld consoles from a modern perspective?_
 
+This section introduces mouse/touch input with primitive statements and callbacks.
+
+Try the following programs.
+
+```basic
+let x = 0
+let y = 0
+let p = 0
+
+loop:
+  ' Mouse click/touch with the `touch` statement.
+  ' Besides, use `touchd`, `touchu` for mouse down/up respectively,
+  p = touch x, y
+  if p then
+    print "%d@%d, %d", p, x, y
+  end if
+  update
+  goto loop
+```
+<!-- prg
+!edit, run, title="Touch primitives", style=""
+if not query IS_GBB then
+  print "Invalid device"
+  end
+end if
+
+print "Click somewhere..."
+
+let x = 0
+let y = 0
+let p = 0
+
+loop:
+  ' Mouse click/touch with the `touch` statement.
+  ' Besides, use `touchd`, `touchu` for mouse down/up respectively,
+  p = touch x, y
+  if p then
+    print "%d@%d, %d", p, x, y
+  end if
+  update
+  goto loop
+-->
+
+```basic
+' Mouse click/touch callback with the `on {touch/touchd/touchu} {goto/gosub/start}`.
+on touch start ontouch
+
+loop:
+  update
+  goto loop
+
+ontouch:
+  begin def
+    def x = stack2 ' These lines of stack references are allocated by the kernel for this type of callback.
+    def y = stack1
+    def p = stack0
+
+    print "%d@%d, %d", p, x, y
+    end
+  end def
+```
+<!-- prg
+!edit, run, title="Touch callback", style=""
+if not query IS_GBB then
+  print "Invalid device"
+  end
+end if
+
+print "Click somewhere..."
+
+' Mouse click/touch callback with the `on {touch/touchd/touchu} {goto/gosub/start}`.
+on touch start ontouch
+
+loop:
+  update
+  goto loop
+
+ontouch:
+  begin def
+    def x = stack2 ' These lines of stack references are allocated by the kernel for this type of callback.
+    def y = stack1
+    def p = stack0
+
+    print "%d@%d, %d", p, x, y
+    end
+  end def
+-->
+
+## API
+
 * `=touch()`: gets whether any touch pointer is being pressed
   * returns non-zero for the touch/mouse button type if any touch pointer is being pressed, otherwise `0x00`; can be one of the following "Mouse buttons" constants
 * `=touch(x, y)`: gets whether any touch pointer is being pressed
@@ -62,8 +152,11 @@ A touch callback is a routine that takes three parameters respectively for x, y 
 
 All touch callbacks by `goto`, `gosub` and `start` work with the manual update mode, and only callbacks by `start` work with the auto update mode.
 
-// TODO
-
-// TODO: Extension feature.
+<div class="content-highlight" style="min-height: 48px;">
+  <img src="imgs/logo-nokbd.png" class="logo-tip">
+  <span class="content-text">
+    <strong>See also</strong>: <a href="extension-features.html" class="nav-link">Extension Features</a>.
+  </span>
+</div>
 
 <!-- gem -->

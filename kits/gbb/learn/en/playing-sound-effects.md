@@ -21,8 +21,22 @@
 
 * `beep`: plays a simple beep sound
 
-The SFX editor can produce SFX assets, press **Ctrl+8/Cmd+8** in edit mode to switch to the SFX tab. GB BASIC allows importing external formats as SFX, and offers a number of pre-made in library.
+Try the following example.
 
-// TODO
+```basic
+sound on
+print "A to play"
+
+loop:
+  if btnu(A_BTN) then
+    sound #0
+  end if
+  update
+  goto loop
+```
+<!-- prg
+!edit, run, title="Playing SFX", style=""
+url://prgs/sfx-1.txt
+-->
 
 <!-- gem -->

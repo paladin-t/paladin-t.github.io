@@ -54,7 +54,7 @@ In collision handlers, it's often necessary to distinguish between different typ
 <div class="content-highlight" style="min-height: 48px;">
   <img src="imgs/logo-nokbd.png" class="logo-tip">
   <span class="content-text">
-    <strong>See also</strong>: <a href="actor-behaviours.html" class="nav-link">Actor Behaviours</a>, and <a href="page-not-found.html" class="nav-link">Hits</a>.
+    <strong>See also</strong>: <a href="actor-behaviours.html" class="nav-link">Actor Behaviours</a>, and <a href="hits.html" class="nav-link">Hits</a>.
   </span>
 </div>
 

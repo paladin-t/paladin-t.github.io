@@ -14,8 +14,8 @@
 
 ## About This Tutorial Series
 
-<div class="content-warn">
-  <em>This tutorial series is currently still a draft and is being written.</em>
+<div class="content-highlight">
+  <em>This tutorial series reflects information related to the latest version of GB BASIC.</em>
 </div>
 
 GB BASIC has a [Reference Manual](https://paladin-t.github.io/kits/gbb/manual.html) that details its syntax and API, which is primarily for handy reference and lookup. This tutorial series aims to provide more beginner-friendly and intuitive guides to help newcomers get started quickly with GB BASIC, and will also cover some advanced features.
@@ -37,7 +37,7 @@ You don't have to read these tutorials word-for-word; you can pick and choose th
 
 In addition, see the following highlighted links for must-reads.
 
-<!-- // TODO: Suggested Learning Roadmap and Milestones -->
+<!-- Suggested Learning Roadmap and Milestones -->
 
 * Data Types and Memory Stack
   * [Stack Operations](stack-operations.html)
@@ -65,11 +65,11 @@ In addition, see the following highlighted links for must-reads.
   * [Making a Non-Player Character](making-a-non-player-character.html)
   * [Making a Cutscene](making-a-cutscene.html)
 * Low-Level Features
-  * [Tiles](page-not-found.html)
-  * [Map](page-not-found.html)
-  * [Sprite](page-not-found.html)
+  * [Tiles](tiles.html)
+  * [Map](map.html)
+  * [Sprite](sprite.html)
 * Debugging and Releasing
-  * [Debugging Techniques](page-not-found.html)
+  * [Debugging Techniques](debugging-techniques.html)
 
 ### Translation
 

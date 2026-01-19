@@ -79,6 +79,6 @@ Switch to the "Graphics" layer in the map editor to paint the display layer of t
 <div class="content-highlight" style="min-height: 48px;">
   <img src="imgs/logo-nokbd.png" class="logo-tip">
   <span class="content-text">
-    <strong>See also</strong>: <a href="page-not-found.html" class="nav-link">Map</a> for layers defined in map assets; <a href="display-and-screen-modes.html" class="nav-link">Display and Screen Modes</a> for layers in the hardware context; and <a href="page-not-found.html" class="nav-link">SGB Features</a> for extended border supported by SGB models.
+    <strong>See also</strong>: <a href="map.html" class="nav-link">Map</a> for layers defined in map assets; <a href="display-and-screen-modes.html" class="nav-link">Display and Screen Modes</a> for layers in the hardware context; and <a href="sgb-features.html" class="nav-link">SGB Features</a> for extended border supported by SGB models.
   </span>
 </div>

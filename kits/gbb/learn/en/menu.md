@@ -2,6 +2,96 @@
 
 [Prev]() [Next]()
 
+## Adding a <code>menu</code> Widget
+
+The menu widget is an area that can hold multiple lines of text, where each line represents a menu item. The player can select a menu item and confirm the interaction. The menu triggers `ENTER`, `LEAVE`, `CHANGE`, and `CONFIRM` events and calls a user callback.
+
+Try the following example.
+
+```basic
+window on
+window 7, 111
+def menu(2, 0, 16, 4, 1) = WINDOW_LAYER, 2, 2 ' Menu background.
+fill tile(1, 64) = #0                         ' Fill the menu background with border.
+
+sprite on
+fill sprite(0, 1) = #1
+def sprite(0) = 0                             ' The cursor.
+sprite 0, 14, 133
+
+fill tile(65, 2) = #2
+set map(1, 0) = 65                            ' The cursor position.
+
+gosub LoadMainMenu
+
+auto update on                                ' Turn on the auto update mode,
+end                                           ' and let the runtime take over.
+
+LoadMainMenu:
+  menu nothing
+  menu #0, "To sub menu 1", "To sub menu 2"
+  on menu() start OnMainMenu
+  return
+
+LoadMenu1:
+  menu nothing
+  menu #0, "To sub menu 2", "To main menu"
+  on menu() start OnMenu1
+  return
+
+LoadMenu2:
+  ...
+
+OnMainMenu:
+  begin def
+    def index = stack1                        ' These lines of stack references are allocated by the kernel for this type of callback.
+    def event = stack0
+
+    if event = ENTER then
+      shell "^Hand"
+    else if event = LEAVE then
+      shell "^Pointer"
+    end if
+    set map(1, 0) = 65 + index
+    let y = index * 13 + 133
+    sprite 0, 14, y
+    if event = CONFIRM then
+      if index = 0 then
+        gosub LoadMenu1
+      else ' if index = 1 then
+        gosub LoadMenu2
+      end if
+    end if
+    end
+  end def
+
+OnMenu1:
+  ...
+
+OnMenu2:
+  ...
+```
+<!-- prg
+!edit, run, title="Using <code>menu</code> widget", style=""
+url://prgs/menu-1.txt
+-->
+
+<div class="content-highlight" style="min-height: 48px;">
+  <img src="imgs/logo-nokbd.png" class="logo-tip">
+  <span class="content-text">
+    The <code>def menu</code> operation clears the target menu area, while the <code>menu</code> operation overlays the output text onto the existing content in VRAM.
+  </span>
+</div>
+
+<div class="content-highlight" style="min-height: 48px;">
+  <img src="imgs/logo-nokbd.png" class="logo-tip">
+  <span class="content-text">
+    <strong>See also</strong>: <a href="output.html" class="nav-link">Output</a> escapes.
+  </span>
+</div>
+
+## API
+
 * `def menu(x, y, w, h, base_tile = 0) = layer, margin_x = 0, margin_y = 0`: defines the menu area in VRAM and enables blit context, this operation also clears the target area
   * `x`: the offset in x-axis in tiles
   * `y`: the offset in y-axis in tiles
@@ -42,4 +132,9 @@ A menu callback is a routine that takes two parameters for the current menu item
 | `CHANGE`  | Occurs when the active menu item has been changed   |
 | `CONFIRM` | Occurs when the active menu item has been confirmed |
 
-// TODO
+<div class="content-highlight" style="min-height: 48px;">
+  <img src="imgs/logo-nokbd.png" class="logo-tip">
+  <span class="content-text">
+    <strong>See also</strong>: <a href="fonts-and-unicode.html" class="nav-link">Fonts and Unicode</a>.
+  </span>
+</div>

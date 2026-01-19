@@ -1321,9 +1321,13 @@ All button callbacks by `goto`, `gosub` and `start` work with the manual update 
   * `x1`: the x position in pixels of the second point
   * `y1`: the y position in pixels of the second point
 
-* `text ...`: outputs numeric values to the screen as graphical text
+* `text x, y, ...`: outputs numeric values to the screen as graphical text
+  * `x`: the x position in tiles
+  * `y`: the y position in tiles
   * `...`: variadic data; numeric values separated by comma
-* `text fmt[, ...]`: outputs text and numeric values to the screen as graphical text
+* `text x, y, fmt[, ...]`: outputs text and numeric values to the screen as graphical text
+  * `x`: the x position in tiles
+  * `y`: the y position in tiles
   * `fmt`: the format string, accepts the `print` "Escapes" for value interpretation
   * `...`: optional variadic data; numeric values separated by comma
 
@@ -2200,11 +2204,11 @@ Window data for a `def window` operation can also come from inline code. This da
 
 #### Widgets
 
-GB BASIC supports three GUI widgets: [label](#label-widget), [progress bar](#progressbar-widget), and [menu](#menu-widget). The following sections will provide a detailed explanation. This sections gives some overall information.
-
-* `def widget() = nothing`: undefines widget; this only resets the widget states, but does not resets graphics elements and VRAM
+GB BASIC supports three GUI widgets: [label](#label-widget), [progress bar](#progressbar-widget), and [menu](#menu-widget). The following sections will provide a detailed explanation. This section gives some overall information.
 
 All GUI widgets share a same subset of rumtime states, so consider manipulating only one widget at a time, or redefining before putting/drawing across multiple threads or mixed invokings.
+
+* `def widget() = nothing`: undefines widget; this only resets the previous widget states, but does not resets graphics elements and VRAM
 
 **See also:** _[Cheat Sheet of GUI Widgets](#cheat-sheet-of-gui-widgets)._
 

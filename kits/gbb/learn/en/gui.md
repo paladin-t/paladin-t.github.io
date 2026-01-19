@@ -2,15 +2,24 @@
 
 [Prev]() [Next]()
 
-GB BASIC supports three GUI widgets: [label](#label-widget), [progress bar](#progressbar-widget), and [menu](#menu-widget). The following sections will provide a detailed explanation. This sections gives some overall information.
+<div class="content-gray" style="min-height: 48px;">
+  <img src="imgs/logo-nokbd.png" class="logo-tip">
+  <span class="content-text">
+    This chapter introduces the GUI (Graphical User Interface) components in GB BASIC, including <code>label</code>, <code>progressbar</code>, and <code>menu</code>, along with some application examples. Users interested in utilizing GUI features are advised not to skip this chapter. Additionally, the next chapter is closely related and is recommended to be read together.
+  </span>
+</div>
 
-* `def widget() = nothing`: undefines widget; this only resets the widget states, but does not resets graphics elements and VRAM
+GB BASIC supports three GUI widgets: [label](label-and-dialog.html), [progress bar](progress-bar.html), and [menu](menu.html). The following sections will provide a detailed explanation. This section gives some overall information.
+
+GUI programming in GB BASIC uses a declarative command paradigm. For instance, a single command is used to define the currently active widget type, its VRAM location and size, parameters, and so on. A specific fill/refresh command statement then draws this widget. Like other declarative statements in GB BASIC, these commands only need to be executed once, not every frame, to keep the widget state resident in memory and video memory. Typically, one `def` statement can be followed by one or more widget fill statements in terms of time sequence, which update the widget one or more times, until this widget is no longer the object that needs processing in the game logic.
 
 All GUI widgets share a same subset of rumtime states, so consider manipulating only one widget at a time, or redefining before putting/drawing across multiple threads or mixed invokings.
 
-// TODO
+The following statement is a general command used to clear the context of the currently active widget. This statement does not clear the widget's data in memory and video memory itself, but only resets the GUI state to the initial "not manipulating any widget" state.
 
-## Widgets
+* `def widget() = nothing`: undefines widget; this only resets the previous widget states, but does not resets graphics elements and VRAM
+
+## Cheat Sheet of GUI Widgets
 
 | Widget types                 | Label                    | ProgressBar                  | Menu                     |
 |------------------------------|--------------------------|------------------------------|--------------------------|
@@ -24,36 +33,9 @@ All GUI widgets share a same subset of rumtime states, so consider manipulating 
 | Registering event callback   | -                        | -                            | `on menu() start ...`    |
 | Unregistering event callback | -                        | -                            | `off menu()`             |
 
-**See also:** _[Cheat Sheet of GUI Widgets](https://paladin-t.github.io/kits/gbb/manual.html#cheat-sheet-of-gui-widgets)._
-
-// TODO
-
-## Font Production
-
-The font editor can produce and configure assets for `label`, and `menu`'s text drawing, press **Ctrl+6/Cmd+6** in edit mode 
-
-| Font types   | Supported characters   | Variable width |
-|--------------|------------------------|----------------|
-| TTF          | UTF-8                  | Yes            |
-| Bitmap-based | Extended ASCII (0-255) | No             |
-
-// TODO
-
-## Text Measurement
-
-* `=width #pg|"{name}", txt`: measures the width of the specified text in pixels
-  * objectives:
-    * `#pg`: font page index
-    * `name`: font asset name
-  * `txt`: the text to measure; an escape with placeholder, stack, carriage return, new line or new page is not supported
-  * returns the width in pixels
-* `=height #pg|"{name}", txt`: measures the height of the specified text in pixels
-  * objectives:
-    * `#pg`: font page index
-    * `name`: font asset name
-  * `txt`: the text to measure; an escape with placeholder, stack, carriage return, new line or new page is not supported
-  * returns the height in pixels
-
-These functions are useful for determining the dimensions of text before drawing it on the screen, allowing for precise placement and alignment of GUI elements.
-
-// TODO
+<div class="content-highlight" style="min-height: 48px;">
+  <img src="imgs/logo-nokbd.png" class="logo-tip">
+  <span class="content-text">
+    Some GUI widgets, such as <code>label</code> and <code>menu</code>, are closely related to font and text. Therefore, it is <strong>strongly recommended to read</strong> this chapter together with the next one - <a href="fonts-and-unicode.html" class="nav-link">Fonts and Unicode</a>.
+  </span>
+</div>

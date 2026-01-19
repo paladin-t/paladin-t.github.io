@@ -2,9 +2,11 @@
 
 [Prev]() [Next]()
 
-// TODO
+This section introduces some memory related operations. Some can directly read from or write to RAM or VRAM, some can obtain the bank and address of specific identifiers or assets in ROM, and other functions provide convenient operations for single bytes, words, or variables.
 
-## `memcpy`/`memset`/`memadd`, `bankof`/`addressof`
+## API
+
+### <code>memcpy</code>/<code>memset</code>/<code>memadd</code>
 
 * `memcpy(dst, bank, src, n)`: copies arbitrary data from an address in memory into another place
   * `dst`: the destination address
@@ -35,16 +37,16 @@
     * `#pg`: map page index
     * `#pg:n`: map page index and tile index
     * `name`: tiles asset name
-
 * `memset(dst, val, n)`: sets the values of a range of memory space
   * `dst`: the destination address
   * `val`: the value in byte
   * `n`: the count of bytes to set
-
 * `memadd(dst, val, n)`: adds the specific value to each byte of a range of space
   * `dst`: the destination address
   * `val`: the value in signed byte to be added to each destination byte
   * `n`: the count of bytes to add
+
+### <code>bankof</code>/<code>addressof</code>
 
 * `=bankof(id)`: gets the bank of the specific identifier
   * `id`: the variable/array identifier
@@ -60,12 +62,10 @@
   * objectives:
     * `"{builtin}"`: the name of a builtin entry
   * returns the address of the entry
-
 * `=bankof read`: gets the bank of the current reading position of inline data sequence
   * returns the bank of the current reading position of inline data sequence
 * `=addressof read`: gets the address of the current reading position of inline data sequence
   * returns the address of the current reading position of inline data sequence
-
 * `=get {asset} bankof(#pg|#pg:n|"{name}")`: gets the bank of the specific asset
   * `{asset}`: the type of a asset; can be one of `tile`, `map`, `scene`, `actor`, `projectile`, `music`, and `sfx`
   * objectives:
@@ -80,7 +80,6 @@
     * `#pg:n`: asset page index and sub index
     * `name`: asset name
   * returns the address of the entry
-
 * `=get palette bankof([#pg|#pg:n|"{name}|"{name:n}"])`: gets the bank of the default palette asset
   * objectives:
     * `#pg`: palette asset index, with range of value from `#0` to `#7` for "BG0" to "BG7", and `#8` to `#15` for "OBJ0" to "OBJ7"
@@ -96,7 +95,7 @@
       * `n`: color index, with range of value from 0 to 3
   * returns the address of the entry
 
-## `peek`/`poke`
+### <code>peek</code>/<code>poke</code>
 
 * `poke(pos, val)`: sets the value at the specific memory address
   * `pos`: the address to access
@@ -119,7 +118,7 @@
   * `addr`: the address to access
   * returns the value in word (two bytes)
 
-## `pack`/`unpack`
+### <code>pack</code>/<code>unpack</code>
 
 * `=pack(b0, b1)`: packs the two bytes into a 16-bit integer
   * `b0`: the first byte
@@ -142,15 +141,22 @@
   * `n2`: the third variable; the bits are extracted as `(val RSHIFT 8) BAND 0x0F`
   * `n3`: the fourth variable; the bits are extracted as `(val RSHIFT 12) BAND 0x0F`
 
-## `swap`
+### <code>swap</code>
 
 * `swap var0, var1`: swaps the values of the two variables
   * `var0`: passed by reference; the first variable
   * `var1`: passed by reference; the second variable
 
-## `inc`/`dec`
+### <code>inc</code>/<code>dec</code>
 
 * `inc var`: increases the value of the specific variable; this is equivalent to `var = var + 1` but simpler
   * `var`: passed by reference; the variable to operate
 * `dec var`: decreases the value of the specific variable; this is equivalent to `var = var - 1` but simpler
   * `var`: passed by reference; the variable to operate
+
+<div class="content-highlight" style="min-height: 48px;">
+  <img src="imgs/logo-nokbd.png" class="logo-tip">
+  <span class="content-text">
+    <strong>See also</strong>: <a href="memory-map.html" class="nav-link">Memory Map</a>.
+  </span>
+</div>

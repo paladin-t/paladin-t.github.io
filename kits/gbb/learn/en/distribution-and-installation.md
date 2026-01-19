@@ -28,17 +28,13 @@ Click the corresponding home screen button and menu item to open the "Installed 
 
 ## License
 
-The kernel (VM), is open-sourced under the MIT license.
+The kernel (VM), is open-sourced under the MIT license. See the link below for details.
 
 <div class="content-highlight" style="min-height: 48px;">
   <img src="imgs/logo-nokbd.png" class="logo-tip">
   <span class="content-text">
-    <strong>See also</strong>: <a href="https://paladin-t.github.io/kits/gbb/about.html#license" class="nav-link">License</a>.
+    <strong>See also</strong>: <a href="https://paladin-t.github.io/kits/gbb/about.html#license" target="_blank" class="nav-link">License</a>.
   </span>
 </div>
-
-<!-- ## How to Get
-
-// TODO -->
 
 <!-- gem -->

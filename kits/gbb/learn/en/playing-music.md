@@ -10,8 +10,25 @@
 <!-- * `play bank, addr` -->
 * `stop`: stops the current music playback
 
-The music editor can produce music assets, press **Ctrl+7/Cmd+7** in edit mode to switch to the music tab. GB BASIC allows importing external formats (exported by hUGETracker, etc.) as music, besides creating from scratch.
+Try the following example.
 
-// TODO
+```basic
+sound on
+print "A to play"
+print "B to stop"
+
+loop:
+  if btnu(A_BTN) then
+    play #0
+  else if btnu(B_BTN) then
+    stop
+  end if
+  update
+  goto loop
+```
+<!-- prg
+!edit, run, title="Playing music", style=""
+url://prgs/music-1.txt
+-->
 
 <!-- gem -->

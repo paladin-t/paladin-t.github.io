@@ -192,37 +192,37 @@
 
 --------------------------------------------------------------------------------
 
-# [XI. Audio](nothing)
+# [XI. Audio](audio)
 
-## [1. Playing Music](nothing)
+## [1. Playing Music](playing-music)
 
-## [2. Playing Sound Effects](nothing)
+## [2. Playing Sound Effects](playing-sound-effects)
 
-## [3. Using the Music Editor](nothing)
+## [3. Using the Music Editor](using-the-music-editor)
 
-## [4. Making and Importing SFX](nothing)
+## [4. Making and Importing SFX](making-and-importing-sfx)
 
-## [5. Using the Built-in Sound Library](nothing)
-
---------------------------------------------------------------------------------
-
-# [XII. GUI](nothing)
-
-## [1. Window Layer](nothing)
-
-## [2. Label and Dialog](nothing)
-
-## [3. Progress Bar](nothing)
-
-## [4. Menu](nothing)
+## [5. Using the Built-in Sound Library](using-the-built-in-sound-library)
 
 --------------------------------------------------------------------------------
 
-# [XIII. Fonts and Unicode](nothing)
+# [XII. GUI](gui)
 
-## [1. Using Fonts](nothing)
+## [1. Window Layer](window-layer)
 
-## [2. Using Unicode Strings](nothing)
+## [2. Label and Dialog](label-and-dialog)
+
+## [3. Progress Bar](progress-bar)
+
+## [4. Menu](menu)
+
+--------------------------------------------------------------------------------
+
+# [XIII. Fonts and Unicode](fonts-and-unicode)
+
+## [1. Using Fonts](using-fonts)
+
+## [2. Using Unicode Strings](using-unicode-strings)
 
 --------------------------------------------------------------------------------
 
@@ -232,73 +232,73 @@
 
 --------------------------------------------------------------------------------
 
-# [XV. I/O Features](nothing)
+# [XV. I/O Features](io-features)
 
-## [1. Persistence with SRAM Save Files](nothing)
+## [1. Persistence with SRAM Save Files](persistence-with-sram-save-files)
 
-## [2. Using the Real-Time Clock (RTC)](nothing)
+## [2. Using the Real-Time Clock (RTC)](using-the-real-time-clock-rtc)
 
-## [3. Serial Communication](nothing)
-
---------------------------------------------------------------------------------
-
-# [XVI. Low-Level Features](nothing)
-
-## [1. Native Functions](nothing)
-
-## [2. Memory Operations](nothing)
-
-## [3. Graphics Primitives](nothing)
-
-## [4. Tiles](nothing)
-
-## [5. Map](nothing)
-
-## [6. Sprite](nothing)
-
-## [7. Window](nothing)
-
-## [8. Image](nothing)
-
-## [9. User Input](nothing)
-
-### [9.1 Gamepad Input](nothing)
-
-### [9.2 Mouse and Touch Input](nothing)
-
-### [9.3 Keyboard Input](nothing)
-
-## [10. Camera](nothing)
-
-## [11. Scrolling](nothing)
-
-## [12. Special Effects](nothing)
-
-## [13. Hits](nothing)
-
-## [14. Device](nothing)
-
-### [14.1 Querying Device States](nothing)
-
-### [14.2 Setting Device Options](nothing)
-
-## [15. SGB Features](nothing)
-
-## [16. Extension Features](nothing)
+## [3. Serial Communication](serial-communication)
 
 --------------------------------------------------------------------------------
 
-# [XVII. Debugging and Releasing](nothing)
+# [XVI. Low-Level Features](low-level-features)
 
-## [1. Debugging Techniques](nothing)
+## [1. Native Functions](native-functions)
 
-## [2. Releasing](nothing)
+## [2. Memory Operations](memory-operations)
 
-### [2.1 Building the ROM](nothing)
+## [3. Graphics Primitives](graphics-primitives)
 
-### [2.2 Exporting for Web Emulator](nothing)
+## [4. Tiles](tiles)
 
-### [2.3 Exporting as a Desktop Application](nothing)
+## [5. Map](map)
+
+## [6. Sprite](sprite)
+
+## [7. Window](window)
+
+## [8. Image](image)
+
+## [9. User Input](user-input)
+
+### [9.1 Gamepad Input](gamepad-input)
+
+### [9.2 Mouse and Touch Input](mouse-and-touch-input)
+
+### [9.3 Keyboard Input](keyboard-input)
+
+## [10. Camera](camera)
+
+## [11. Scrolling](scrolling)
+
+## [12. Special Effects](special-effects)
+
+## [13. Hits](hits)
+
+## [14. Device](device)
+
+### [14.1 Querying Device States](querying-device-states)
+
+### [14.2 Setting Device Options](setting-device-options)
+
+## [15. SGB Features](sgb-features)
+
+## [16. Extension Features](extension-features)
+
+--------------------------------------------------------------------------------
+
+# [XVII. Debugging and Releasing](debugging-and-releasing)
+
+## [1. Debugging Techniques](debugging-techniques)
+
+## [2. Releasing](releasing)
+
+### [2.1 Building the ROM](building-the-rom)
+
+### [2.2 Exporting for Web Emulator](exporting-for-web-emulator)
+
+### [2.3 Exporting as a Desktop Application](exporting-as-a-desktop-application)
 
 --------------------------------------------------------------------------------
 

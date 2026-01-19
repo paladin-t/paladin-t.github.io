@@ -15,6 +15,6 @@ If an actor's "Following" property is set to on, and this actor has a behaviour 
 <div class="content-highlight" style="min-height: 48px;">
   <img src="imgs/logo-nokbd.png" class="logo-tip">
   <span class="content-text">
-    <strong>See also</strong>: <a href="page-not-found.html" class="nav-link">Camera</a>.
+    <strong>See also</strong>: <a href="camera.html" class="nav-link">Camera</a>.
   </span>
 </div>

@@ -170,6 +170,6 @@ The "Default Kernel" distributed with GB BASIC includes the None, Platformer, To
 <div class="content-highlight" style="min-height: 48px;">
   <img src="imgs/logo-nokbd.png" class="logo-tip">
   <span class="content-text">
-    <strong>See also</strong>: <a href="event-binding.html" class="nav-link">Event Binding</a>, <a href="page-not-found.html" class="nav-link">Practical Projects: Four Unique Games</a>, and <a href="compiler-and-kernel.html" class="nav-link">Compiler and Kernel</a>.
+    <strong>See also</strong>: <a href="event-binding.html" class="nav-link">Event Binding</a>, <a href="practical-projects-starter-kits.html" class="nav-link">Practical Projects: Starter Kits</a>, and <a href="compiler-and-kernel.html" class="nav-link">Compiler and Kernel</a>.
   </span>
 </div>

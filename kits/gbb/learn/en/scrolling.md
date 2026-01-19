@@ -2,6 +2,31 @@
 
 [Prev]() [Next]()
 
+This section covers scrolling operations that shift the tilemap up or down by entire rows. For parallax scrolling effects across different scanlines, refer to the next section [Special Effects](special-effects.html).
+
+Try the following program.
+
+```basic
+image(1, 0, 0, MAP_LAYER) = with map #0
+
+loop:
+  if btnd(UP_BTN) then
+    scroll(2, 0, 16, 18, MAP_LAYER) with 0, 0, UP_DIR
+  else if btnd(DOWN_BTN) then
+    scroll(2, 0, 16, 18, MAP_LAYER) with 0, 0, DOWN_DIR
+  else if btnd(START_BTN) then
+    image(1, 0, 0, MAP_LAYER) = with map #0
+  end if
+  update
+  goto loop
+```
+<!-- prg
+!edit, run, title="Scrolling", style=""
+url://prgs/scroll-1.txt
+-->
+
+## API
+
 * `scroll(x, y, w, h, layer = WINDOW_LAYER) with t[, attr[, dir]]`: scrolls a rectangle area of VRAM tilemap one row up or down
   * `x`: the x position in tiles to scroll
   * `y`: the y position in tiles to scroll
@@ -12,30 +37,10 @@
   * `attr`: the attribute data to fill the bottom part of the area; defaults to 0; for colored device only
   * `dir`: the scroll direction; can be either `UP_DIR` or `DOWN_DIR` of the "Directions" constants; defaults to `UP_DIR`
 
-// TODO
-
-The Game Boy's hardware background layer has only one layer, but by cleverly arranging background tiles and modifying the viewport coordinate registers at the right interrupts, we can achieve a parallax scrolling effect.
-
-// TODO: gif
-
-To achieve this, we create the following asset.
-
-// TODO: asset
-
-And call the special effect statements with designed arguments.
-
-```basic
-' TODO
-```
-<!-- prg
-!edit, run, title="TODO", style=""
-' TODO
--->
-
 <div class="content-highlight" style="min-height: 48px;">
   <img src="imgs/logo-nokbd.png" class="logo-tip">
   <span class="content-text">
-    It should be noted that this effect is typically only used in platformer games.
+    <strong>See also</strong>: <a href="special-effects.html" class="nav-link">Special Effects</a>.
   </span>
 </div>
 

@@ -111,15 +111,15 @@ Refer to the previous section [Making a Non-Player Character](making-a-non-playe
 
 ## Camera Shake
 
-Refer to [Camera](page-not-found.html).
+Refer to [Camera](camera.html).
 
 ## Dialogue
 
-Refer to [GUI](page-not-found.html).
+Refer to [GUI](gui.html), [Label and Dialog](label-and-dialog.html).
 
 ## Sound Effects
 
-Refer to [Playing Sound Effects](page-not-found.html).
+Refer to [Playing Sound Effects](playing-sound-effects.html).
 
 ## Scene Transition
 

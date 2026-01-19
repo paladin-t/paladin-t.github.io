@@ -2,6 +2,8 @@
 
 [Prev]() [Next]()
 
+## API
+
 * `=query(what)`: queries a device setting
   * `what`: the status type; can be one of the following "Query keys" constants
 
@@ -40,5 +42,3 @@
 | `SYS_TIME`            | Integer (16-bit signed)  | Determined by device             | The system time that increments once per Frame; will wrap around every ~18 minutes |
 | `DIV_REG`             | Integer (8-bit unsigned) | Determined by device             | The value of the divider register                                                  |
 | `PLATFORM_FLAGS`      | Integer (8-bit unsigned) | Determined by host environment   | The platform flags (extension feature)                                             |
-
-// TODO

@@ -162,7 +162,7 @@ In the upcoming chapters, we will introduce how to use resources created from th
 <div class="content-highlight" style="min-height: 48px;">
   <img src="imgs/logo-nokbd.png" class="logo-tip">
   <span class="content-text">
-    <strong>See also</strong>: <a href="page-not-found.html" class="nav-link">Tiles</a>, <a href="page-not-found.html" class="nav-link">Map</a>, and <a href="page-not-found.html" class="nav-link">Sprite</a>.
+    <strong>See also</strong>: <a href="tiles.html" class="nav-link">Tiles</a>, <a href="map.html" class="nav-link">Map</a>, and <a href="sprite.html" class="nav-link">Sprite</a>.
   </span>
 </div>
 

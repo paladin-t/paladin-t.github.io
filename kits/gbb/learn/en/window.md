@@ -4,9 +4,10 @@
 
 The drawing elements of window layer consist of hardware map and its associated tiles. It is similar to the map layer, but often used for other purposes like GUI, etc.
 
+## API
+
 * `window on`: turns on the window layer
 * `window off`: turns off the window layer
-
 * `window x, y`: puts the window in VRAM on the screen at the specific position; (7, 0) is the top left corner of the screen in window coordinates
   * `x`: the x position in pixels, actual displayed location will be `x - 7`
   * `y`: the y position in pixels
@@ -34,7 +35,6 @@ The window layer is visible (if "on") when both coordinates are in the ranges `x
     * `#pg`: window (map) page index
     * `#pg:n`: window (map) page index and tile index
     * `name`: tiles asset name
-
 * `=get window width(#pg|"{name}")`: gets the width in tiles of the specific window (map) asset page
   * objectives:
     * `#pg`: window (map) page index
@@ -45,7 +45,6 @@ The window layer is visible (if "on") when both coordinates are in the ranges `x
     * `#pg`: window (map) page index
     * `name`: window (map) asset name
   * returns the height in tiles
-
 * `=get window(x, y)`: gets the tile value of the current window at the specific position
   * `x`: the x position in tiles
   * `y`: the y position in tiles
@@ -57,4 +56,9 @@ The window layer is visible (if "on") when both coordinates are in the ranges `x
 
 Window data for a `def window` operation can also come from inline code. This data is arranged one tile after another, from left to right and top to down.
 
-// TODO
+<div class="content-highlight" style="min-height: 48px;">
+  <img src="imgs/logo-nokbd.png" class="logo-tip">
+  <span class="content-text">
+    <strong>See also</strong>: <a href="display-and-screen-modes.html#screen-modes" class="nav-link">Screen Modes</a>, and <a href="window-layer.html" class="nav-link">Window Layer</a>.
+  </span>
+</div>
