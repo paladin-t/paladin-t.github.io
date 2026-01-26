@@ -653,6 +653,8 @@ end select
 
 A `select case` statement conditionally executes sections of code depending on the value of a variable. A case condition can be a single value, a number of values, a range of values or a comparison. When the case is determined by a range of values, the smaller number must come before the larger one; when the case is determined by a comparison, it supports `=`, `<`, `<=`, `>`, `>=` and `<>` operators. The condition variable to be determined cannot be a macro costant or stack reference macro.
 
+Unlike other languages, BASIC-family multi-branch conditional statements do not require a "break" statement to exit; after executing the statements under a matched condition, the entire statement automatically ends.
+
 `If` and `select case` statements support both modern and retro syntax.
 
 | Modern syntax | Retro syntax |
