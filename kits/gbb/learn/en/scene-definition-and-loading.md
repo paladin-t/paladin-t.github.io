@@ -68,7 +68,7 @@ When a `load scene` statement is executed, the relevant scene tiles referenced b
 <div class="content-warn" style="min-height: 48px;">
   <img src="imgs/logo-nokbd.png" class="logo-tip">
   <span class="content-text">
-    Note that excessively large maps or actors in a scene may occupy too many tiles, resulting in VRAM overflow and failure to render correctly.
+    Note that excessively large maps or actors in a scene may occupy too many tiles, resulting in VRAM overflow and failure to render correctly. See <a href="debugging-techniques.html#vram-debugging" class="nav-link">VRAM Debugging</a> for details.
   </span>
 </div>
 

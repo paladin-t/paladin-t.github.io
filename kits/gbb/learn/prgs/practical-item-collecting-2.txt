@@ -9,7 +9,7 @@
   "description": "",
   "author": "Tony",
   "genre": "Example",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "url": "",
   "icon": "iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABvUlEQVR4XmN88OPCfwYoWHFiAQM9QIRFAtwaFmTLkSVo6RCQR2F2gR2ALECKxRoKAViV33iwASyOTx5mJwslljeswO4AmMUwh6C7EiQPkgPZzUKNoF6z4hleY5DTFno0MzEMMKBKCIRESDE0RGzA6RV0X4OCHxQNoChkoXYAwNIFuoNwRQPVo4BQekD3MAu9kgByiEQ8QBREVA+BKxtOkeQnqoUArjIB5hpcZQJFDiAl/+MKlqFbDsDyMi6fESNPcVGMK14JxTuyo+FpgFDNRqvsCnYArHbCZgk+OWo4CiMXhBS0wc1dM6GK5uUUSdkQPZpwJTSYOL6GCUwOwwHovka2BD3RwWo09GCCRRvMwdgKKby1Ib5ogNVqyFUsMRUQLjVERwHM99garqD2AHIoXIE2DZBDD6QGmyOwOgClQpmAGsDoIYBsKLpD0KMG2VyqtglJySro6YjkyghWr8PqdGRfhUQEEHQLeosZqwPQXYnPVELVMLJeZLUYuQA55WOzEL3bBuPjSt3I6vHlkoGvjsHZagUD3mY1tsIIvbBBDjV09dgqOlB0gOyG947p1TOGORRWnjChCzDQASAXZgC/kuJ/1r4yqgAAAABJRU5ErkJggg==",
   "run_on_open": false,
@@ -40,7 +40,7 @@
     }
   },
   "created": 1696413941,
-  "modified": 1766644544,
+  "modified": 1769415463,
   "order": 200,
   "preference": {
     "font_size": [

@@ -1,0 +1,24 @@
+This release introduces a new VRAM debugger, which allows for verification and
+debugging of graphics element allocation in VRAM during development, and
+supports learning and referencing the VRAM usage patterns of other ROMs. This
+version also upgrades the underlying libraries, GBDK-2020 and SDL2. With several
+bug fixes and feature improvements, the stability of the program itself and its
+compatibility on Linux have been enhanced. Additionally, starting from this
+version, all tutorial chapters are now complete.
+
+v1.6
+
+* Runtime
+  * Fixed a screen mode switching issue with the latest GBDK-2020 v4.5.0
+  * Upgraded the compiler of the runtime ROM from GBDK-2020 v4.4.0 to v4.5.0
+* Emulator
+  * **Added a VRAM debugger**
+* Editor
+  * Improved stability when failed to get the path of a writable directory
+  * Improved ranged pair inputting for the code editor
+  * Improved custom font range support
+  * Fixed an IME window positioning issue
+  * Fixed a rendering issue of Unicode project title on the home screen
+  * Upgraded SDL from v2.24.0 to v2.32.10
+* Document, Examples, Starter Kits, Tutorials and Help
+  * **Finish all content of the tutorials**

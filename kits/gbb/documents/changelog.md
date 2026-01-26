@@ -2,9 +2,22 @@
 
 # Releases
 
-## GB BASIC v1.5
+## GB BASIC v1.6
 
 <details open>
+<summary><b>Click Me</b></summary>
+<div>
+This release introduces a new VRAM debugger, which allows for verification and debugging of graphics element allocation in VRAM during development, and supports learning and referencing the VRAM usage patterns of other ROMs. This version also upgrades the underlying libraries, GBDK-2020 and SDL2. With several bug fixes and feature improvements, the stability of the program itself and its compatibility on Linux have been enhanced. Additionally, starting from this version, all tutorial chapters are now complete.
+</div>
+</details>
+
+* [Changelog](documents/changelogs/Changelog_v1.6.txt) (Jan. 26, 2026)
+* Download on [Steam](https://store.steampowered.com/app/2308700/)
+* Also available on [Itch.io](https://tonywang.itch.io/gbbasic)
+
+## GB BASIC v1.5
+
+<details>
 <summary><b>Click Me</b></summary>
 <div>
 This release introduces support for custom kernels, allowing users to replace the default game runtime for their projects. The editor now supports installing and selecting custom kernels. Added new syntax to support more flexible actor control. It also includes many other improvements and bug fixes to the runtime, compiler, and usability. A new "Scroll Shooting" kernel and a starter kit which takes use of it were also added. Added new tutorials chapters and content. There are also other updates to the examples and documents.
