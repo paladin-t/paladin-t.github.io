@@ -129,6 +129,38 @@
       "font": "normal"
     },
     {
+      "id": "324",
+      "platform": [ "iOS", "Android" ],
+      "revision_condition": {
+        "type": ">=",
+        "value": 20
+      },
+      "start_timepoint": "1970-01-01 00:00:00",
+      "end_timepoint": "9999-12-31 23:59:59",
+      "impressions": -1,
+      "created_timepoint": "2026-02-13 08:00:00",
+      "updated_timepoint": "2026-02-13 08:00:00",
+      "title": "Changelog #21",
+      "url": "news://news-changelog-20260213-en-mobile.txt",
+      "font": "normal"
+    },
+    {
+      "id": "323",
+      "platform": [ "Windows", "Linux", "MacOS" ],
+      "revision_condition": {
+        "type": ">=",
+        "value": 20
+      },
+      "start_timepoint": "1970-01-01 00:00:00",
+      "end_timepoint": "9999-12-31 23:59:59",
+      "impressions": -1,
+      "created_timepoint": "2026-02-13 08:00:00",
+      "updated_timepoint": "2026-02-13 08:00:00",
+      "title": "Changelog #21",
+      "url": "news://news-changelog-20260213-en.txt",
+      "font": "normal"
+    },
+    {
       "id": "322",
       "platform": [ "iOS", "Android" ],
       "revision_condition": {
@@ -627,6 +659,38 @@
       "font": "normal"
     },
     {
+      "id": "324",
+      "platform": [ "iOS", "Android" ],
+      "revision_condition": {
+        "type": ">=",
+        "value": 20
+      },
+      "start_timepoint": "1970-01-01 00:00:00",
+      "end_timepoint": "9999-12-31 23:59:59",
+      "impressions": -1,
+      "created_timepoint": "2026-02-13 08:00:00",
+      "updated_timepoint": "2026-02-13 08:00:00",
+      "title": "更新日志 #21",
+      "url": "news://news-changelog-20260213-zh-mobile.txt",
+      "font": "normal"
+    },
+    {
+      "id": "323",
+      "platform": [ "Windows", "Linux", "MacOS" ],
+      "revision_condition": {
+        "type": ">=",
+        "value": 20
+      },
+      "start_timepoint": "1970-01-01 00:00:00",
+      "end_timepoint": "9999-12-31 23:59:59",
+      "impressions": -1,
+      "created_timepoint": "2026-02-13 08:00:00",
+      "updated_timepoint": "2026-02-13 08:00:00",
+      "title": "更新日志 #21",
+      "url": "news://news-changelog-20260213-zh.txt",
+      "font": "normal"
+    },
+    {
       "id": "322",
       "platform": [ "iOS", "Android" ],
       "revision_condition": {
@@ -1016,8 +1080,8 @@
       "id": "3",
       "platform": [ "Windows", "Linux", "MacOS" ],
       "revision_condition": {
-        "type": ">=",
-        "value": 1
+        "type": "<",
+        "value": 20
       },
       "start_timepoint": "1970-01-01 00:00:00",
       "end_timepoint": "9999-12-31 23:59:59",
@@ -1138,6 +1202,38 @@
       "updated_timepoint": "2022-04-01 08:00:00",
       "title": "小さなヒント：起動オプション",
       "url": "news://news-tips-20220401-jp.txt",
+      "font": "normal"
+    },
+    {
+      "id": "324",
+      "platform": [ "iOS", "Android" ],
+      "revision_condition": {
+        "type": ">=",
+        "value": 20
+      },
+      "start_timepoint": "1970-01-01 00:00:00",
+      "end_timepoint": "9999-12-31 23:59:59",
+      "impressions": -1,
+      "created_timepoint": "2026-02-13 08:00:00",
+      "updated_timepoint": "2026-02-13 08:00:00",
+      "title": "変更履歴 #21",
+      "url": "news://news-changelog-20260213-jp-mobile.txt",
+      "font": "normal"
+    },
+    {
+      "id": "323",
+      "platform": [ "Windows", "Linux", "MacOS" ],
+      "revision_condition": {
+        "type": ">=",
+        "value": 20
+      },
+      "start_timepoint": "1970-01-01 00:00:00",
+      "end_timepoint": "9999-12-31 23:59:59",
+      "impressions": -1,
+      "created_timepoint": "2026-02-13 08:00:00",
+      "updated_timepoint": "2026-02-13 08:00:00",
+      "title": "変更履歴 #21",
+      "url": "news://news-changelog-20260213-jp.txt",
       "font": "normal"
     },
     {

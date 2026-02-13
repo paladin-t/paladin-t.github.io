@@ -1,0 +1,10 @@
+[col=0x6f95abff]Update notes v2.0.0:[/col]
+
+* Added a memo utility
+* Added a music player utility
+* Improved support for Windows' dark
+  mode
+* Improved upgrading
+* Fixed a system notification issue
+  on Windows 11
+* Fixed an IME box positioning bug

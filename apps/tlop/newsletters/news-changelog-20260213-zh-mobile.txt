@@ -1,0 +1,4 @@
+[col=0x6f95abff]版本说明 v2.0.0:[/col]
+(App version: v2.0.0)
+
+* 提升升级数据
