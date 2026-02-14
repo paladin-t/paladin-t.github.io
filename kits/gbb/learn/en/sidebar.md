@@ -1,5 +1,7 @@
 # [Preface](index)
 
+## [1. What's New](whats-new)
+
 --------------------------------------------------------------------------------
 
 # [I. Welcome and Introduction](welcome-and-introduction)

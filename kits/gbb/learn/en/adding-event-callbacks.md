@@ -11,8 +11,7 @@ First, add two helper routines to open and close dialog box.
 ```basic-readonly
 OpenDialog:
   ' Raise the dialog (window layer).
-  def label(0, 0, 20, 3, 196) = WINDOW_LAYER, 2, 3, 10
-  fill tile(196, 60) = "WidgetBorder"
+  load dialog(0, 0, 20, 3, 196) = "WidgetBorder", WINDOW_LAYER, 2, 3, 10
   window 7, 145
   window on
   for y = 145 to 123 step -2

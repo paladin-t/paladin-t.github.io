@@ -15,7 +15,7 @@
 ## About This Tutorial Series
 
 <div class="content-highlight">
-  <em>This tutorial series reflects information related to the latest version of GB BASIC.</em>
+  <em>This tutorial series reflects information related to the latest version of GB BASIC. See <a href="whats-new.html" class="nav-link">What's New</a>.</em>
 </div>
 
 GB BASIC has a [Reference Manual](https://paladin-t.github.io/kits/gbb/manual.html) that details its syntax and API, which is primarily for handy reference and lookup. This tutorial series aims to provide more beginner-friendly and intuitive guides to help newcomers get started quickly with GB BASIC, and will also cover some advanced features.

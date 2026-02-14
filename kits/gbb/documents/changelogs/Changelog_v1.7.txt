@@ -1,0 +1,29 @@
+This update introduces the syntactic sugar `load dialog` to simplify
+initializing chat-style GUI operations. This version also optimizes RPN data
+fetching and calculation, improves VM instruction execution, optimizes building
+flags for the kernels, and boosts performance in certain computations; for
+example, the built-in "Mandelbrot Demo" program now runs approximately 12% to
+14% faster compared to before optimization. Additionally, for the VRAM debugger
+feature added in the previous version, this update enhances the user experience
+and improves palette calculation. A kernel panic caused by numeric calculation
+overflow is fixed, along with some other fixes.
+
+v1.7
+
+* Runtime
+  * Optimized RPN calculation
+  * Optimized VM instruction execution
+  * Optimized the kernel builds
+  * Fixed a kernel panic when numeric calculation overflows with some values
+* Syntax
+  * Added syntactic sugar `load dialog` to conveniently get an area ready for dialog-style text output
+* Compiler and Asset Pipeline
+  * Added compiling for syntax `load dialog`
+* Emulator
+  * Added reference count to the tooltips of the tiles section in the VRAM debugger
+  * Improved the VRAM debugger
+  * Fixed a crash when unsupported ROM were encountered
+  * Upgraded the "binjgb" backend
+* Editor
+  * Added support for opening binary projects in notepad mode
+  * Fixed a scroll issue of the channel titles in the music editor

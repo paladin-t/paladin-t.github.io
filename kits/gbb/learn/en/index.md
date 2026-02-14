@@ -1,6 +1,6 @@
 # Preface
 
-[Prev: None](index.md) [Next: Welcome and Introduction](welcome-and-introduction.md)
+[Prev: None](index.md) [Next: What's New](whats-new.md)
 
 This tutorial series provides a complete set of interactive learning materials for GB BASIC developers. It covers fundamental concepts, syntax, and APIs, accompanied by several practical projects with step-by-step walkthroughs. In later chapters, you will also learn about low-level functionalities, debugging and releasing, advanced features, and more.
 

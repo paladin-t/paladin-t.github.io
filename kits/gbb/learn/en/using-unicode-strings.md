@@ -6,13 +6,14 @@ GB BASIC strives to fully support Unicode, including its use in comments, variab
 
 ```basic
 map on
-def label(0, 0, 8, 2, 65) = MAP_LAYER, 2, 0, 0     ' Takes tile indices from 65 to 79.
+def label(0, 0, 8, 2, 65) = MAP_LAYER, 2, 0, 0 ' Takes tile indices from 65 to 79.
 label #0, "Unicode Test"
 
 window on
 window 7, 111
-def label(2, 0, 16, 4, 1) = WINDOW_LAYER, 2, 2, 10 ' Takes tile indices from 1 to 64.
-fill tile(1, 64) = #0                              ' Fill the label background with border.
+load dialog(2, 0, 16, 4, 1) = _                ' Takes tile indices from 1 to 64.
+  #0,                         _                ' Fill the label background with border.
+  WINDOW_LAYER, 2, 2, 10
 
 label #0, "\u0048\u0065\u006c\u006c\u006f\u0020\u0057\u006f\u0072\u006c\u0064"
 label #0, "\u4f60\u597d\u4e16\u754c"

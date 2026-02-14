@@ -2,9 +2,22 @@
 
 # Releases
 
-## GB BASIC v1.6
+## GB BASIC v1.7
 
 <details open>
+<summary><b>Click Me</b></summary>
+<div>
+This update introduces the syntactic sugar <code>load dialog</code> to simplify initializing chat-style GUI operations. This version also optimizes RPN data fetching and calculation, improves VM instruction execution, optimizes building flags for the kernels, and boosts performance in certain computations; for example, the built-in "Mandelbrot Demo" program now runs approximately 12% to 14% faster compared to before optimization. Additionally, for the VRAM debugger feature added in the previous version, this update enhances the user experience and improves palette calculation. A kernel panic caused by numeric calculation overflow is fixed, along with some other fixes.
+</div>
+</details>
+
+* [Changelog](documents/changelogs/Changelog_v1.7.txt) (Feb. 14, 2026)
+* Download on [Steam](https://store.steampowered.com/app/2308700/)
+* Also available on [Itch.io](https://tonywang.itch.io/gbbasic)
+
+## GB BASIC v1.6
+
+<details>
 <summary><b>Click Me</b></summary>
 <div>
 This release introduces a new VRAM debugger, which allows for verification and debugging of graphics element allocation in VRAM during development, and supports learning and referencing the VRAM usage patterns of other ROMs. This version also upgrades the underlying libraries, GBDK-2020 and SDL2. With several bug fixes and feature improvements, the stability of the program itself and its compatibility on Linux have been enhanced. Additionally, starting from this version, all tutorial chapters are now complete.
