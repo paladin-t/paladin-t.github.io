@@ -13,7 +13,7 @@ This update introduces the syntactic sugar <code>load dialog</code> to simplify 
 </div>
 </details>
 
-* [Changelog](documents/changelogs/Changelog_v1.7.txt) (TBD, 2026)
+* [Changelog](../documents/changelogs/Changelog_v1.7.txt) (TBD, 2026)
 * Download on [Steam](https://store.steampowered.com/app/2308700/)
 * Also available on [Itch.io](https://tonywang.itch.io/gbbasic)
 
@@ -26,7 +26,7 @@ This release introduces a new VRAM debugger, which allows for verification and d
 </div>
 </details>
 
-* [Changelog](documents/changelogs/Changelog_v1.6.txt) (Jan. 26, 2026)
+* [Changelog](../documents/changelogs/Changelog_v1.6.txt) (Jan. 26, 2026)
 * Download on [Steam](https://store.steampowered.com/app/2308700/)
 * Also available on [Itch.io](https://tonywang.itch.io/gbbasic)
 
@@ -39,7 +39,7 @@ This release introduces support for custom kernels, allowing users to replace th
 </div>
 </details>
 
-* [Changelog](documents/changelogs/Changelog_v1.5.txt) (Dec. 26, 2025)
+* [Changelog](../documents/changelogs/Changelog_v1.5.txt) (Dec. 26, 2025)
 * Download on [Steam](https://store.steampowered.com/app/2308700/)
 * Also available on [Itch.io](https://tonywang.itch.io/gbbasic)
 
@@ -52,7 +52,7 @@ This release introduces support for SGB features. It also includes a number of q
 </div>
 </details>
 
-* [Changelog](documents/changelogs/Changelog_v1.4.txt) (Nov. 28, 2025)
+* [Changelog](../documents/changelogs/Changelog_v1.4.txt) (Nov. 28, 2025)
 * Download on [Steam](https://store.steampowered.com/app/2308700/)
 * Also available on [Itch.io](https://tonywang.itch.io/gbbasic)
 
@@ -65,7 +65,7 @@ This release introduces support for importing and managing external ROMs, provid
 </div>
 </details>
 
-* [Changelog](documents/changelogs/Changelog_v1.3.txt) (Oct. 28, 2025)
+* [Changelog](../documents/changelogs/Changelog_v1.3.txt) (Oct. 28, 2025)
 * Download on [Steam](https://store.steampowered.com/app/2308700/)
 * Also available on [Itch.io](https://tonywang.itch.io/gbbasic)
 
@@ -78,7 +78,7 @@ This release introduces a public Tutorials platform, which provides a learning e
 </div>
 </details>
 
-* [Changelog](documents/changelogs/Changelog_v1.2.txt) (Oct. 5, 2025)
+* [Changelog](../documents/changelogs/Changelog_v1.2.txt) (Oct. 5, 2025)
 * Download on [Steam](https://store.steampowered.com/app/2308700/)
 * Also available on [Itch.io](https://tonywang.itch.io/gbbasic)
 
