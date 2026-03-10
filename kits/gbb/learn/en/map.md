@@ -6,6 +6,10 @@
 
 The map editor can produce map assets, press **Ctrl+3/Cmd+3** in edit mode to switch to the map tab. GB BASIC allows importing external formats as map, besides creating from scratch.
 
+The map editor supports local palette. Enabling this feature allows to preview a map using the local palette and includes relevant color data for fill operations when exporting to BASIC code.
+
+By default, the map editor operates in tiled mode. It also supports an "edit-as-image" mode, allowing to edit map assets pixel-by-pixel like a standard image. The image data is then automatically converted and transferred into tiles and map assets. Please note that this process overwrites existing tiles.
+
 ## Using Maps
 
 The hardware VRAM's map area is limited to 32x32 tiles. Although a map asset can be defined larger than this size in the asset editor, using the aforementioned map statements to fill the map will cause data to exceed this area. For complex scenes, consider using the [Scene](scene.html) feature to support large maps, map scrolling, scene property definitions, object definitions, and more.

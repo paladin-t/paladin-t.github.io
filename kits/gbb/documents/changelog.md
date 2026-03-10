@@ -2,9 +2,22 @@
 
 # Releases
 
-## GB BASIC v1.7
+## GB BASIC v1.8
 
 <details open>
+<summary><b>Click Me</b></summary>
+<div>
+This update brings significant enhancements to the map editor. New support for local palette has been added, allowing referencing, previewing, and code exporting of palette locally within a specific map asset. Additionally, when importing map assets from external images, you can now choose to automatically populate the local palette. A new edit-as-image mode has also been introduced, enabling pixel-by-pixel editing of map resources intuitively like editing an image. Upon completion, the map asset is automatically populated with tile and map cel data. This update also includes various editor improvements and bug fixes.
+</div>
+</details>
+
+* [Changelog](documents/changelogs/Changelog_v1.8.txt) (Mar. 10, 2026)
+* Download on [Steam](https://store.steampowered.com/app/2308700/)
+* Also available on [Itch.io](https://tonywang.itch.io/gbbasic)
+
+## GB BASIC v1.7
+
+<details>
 <summary><b>Click Me</b></summary>
 <div>
 This update introduces the syntactic sugar <code>load dialog</code> to simplify initializing chat-style GUI operations. This version also optimizes RPN data fetching and calculation, improves VM instruction execution, optimizes building flags for the kernels, and boosts performance in certain computations; for example, the built-in "Mandelbrot Demo" program now runs approximately 12% to 14% faster compared to before optimization. Additionally, for the VRAM debugger feature added in the previous version, this update enhances the user experience and improves palette calculation. A kernel panic caused by numeric calculation overflow is fixed, along with some other fixes.

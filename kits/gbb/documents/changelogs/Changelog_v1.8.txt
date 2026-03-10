@@ -1,0 +1,14 @@
+This update brings significant enhancements to the map editor. New support for local palette has been added, allowing referencing, previewing, and code exporting of palette locally within a specific map asset. Additionally, when importing map assets from external images, you can now choose to automatically populate the local palette. A new edit-as-image mode has also been introduced, enabling pixel-by-pixel editing of map resources intuitively like editing an image. Upon completion, the map asset is automatically populated with tile and map cel data. This update also includes various editor improvements and bug fixes.
+
+v1.8
+
+* Editor
+  * Added asset local palette for map assets
+  * Added an edit-as-image mode to the map editor
+  * Improved resource size checking for image importing
+  * Fixed an IME window positioning issue on Windows 10/11
+  * Fixed a window refreshing issue under dark mode
+  * Fixed a scroll issue of the piano titles in the music editor
+  * Fixed a potential overflow issue of editor magnification
+  * Fixed a HEX color conversion out-of-bounds bug
+  * Fixed a checking issue where an actor frame was out-of-bounds

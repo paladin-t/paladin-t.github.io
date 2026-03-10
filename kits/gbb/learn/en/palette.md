@@ -66,6 +66,12 @@ Try the following program for how to set map palette in the map and scene editor
 url://prgs/map-palette-1.txt
 -->
 
+<img src="imgs/editor-map-with-local-palette.png" class="diagram-image diagram-screenshot">
+
+<div class="small-note">Local palette</div>
+
+The map editor supports local palette. Enabling this feature allows to preview a map using the local palette and includes relevant color data for fill operations when exporting to BASIC code.
+
 ### Assigning Palette Color to Actor Assets
 
 In the actor editor, click the button to edit props.
@@ -294,6 +300,16 @@ The following functions are used to assign colors corresponding to entries in a 
       * `n`: color index, with range of value from 0 to 3
     * `name`: palette asset name, with range of value from "BG0" to "BG7", and "OBJ0" to "OBJ7"
       * `n`: color index, with range of value from 0 to 3
+* `palette plt, col0|#pg:n_0|"{name:n_0}", col1|#pg:n_1|"{name:n_1}", ..., col6|#pg:n_6|"{name:n_6}"`: sets the SGB palette with RGB values for the specific slot; for SGB device only
+  * `plt`: the palette indices to modify; can be one of the following "SGB palettes" constants
+  * objectives:
+    * `col`: the RGB color value; the format is bitpacked BGR-555 in a 16-bit unsigned integer
+    * `#pg`: palette asset index, with range of value from `#0` to `#7` for "BG0" to "BG7", and `#8` to `#15` for "OBJ0" to "OBJ7"
+      * `n`: color index, with range of value from 0 to 3
+    * `name`: palette asset name, with range of value from "BG0" to "BG7", and "OBJ0" to "OBJ7"
+      * `n`: color index, with range of value from 0 to 3
+
+Note that if a local palette is enabled for a map asset, the associated loading functions do not automatically populate the colors. Consider manually calling the `palette` statement to load the local palette. The BASIC code export feature simplifies this process.
 
 <div class="content-highlight" style="min-height: 48px;">
   <img src="imgs/logo-nokbd.png" class="logo-tip">
