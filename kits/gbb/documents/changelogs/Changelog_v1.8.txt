@@ -1,4 +1,12 @@
-This update brings significant enhancements to the map editor. New support for local palette has been added, allowing referencing, previewing, and code exporting of palette locally within a specific map asset. Additionally, when importing map assets from external images, you can now choose to automatically populate the local palette. A new edit-as-image mode has also been introduced, enabling pixel-by-pixel editing of map resources intuitively like editing an image. Upon completion, the map asset is automatically populated with tile and map cel data. This update also includes various editor improvements and bug fixes.
+This update brings significant enhancements to the map editor. New support for
+local palette has been added, allowing referencing, previewing, and code
+exporting of palette locally within a specific map asset. Additionally, when
+importing map assets from external images, you can now choose to automatically
+populate the local palette. A new edit-as-image mode has also been introduced,
+enabling pixel-by-pixel editing of map resources intuitively like editing an
+image. Upon completion, the map asset is automatically populated with tile and
+map cel data. This update also includes various editor improvements and bug
+fixes.
 
 v1.8
 
