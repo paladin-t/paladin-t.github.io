@@ -4,9 +4,22 @@
 
 # Releases
 
-## GB BASIC v1.8
+## GB BASIC v1.8.1
 
 <details open>
+<summary><b>Click Me</b></summary>
+<div>
+This update adds error visualization in the edit-as-image mode for the map editor, along with tiles and actor assets analysis features to help build more compact and organized assets. The map's edit-as-image mode now saves image data to the project file, allowing editing to resume later. This release also improves editor usability and fixes known issues.
+</div>
+</details>
+
+* [Changelog](../documents/changelogs/Changelog_v1.8.1.txt) (Mar. 24, 2026)
+* Download on [Steam](https://store.steampowered.com/app/2308700/)
+* Also available on [Itch.io](https://tonywang.itch.io/gbbasic)
+
+## GB BASIC v1.8
+
+<details>
 <summary><b>Click Me</b></summary>
 <div>
 This update brings significant enhancements to the map editor. New support for local palette has been added, allowing referencing, previewing, and code exporting of palette locally within a specific map asset. Additionally, when importing map assets from external images, you can now choose to automatically populate the local palette. A new edit-as-image mode has also been introduced, enabling pixel-by-pixel editing of map resources intuitively like editing an image. Upon completion, the map asset is automatically populated with tile and map cel data. This update also includes various editor improvements and bug fixes.

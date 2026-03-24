@@ -1,0 +1,20 @@
+This update adds error visualization in the edit-as-image mode for the map
+editor, along with tiles and actor assets analysis features to help build more
+compact and organized assets. The map's edit-as-image mode now saves image data
+to the project file, allowing editing to resume later. This release also
+improves editor usability and fixes known issues.
+
+v1.8.1
+
+* Editor
+  * Added visualization for errors in map asset's edit-as-image mode
+  * Added tile reference analysis report to the tiles editor
+  * Added tile duplicate analysis report to the tiles editor
+  * Added actor frame reference analysis report to the actor editor
+  * Added image serialization when editing a map as image
+  * Updated the map editor to enable local palette when enabling edit-as-image for the first time
+  * Updated the map editor to use palette bits if applicable to create image when enabling the edit-as-image mode
+  * Improved map editing under the edit-as-image mode
+  * Improved palette calculation for map editing under the edit-as-image mode
+  * Improved tiles overflow handling when editing a map as image
+  * Fixed a local palette filling bug when importing a map from an image
