@@ -1,0 +1,38 @@
+[col=0x6f95abff]Update notes v2.1.0:[/col]
+
+* Added an option to specify whether
+  to blink timer's colon
+* Added an option to toggle utilities
+* Added a stopwatch mode
+* Added an option to toggle stopwatch
+  mode
+* Improved text font in music playlist
+* Improved widget layout of the note
+  editor
+* Improved widget layout of the music
+  player
+* Optimized performance of the GUI
+  system
+* Optimized GUI animation
+* Optimized efficiency when frequently
+  opening the note editing window
+* Optimized efficiency of batch music
+  addition
+* Fixed a HEX color conversion
+  out-of-bounds bug
+* Fixed a bug where the unlock
+  conditions text for items was
+  displayed incorrectly when the
+  vegetarian or fish-free option was
+  selected
+* Fixed a button refreshing issue
+  after closing the music player
+* Fixed visibility issue with the
+  music tuner interface after
+  entering immersive mode
+* Fixed an IME window positioning
+  issue on Windows 10/11
+* Fixed a window refreshing issue
+  under dark mode
+* Fixed a flickering issue when
+  resizing the note window

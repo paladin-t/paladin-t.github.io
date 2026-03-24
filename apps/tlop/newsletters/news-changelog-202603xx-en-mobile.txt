@@ -1,0 +1,15 @@
+[col=0x6f95abff]Update notes v2.1.0:[/col]
+(App version: v2.1.0)
+
+* Added an option to specify whether
+  to blink timer's colon
+* Optimized performance of the GUI
+  system
+* Optimized GUI animation
+* Fixed a HEX color conversion
+  out-of-bounds bug
+* Fixed a bug where the unlock
+  conditions text for items was
+  displayed incorrectly when the
+  vegetarian or fish-free option was
+  selected
