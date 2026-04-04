@@ -1629,6 +1629,7 @@ Scene data for a `def scene` operation can also come from inline code. This data
 | Definition layer | `0x08` |
 | All layers       | `0x0F` |
 -->
+
 | Scene layers    | Value  |
 |-----------------|--------|
 | Map layer       | `0x00` |
@@ -1653,7 +1654,6 @@ The drawing elements of an actor consist of hardware sprites and their associate
     * `#pg`: tiles page index
     * `#pg:n`: tiles page index and tile index
     * `name`: tiles asset name
-<!-- * `def actor(id, x, y, base_tile = 0) = read|data ...|"{builtin}"|#pg|"{name}"` -->
 * `def actor(id, x, y, base_tile = 0) = "{builtin}"|#pg|"{name}"`: defines an actor with the specific (definition) data
   * `id`: the specific actor ID to define
   * `x`: the x position in pixels
@@ -1663,6 +1663,8 @@ The drawing elements of an actor consist of hardware sprites and their associate
     * `"{builtin}"`: the name of a builtin entry
     * `#pg`: actor page index
     * `name`: actor asset name
+
+<!-- * `def actor(id, x, y, base_tile = 0) = read|data ...|"{builtin}"|#pg|"{name}"` -->
 
 * `=get actor property(id, prop)`: gets the specific actor's property
   * `id`: the actor ID
@@ -1952,7 +1954,6 @@ The drawing elements of a projectile consist of hardware sprites and their assoc
     * `#pg`: tiles page index
     * `#pg:n`: tiles page index and tile index
     * `name`: tiles asset name
-<!-- * `def projectile(type, base_tile = 0) = read|data ...|"{builtin}"|#pg|"{name}"` -->
 * `def projectile(type, base_tile = 0) = "{builtin}"|#pg|"{name}"`: defines an projectile with the specific data
   * `type`: the specific projectile template to define, with range of values from 0 to 4
   * `base_tile`: the start index for sprite tiles
@@ -1960,6 +1961,8 @@ The drawing elements of a projectile consist of hardware sprites and their assoc
     * `"{builtin}"`: the name of a builtin entry
     * `#pg`: projectile page index
     * `name`: projectile asset name
+
+<!-- * `def projectile(type, base_tile = 0) = read|data ...|"{builtin}"|#pg|"{name}"` -->
 
 * `def projectile property(type, prop) = val`: sets the specific projectile's definition property
   * `type`: the projectile type, with range of values from 0 to 4
@@ -1996,14 +1999,15 @@ The drawing elements of a projectile consist of hardware sprites and their assoc
   * `id`: the projectile ID
   * `prop`: the property type; can be one of the following "Projectile instance properties" constants
   * returns the property value
-<!-- * `set projectile property(type, prop) = val`: sets the specific projectile's definition property
-  * `type`: the projectile type, with range of values from 0 to 4
-  * `prop`: the property type; can be one of the following "Projectile definition properties" constants
-  * `val`: the property value -->
 * `set projectile property(id, prop) = val`: sets the specific projectile's instance property
   * `id`: the projectile ID
   * `prop`: the property type; can be one of the following "Projectile instance properties" constants
   * `val`: the property value
+
+<!-- * `set projectile property(type, prop) = val`: sets the specific projectile's definition property
+  * `type`: the projectile type, with range of values from 0 to 4
+  * `prop`: the property type; can be one of the following "Projectile definition properties" constants
+  * `val`: the property value -->
 
 | Projectile definition properties | Value type                                                       | Note                                                | Access     |
 |----------------------------------|------------------------------------------------------------------|-----------------------------------------------------|------------|
