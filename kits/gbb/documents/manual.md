@@ -1461,6 +1461,10 @@ In order to transfer map data in a way where the coordinates are not aligned, an
 
 The map editor can produce map assets, press **Ctrl+3/Cmd+3** in edit mode to switch to the map tab. GB BASIC allows importing external formats as map, besides creating from scratch.
 
+The map editor supports local palette. Enabling this feature allows to preview a map using the local palette and includes relevant color data for fill operations when exporting to BASIC code.
+
+By default, the map editor operates in tiled mode. It also supports an "edit-as-image" mode, allowing to edit map assets pixel-by-pixel like a standard image. The image data is then automatically converted and transferred into tiles and map assets. Please note that this process overwrites existing tiles.
+
 The hardware VRAM's map area is limited to 32x32 tiles. Although a map asset can be defined larger than this size in the asset editor, using the aforementioned map statements to fill the map will cause data to exceed this area. For complex scenes, consider using the [Scene](#scene) feature to support large maps, map scrolling, scene property definitions, object definitions, and more.
 
 Map data for a `def map` operation can also come from inline code. This data is arranged one tile after another, from left to right and top to down.
@@ -2248,6 +2252,40 @@ The font editor can produce and configure assets for `label`'s text drawing, pre
 | TTF          | UTF-8                  | Yes            |
 | Bitmap-based | Extended ASCII (0-255) | No             |
 
+In GB BASIC, the `load dialog` operation serves as syntactic sugar for `def label` plus `fill tile` operations, providing a convenient way to get an area ready for dialog-style label output.
+
+* `load dialog(x, y, w, h, base_tile = 0) = "{builtin}"|#pg|#pg:n|"{name}", layer, margin_x = 0, margin_y = 0, blit_interval = 10, x_offset = 0`: defines the dialog area in VRAM and enables blit context, clears the target area, then fills the tiles area with resources
+  * `x`: the offset in x-axis in tiles
+  * `y`: the offset in y-axis in tiles
+  * `w`: the width constant of the dialog area in tiles
+  * `h`: the height constant of the dialog area in tiles
+  * `base_tile`: the start index to load tiles for the dialog
+  * objectives:
+    * `"{builtin}"`: the name of a builtin entry
+    * `#pg`: tiles page index
+    * `#pg:n`: tiles page index and tile index
+    * `name`: tiles asset name
+  * `layer`: the layer to put the dialog; can be either `MAP_LAYER` or `WINDOW_LAYER` of the "Graphics layers" constants
+  * `margin_x`: the margin in x-axis in pixels, with range of values from 0 to 15
+  * `margin_y`: the margin in y-axis in pixels, with range of values from 0 to 15
+  * `blit_interval`: the interval frame count for character blit
+  * `x_offset`: the x offset of the blit cursor in tiles, with range of values from 0 to 15
+
+For example, the following program:
+
+```bas
+load dialog(2, 0, 16, 4, 1) = #0, WINDOW_LAYER, 2, 2, 10
+...
+```
+
+is syntactic sugar for:
+
+```bas
+def label(2, 0, 16, 4, 1) = WINDOW_LAYER, 2, 2, 10
+fill tile(1, 64) = #0
+...
+```
+
 #### ProgressBar Widget
 
 * `def progressbar(x, y, w, base_tile = 0) = layer, margin_x = 0, margin_y = 0, palette_b = BLACK, palette_c = GRAY`: defines the progress bar area in VRAM and enables blit context, this operation also clears the target area
@@ -2386,6 +2424,8 @@ The SFX editor can produce SFX assets, press **Ctrl+8/Cmd+8** in edit mode to sw
 
 ### Palette
 
+**Color constructors**
+
 * `=rgb(r, g, b)`: creates an RGB color value from red, green and blue components
   * `r`: 8-bit unsigned integer; the red component, with range of values from 0 to 255
   * `g`: 8-bit unsigned integer; the green component, with range of values from 0 to 255
@@ -2400,6 +2440,10 @@ The SFX editor can produce SFX assets, press **Ctrl+8/Cmd+8** in edit mode to sw
   * `v`: the value constant, with range of values from 0 to 100 for 0%~100%
   * returns the RGB color value; the format is bitpacked BGR-555 in a 16-bit unsigned integer
 
+**Palette functions**
+
+The following functions are used to assign grayscale values corresponding to 2 bits on classic devices.
+
 * `palette layer, val`: sets the palette with four colors packed in one value
   * `layer`: the layer to operate; can be one of the "Graphics layers" constants, map and window layers are identical for this statement
   * `val`: the four colors that each one takes 2 bits and, can be one of the "2bpp colors" constants; the bit order is `(C3 LSHIFT 6) BOR (C2 LSHIFT 4) BOR (C1 LSHIFT 2) BOR (C0)`
@@ -2407,6 +2451,9 @@ The SFX editor can produce SFX assets, press **Ctrl+8/Cmd+8** in edit mode to sw
   * `layer`: the layer to operate; this version can only be `SPRITE_LAYER`
   * `val`: the four colors that each one takes 2 bits and, can be one of the "2bpp colors" constants; the bit order is `(C3 LSHIFT 6) BOR (C2 LSHIFT 4) BOR (C1 LSHIFT 2) BOR (C0)`
   * `idx`: the sprite palette index, 0 for OBJ0PAL, 1 for OBJ1PAL
+
+The following functions are used to assign colors corresponding to entries in a specific palette on colored devices.
+
 * `palette layer, plt, entry, val`: sets the palette with an RGB value for the specific slot; for colored device only
   * `layer`: the layer to operate; can be one of the "Graphics layers" constants, map and window layers are identical for this statement
   * `plt`: the palette index to modify, with range of value from 0 to 7
@@ -2436,6 +2483,8 @@ The SFX editor can produce SFX assets, press **Ctrl+8/Cmd+8** in edit mode to sw
 | `SGB_PALETTE_23` | `0x09`  | Sets SGB palette 2 and 3 |
 | `SGB_PALETTE_03` | `0x11`  | Sets SGB palette 0 and 3 |
 | `SGB_PALETTE_12` | `0x19`  | Sets SGB palette 1 and 2 |
+
+Note that if a local palette is enabled for a map asset, the associated loading functions do not automatically populate the colors. Consider manually calling the `palette` statement to load the local palette. The BASIC code export feature simplifies this process.
 
 ### Scroll
 
