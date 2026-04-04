@@ -2396,8 +2396,9 @@ The audio system supports four channels, including two duty (square wave), one w
     * `#pg`: music page index
     * `name`: music asset name
     * `"{builtin}"`: the name of a builtin entry
-<!-- * `play bank, addr` -->
 * `stop`: stops the current music playback
+
+<!-- * `play bank, addr` -->
 
 The music editor can produce music assets, press **Ctrl+7/Cmd+7** in edit mode to switch to the music tab. GB BASIC allows importing external formats (exported by hUGETracker, etc.) as music, besides creating from scratch.
 
@@ -2411,10 +2412,11 @@ The music editor accepts the following shortcuts to input notes. Press the liter
     * `name`: sound asset name
     * `"{builtin}"`: the name of a builtin entry
   * `priority`: the sound priority; can be one of the following "Sound priorities" constants
-<!-- * `sound bank, addr[, priority]` -->
 * `sound ...[, priority]`: plays SFX of the specific inline data
   * `...`: variadic SFX data; numeric values separated by comma
   * `priority`: the sound priority; can be one of the following "Sound priorities" constants
+
+<!-- * `sound bank, addr[, priority]` -->
 
 | Sound priorities   | Value |
 |--------------------|-------|
