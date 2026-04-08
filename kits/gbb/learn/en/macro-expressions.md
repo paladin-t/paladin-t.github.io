@@ -2,7 +2,7 @@
 
 [Prev]() [Next]()
 
-* `def e = ...`: defins an alias of expression, i.e. `def meaningful = foo * (bar + (22 / 7)) mod baz`
+* `def e = ...`: defines an alias of expression, i.e. `def meaningful = foo * (bar + (22 / 7)) mod baz`
   * `e`: the macro name
   * `...`: the expression
 

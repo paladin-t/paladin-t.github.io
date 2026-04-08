@@ -2,7 +2,7 @@
 
 [Prev]() [Next]()
 
-* `def a = b`: defins an identifier alias of variable or array, i.e. `def meaningful = foo`
+* `def a = b`: defines an identifier alias of variable or array, i.e. `def meaningful = foo`
   * `a`: the macro name
   * `b`: the variable or array name
 
