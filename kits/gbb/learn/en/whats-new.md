@@ -4,9 +4,22 @@
 
 # Releases
 
-## GB BASIC v1.8.1
+## GB BASIC v1.8.3
 
 <details open>
+<summary><b>Click Me</b></summary>
+<div>
+This update introduces a number of enhancements to the syntax and compiler, adds a mechanism for passing macros via build command line arguments, and includes various bug fixes.
+</div>
+</details>
+
+* [Changelog](../documents/changelogs/Changelog_v1.8.3.txt) (Apr. 9, 2026)
+* Download on [Steam](https://store.steampowered.com/app/2308700/)
+* Also available on [Itch.io](https://tonywang.itch.io/gbbasic)
+
+## GB BASIC v1.8.1
+
+<details>
 <summary><b>Click Me</b></summary>
 <div>
 This update adds error visualization in the edit-as-image mode for the map editor, along with tiles and actor assets analysis features to help build more compact and organized assets. The map's edit-as-image mode now saves image data to the project file, allowing editing to resume later. This release also improves editor usability and fixes known issues.

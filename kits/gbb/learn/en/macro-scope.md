@@ -2,7 +2,7 @@
 
 [Prev]() [Next]()
 
-* `begin def/end def`: marks the beginning and end of a local lexical scope for macro definitions like function `def fn f(...) = ...`, expression `def e = (a + b) * (22 / 7)`, constant `def c = 42`, alias `def a = b` and stack reference `def s = stackN`
+* `begin def/end def`: marks the beginning and end of a local lexical scope for macro definitions like function `def fn f(...) = ...`, expression `def e = (a + b) * (22 / 7)`, constant `def c = 42`, alias `def a = b`, stack reference `def s = stackN`, and string `def f = "hello"`
 
 Scoping example:
 
@@ -142,6 +142,26 @@ lbl:
     print "foo=%d,bar=%d", foo, bar ' Get the stack variables.
   end def
   end
+-->
+
+```basic
+def fmt = "hello world"
+print fmt
+
+begin def
+  def fmt = "HELLO WORLD"
+  print fmt
+end def
+```
+<!-- prg
+!edit, run, title="For string", style=""
+def fmt = "hello world"
+print fmt
+
+begin def
+  def fmt = "HELLO WORLD"
+  print fmt
+end def
 -->
 
 `begin def/end def` statements support both modern and retro syntax.

@@ -1,0 +1,24 @@
+This update introduces a number of enhancements to the syntax and compiler, adds
+a mechanism for passing macros via build command line arguments, and includes
+various bug fixes.
+
+v1.8.3
+
+* Runtime
+  * Added symbol declarations of the extension registers
+* Syntax
+  * Added support for single line `WHILE ... END WHILE` (without loop body)
+  * Added support for single line `REPEAT ... UNTIL` (without loop body)
+  * Added support for macro string as `DEF ... = "..."`
+  * Added `DO NOTHING WITH ...` syntax (to avoid "Unused variable" warnings)
+* Compiler and Asset Pipeline
+  * Added compilation for single line `WHILE ... END WHILE`
+  * Added compilation for single line `REPEAT ... UNTIL`
+  * Added compilation for macro string as `DEF ... = "..."`
+  * Added warning for unused variables
+  * Fixed a compiling issue when declaring a macro which references identifiers from another code page
+* Editor
+  * Added support for passing macro definition from build parameters
+  * Fixed a crash bug when reloading a running project which is launched from home screen
+  * Fixed a waiting prompt closing issue
+  * Fixed memory leak

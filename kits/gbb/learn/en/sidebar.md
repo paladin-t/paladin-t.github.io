@@ -86,7 +86,9 @@
 
 ## [5. Macro Stack Reference Aliases](macro-stack-reference-aliases)
 
-## [6. Macro Scope](macro-scope)
+## [6. Macro String](macro-string)
+
+## [7. Macro Scope](macro-scope)
 
 --------------------------------------------------------------------------------
 

@@ -31,6 +31,7 @@
       - [Macro Expression](#macro-expression)
       - [Macro Constant](#macro-constant)
       - [Macro Identifier Alias](#macro-identifier-alias)
+      - [Macro String](#macro-string)
     - [Conditional](#conditional)
     - [Loop](#loop)
     - [Sub](#sub)
@@ -527,7 +528,7 @@ The `=deg(angle)` function provides a convenient way to map angles with a domain
 
 ### Macro Definitions
 
-GB BASIC supports defining macros using `def`, which can be used to define functions, expressions, constants, and [stack references](#macro-stack-reference) (which will be described later).
+GB BASIC supports defining macros using `def`, which can be used to define functions, expressions, constants, strings, and [stack references](#macro-stack-reference) (which will be described later).
 
 #### Macro Function
 
@@ -548,7 +549,7 @@ By default, `fn` functions, like other symbols, are defined in the global scope.
 
 #### Macro Expression
 
-* `def e = ...`: defins an alias of expression, i.e. `def meaningful = foo * (bar + (22 / 7)) mod baz`
+* `def e = ...`: defines an alias of expression, i.e. `def meaningful = foo * (bar + (22 / 7)) mod baz`
   * `e`: the macro name
   * `...`: the expression
 
@@ -584,13 +585,23 @@ These predefined macros are automatically determined at compile time and can be 
 
 #### Macro Identifier Alias
 
-* `def a = b`: defins an identifier alias of variable or array, i.e. `def meaningful = foo`
+* `def a = b`: defines an identifier alias of variable or array, i.e. `def meaningful = foo`
   * `a`: the macro name
   * `b`: the variable or array name
 
 Unlike variable or array declaration, the macro definition of identifier alias doesn't allocate any memory space.
 
 By default, identifner alias defined by macro `def ... = ...`, like other symbols, are defined in the global scope. Additionally, GB BASIC supports defining local lexical scopes using `begin def/end def`, where a `def ... = ...` macro is only valid within that specific scope. See the [Macro Scope](#macro-scope) section for detail.
+
+#### Macro String
+
+* `def f = "..."`: defines a string, i.e. `def meaningful = "hello"`
+  * `f`: the macro name
+  * `...`: the string literal
+
+The macro string definition doesn't allocate any memory space, but the string itself takes ROM space.
+
+By default, macro strings defined by `def ... = ...`, like other symbols, are defined in the global scope. Additionally, GB BASIC supports defining local lexical scopes using `begin def/end def`, where a `def ... = ...` macro is only valid within that specific scope. See the [Macro Scope](#macro-scope) section for detail.
 
 ### Conditional
 
@@ -845,7 +856,7 @@ end do
 
 #### Macro Scope
 
-* `begin def/end def`: marks the beginning and end of a local lexical scope for macro definitions like function `def fn f(...) = ...`, expression `def e = (a + b) * (22 / 7)`, constant `def c = 42`, alias `def a = b` and stack reference `def s = stackN`
+* `begin def/end def`: marks the beginning and end of a local lexical scope for macro definitions like function `def fn f(...) = ...`, expression `def e = (a + b) * (22 / 7)`, constant `def c = 42`, alias `def a = b`, stack reference `def s = stackN`, and string `def f = "hello"`
 
 Scoping example:
 
@@ -921,6 +932,17 @@ lbl:
     print "foo=%d,bar=%d", foo, bar ' Get the stack variables.
   end def
   end
+```
+
+```bas
+' Scope for string macro.
+def fmt = "hello world"
+print fmt
+
+begin def
+  def fmt = "HELLO WORLD"
+  print fmt
+end def
 ```
 
 `Begin def/end def` statements support both modern and retro syntax.
@@ -1067,6 +1089,10 @@ By default, `stack` references defined by `def ... = stackN`, like other symbols
 * `dec var`: decreases the value of the specific variable; this is equivalent to `var = var - 1` but simpler
   * `var`: passed by reference; the variable to operate
 
+* `do nothing`: emits a "NOP" instruction that does nothing but takes a VM cycle
+* `do nothing with something`: used to avoid "Unused variable" warnings on `something`
+  * `something`: some variable identifier
+
 * `sleep(ms)`: sleeps for the specific milliseconds; this statement blocks all threads
   * `ms`: the milliseconds
 
@@ -1117,8 +1143,6 @@ By default, `stack` references defined by `def ... = stackN`, like other symbols
 
 * `dbginfo(full = true)`: outputs the thread context(s) to the debug layer via shell (extension feature); each element shows the offset of a stack pointer, number for offset, "-" for not active
   * `full`: `true` to debug all threads, `false` for the current thread
-
-* `do nothing`: emits a "NOP" instruction that does nothing but takes a VM cycle
 
 <!-- * `filler(rest = 0)`: fill the rest space of the current bank with NOP instructions
   * `rest`: the amount of bytes to leave after filling

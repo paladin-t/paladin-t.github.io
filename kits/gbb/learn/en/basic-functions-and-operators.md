@@ -2,6 +2,12 @@
 
 [Prev]() [Next]()
 
+## Voids
+
+* `do nothing`: emits a "NOP" instruction that does nothing but takes a VM cycle
+* `do nothing with something`: used to avoid "Unused variable" warnings on `something`
+  * `something`: some variable identifier
+
 ## Time
 
 * `sleep(ms)`: sleeps for the specific milliseconds; this statement blocks all threads
