@@ -15,6 +15,7 @@
   "run_on_open": false,
   "case_insensitive": true,
   "strict_on": true,
+  "pre_defined_macros": "",
   "super_features": {
     "enabled": false,
     "border_frame_type": 0,
@@ -40,7 +41,7 @@
     }
   },
   "created": 1693928003,
-  "modified": 1775527386,
+  "modified": 1775742817,
   "order": 200,
   "preference": {
     "font_size": [

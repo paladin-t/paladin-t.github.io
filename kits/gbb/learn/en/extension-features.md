@@ -267,6 +267,15 @@ For the moment only SRAM module is supported - `shell "@sram"` - this command no
 
 This is a specialized version of the `shell` command for syncing modules.
 
+### Dummy Command
+
+* `shell "$..."`: performs a dummy shell command
+  * `"$..."`: the dummy command
+
+This type of command does nothing, but a stub or placeholder. However it is possible to introduce customized command handler by modifying the source code.
+
+This is a specialized version of the `shell` command as placeholder.
+
 <div class="content-highlight" style="min-height: 48px;">
   <img src="imgs/logo-nokbd.png" class="logo-tip">
   <span class="content-text">
