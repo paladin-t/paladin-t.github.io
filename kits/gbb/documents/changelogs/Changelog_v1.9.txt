@@ -1,0 +1,37 @@
+This release mainly includes numerous improvements to the BASIC compiler. Which
+includes a new constant folding mechanism, enhancements to macros - and
+leveraging these features - optimizations in expression evaluation, and
+conditional compilation directives as `#if ... #else if ... #else ... #end if`
+allow static determination of which code participates in compilation. The new
+`#message ...`, `#warn ...`, and `#error ...` diagnostic directives help provide
+custom compile-time feedbacks. It also includes enhanced `for`, `while`, and
+`repeat` loops to support more flexible single-line syntax. `bankof(lbl)` and
+`addressof(lbl)` now support code labels as arguments. This update also contains
+other feature improvements and bug fixes.
+
+v1.9
+
+* Runtime
+  * Fixed a value retrieving bug for signed 8-bit integers in expressions
+* Syntax
+  * Added a dummy shell command
+  * Added support for single line `for ... next`
+  * Added conditional compilation directives `#if ... #else if ... #else ... #end if`
+  * Added compile-time diagnostics `#message ...`, `#warn ...`, and `#error ...`
+* Compiler and Asset Pipeline
+  * Added compilation for single line `for ... next` with loop body
+  * Added compilation for single line `while ... end while` with loop body
+  * Added compilation for single line `repeat ... until` with loop body
+  * Added compilation for `bankof(lbl)`， `addressof(lbl)` where `lbl` is a jump label in code
+  * Added default project-related macro definitions
+  * Added constant expression folding
+  * Fixed a code destination lookup issue as `#n:lbl`
+* Emulator
+  * Added handling of dummy shell commands as placeholder (for user customization by modifying the source code)
+* Editor
+  * Added a field for filling pre-defined macros in the project properties dialog
+  * Added a project option for compilation optimization
+  * Fixed a crash bug when editing SGB properties of a project from the home screen
+* Document, Examples, Starter Kits, Tutorials and Help
+  * Added document about conditional compilation
+  * Fixed an in-page program loading bug with translated mode

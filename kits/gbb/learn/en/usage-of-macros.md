@@ -11,4 +11,21 @@
 
 In programming, a macro is a preprocessor directive or metaprogramming tool that allows for simple text substitution or code expansion before compilation. By defining macros, developers can create code templates, abstract repetitive patterns into concise identifiers, or create aliases to improve readability. Macros in GB BASIC are no exception.
 
-Currently, GB BASIC supports five types of macros: macro functions, macro expressions, macro constants, macro variable aliases, and macro stack reference aliases. The following sections will detail each of these five macro types, and finally introduce an important concept for later chapters: macro scope.
+Currently, GB BASIC supports six types of macros: macro functions, macro expressions, macro constants, macro variable aliases, macro strings, and macro stack reference aliases. The following sections will detail each of these six macro types, and finally introduce an important concept for later chapters: macro scope.
+
+In addition to user-defined macro constants and strings, the system also provides several builtin macros that reflect cartridge and project properties.
+
+| Macro names              | Description                                       | Value             |
+|--------------------------|---------------------------------------------------|-------------------|
+| `IS_COLORED_CARTRIDGE`   | Whether the cartridge supports color              | `true` or `false` |
+| `IS_EXTENSION_CARTRIDGE` | Whether the cartridge supports extension features | `true` or `false` |
+| `CARTRIDGE_HAS_SRAM`     | Whether the cartridge has SRAM                    | `true` or `false` |
+| `CARTRIDGE_HAS_RTC`      | Whether the cartridge has Real-Time Clock         | `true` or `false` |
+| `PROJECT_TITLE`          | The project title                                 | String            |
+| `PROJECT_DESCRIPTION`    | The project description                           | String            |
+| `PROJECT_AUTHOR`         | The project author                                | String            |
+| `PROJECT_GENRE`          | The project genre                                 | String            |
+| `PROJECT_VERSION`        | The project version                               | String            |
+| `PROJECT_URL`            | The project URL                                   | String            |
+
+These predefined macros are automatically determined at compile time and can be used like regular macro constants. Their values are resolved during compilation and remain fixed throughout the program.

@@ -4,9 +4,22 @@
 
 # Releases
 
-## GB BASIC v1.8.3
+## GB BASIC v1.9.0
 
 <details open>
+<summary><b>Click Me</b></summary>
+<div>
+This release mainly includes numerous improvements to the BASIC compiler. Which includes a new constant folding mechanism, enhancements to macros - and leveraging these features - optimizations in expression evaluation, and conditional compilation directives as <code>#if ... #else if ... #else ... #end if</code> allow static determination of which code participates in compilation. The new <code>#message ...</code>, <code>#warn ...</code>, and <code>#error ...</code> diagnostic directives help provide custom compile-time feedbacks. It also includes enhanced <code>for</code>, <code>while</code>, and <code>repeat</code> loops to support more flexible single-line syntax. <code>bankof(lbl)</code> and <code>addressof(lbl)</code> now support code labels as arguments. This update also contains other feature improvements and bug fixes.
+</div>
+</details>
+
+* [Changelog](../documents/changelogs/Changelog_v1.9.0.txt) (Apr. 24, 2026)
+* Download on [Steam](https://store.steampowered.com/app/2308700/)
+* Also available on [Itch.io](https://tonywang.itch.io/gbbasic)
+
+## GB BASIC v1.8.3
+
+<details>
 <summary><b>Click Me</b></summary>
 <div>
 This update introduces a number of enhancements to the syntax and compiler, adds a mechanism for passing macros via build command line arguments, and includes various bug fixes.

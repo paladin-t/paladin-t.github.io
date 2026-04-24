@@ -54,6 +54,16 @@ This section introduces some memory related operations. Some can directly read f
 * `=addressof(id)`: gets the address of the specific identifier
   * `id`: the variable/array identifier
   * returns the address of the identifier
+* `=bankof(lbl|#pg:lbl)`: gets the bank of the specific destination
+  * objectives:
+    * `lbl`: code line label
+    * `#pg:lbl`: code page index and code line label
+  * returns the bank of the destination
+* `=addressof(lbl|#pg:lbl)`: gets the address of the specific destination
+  * objectives:
+    * `lbl`: code line label
+    * `#pg:lbl`: code page index and code line label
+  * returns the address of the destination
 * `=bankof("{builtin}")`: gets the bank of the specific builtin entry
   * objectives:
     * `"{builtin}"`: the name of a builtin entry

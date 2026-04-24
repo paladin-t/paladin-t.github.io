@@ -30,7 +30,7 @@ The music editor accepts the following shortcuts to input notes. Press the liter
 
 <div class="small-note">Music editor shortcuts</div>
 
-Try clicking the "EDIT" button below and interact with the music editor.
+Try clicking the <span translate="no">"EDIT"</span> button below and interact with the music editor.
 
 ![edit, run, style="width: 640px;"](imgs/editor-music-entry.png)
 <!-- prg

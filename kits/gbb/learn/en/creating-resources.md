@@ -20,7 +20,7 @@ First, let's create some assets for our game, including map, scene, actors, etc.
 
 <div class="small-note">Emote</div>
 
-Click the "EDIT" button below to see the assets presented in GB BASIC.
+Click the <span translate="no">"EDIT"</span> button below to see the assets presented in GB BASIC.
 
 ![edit, run, style="width: 640px;"](imgs/editor-scene-practical-item-collecting.png)
 <!-- prg

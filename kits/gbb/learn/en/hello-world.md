@@ -18,7 +18,7 @@ url://prgs/hello-world-1.txt
 <div class="content-highlight" style="min-height: 48px;">
   <img src="imgs/logo-nokbd.png" class="logo-tip">
   <span class="content-text">
-    You can click the "EDIT" and "RUN" buttons above the code snippets at any time to load and use the code in the in-page environment. It is recommended to try out these codes and making any modifications to see what happens.
+    You can click the <span translate="no">"EDIT"</span> and <span translate="no">"RUN"</span> buttons above the code snippets at any time to load and use the code in the in-page environment. It is recommended to try out these codes and making any modifications to see what happens.
   </span>
 </div>
 

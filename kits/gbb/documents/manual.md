@@ -44,6 +44,9 @@
     - [Read Data](#read-data)
     - [Stack Operations](#stack-operations)
       - [Macro Stack Reference](#macro-stack-reference)
+    - [Preprocessors](#preprocessors)
+      - [Conditional Compilation](#conditional-compilation)
+      - [Compile-Time Diagnostics](#compile-time-diagnostics)
     - [Others](#others)
   - [Libraries](#libraries)
     - [Basic](#basic)
@@ -87,6 +90,7 @@
       - [Debugging](#debugging)
       - [Setting Mouse Cursor](#setting-mouse-cursor)
       - [Syncing Modules](#syncing-modules)
+      - [Dummy Command](#dummy-command)
 - [Import and Export](#import-and-export)
   - [Import](#import)
   - [Export](#export)
@@ -528,7 +532,24 @@ The `=deg(angle)` function provides a convenient way to map angles with a domain
 
 ### Macro Definitions
 
-GB BASIC supports defining macros using `def`, which can be used to define functions, expressions, constants, strings, and [stack references](#macro-stack-reference) (which will be described later).
+GB BASIC supports defining macros using `def`, which can be used to define functions, expressions, constants, identifier aliases, strings, and [stack references](#macro-stack-reference) (which will be described later).
+
+In addition to user-defined macro constants and strings, the system also provides several builtin macros that reflect cartridge and project properties.
+
+| Macro names              | Description                                       | Value             |
+|--------------------------|---------------------------------------------------|-------------------|
+| `IS_COLORED_CARTRIDGE`   | Whether the cartridge supports color              | `true` or `false` |
+| `IS_EXTENSION_CARTRIDGE` | Whether the cartridge supports extension features | `true` or `false` |
+| `CARTRIDGE_HAS_SRAM`     | Whether the cartridge has SRAM                    | `true` or `false` |
+| `CARTRIDGE_HAS_RTC`      | Whether the cartridge has Real-Time Clock         | `true` or `false` |
+| `PROJECT_TITLE`          | The project title                                 | String            |
+| `PROJECT_DESCRIPTION`    | The project description                           | String            |
+| `PROJECT_AUTHOR`         | The project author                                | String            |
+| `PROJECT_GENRE`          | The project genre                                 | String            |
+| `PROJECT_VERSION`        | The project version                               | String            |
+| `PROJECT_URL`            | The project URL                                   | String            |
+
+These predefined macros are automatically determined at compile time and can be used like regular macro constants. Their values are resolved during compilation and remain fixed throughout the program.
 
 #### Macro Function
 
@@ -571,17 +592,6 @@ By default, expression alias defined by macro `def ... = ...`, like other symbol
 Unlike variable or array declaration, the macro constant definition doesn't allocate any memory space.
 
 By default, macro constants defined by `def ... = ...`, like other symbols, are defined in the global scope. Additionally, GB BASIC supports defining local lexical scopes using `begin def/end def`, where a `def ... = ...` macro is only valid within that specific scope. See the [Macro Scope](#macro-scope) section for detail.
-
-In addition to user-defined macro constants, the system also provides several builtin macros that reflect cartridge properties.
-
-| Macro names              | Description                                       | Value             |
-|--------------------------|---------------------------------------------------|-------------------|
-| `IS_COLORED_CARTRIDGE`   | Whether the cartridge supports color              | `true` or `false` |
-| `IS_EXTENSION_CARTRIDGE` | Whether the cartridge supports extension features | `true` or `false` |
-| `CARTRIDGE_HAS_SRAM`     | Whether the cartridge has SRAM                    | `true` or `false` |
-| `CARTRIDGE_HAS_RTC`      | Whether the cartridge has Real-Time Clock         | `true` or `false` |
-
-These predefined macros are automatically determined at compile time and can be used like regular macro constants. Their values are resolved during compilation and remain fixed throughout the program.
 
 #### Macro Identifier Alias
 
@@ -1058,6 +1068,34 @@ Unlike variable or array declaration, the stack reference definition doesn't all
 
 By default, `stack` references defined by `def ... = stackN`, like other symbols, are defined in the global scope. Additionally, GB BASIC supports defining local lexical scopes using `begin def/end def`, where a `def ... = stackN` reference is only valid within that specific scope. See the [Macro Scope](#macro-scope) section for detail.
 
+### Preprocessors
+
+#### Conditional Compilation
+
+All macros are expanded and evaluated as necessary at compile time. By introducing macro check directives, conditional compilation can be achieved, for selectively compiling a block of code or ignoring another based on the value of a macro expression. Macro definitions may appear in the source code, be configured in project properties, or be passed via the build command line.
+
+* `#if ...`/`#else if ...`/`#else ...`/`#end if`: checks whether the value of a macro expression is not `false`, such as non-zero, `true`, any string, etc; the conditional body is compiled only if the condition is satisfied
+
+`#If` directive supports both separated and concatenated syntax.
+
+| Modern syntax | Retro syntax |
+|---------------|--------------|
+| `#else if`    | `#elseif`    |
+| `#end if`     | `#endif`     |
+
+#### Compile-Time Diagnostics
+
+The following diagnostic directives are used to provide custom compile-time feedbacks. When the preprocessor encounters these directives, it reports the specified message.
+
+* `#message "msg"`: outputs the specific diagnostic message
+  * `msg`: the diagnostic message
+* `#warn "msg"`: outputs the specific diagnostic message as warning
+  * `msg`: the diagnostic message
+* `#error "msg"`: forces the compiler to stop and outputs the specific diagnostic message
+  * `msg`: the diagnostic message
+
+An `#error` directive immediately terminates the compilation process. This is primarily used as a safety mechanism to prevent compilation under invalid configurations.
+
 ### Others
 
 * `=pack(b0, b1)`: packs the two bytes into a 16-bit integer
@@ -1195,6 +1233,16 @@ The data following all `filler` statements are arranged in increasing order from
 * `=addressof(id)`: gets the address of the specific identifier
   * `id`: the variable/array identifier
   * returns the address of the identifier
+* `=bankof(lbl|#pg:lbl)`: gets the bank of the specific destination
+  * objectives:
+    * `lbl`: code line label
+    * `#pg:lbl`: code page index and code line label
+  * returns the bank of the destination
+* `=addressof(lbl|#pg:lbl)`: gets the address of the specific destination
+  * objectives:
+    * `lbl`: code line label
+    * `#pg:lbl`: code page index and code line label
+  * returns the address of the destination
 * `=bankof("{builtin}")`: gets the bank of the specific builtin entry
   * objectives:
     * `"{builtin}"`: the name of a builtin entry
@@ -1487,7 +1535,7 @@ The map editor can produce map assets, press **Ctrl+3/Cmd+3** in edit mode to sw
 
 The map editor supports local palette. Enabling this feature allows to preview a map using the local palette and includes relevant color data for fill operations when exporting to BASIC code.
 
-By default, the map editor operates in tiled mode. It also supports an "edit-as-image" mode, allowing to edit map assets pixel-by-pixel like a standard image. The image data is then automatically converted and transferred into tiles and map assets. Please note that this process overwrites existing tiles.
+By default, the map editor operates in tiled mode. It also supports an "edit-as-image" mode, allowing to edit map assets pixel-by-pixel like a standard image. The image data is then automatically converted and transferred into tiles and map assets. Please note that this process overwrites existing tiles. Additionally, it is recommended to avoid directly editing the tile assets referenced in edit-as-image mode to keep data synchronized.
 
 The hardware VRAM's map area is limited to 32x32 tiles. Although a map asset can be defined larger than this size in the asset editor, using the aforementioned map statements to fill the map will cause data to exceed this area. For complex scenes, consider using the [Scene](#scene) feature to support large maps, map scrolling, scene property definitions, object definitions, and more.
 
@@ -2943,6 +2991,15 @@ This is a specialized version of the `shell` command for setting the mouse curso
 For the moment only SRAM module is supported - `shell "@sram"` - this command notifies the emulator to save the SRAM. While not strictly required, it is recommended to ensure that the SRAM is saved when running within a GB BASIC emulator as part of an HTML export. Leaving this line unchanged is safe for other hardware and platforms.
 
 This is a specialized version of the `shell` command for syncing modules.
+
+#### Dummy Command
+
+* `shell "$..."`: performs a dummy shell command
+  * `"$..."`: the dummy command
+
+This type of command does nothing, but a stub or placeholder. However it is possible to introduce customized command handler by modifying the source code.
+
+This is a specialized version of the `shell` command as placeholder.
 
 [TOP](#reference-manual)
 

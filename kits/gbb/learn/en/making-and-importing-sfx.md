@@ -12,7 +12,7 @@ The main editing area of the SFX editor displays all the sound effects in the pr
 
 <div class="small-note">SFX editor</div>
 
-Try clicking the "EDIT" button below and interact with the SFX editor.
+Try clicking the <span translate="no">"EDIT"</span> button below and interact with the SFX editor.
 
 ![edit, run, style="width: 640px;"](imgs/editor-sfx-entry.png)
 <!-- prg

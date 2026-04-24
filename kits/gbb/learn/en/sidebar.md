@@ -88,7 +88,9 @@
 
 ## [6. Macro String](macro-string)
 
-## [7. Macro Scope](macro-scope)
+## [7. Preprocessors](preprocessors)
+
+## [8. Macro Scope](macro-scope)
 
 --------------------------------------------------------------------------------
 

@@ -8,7 +8,7 @@ The map editor can produce map assets, press **Ctrl+3/Cmd+3** in edit mode to sw
 
 The map editor supports local palette. Enabling this feature allows to preview a map using the local palette and includes relevant color data for fill operations when exporting to BASIC code.
 
-By default, the map editor operates in tiled mode. It also supports an "edit-as-image" mode, allowing to edit map assets pixel-by-pixel like a standard image. The image data is then automatically converted and transferred into tiles and map assets. Please note that this process overwrites existing tiles.
+By default, the map editor operates in tiled mode. It also supports an "edit-as-image" mode, allowing to edit map assets pixel-by-pixel like a standard image. The image data is then automatically converted and transferred into tiles and map assets. Please note that this process overwrites existing tiles. Additionally, it is recommended to avoid directly editing the tile assets referenced in edit-as-image mode to keep data synchronized.
 
 ## Using Maps
 
