@@ -59,6 +59,8 @@ There are two special registers that can be used to get the status of the key mo
 
 `Peek` the `KEYM` register to get the key modifiers. `Peek` the `KEYC` register to get the last pressed key code, then `poke` the `KEYC` register to `0x00` to acknowledge to accept more key codes, i.e.
 
+**See also:** _[Native Functions](https://paladin-t.github.io/kits/gbb/manual.html#native-functions) for `wait_for_key_code` and `wait_for_key_ascii` functions._
+
 **See also:** _[Key codes](https://paladin-t.github.io/kits/gbb/extensions.html#keyboard-input)._
 
 <div class="content-highlight" style="min-height: 48px;">

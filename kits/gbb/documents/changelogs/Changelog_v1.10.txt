@@ -1,0 +1,54 @@
+This release includes significant improvements to the kernels, adding support
+for using the SFC/SNES mouse as a click/touch backend via SGB features, along
+with a very simple yet fun speech synthesis feature. Both features are present
+in the official kernel source code. Please note that the kernels bundled with
+the application do not enable these new features. If needed, you can follow the
+links to the kernel download page to install them yourself. The kernel
+management, macro and native function features have also been updated. A new
+"Text Input" example was added to demonstrate how to implement simple text input
+via a virtual keyboard. This version also includes many other enhancement and
+bugfix.
+
+v1.10
+
+* Runtime
+  * Added SFC/SNES mouse support via SGB features to the source code
+  * Added simple speech synthesis feature to the source code
+  * Added an `is_sgb_mouse_installed` native function to get whether an SGB mouse has been installed to the "SFC Mouse" kernel
+  * Added support for macro injection from kernel config to the compiler
+  * Added cartridge rumble support via a `rumble` native function
+  * Added `wait_for_key_code` and `wait_for_key_ascii` native functions to get hardware keyboard input as extension and experimental feature
+  * Updated some of the modules in the kernel as pluggable (re-compiling the source code is required)
+  * Updated the `LABEL` statements to support `GUI_WAIT_FOR_NONE` option
+  * Updated the parameter `blit_interval` domain of `DEF LABEL` and `LOAD DIALOG`
+* Syntax
+  * Added support for using `ASC(...)` in inline data sequences
+  * Added support for using macro constant in `DIM` statement
+* Compiler and Asset Pipeline
+  * Updated to show any occurred errors after static analyzing
+  * Updated conditional compilation to ignore errors for inactive branches
+  * Improved warning checking for using `TOUCH` API with an SFC mouse kernel
+  * Improved handling of special symbols in the `ASC(...)` statement
+  * Improved error report of duplicate identifier declaration
+  * Fixed a misinformed "unused" warning of `FOR` loop variable when it's been declared already
+  * Fixed a macro expression parsing bug when another macro appears in front of the expression
+  * Fixed a compilation issue with line-number based `GOTO`
+* Emulator
+  * Improved the web backend for HTML preview play
+  * Fixed an SGB border invalidation issue on Windows 11 when resizing the application window
+* Editor
+  * Added links to the page of official external kernels
+  * Added support for opening .gb and .zip examples
+  * Added a README viewer to the kernels list
+  * Added a logging to file mechanism
+  * Added copy-as-image operations to the tiles, map, and actor asset editors
+  * Updated to ignore some analyzing warnings when a tiles asset is not referenced by map
+  * Fixed a file opening issue with HTML builds
+  * Fixed a potential crash bug when opening a corrupt project
+  * Fixed a potential transferring bug with HTML build hosting
+  * Fixed a pasting issue of the font editor when operating the side toolbar
+  * Refactored application preferences saving
+* Document, Examples, Starter Kits, Tutorials and Help
+  * Added a link to the external "SFC Mouse" kernel for users to install
+  * Added a link to the external "Speech Synthesizer" kernel for users to install
+  * Added a text input example

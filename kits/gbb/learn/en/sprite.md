@@ -49,7 +49,7 @@ loop:
 ```
 <!-- prg
 !edit, run, title="Sprite", style=""
-' Use arrow keys to move the sprite.
+' Use D-Pad to move the sprite.
 ' Press A to show the sprite, B to hide it.
 
 sprite on

@@ -133,7 +133,7 @@ This section introduces some memory related operations. Some can directly read f
 * `=pack(b0, b1)`: packs the two bytes into a 16-bit integer
   * `b0`: the first byte
   * `b1`: the second byte
-  * returns the packed 16-bit integer; the bit order is `(B1 LSHIFT 8) BOR (B0)`
+  * returns the packed 16-bit integer; the bit order is `(b1 LSHIFT 8) BOR (b0)`
 * `unpack(val, b0, b1)`: unpacks the 16-bit integer into two bytes and stores them into the two variables
   * `val`: the 16-bit integer to unpack
   * `b0`: the first variable; the bits are extracted as `val BAND 0xFF`
@@ -143,7 +143,7 @@ This section introduces some memory related operations. Some can directly read f
   * `n1`: the second nibble
   * `n2`: the third nibble
   * `n3`: the fourth nibble
-  * returns the packed 16-bit integer; the bit order is `(B3 LSHIFT 12) BOR (B2 LSHIFT 8) BOR (B1 LSHIFT 4) BOR (B0)`
+  * returns the packed 16-bit integer; the bit order is `(b3 LSHIFT 12) BOR (b2 LSHIFT 8) BOR (b1 LSHIFT 4) BOR (b0)`
 * `unpack(val, n0, n1, n2, n3)`: unpacks the 16-bit integer into four nibbles (4 bits per nibble) and stores them into the four variables
   * `val`: the 16-bit integer to unpack
   * `n0`: the first variable; the bits are extracted as `val BAND 0x0F`

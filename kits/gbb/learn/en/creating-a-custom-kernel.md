@@ -19,6 +19,10 @@ The default kernel includes all the general-purpose libraries, functions, proper
 
 The scroll shooting kernel is an extension of the default kernel. In addition to the features provided by the default kernel, it implements an extra [Scroll Shooting](scroll-shooting-controller.html) behaviour for the actor controller, enabling the creation of common scrolling shooter games.
 
+## Other Official Kernels
+
+Other official kernels are distributed with the [latest GitHub release](https://github.com/paladin-t/gbb/releases/latest). See the "Assets" section for download.
+
 ## Custom Kernels
 
 In addition, GB BASIC also supports user-defined kernels and allows for custom distributions. This chapter explains practices related to custom kernels, including source fetching, development, packaging, and installation.

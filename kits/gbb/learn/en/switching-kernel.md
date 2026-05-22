@@ -13,3 +13,9 @@ You can switch the kernel used by a project at any time in the project property 
 <img src="imgs/editor-project-property-selecting-kernel.png" class="diagram-image diagram-screenshot">
 
 <div class="small-note">Selecting a kernel for a project</div>
+
+Click the "More Official Kernels" link to open the web page that contains a few external official kernels.
+
+<img src="imgs/editor-project-creating-getting-official-kernels.png" class="diagram-image diagram-screenshot">
+
+<div class="small-note">Getting official kernels</div>

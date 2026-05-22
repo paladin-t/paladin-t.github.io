@@ -278,10 +278,10 @@ The following functions are used to assign grayscale values corresponding to 2 b
 
 * `palette layer, val`: sets the palette with four colors packed in one value
   * `layer`: the layer to operate; can be one of the "Graphics layers" constants, map and window layers are identical for this statement
-  * `val`: the four colors that each one takes 2 bits and, can be one of the "2bpp colors" constants; the bit order is `(C3 LSHIFT 6) BOR (C2 LSHIFT 4) BOR (C1 LSHIFT 2) BOR (C0)`
+  * `val`: the four colors that each one takes 2 bits and, can be one of the "2bpp colors" constants; the bit order is `(c3 LSHIFT 6) BOR (c2 LSHIFT 4) BOR (c1 LSHIFT 2) BOR (c0)`
 * `palette layer, val, idx`: sets the palette with a color value for the specific index; the third `idx` parameter is only effective when the `layer` is `SPRITE_LAYER`
   * `layer`: the layer to operate; this version can only be `SPRITE_LAYER`
-  * `val`: the four colors that each one takes 2 bits and, can be one of the "2bpp colors" constants; the bit order is `(C3 LSHIFT 6) BOR (C2 LSHIFT 4) BOR (C1 LSHIFT 2) BOR (C0)`
+  * `val`: the four colors that each one takes 2 bits and, can be one of the "2bpp colors" constants; the bit order is `(c3 LSHIFT 6) BOR (c2 LSHIFT 4) BOR (c1 LSHIFT 2) BOR (c0)`
   * `idx`: the sprite palette index, 0 for OBJ0PAL, 1 for OBJ1PAL
 
 The following functions are used to assign colors corresponding to entries in a specific palette on colored devices.

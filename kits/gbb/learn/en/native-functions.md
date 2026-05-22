@@ -29,10 +29,44 @@ Some native functions have corresponding short syntax forms that are semanticall
 | `call clear_text`                                                    | `cls`                     | Clears the screen for the `TEXT_MODE`                                                                          |
 | `call wait_for n`                                                    | `wait n`                  | Waits for `n` frames on the current thread                                                                     |
 | `call wait_until_confirm`                                            | -                         | Waits until the A/Start button has been pressed; or anywhere of the screen has been tapped (extension feature) |
+| `=call wait_for_key_code` (**experimental**)                         | -                         | Waits until a key on keyboard has been pressed; returns `(modifiers LSHIFT 4) BOR key` (extension feature)     |
+| `=call wait_for_key_ascii` (**experimental**)                        | -                         | Waits until a key on keyboard has been pressed; returns the ASCII code (extension feature)                     |
+| `call rumble n[, i]`                                                 | -                         | Rumbles for `n` frames with intensity `i`                                                                      |
 | `call send_sgb_packet bank, addr, sz`                                | -                         | Sends a packet of bytes to SGB devices                                                                         |
 | `call set_sgb_border pb, paddr, psz, tb, taddr, tsz, mb, maddr, msz` | -                         | Sets border frame for SGB devices                                                                              |
 | `call error`                                                         | -                         | Raises an error                                                                                                |
-| `call camera_shake n, d`                                             | -                         | Shake camera for `n` frames with ["Camera shake directions"](camera.html) specified by `d`                     |
+| `call camera_shake n, d`                                             | -                         | Shake camera for `n` frames with ["Camera shake directions"](#scene) specified by `d`                          |
+
+The `=call wait_for_key_code` and `=call wait_for_key_ascii` functions are extension and experimental features. The `=call wait_for_key_ascii` function returns the literal ASCII value of a letter, digit, or symbol, or a special control value. See the "Key ASCII" constants below.
+
+| Key ASCII                 | Value                  |
+|---------------------------|------------------------|
+| `'A'` to `'Z'`            | `65` to `90`           |
+| `'a'` to `'a'`            | `97` to `122`          |
+| `'0'` to `'1'`            | `48` to `57`           |
+| `'!'`, `'@'`, `'#'`, etc. | `33`, `64`, `35`, etc. |
+| Space                     | `32`                   |
+| Return                    | `13`                   |
+| Esc                       | `27`                   |
+| Backspace                 | `8`                    |
+| Up arrow                  | `5` (`0x05`)           |
+| Down arrow                | `24` (`0x18`)          |
+| Left arrow                | `19` (`0x13`)          |
+| Right arrow               | `4` (`0x04`)           |
+| LCtrl/RCtrl               | `224`/`228`            |
+| LShift/RShift             | `225`/`229`            |
+| LAlt/RAlt                 | `226`/`230`            |
+
+**See also:** _[Keyboard Input](https://paladin-t.github.io/kits/gbb/manual.html#keyboard-input) for information about keyboard extension._
+
+The `call rumble n[, i]` function waits until `n` frames elapsed, the intensity argument can be one of the following "Rumble intensity" constants or an arbitrary frame mask. This feature requires the "Rumble" feature in a project's property and a cartridge that supports motor rumble.
+
+| Rumble intensity          | Value  | Note          |
+|---------------------------|--------|---------------|
+| `RUMBLE_INTENSITY_LOW`    | `0x01` |               |
+| `RUMBLE_INTENSITY_MEDIUM` | `0x02` |               |
+| `RUMBLE_INTENSITY_HIGH`   | `0x03` |               |
+| `RUMBLE_INTENSITY_MAX`    | `0xFF` | Default value |
 
 <!-- Extra kernels can provide more native functions. -->
 

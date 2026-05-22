@@ -152,6 +152,8 @@ A touch callback is a routine that takes three parameters respectively for x, y 
 
 All touch callbacks by `goto`, `gosub` and `start` work with the manual update mode, and only callbacks by `start` work with the auto update mode.
 
+**Tips:** _GB BASIC also supports using an SFC/SNES peripheral mouse as the input hardware for the `touch` APIs. This requires the SGB adapter to bridge between the ROM cartridge and the SFC/SNES hardware. To use this feature in a project, download and install the "SFC Mouse" kernel from the [latest GitHub release](https://github.com/paladin-t/gbb/releases/latest) page first. Specify to use the kernel in a project, and the "SGB Features" in the project's property should be turned on. Then no special coding is required. In addition, `call is_sgb_mouse_installed` to get whether a compatible mouse has bee installed. To debug this function or use it, use an SFC/SNES with plugged SGB and peripheral mouse, or find some emulators like Mesen. The mouse should be plugged in port 2._
+
 <div class="content-highlight" style="min-height: 48px;">
   <img src="imgs/logo-nokbd.png" class="logo-tip">
   <span class="content-text">

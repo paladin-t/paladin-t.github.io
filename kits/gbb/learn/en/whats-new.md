@@ -4,12 +4,25 @@
 
 # Releases
 
-## GB BASIC v1.9.0
+## GB BASIC v1.10.0
 
 <details open>
 <summary><b>Click Me</b></summary>
 <div>
-This release mainly includes numerous improvements to the BASIC compiler. Which includes a new constant folding mechanism, enhancements to macros - and leveraging these features - optimizations in expression evaluation, and conditional compilation directives as <code>#if ... #else if ... #else ... #end if</code> allow static determination of which code participates in compilation. The new <code>#message ...</code>, <code>#warn ...</code>, and <code>#error ...</code> diagnostic directives help provide custom compile-time feedbacks. It also includes enhanced <code>for</code>, <code>while</code>, and <code>repeat</code> loops to support more flexible single-line syntax. <code>bankof(lbl)</code> and <code>addressof(lbl)</code> now support code labels as arguments. This update also contains other feature improvements and bug fixes.
+This release includes significant improvements to the kernels, adding support for using the SFC/SNES mouse as a click/touch backend via SGB features, along with a very simple yet fun speech synthesis feature. Both features are present in the official kernel source code. Please note that the kernels bundled with the application do not enable these new features. If needed, you can follow the links to the kernel download page to install them yourself. The kernel management, macro and native function features have also been updated. A new "Text Input" example was added to demonstrate how to implement simple text input via a virtual keyboard. This version also includes many other enhancement and bugfix.
+</div>
+</details>
+
+* [Changelog](../documents/changelogs/Changelog_v1.10.0.txt) (May. 22, 2026)
+* Download on [Steam](https://store.steampowered.com/app/2308700/)
+* Also available on [Itch.io](https://tonywang.itch.io/gbbasic)
+
+## GB BASIC v1.9.0
+
+<details>
+<summary><b>Click Me</b></summary>
+<div>
+This release mainly includes numerous improvements to the BASIC compiler. Which includes a new constant folding mechanism, enhancements to macros - and leveraging these features - optimizations in expression evaluation, and conditional compilation directives as <code>#IF ... #ELSE IF ... #ELSE ... #END IF</code> allow static determination of which code participates in compilation. The new <code>#MESSAGE ...</code>, <code>#WARN ...</code>, and <code>#ERROR ...</code> diagnostic directives help provide custom compile-time feedbacks. It also includes enhanced <code>FOR</code>, <code>WHILE</code>, and <code>REPEAT</code> loops to support more flexible single-line syntax. <code>BANKOF(lbl)</code> and <code>ADDRESSOF(lbl)</code> now support code labels as arguments. This update also contains other feature improvements and bug fixes.
 </div>
 </details>
 
@@ -61,7 +74,7 @@ This update brings significant enhancements to the map editor. New support for l
 <details>
 <summary><b>Click Me</b></summary>
 <div>
-This update introduces the syntactic sugar <code>load dialog</code> to simplify initializing chat-style GUI operations. This version also optimizes RPN data fetching and calculation, improves VM instruction execution, optimizes building flags for the kernels, and boosts performance in certain computations; for example, the built-in "Mandelbrot Demo" program now runs approximately 12% to 14% faster compared to before optimization. Additionally, for the VRAM debugger feature added in the previous version, this update enhances the user experience and improves palette calculation. A kernel panic caused by numeric calculation overflow is fixed, along with some other fixes.
+This update introduces the syntactic sugar <code>LOAD DIALOG</code> to simplify initializing chat-style GUI operations. This version also optimizes RPN data fetching and calculation, improves VM instruction execution, optimizes building flags for the kernels, and boosts performance in certain computations; for example, the built-in "Mandelbrot Demo" program now runs approximately 12% to 14% faster compared to before optimization. Additionally, for the VRAM debugger feature added in the previous version, this update enhances the user experience and improves palette calculation. A kernel panic caused by numeric calculation overflow is fixed, along with some other fixes.
 </div>
 </details>
 

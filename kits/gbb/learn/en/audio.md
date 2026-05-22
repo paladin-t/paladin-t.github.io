@@ -16,6 +16,8 @@ The following APIs are used to turn the audio system on and off. Before playing 
 * `sound on`: turns on the sound feature for music or SFX
 * `sound off`: turns off the sound feature
 
+**Tips:** _GB BASIC also supports a realtime speech synthesizer that outputs gibberish voice. This feature is not enabled in the bundled kernels, to use it in a project, download and install the "Speech Synthesizer" kernel from the [latest GitHub release](https://github.com/paladin-t/gbb/releases/latest) page first. Then `call say "Hello World!"` to speak something; `call hush` to stop speaking; `call tune 14, 7, 100` to setup the speech options, parameters for volume, speed, and pitch respectively._
+
 <div class="content-highlight" style="min-height: 48px;">
   <img src="imgs/logo-nokbd.png" class="logo-tip">
   <span class="content-text">

@@ -8,7 +8,7 @@
   * `fmt`: the format string, accepts the following "Escapes" for value interpretation
   * `...`: optional variadic data; numeric values separated by comma
 
-Every `print` outputs a newline by default after all contents have been printed, to let the next `print` starts from the same line instead of a new line, put a semicolon (`;`) at the end of the `print`.
+Every `print` outputs a newline by default after all contents have been printed. To let the next `print` start from the same line instead of a new line, put a semicolon (`;`) at the end of the `print`.
 
 | Escapes  | Can be applied to                         | Note                                            |
 |----------|-------------------------------------------|-------------------------------------------------|

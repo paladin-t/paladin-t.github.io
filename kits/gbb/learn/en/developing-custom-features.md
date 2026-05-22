@@ -30,7 +30,7 @@ The `utils` directory contains various utility modules reused by different parts
 
 ### Drivers
 
-The `drv` directory contains device drivers. Currently, it only holds the "hUGE" music driver at the moment; the SFX driver is provided by `utils/sfx_player.c`/`utils/sfx_player.h`.
+The `drv` directory contains device drivers for music, SFX, and optional SGB mouse, speech, etc.
 
 ### Inline Data
 
@@ -54,7 +54,11 @@ A typical kernel manifest structure is as follows.
     "rom": "*.gb",
     "symbols": "*.sym",
     "aliases": "*.aliases.json",
-    "source_code": "*.zip"
+    "source_code": "*.zip",
+    "document": "*.txt"
+  },
+  "features": {
+    "implemented_touch_api": false
   },
   "bootstrap": {
     "bank": 9
@@ -117,8 +121,8 @@ A typical kernel manifest structure is as follows.
     {
       "type": "...",
       "id": "...",
-      "value": "0x??",
       "syntax": "...",
+      "value": "0x??",
       "name": {
         "english": "..."
       },
@@ -128,13 +132,20 @@ A typical kernel manifest structure is as follows.
   ],
   "properties": [
     {
-      "value": "...",
-      "syntax": "..."
+      "syntax": "...",
+      "value": "..."
     },
     ...
   ],
+  "macros": [
+    {
+      "syntax": "...",
+      "value": "..."
+    }
+  ],
   "natives": [
     {
+      "type": "generic",
       "syntax": "..."
     },
     ...
@@ -146,7 +157,9 @@ Among these, `"id"`, `"title"`, and `"description"` are **required** fields, whi
 
 `"url"` is an optional field that defines a relevant link for the kernel, such as its release page or source code repository.
 
-`"kernel/rom"` and `"kernel/symbols"` are **required** fields, used to define the location (typically a filename with extension) of the kernel's precompiled ROM and symbol table file within the package. `"kernel/aliases"` and `"kernel/source_code"` are optional fields, used to define the location of the kernel's symbol aliases and source code package, respectively.
+`"kernel/rom"` and `"kernel/symbols"` are **required** fields, used to define the location (typically a filename with extension) of the kernel's precompiled ROM and symbol table file within the package. `"kernel/aliases"` and `"kernel/source_code"` are optional fields, used to define the location of the kernel's symbol aliases and source code package, respectively. `"kernel/document"` is an optional field, used to define the location of the kernel's document/note.
+
+`"features/implemented_touch_api"` is an optional field that defines whether the kernel has implemented touch APIs.
 
 `"bootstrap/bank"` is a **required** field that defines the bank number for the bootstrap entry point within the precompiled ROM. This bank number is not fixed for all kernels, but its address is always 0x4000.
 
@@ -161,6 +174,8 @@ Among these, `"id"`, `"title"`, and `"description"` are **required** fields, whi
 `"behaviours"` is an optional field that defines all configuration related to actor controllers in this kernel.
 
 `"properties"` is an optional field containing the names and enumeration values for extended object properties in this kernel.
+
+`"macros"` is an optional field that contains kernel defined macros.
 
 `"natives"` is an optional field containing the names of extended native functions in this kernel.
 
@@ -180,7 +195,7 @@ To modify the implementation of an existing property, edit the property within i
 
 ### Making Custom Native Functions
 
-The default kernel contains the following built-in native functions: `peek_banked`, `clear_text`, `wait_for`, `wait_until_confirm`, `send_sgb_packet`, `set_sgb_border`, `error`, `camera_shake`.
+The default kernel contains the following built-in native functions: `peek_banked`, `clear_text`, `wait_for`, `wait_until_confirm`, `wait_for_key_code`, `wait_for_key_ascii`, `rumble`, `send_sgb_packet`, `set_sgb_border`, `error`, `camera_shake`.
 
 For example, a native function should follow the calling convention below.
 

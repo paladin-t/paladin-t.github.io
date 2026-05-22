@@ -72,6 +72,9 @@
       - [Menu Widget](#menu-widget)
       - [Text Measurement](#text-measurement)
     - [Audio](#audio)
+      - [Music](#music)
+      - [SFX](#sfx)
+      - [Speech](#speech)
     - [Palette](#palette)
     - [Scroll](#scroll)
     - [Effects](#effects)
@@ -102,6 +105,7 @@
   - [About OS Kernel](#about-os-kernel)
   - [Default Kernel](#default-kernel)
   - [Scroll Shooting Kernel](#scroll-shooting-kernel)
+  - [Other Official Kernels](#other-official-kernels)
   - [Custom Kernel](#custom-kernel)
 - [Appendix](#appendix)
   - [Lookup Priority of Labeled Destination](#lookup-priority-of-labeled-destination)
@@ -369,7 +373,7 @@ REM Comment after REMark.
   * `fmt`: the format string, accepts the following "Escapes" for value interpretation
   * `...`: optional variadic data; numeric values separated by comma
 
-Every `print` outputs a newline by default after all contents have been printed, to let the next `print` starts from the same line instead of a new line, put a semicolon (`;`) at the end of the `print`.
+Every `print` outputs a newline by default after all contents have been printed. To let the next `print` start from the same line instead of a new line, put a semicolon (`;`) at the end of the `print`.
 
 | Escapes  | Can be applied to                         | Note                                            |
 |----------|-------------------------------------------|-------------------------------------------------|
@@ -523,10 +527,44 @@ The `=deg(angle)` function provides a convenient way to map angles with a domain
 | `call clear_text`                                                    | `cls`                     | Clears the screen for the `TEXT_MODE`                                                                          |
 | `call wait_for n`                                                    | `wait n`                  | Waits for `n` frames on the current thread                                                                     |
 | `call wait_until_confirm`                                            | -                         | Waits until the A/Start button has been pressed; or anywhere of the screen has been tapped (extension feature) |
+| `=call wait_for_key_code` (**experimental**)                         | -                         | Waits until a key on keyboard has been pressed; returns `(modifiers LSHIFT 4) BOR key` (extension feature)     |
+| `=call wait_for_key_ascii` (**experimental**)                        | -                         | Waits until a key on keyboard has been pressed; returns the ASCII code (extension feature)                     |
+| `call rumble n[, i]`                                                 | -                         | Rumbles for `n` frames with intensity `i`                                                                      |
 | `call send_sgb_packet bank, addr, sz`                                | -                         | Sends a packet of bytes to SGB devices                                                                         |
 | `call set_sgb_border pb, paddr, psz, tb, taddr, tsz, mb, maddr, msz` | -                         | Sets border frame for SGB devices                                                                              |
 | `call error`                                                         | -                         | Raises an error                                                                                                |
 | `call camera_shake n, d`                                             | -                         | Shake camera for `n` frames with ["Camera shake directions"](#scene) specified by `d`                          |
+
+The `=call wait_for_key_code` and `=call wait_for_key_ascii` functions are extension and experimental features. The `=call wait_for_key_ascii` function returns the literal ASCII value of a letter, digit, or symbol, or a special control value. See the "Key ASCII" constants below.
+
+| Key ASCII                 | Value                  |
+|---------------------------|------------------------|
+| `'A'` to `'Z'`            | `65` to `90`           |
+| `'a'` to `'a'`            | `97` to `122`          |
+| `'0'` to `'1'`            | `48` to `57`           |
+| `'!'`, `'@'`, `'#'`, etc. | `33`, `64`, `35`, etc. |
+| Space                     | `32`                   |
+| Return                    | `13`                   |
+| Esc                       | `27`                   |
+| Backspace                 | `8`                    |
+| Up arrow                  | `5` (`0x05`)           |
+| Down arrow                | `24` (`0x18`)          |
+| Left arrow                | `19` (`0x13`)          |
+| Right arrow               | `4` (`0x04`)           |
+| LCtrl/RCtrl               | `224`/`228`            |
+| LShift/RShift             | `225`/`229`            |
+| LAlt/RAlt                 | `226`/`230`            |
+
+**See also:** _[Keyboard Input](#keyboard-input) for information about keyboard extension._
+
+The `call rumble n[, i]` function waits until `n` frames elapsed, the intensity argument can be one of the following "Rumble intensity" constants or an arbitrary frame mask. This feature requires the "Rumble" feature in a project's property and a cartridge that supports motor rumble.
+
+| Rumble intensity          | Value  | Note          |
+|---------------------------|--------|---------------|
+| `RUMBLE_INTENSITY_LOW`    | `0x01` |               |
+| `RUMBLE_INTENSITY_MEDIUM` | `0x02` |               |
+| `RUMBLE_INTENSITY_HIGH`   | `0x03` |               |
+| `RUMBLE_INTENSITY_MAX`    | `0xFF` | Default value |
 
 **See also:** _Extra [Kernels](#kernels) can provide more native functions._
 
@@ -1101,7 +1139,7 @@ An `#error` directive immediately terminates the compilation process. This is pr
 * `=pack(b0, b1)`: packs the two bytes into a 16-bit integer
   * `b0`: the first byte
   * `b1`: the second byte
-  * returns the packed 16-bit integer; the bit order is `(B1 LSHIFT 8) BOR (B0)`
+  * returns the packed 16-bit integer; the bit order is `(b1 LSHIFT 8) BOR (b0)`
 * `unpack(val, b0, b1)`: unpacks the 16-bit integer into two bytes and stores them into the two variables
   * `val`: the 16-bit integer to unpack
   * `b0`: the first variable; the bits are extracted as `val BAND 0xFF`
@@ -1111,7 +1149,7 @@ An `#error` directive immediately terminates the compilation process. This is pr
   * `n1`: the second nibble
   * `n2`: the third nibble
   * `n3`: the fourth nibble
-  * returns the packed 16-bit integer; the bit order is `(B3 LSHIFT 12) BOR (B2 LSHIFT 8) BOR (B1 LSHIFT 4) BOR (B0)`
+  * returns the packed 16-bit integer; the bit order is `(b3 LSHIFT 12) BOR (b2 LSHIFT 8) BOR (b1 LSHIFT 4) BOR (b0)`
 * `unpack(val, n0, n1, n2, n3)`: unpacks the 16-bit integer into four nibbles (4 bits per nibble) and stores them into the four variables
   * `val`: the 16-bit integer to unpack
   * `n0`: the first variable; the bits are extracted as `val BAND 0x0F`
@@ -2305,7 +2343,7 @@ All GUI widgets share a same subset of rumtime states, so consider manipulating 
   * `layer`: the layer to put the label; can be either `MAP_LAYER` or `WINDOW_LAYER` of the "Graphics layers" constants
   * `margin_x`: the margin in x-axis in pixels, with range of values from 0 to 15
   * `margin_y`: the margin in y-axis in pixels, with range of values from 0 to 15
-  * `blit_interval`: the interval frame count for character blit
+  * `blit_interval`: the interval frame count for character blit, with range of values from 0 to 31
   * `x_offset`: the x offset of the blit cursor in tiles, with range of values from 0 to 15
 * `label #pg|"{name}", ...`: outputs numeric values to the screen as a GUI label's content
   * objectives:
@@ -2319,7 +2357,11 @@ All GUI widgets share a same subset of rumtime states, so consider manipulating 
   * `fmt`: the format string, accepts the `print` "Escapes" for value interpretation
   * `...`: optional variadic data; numeric values separated by comma
 
-Every `label` outputs a newline by default after all contents have been transferred, to let the next `label` starts from the same line instead of a new line, put a semicolon (`;`) at the end of the `label`.
+Every `label` outputs a newline by default after all contents have been transferred. To let the next `label` start on the same line instead of a new line, put a semicolon (`;`) at the end of the `label`. By default, when the `label`'s display area is full, it waits for user input before clearing the area to render subsequent text on a new page. To specify blit interval to zero and automatically advance to a new page without waiting for input when full, pass `GUI_WAIT_FOR_NONE` of the following "Special interval values" constants to `blit_interval`.
+
+| Special interval values | Note                                                                     |
+|-------------------------|--------------------------------------------------------------------------|
+| `GUI_WAIT_FOR_NONE`     | Specifies blit interval to zero and automatically advances to a new page |
 
 The font editor can produce and configure assets for `label`'s text drawing, press **Ctrl+6/Cmd+6** in edit mode to switch to the font tab.
 
@@ -2344,7 +2386,7 @@ In GB BASIC, the `load dialog` operation serves as syntactic sugar for `def labe
   * `layer`: the layer to put the dialog; can be either `MAP_LAYER` or `WINDOW_LAYER` of the "Graphics layers" constants
   * `margin_x`: the margin in x-axis in pixels, with range of values from 0 to 15
   * `margin_y`: the margin in y-axis in pixels, with range of values from 0 to 15
-  * `blit_interval`: the interval frame count for character blit
+  * `blit_interval`: the interval frame count for character blit, consistent with the parameter domain and semantics of `def label`
   * `x_offset`: the x offset of the blit cursor in tiles, with range of values from 0 to 15
 
 For example, the following program:
@@ -2463,6 +2505,8 @@ The audio system supports four channels, including two duty (square wave), one w
 * `sound on`: turns on the sound feature for music or SFX
 * `sound off`: turns off the sound feature
 
+#### Music
+
 * `play #pg|"{name}"|"{builtin}"`: plays music of the specific asset page or builtin asset
   * objectives:
     * `#pg`: music page index
@@ -2477,6 +2521,8 @@ The music editor can produce music assets, press **Ctrl+7/Cmd+7** in edit mode t
 The music editor accepts the following shortcuts to input notes. Press the literal keys for the upper blue notes, and **Alt**+keys for the lower red ones.
 
 ![](imgs/music_editor_shortcuts.png)
+
+#### SFX
 
 * `sound #pg|"{name}"|"{builtin}"[, priority]`: plays SFX of the specific asset page or builtin asset
   * objectives:
@@ -2499,6 +2545,10 @@ The music editor accepts the following shortcuts to input notes. Press the liter
 * `beep`: plays a simple beep sound
 
 The SFX editor can produce SFX assets, press **Ctrl+8/Cmd+8** in edit mode to switch to the SFX tab. GB BASIC allows importing external formats as SFX, and offers a number of pre-made in library.
+
+#### Speech
+
+**Tips:** _GB BASIC also supports a realtime speech synthesizer that outputs gibberish voice. This feature is not enabled in the bundled kernels, to use it in a project, download and install the "Speech Synthesizer" kernel from the [latest GitHub release](https://github.com/paladin-t/gbb/releases/latest) page first. Then `call say "Hello World!"` to speak something; `call hush` to stop speaking; `call tune 14, 7, 100` to setup the speech options, parameters for volume, speed, and pitch respectively._
 
 ### Palette
 
@@ -2524,10 +2574,10 @@ The following functions are used to assign grayscale values corresponding to 2 b
 
 * `palette layer, val`: sets the palette with four colors packed in one value
   * `layer`: the layer to operate; can be one of the "Graphics layers" constants, map and window layers are identical for this statement
-  * `val`: the four colors that each one takes 2 bits and, can be one of the "2bpp colors" constants; the bit order is `(C3 LSHIFT 6) BOR (C2 LSHIFT 4) BOR (C1 LSHIFT 2) BOR (C0)`
+  * `val`: the four colors that each one takes 2 bits and, can be one of the "2bpp colors" constants; the bit order is `(c3 LSHIFT 6) BOR (c2 LSHIFT 4) BOR (c1 LSHIFT 2) BOR (c0)`
 * `palette layer, val, idx`: sets the palette with a color value for the specific index; the third `idx` parameter is only effective when the `layer` is `SPRITE_LAYER`
   * `layer`: the layer to operate; this version can only be `SPRITE_LAYER`
-  * `val`: the four colors that each one takes 2 bits and, can be one of the "2bpp colors" constants; the bit order is `(C3 LSHIFT 6) BOR (C2 LSHIFT 4) BOR (C1 LSHIFT 2) BOR (C0)`
+  * `val`: the four colors that each one takes 2 bits and, can be one of the "2bpp colors" constants; the bit order is `(c3 LSHIFT 6) BOR (c2 LSHIFT 4) BOR (c1 LSHIFT 2) BOR (c0)`
   * `idx`: the sprite palette index, 0 for OBJ0PAL, 1 for OBJ1PAL
 
 The following functions are used to assign colors corresponding to entries in a specific palette on colored devices.
@@ -2898,6 +2948,8 @@ A touch callback is a routine that takes three parameters respectively for x, y 
 
 All touch callbacks by `goto`, `gosub` and `start` work with the manual update mode, and only callbacks by `start` work with the auto update mode.
 
+**Tips:** _GB BASIC also supports using an SFC/SNES peripheral mouse as the input hardware for the `touch` APIs. This requires the SGB adapter to bridge between the ROM cartridge and the SFC/SNES hardware. To use this feature in a project, download and install the "SFC Mouse" kernel from the [latest GitHub release](https://github.com/paladin-t/gbb/releases/latest) page first. Specify to use the kernel in a project, and the "SGB Features" in the project's property should be turned on. Then no special coding is required. In addition, `call is_sgb_mouse_installed` to get whether a compatible mouse has bee installed. To debug this function or use it, use an SFC/SNES with plugged SGB and peripheral mouse, or find some emulators like Mesen. The mouse should be plugged in port 2._
+
 ### Keyboard Input
 
 _The keyboard input feature (experimental) supports transfering key codes and modifiers from the host environment to the VM, which allows GB BASIC users to interact with it not limited to the eight buttons._
@@ -2928,6 +2980,8 @@ loop:
   update
   goto loop
 ```
+
+**See also:** _[Native Functions](#native-functions) for `wait_for_key_code` and `wait_for_key_ascii` functions._
 
 **See also:** _[Key codes](https://paladin-t.github.io/kits/gbb/extensions.html#keyboard-input)._
 
@@ -3084,6 +3138,12 @@ The default kernel includes all the general-purpose libraries, functions, proper
 ## Scroll Shooting Kernel
 
 The scroll shooting kernel is an extension of the default kernel. In addition to the features provided by the default kernel, it implements an extra Scroll Shooting behaviour for the actor controller, enabling the creation of common scrolling shooter games.
+
+[TOP](#reference-manual)
+
+## Other Official Kernels
+
+Other official kernels are distributed with the _[latest GitHub release](https://github.com/paladin-t/gbb/releases/latest)_. See the "Assets" section for download.
 
 [TOP](#reference-manual)
 

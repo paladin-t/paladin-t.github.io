@@ -79,7 +79,7 @@ url://prgs/dialog-1.txt
   * `layer`: the layer to put the label; can be either `MAP_LAYER` or `WINDOW_LAYER` of the "Graphics layers" constants
   * `margin_x`: the margin in x-axis in pixels, with range of values from 0 to 15
   * `margin_y`: the margin in y-axis in pixels, with range of values from 0 to 15
-  * `blit_interval`: the interval frame count for character blit
+  * `blit_interval`: the interval frame count for character blit, with range of values from 0 to 31
   * `x_offset`: the x offset of the blit cursor in tiles, with range of values from 0 to 15
 * `label #pg|"{name}", ...`: outputs numeric values to the screen as a GUI label's content
   * objectives:
@@ -93,7 +93,11 @@ url://prgs/dialog-1.txt
   * `fmt`: the format string, accepts the `print` "Escapes" for value interpretation
   * `...`: optional variadic data; numeric values separated by comma
 
-Every `label` outputs a newline by default after all contents have been transferred, to let the next `label` starts from the same line instead of a new line, put a semicolon (`;`) at the end of the `label`.
+Every `label` outputs a newline by default after all contents have been transferred. To let the next `label` start on the same line instead of a new line, put a semicolon (`;`) at the end of the `label`. By default, when the `label`'s display area is full, it waits for user input before clearing the area to render subsequent text on a new page. To specify blit interval to zero and automatically advance to a new page without waiting for input when full, pass `GUI_WAIT_FOR_NONE` of the following "Special interval values" constants to `blit_interval`.
+
+| Special interval values | Note                                                                     |
+|-------------------------|--------------------------------------------------------------------------|
+| `GUI_WAIT_FOR_NONE`     | Specifies blit interval to zero and automatically advances to a new page |
 
 In GB BASIC, the `load dialog` operation serves as syntactic sugar for `def label` plus `fill tile` operations, providing a convenient way to get an area ready for dialog-style label output.
 
@@ -111,7 +115,7 @@ In GB BASIC, the `load dialog` operation serves as syntactic sugar for `def labe
   * `layer`: the layer to put the dialog; can be either `MAP_LAYER` or `WINDOW_LAYER` of the "Graphics layers" constants
   * `margin_x`: the margin in x-axis in pixels, with range of values from 0 to 15
   * `margin_y`: the margin in y-axis in pixels, with range of values from 0 to 15
-  * `blit_interval`: the interval frame count for character blit
+  * `blit_interval`: the interval frame count for character blit, consistent with the parameter domain and semantics of `def label`
   * `x_offset`: the x offset of the blit cursor in tiles, with range of values from 0 to 15
 
 For example, the following program:
