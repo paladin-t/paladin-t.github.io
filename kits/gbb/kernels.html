@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>GB BASIC - Launching | Tony Wang</title>
+  <title>GB BASIC - Kernels | Tony Wang</title>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
@@ -68,8 +68,8 @@
           <p class="docs_nav" align="left">
             <a href="manual.html">Reference Manual</a> |
             <a href="extensions.html">Extensions</a> |
-            <a href="kernels.html">Kernels</a> |
-            <a href="launching.html"><b>Launching</b></a> |
+            <a href="kernels.html"><b>Kernels</b></a> |
+            <a href="launching.html">Launching</a> |
             <a href="troubleshooting.html">Troubleshooting</a> |
             <a href="changelog.html">Changelog</a> |
             <a href="about.html">About</a>
@@ -164,15 +164,15 @@
   <script src="/kits/gbb/article.js"></script>
   <script type="text/javascript">
     (function () {
-      var url = 'documents/launching.md';
-      var ref = 'documents/launching';
+      var url = 'documents/kernels.md';
+      var ref = 'documents/kernels';
 
       try {
         Article.read(url, ref, {
           content: 'article-content',
           parse: function (markdown) {
             return markdown
-              .replaceAll('## Launching', '# Launching')
+              .replaceAll('## More Kernels', '# More Kernels')
               .replaceAll('![](imgs/', '![](documents/imgs/');
           },
           preprocess: function (html) {

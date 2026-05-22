@@ -68,6 +68,7 @@
           <p class="docs_nav" align="left">
             <a href="manual.html"><b>Reference Manual</b></a> |
             <a href="extensions.html">Extensions</a> |
+            <a href="kernels.html">Kernels</a> |
             <a href="launching.html">Launching</a> |
             <a href="troubleshooting.html">Troubleshooting</a> |
             <a href="changelog.html">Changelog</a> |
@@ -172,7 +173,7 @@
           parse: function (markdown) {
             return markdown
               .replaceAll('## Reference Manual', '# Reference Manual')
-              .replaceAll('[**Manual**](https://paladin-t.github.io/kits/gbb/manual.html) | [Extensions](https://paladin-t.github.io/kits/gbb/extensions.html) | [Launching](https://paladin-t.github.io/kits/gbb/launching.html) | [Troubleshooting](https://paladin-t.github.io/kits/gbb/troubleshooting.html) | [Changelog](https://paladin-t.github.io/kits/gbb/changelog.html) | [About](https://paladin-t.github.io/kits/gbb/about.html)', '')
+              .replaceAll('[**Manual**](https://paladin-t.github.io/kits/gbb/manual.html) | [Extensions](https://paladin-t.github.io/kits/gbb/extensions.html) | [Kernels](https://paladin-t.github.io/kits/gbb/kernels.html) | [Launching](https://paladin-t.github.io/kits/gbb/launching.html) | [Troubleshooting](https://paladin-t.github.io/kits/gbb/troubleshooting.html) | [Changelog](https://paladin-t.github.io/kits/gbb/changelog.html) | [About](https://paladin-t.github.io/kits/gbb/about.html)', '')
               .replaceAll('![](imgs/logo.png)', '')
               .replaceAll('![](imgs/', '![](documents/imgs/');
           },
