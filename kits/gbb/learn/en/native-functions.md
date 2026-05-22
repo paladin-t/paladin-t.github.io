@@ -23,19 +23,19 @@ Some native functions have corresponding short syntax forms that are semanticall
   </span>
 </div>
 
-| Functions                                                            | Short syntax              | Note                                                                                                           |
-|----------------------------------------------------------------------|---------------------------|----------------------------------------------------------------------------------------------------------------|
-| `=call peek_banked bank, addr, wordwise`                             | `=peek [int](bank, addr)` | Gets the value at the specific banked memory address                                                           |
-| `call clear_text`                                                    | `cls`                     | Clears the screen for the `TEXT_MODE`                                                                          |
-| `call wait_for n`                                                    | `wait n`                  | Waits for `n` frames on the current thread                                                                     |
-| `call wait_until_confirm`                                            | -                         | Waits until the A/Start button has been pressed; or anywhere of the screen has been tapped (extension feature) |
-| `=call wait_for_key_code` (**experimental**)                         | -                         | Waits until a key on keyboard has been pressed; returns `(modifiers LSHIFT 4) BOR key` (extension feature)     |
-| `=call wait_for_key_ascii` (**experimental**)                        | -                         | Waits until a key on keyboard has been pressed; returns the ASCII code (extension feature)                     |
-| `call rumble n[, i]`                                                 | -                         | Rumbles for `n` frames with intensity `i`                                                                      |
-| `call send_sgb_packet bank, addr, sz`                                | -                         | Sends a packet of bytes to SGB devices                                                                         |
-| `call set_sgb_border pb, paddr, psz, tb, taddr, tsz, mb, maddr, msz` | -                         | Sets border frame for SGB devices                                                                              |
-| `call error`                                                         | -                         | Raises an error                                                                                                |
-| `call camera_shake n, d`                                             | -                         | Shake camera for `n` frames with ["Camera shake directions"](#scene) specified by `d`                          |
+| Functions                                                            | Short syntax              | Note                                                                                                              |
+|----------------------------------------------------------------------|---------------------------|-------------------------------------------------------------------------------------------------------------------|
+| `=call peek_banked bank, addr, wordwise`                             | `=peek [int](bank, addr)` | Gets the value at the specific banked memory address                                                              |
+| `call clear_text`                                                    | `cls`                     | Clears the screen for the `TEXT_MODE`                                                                             |
+| `call wait_for n`                                                    | `wait n`                  | Waits for `n` frames on the current thread                                                                        |
+| `call wait_until_confirm`                                            | -                         | Waits until the A or Start button has been pressed; or anywhere of the screen has been tapped (extension feature) |
+| `=call wait_for_key_code` (**experimental**)                         | -                         | Waits until a key on keyboard has been pressed; returns `(modifiers LSHIFT 4) BOR key` (extension feature)        |
+| `=call wait_for_key_ascii` (**experimental**)                        | -                         | Waits until a key on keyboard has been pressed; returns the ASCII code (extension feature)                        |
+| `call rumble n[, i]`                                                 | -                         | Rumbles for `n` frames with intensity `i`                                                                         |
+| `call send_sgb_packet bank, addr, sz`                                | -                         | Sends a packet of bytes to SGB device                                                                             |
+| `call set_sgb_border pb, paddr, psz, tb, taddr, tsz, mb, maddr, msz` | -                         | Sets border frame for SGB device                                                                                  |
+| `call error`                                                         | -                         | Raises an error                                                                                                   |
+| `call camera_shake n, d`                                             | -                         | Shakes camera for `n` frames with ["Camera shake directions"](camera.html) specified by `d`                       |
 
 The `=call wait_for_key_code` and `=call wait_for_key_ascii` functions are extension and experimental features. The `=call wait_for_key_ascii` function returns the literal ASCII value of a letter, digit, or symbol, or a special control value. See the "Key ASCII" constants below.
 
