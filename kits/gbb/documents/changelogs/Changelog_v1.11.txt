@@ -1,0 +1,34 @@
+This update introduces direct calls to user-defined assembly instructions.
+Updated the RAM symbols. Improved the VRAM debugger and graphical editors.
+Optimized the wobble effect. This version also includes other improvements and
+bug fixes.
+
+v1.11
+
+* Runtime
+  * Added a `VM_ASM` instruction
+  * Added RAM symbol aliases
+  * Fixed a timer ISR correction bug when changing CGB fast-mode on the fly
+  * Optimized the wobble effect
+* Syntax
+  * Added an `ASM` statement to invoke user defined assembly directly
+  * Added a pair of `BEGIN ASM [name] ... END ASM` statements to invoke a block of user defined assembly directly
+  * Added `=GET ASM BANKOF("name")` and `=GET ASM ADDRESSOF("name")` statements to get the bank and address of a block of assembly code
+* Compiler and Asset Pipeline
+  * Added compilation of `[CALL] ASM bank, addr`
+  * Added compilation of `[CALL] ASM data ...`
+  * Added compilation of `[CALL] ASM id|"{builtin}"|#pg:lno|#pg:lbl`
+  * Added compilation of `BEGIN ASM [name] ... END ASM`
+  * Added an assembler
+  * Added an error report when `DO NOTHING WITH` nonexistent identifiers
+* Emulator
+  * Added data area information of Tile, BG, and WIN to the VRAM debugger
+  * Added more mapper tips
+* Editor
+  * Added code highlight for assembly code
+  * Added an option for fine zooming with graphical asset editors
+  * Added an operation to fill a tiles asset with selected patterns
+  * Added an operation to fill a map asset with selected patterns under edit-as-image mode
+* Document, Examples, Starter Kits, Tutorials and Help
+  * Added document for inline assembly
+  * Added RAM symbol table in document

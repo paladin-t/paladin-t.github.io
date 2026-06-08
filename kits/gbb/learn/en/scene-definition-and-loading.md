@@ -30,7 +30,8 @@ Scene data for a `def scene` operation can also come from inline code. This data
   * `w`: the width of the scene in tiles
   * `h`: the height of the scene in tiles
   * `base_tile`: the start index for map tiles
-  * objectives:
+  * parameter details:
+    * `data ...`: the variadic in-place data sequence
     * `"{builtin}"`: the name of a builtin entry
     * `#pg`: scene page index
     * `name`: scene asset name
@@ -44,7 +45,7 @@ This operation only fills map, attribute and property data to scene. It doesn't 
   * `map_base_tile`: the start index for map tiles
   * `sprite_base_tile`: the start index for sprite tiles
   * `clear_objects`: whether to clear all objects including actors, triggers, projectiles and widgets before loading
-  * objectives:
+  * parameter details:
     * `#pg`: scene page index
     * `name`: scene asset name
 * `load scene() = nothing`: unloads a scene; this operation resets the scene status, and deletes all objects including actors, triggers, projectiles and widgets; it also resets all effects

@@ -3,7 +3,7 @@
 [Prev]() [Next]()
 
 * `gosub lno|lbl|#pg:lno|#pg:lbl`: pushes the execution point to the stack, then performs an unconditional jump to transfer the execution to the specific location
-  * objectives:
+  * parameter details:
     * `lno`: line number
     * `lbl`: code line label
     * `#pg:lno`: code page index and line number

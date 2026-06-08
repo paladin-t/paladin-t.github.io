@@ -252,45 +252,47 @@
 
 ## [1. Native Functions](native-functions)
 
-## [2. Memory Operations](memory-operations)
+## [2. Inline Assembly](inline-assembly)
 
-## [3. Graphics Primitives](graphics-primitives)
+## [3. Memory Operations](memory-operations)
 
-## [4. Tiles](tiles)
+## [4. Graphics Primitives](graphics-primitives)
 
-## [5. Map](map)
+## [5. Tiles](tiles)
 
-## [6. Sprite](sprite)
+## [6. Map](map)
 
-## [7. Window](window)
+## [7. Sprite](sprite)
 
-## [8. Image](image)
+## [8. Window](window)
 
-## [9. User Input](user-input)
+## [9. Image](image)
 
-### [9.1 Gamepad Input](gamepad-input)
+## [10. User Input](user-input)
 
-### [9.2 Mouse and Touch Input](mouse-and-touch-input)
+### [10.1 Gamepad Input](gamepad-input)
 
-### [9.3 Keyboard Input](keyboard-input)
+### [10.2 Mouse and Touch Input](mouse-and-touch-input)
 
-## [10. Camera](camera)
+### [10.3 Keyboard Input](keyboard-input)
 
-## [11. Scrolling](scrolling)
+## [11. Camera](camera)
 
-## [12. Special Effects](special-effects)
+## [12. Scrolling](scrolling)
 
-## [13. Hits](hits)
+## [13. Special Effects](special-effects)
 
-## [14. Device](device)
+## [14. Hits](hits)
 
-### [14.1 Querying Device States](querying-device-states)
+## [15. Device](device)
 
-### [14.2 Setting Device Options](setting-device-options)
+### [15.1 Querying Device States](querying-device-states)
 
-## [15. SGB Features](sgb-features)
+### [15.2 Setting Device Options](setting-device-options)
 
-## [16. Extension Features](extension-features)
+## [16. SGB Features](sgb-features)
+
+## [17. Extension Features](extension-features)
 
 --------------------------------------------------------------------------------
 

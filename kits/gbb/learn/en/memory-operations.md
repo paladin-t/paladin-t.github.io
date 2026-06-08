@@ -16,24 +16,26 @@ This section introduces some memory related operations. Some can directly read f
 * `memcpy(dst, n) = read|data ...`: copies arbitrary data from an inline data sequence into another place in memory
   * `dst`: the destination address
   * `n`: the count of integer to copy
+  * parameter details:
+    * `data ...`: the variadic in-place data sequence
 * `memcpy(dst, n[, offset]) = "{builtin}"`: copies arbitrary data from a builtin entry in ROM into another place in memory
   * `dst`: the destination address
   * `n`: the count of bytes to copy
   * `offset`: the offset of the source data in bytes
-  * objectives:
+  * parameter details:
     * `"{builtin}"`: the name of a builtin entry
 * `memcpy(dst[, n][, offset]) = with tile #pg|"{name}"`: copies arbitrary data from a tiles asset into another place in memory
   * `dst`: the destination address
   * `n`: the count of bytes to copy, omit to use the whole tiles asset size
   * `offset`: the offset of the source data in bytes
-  * objectives:
+  * parameter details:
     * `#pg`: tiles page index
     * `name`: tiles asset name
 * `memcpy(dst[, n][, offset]) = with map #pg|#pg:n|"{name}"`: copies arbitrary data from a map asset into another place in memory
   * `dst`: the destination address
   * `n`: the count of bytes to copy, omit to use the whole map asset size
   * `offset`: the offset of the source data in bytes
-  * objectives:
+  * parameter details:
     * `#pg`: map page index
     * `#pg:n`: map page index and tile index
     * `name`: tiles asset name
@@ -55,21 +57,21 @@ This section introduces some memory related operations. Some can directly read f
   * `id`: the variable/array identifier
   * returns the address of the identifier
 * `=bankof(lbl|#pg:lbl)`: gets the bank of the specific destination
-  * objectives:
+  * parameter details:
     * `lbl`: code line label
     * `#pg:lbl`: code page index and code line label
   * returns the bank of the destination
 * `=addressof(lbl|#pg:lbl)`: gets the address of the specific destination
-  * objectives:
+  * parameter details:
     * `lbl`: code line label
     * `#pg:lbl`: code page index and code line label
   * returns the address of the destination
 * `=bankof("{builtin}")`: gets the bank of the specific builtin entry
-  * objectives:
+  * parameter details:
     * `"{builtin}"`: the name of a builtin entry
   * returns the bank of the entry
 * `=addressof("{builtin}")`: gets the address of the specific builtin entry
-  * objectives:
+  * parameter details:
     * `"{builtin}"`: the name of a builtin entry
   * returns the address of the entry
 * `=bankof read`: gets the bank of the current reading position of inline data sequence
@@ -78,31 +80,39 @@ This section introduces some memory related operations. Some can directly read f
   * returns the address of the current reading position of inline data sequence
 * `=get {asset} bankof(#pg|#pg:n|"{name}")`: gets the bank of the specific asset
   * `{asset}`: the type of a asset; can be one of `tile`, `map`, `scene`, `actor`, `projectile`, `music`, and `sfx`
-  * objectives:
+  * parameter details:
     * `#pg`: asset page index
     * `#pg:n`: asset page index and sub index
     * `name`: asset name
   * returns the bank of the entry
 * `=get {asset} addressof(#pg|#pg:n|"{name}")`: gets the address of the specific asset
   * `{asset}`: the type of a asset; can be one of `tile`, `map`, `scene`, `actor`, `projectile`, `music`, and `sfx`
-  * objectives:
+  * parameter details:
     * `#pg`: asset page index
     * `#pg:n`: asset page index and sub index
     * `name`: asset name
   * returns the address of the entry
 * `=get palette bankof([#pg|#pg:n|"{name}|"{name:n}"])`: gets the bank of the default palette asset
-  * objectives:
+  * parameter details:
     * `#pg`: palette asset index, with range of value from `#0` to `#7` for "BG0" to "BG7", and `#8` to `#15` for "OBJ0" to "OBJ7"
       * `n`: color index, with range of value from 0 to 3
     * `name`: palette asset name, with range of value from "BG0" to "BG7", and "OBJ0" to "OBJ7"
       * `n`: color index, with range of value from 0 to 3
   * returns the bank of the entry
 * `=get palette addressof([#pg|#pg:n|"{name}|"{name:n}"])`: gets the address of the default palette asset
-  * objectives:
+  * parameter details:
     * `#pg`: palette asset index, with range of value from `#0` to `#7` for "BG0" to "BG7", and `#8` to `#15` for "OBJ0" to "OBJ7"
       * `n`: color index, with range of value from 0 to 3
     * `name`: palette asset name, with range of value from "BG0" to "BG7", and "OBJ0" to "OBJ7"
       * `n`: color index, with range of value from 0 to 3
+  * returns the address of the entry
+* `=get asm bankof("id")`: gets the bank of the specific assembly block entry
+  * parameter details:
+    * `"id"`: the name of an assembly block entry
+  * returns the bank of the entry
+* `=get asm addressof("id")`: gets the address of the specific assembly block entry
+  * parameter details:
+    * `"id"`: the name of an assembly block entry
   * returns the address of the entry
 
 ### <code>peek</code>/<code>poke</code>

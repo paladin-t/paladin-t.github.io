@@ -76,13 +76,13 @@ The font editor can produce and configure assets for `label`, and `menu`'s text 
 ### Text Measurement
 
 * `=width #pg|"{name}", txt`: measures the width of the specified text in pixels
-  * objectives:
+  * parameter details:
     * `#pg`: font page index
     * `name`: font asset name
   * `txt`: the text to measure; an escape with placeholder, stack, carriage return, new line or new page is not supported
   * returns the width in pixels
 * `=height #pg|"{name}", txt`: measures the height of the specified text in pixels
-  * objectives:
+  * parameter details:
     * `#pg`: font page index
     * `name`: font asset name
   * `txt`: the text to measure; an escape with placeholder, stack, carriage return, new line or new page is not supported

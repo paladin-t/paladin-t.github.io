@@ -110,7 +110,8 @@ data 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
 * `fill map(first, n) = read|data ...|"{builtin}"|#pg|#pg:n|"{name}"`: fills the map area in VRAM; this is equivalent to a `fill tile` operation
   * `first`: index of the first map tile to write to
   * `n`: the tile count
-  * objectives:
+  * parameter details:
+    * `data ...`: the variadic in-place data sequence
     * `"{builtin}"`: the name of a builtin entry
     * `#pg`: tiles page index
     * `#pg:n`: tiles page index and tile index
@@ -123,7 +124,8 @@ data 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
   * `base_tile`: the start index for map tiles
   * `pitch`: the number of tiles in a row of the map, omit to use the source width
   * `offset`: the offset value in bytes to be added to the source data address, omit to let the compiler determine
-  * objectives:
+  * parameter details:
+    * `data ...`: the variadic in-place data sequence
     * `"{builtin}"`: the name of a builtin entry
     * `#pg`: map page index
     * `#pg:n`: map page index and map layer
@@ -132,12 +134,12 @@ data 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
 In order to transfer map data in a way where the coordinates are not aligned, an offset from the source data address can be passed in `-(x + y * pitch)`; i.e. to draw source tiles start from (0, 0) to the destination area starts from (8, 7), then offset the source address with `-(8 + 7 * map_width)`.
 
 * `=get map width(#pg|"{name}")`: gets the width in tiles of the specific map asset page
-  * objectives:
+  * parameter details:
     * `#pg`: map page index
     * `name`: map asset name
   * returns the width in tiles
 * `=get map height(#pg|"{name}")`: gets the height in tiles of the specific map asset page
-  * objectives:
+  * parameter details:
     * `#pg`: map page index
     * `name`: map asset name
   * returns the height in tiles

@@ -3,7 +3,7 @@
 [Prev]() [Next]()
 
 * `goto lno|lbl|#pg:lno|#pg:lbl`: performs an unconditional jump to transfer the execution to the specific location
-  * objectives:
+  * parameter details:
     * `lno`: line number
     * `lbl`: code line label
     * `#pg:lno`: code page index and line number

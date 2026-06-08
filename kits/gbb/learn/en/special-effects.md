@@ -41,7 +41,7 @@ up_: ' Press Up to apply pulse effect.
     6, 1, #0:6, #0:78
   return
 a_: ' Press A to apply wobble effect.
-  fx WOBBLE_EFFECT, 0x01
+  fx WOBBLE_EFFECT, 0x03
   return
 b_: ' Press B to apply parallax effect.
   fx PARALLAX_EFFECT, _
@@ -59,11 +59,11 @@ url://prgs/effects-1.txt
 
 ## API
 
-| Effect types      | Note                                                   |
-|-------------------|--------------------------------------------------------|
-| `PULSE_EFFECT`    | Performs tile animation                                |
-| `PARALLAX_EFFECT` | Performs parallax scrolling                            |
-| `WOBBLE_EFFECT`   | Performs wobbling through scanlines (**experimental**) |
+| Effect types      | Note                                |
+|-------------------|-------------------------------------|
+| `PULSE_EFFECT`    | Performs tile animation             |
+| `PARALLAX_EFFECT` | Performs parallax scrolling         |
+| `WOBBLE_EFFECT`   | Performs wobbling through scanlines |
 
 * `fx PULSE_EFFECT, interval, t0, n0, #pg_0a|#pg:n_0a, #pg_0b|#pg:n_0b[, ...]`: enables the pulse effect
   * `interval`: the flip interval
@@ -82,9 +82,9 @@ url://prgs/effects-1.txt
   * `sft0`: the shift value
   * `...`: optional variadic arguments; for the second and third groups of values
 * `fx PARALLAX_EFFECT`: disables the parallax effect
-* `fx WOBBLE_EFFECT, val`: **experimental**, enables the wobble effect (and stops any parallax effect); for colored device only
-  * `val`: the wobble value, with range of value from 0 to 15
-* `fx WOBBLE_EFFECT`: **experimental**, disables the wobble effect
+* `fx WOBBLE_EFFECT, val`: enables the wobble effect (and stops any parallax effect); for colored device only
+  * `val`: the wobble value, with range of value from 1 to 15
+* `fx WOBBLE_EFFECT`: disables the wobble effect
 
 <div class="content-highlight" style="min-height: 48px;">
   <img src="imgs/logo-nokbd.png" class="logo-tip">

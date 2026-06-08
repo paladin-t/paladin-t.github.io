@@ -82,12 +82,12 @@ url://prgs/dialog-1.txt
   * `blit_interval`: the interval frame count for character blit, with range of values from 0 to 31
   * `x_offset`: the x offset of the blit cursor in tiles, with range of values from 0 to 15
 * `label #pg|"{name}", ...`: outputs numeric values to the screen as a GUI label's content
-  * objectives:
+  * parameter details:
     * `#pg`: font page index for the current label
     * `name`: font asset name
   * `...`: variadic data; numeric values separated by comma
 * `label #pg|"{name}", fmt[, ...]`: outputs text and numeric values to the screen as a label's content
-  * objectives:
+  * parameter details:
     * `#pg`: font page index for the current label
     * `name`: font asset name
   * `fmt`: the format string, accepts the `print` "Escapes" for value interpretation
@@ -107,7 +107,7 @@ In GB BASIC, the `load dialog` operation serves as syntactic sugar for `def labe
   * `w`: the width constant of the dialog area in tiles
   * `h`: the height constant of the dialog area in tiles
   * `base_tile`: the start index to load tiles for the dialog
-  * objectives:
+  * parameter details:
     * `"{builtin}"`: the name of a builtin entry
     * `#pg`: tiles page index
     * `#pg:n`: tiles page index and tile index

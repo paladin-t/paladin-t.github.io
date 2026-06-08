@@ -17,7 +17,8 @@ The window layer is visible (if "on") when both coordinates are in the ranges `x
 * `fill window(first, n) = read|data ...|"{builtin}"|#pg|#pg:n|"{name}"`: fills the window area in VRAM; this is equivalent to a `fill tile` operation
   * `first`: index of the first map tile to write to
   * `n`: the tile count
-  * objectives:
+  * parameter details:
+    * `data ...`: the variadic in-place data sequence
     * `"{builtin}"`: the name of a builtin entry
     * `#pg`: tiles page index
     * `#pg:n`: tiles page index and tile index
@@ -30,18 +31,19 @@ The window layer is visible (if "on") when both coordinates are in the ranges `x
   * `base_tile`: the start index for window (map) tiles
   * `pitch`: the number of tiles in a row of the window (map), omit to use the source width
   * `offset`: the offset value in bytes to be added to the source data address, omit to let the compiler determine; see `def map` for more about this parameter
-  * objectives:
+  * parameter details:
+    * `data ...`: the variadic in-place data sequence
     * `"{builtin}"`: the name of a builtin entry
     * `#pg`: window (map) page index
     * `#pg:n`: window (map) page index and tile index
     * `name`: tiles asset name
 * `=get window width(#pg|"{name}")`: gets the width in tiles of the specific window (map) asset page
-  * objectives:
+  * parameter details:
     * `#pg`: window (map) page index
     * `name`: window (map) asset name
   * returns the width in tiles
 * `=get window height(#pg|"{name}")`: gets the height in tiles of the specific window (map) asset page
-  * objectives:
+  * parameter details:
     * `#pg`: window (map) page index
     * `name`: window (map) asset name
   * returns the height in tiles

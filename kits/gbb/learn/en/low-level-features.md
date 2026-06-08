@@ -9,7 +9,7 @@
   </span>
 </div>
 
-For certain sections, such as [Native Functions](native-functions.html), [Memory Operations](memory-operations.html), etc. they are rarely needed in most GB BASIC game development, but occasionally they can provide unexpectedly convenient solutions.
+For certain sections, such as [Native Functions](native-functions.html), [Inline Assembly](inline-assembly.html), [Memory Operations](memory-operations.html), etc. they are rarely needed in most GB BASIC game development, but occasionally they can provide unexpectedly convenient solutions.
 
 Other sections, like [Tiles](tiles.html), [Window](window.html), [User Input](user-input.html), [Camera](camera.html), [Device](device.html), etc. often play specific key roles at some points.
 

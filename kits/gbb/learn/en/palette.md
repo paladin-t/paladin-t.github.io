@@ -295,14 +295,14 @@ The following functions are used to assign colors corresponding to entries in a 
   * `layer`: the layer to operate; can be one of the "Graphics layers" constants, map and window layers are identical for this statement
   * `plt`: the palette index to modify, with range of value from 0 to 7
   * `entry`: the color index to modify, with range of value from 0 to 3
-  * objectives:
+  * parameter details:
     * `#pg`: palette asset index, with range of value from `#0` to `#7` for "BG0" to "BG7", and `#8` to `#15` for "OBJ0" to "OBJ7"
       * `n`: color index, with range of value from 0 to 3
     * `name`: palette asset name, with range of value from "BG0" to "BG7", and "OBJ0" to "OBJ7"
       * `n`: color index, with range of value from 0 to 3
 * `palette plt, col0|#pg:n_0|"{name:n_0}", col1|#pg:n_1|"{name:n_1}", ..., col6|#pg:n_6|"{name:n_6}"`: sets the SGB palette with RGB values for the specific slot; for SGB device only
   * `plt`: the palette indices to modify; can be one of the following "SGB palettes" constants
-  * objectives:
+  * parameter details:
     * `col`: the RGB color value; the format is bitpacked BGR-555 in a 16-bit unsigned integer
     * `#pg`: palette asset index, with range of value from `#0` to `#7` for "BG0" to "BG7", and `#8` to `#15` for "OBJ0" to "OBJ7"
       * `n`: color index, with range of value from 0 to 3

@@ -5,7 +5,7 @@
 ## Basic Thread Operations
 
 * `=start lno|lbl|#pg:lno|#pg:lbl[, ...]`: starts a thread from the specific location
-  * objectives:
+  * parameter details:
     * `lno`: line number
     * `lbl`: code line label
     * `#pg:lno`: code page index and line number

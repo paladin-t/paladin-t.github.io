@@ -6,7 +6,7 @@ The compiler is a relatively independent module. It is only responsible for proc
 
 1. **Tokenizer**: Responsible for decomposing multi‑page source code in text form into a linear sequence of lexical units (tokens)
 2. **Parser**: Parses the token sequence obtained from step 1 into an abstract syntax tree (AST)
-3. **Compiler**: Compiles the AST obtained from step 2 into VM instructions
+3. **Compiler**: Compiles the AST obtained from step 2 into VM instructions, or CPU [assembly](inline-assembly.html) instructions
 4. **Pipeline**: Processes assets such as tiles, maps, scenes, actors, and sound into binary resources usable on the target platform
 5. **Emitter**: Merges the instructions from step 3 and the resources from step 4 into a single block of binary data
 6. **Linker**: Links the compiled result from step 5 with the current project's kernel runtime, allocates the binary bytes into appropriate banks, and produces the final ROM

@@ -213,7 +213,8 @@ The [Event Binding](event-binding.html) section will provide a detailed introduc
 * `fill actor(first, n) = read|data ...|"{builtin}"|#pg|#pg:n|"{name}"`: fills the actor area in VRAM; this is equivalent to a `fill sprite` operation
   * `first`: index of the first sprite tile to write to
   * `n`: the tile count
-  * objectives:
+  * parameter details:
+    * `data ...`: the variadic in-place data sequence
     * `"{builtin}"`: the name of a builtin entry
     * `#pg`: tiles page index
     * `#pg:n`: tiles page index and tile index
@@ -224,7 +225,7 @@ The [Event Binding](event-binding.html) section will provide a detailed introduc
   * `x`: the x position in pixels
   * `y`: the y position in pixels
   * `base_tile`: the start index for sprite tiles
-  * objectives:
+  * parameter details:
     * `"{builtin}"`: the name of a builtin entry
     * `#pg`: actor page index
     * `name`: actor asset name
@@ -242,7 +243,8 @@ The [Event Binding](event-binding.html) section will provide a detailed introduc
 * `set actor property(id, prop) = read|data ...|"{builtin}"|#pg|"{name}"`: sets the specific actor's property
   * `id`: the actor ID
   * `prop`: the property type; can be one of the following "Actor properties" constants
-  * objectives:
+  * parameter details:
+    * `data ...`: the variadic in-place data sequence
     * `"{builtin}"`: the name of a builtin entry
     * `#pg`: actor page index
     * `name`: actor asset name
@@ -257,7 +259,8 @@ The [Event Binding](event-binding.html) section will provide a detailed introduc
   * `id`: the actor ID
   * `prop`: the property type; must be `FRAMES_PROP` here
   * `base`: the base tile
-  * objectives:
+  * parameter details:
+    * `data ...`: the variadic in-place data sequence
     * `"{builtin}"`: the name of a builtin entry
     * `#pg`: actor page index
     * `name`: actor asset name
@@ -320,17 +323,17 @@ The base value for movement speed controlled by the `MOVE_SPEED_PROP` property i
 <!-- Extra kernels can provide more actor properties. -->
 
 * `=len actor(#pg|"{name}")`: gets the total frame count of the specific actor
-  * objectives:
+  * parameter details:
     * `#pg`: actor page index
     * `name`: actor asset name
   * returns the actor's frame count
 * `=get actor width(#pg|"{name}")`: gets the width in pixels of the specific actor
-  * objectives:
+  * parameter details:
     * `#pg`: actor page index
     * `name`: actor asset name
   * returns the width in pixels
 * `=get actor height(#pg|"{name}")`: gets the height in pixels of the specific actor
-  * objectives:
+  * parameter details:
     * `#pg`: actor page index
     * `name`: actor asset name
   * returns the height in pixels
@@ -338,7 +341,7 @@ The base value for movement speed controlled by the `MOVE_SPEED_PROP` property i
 ### Enumerating Actors
 
 * `=find actor(template|#pg|"{name}"[, offset])`: finds any actor that matches the specific condition
-  * objectives:
+  * parameter details:
     * `template`: the template type, it equals to a valid actor page index or a wildcard in the following "Actor template" constants
     * `#pg`: actor page index
     * `name`: actor asset name
@@ -409,7 +412,7 @@ The base value for movement speed controlled by the `MOVE_SPEED_PROP` property i
 
 * `=start actor id, lno|lbl|#pg:lno|#pg:lbl`: starts a thread from the specific location, and assigns it to the specific actor as a `behave` routine
   * `id`: the actor ID
-  * objectives:
+  * parameter details:
     * `lno`: line number
     * `lbl`: code line label
     * `#pg:lno`: code page index and line number
@@ -425,7 +428,7 @@ The base value for movement speed controlled by the `MOVE_SPEED_PROP` property i
 
 * `on actor(id) hits start lno|lbl|#pg:lno|#pg:lbl`: registers a callback for when the specific actor hits another one or a projectile
   * `id`: the actor ID
-  * objectives:
+  * parameter details:
     * `lno`: line number
     * `lbl`: code line label
     * `#pg:lno`: code page index and line number

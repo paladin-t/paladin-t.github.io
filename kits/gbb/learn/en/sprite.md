@@ -107,7 +107,8 @@ For example, `sprite id, 8, 16` puts a sprite at the top-left corner of the scre
 * `fill sprite(first, n) = read|data ...|"{builtin}"|#pg|#pg:n|"{name}"`: fills the sprite area in VRAM
   * `first`: index of the first sprite tile to write to
   * `n`: the tile count
-  * objectives:
+  * parameter details:
+    * `data ...`: the variadic in-place data sequence
     * `"{builtin}"`: the name of a builtin entry
     * `#pg`: tiles page index
     * `#pg:n`: tiles page index and tile index

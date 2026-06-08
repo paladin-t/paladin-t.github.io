@@ -3,7 +3,7 @@
 [Prev]() [Next]()
 
 * `sound #pg|"{name}"|"{builtin}"[, priority]`: plays SFX of the specific asset page or builtin asset
-  * objectives:
+  * parameter details:
     * `#pg`: SFX page index
     * `name`: sound asset name
     * `"{builtin}"`: the name of a builtin entry

@@ -18,13 +18,14 @@ The tiles editor can produce tiles assets, press **Ctrl+2/Cmd+2** in edit mode t
 * `fill tile(first, n) = read|data ...|"{builtin}"|#pg|#pg:n|"{name}"`: fills the tiles area in VRAM
   * `first`: index of the first tile to write to
   * `n`: the tile count
-  * objectives:
+  * parameter details:
+    * `data ...`: the variadic in-place data sequence
     * `"{builtin}"`: the name of a builtin entry
     * `#pg`: tiles page index
     * `#pg:n`: tiles page index and tile index
     * `name`: tiles asset name
 * `=get tile len(#pg)`: gets the tile count of the specific asset page
-  * objectives:
+  * parameter details:
     * `#pg`: tiles page index
   * returns the tile count
 

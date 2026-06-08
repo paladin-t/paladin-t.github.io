@@ -127,21 +127,21 @@ start_:
 
 * `on btn(key) goto|gosub|start lno|lbl|#pg:lno|#pg:lbl`: registers a callback for when the specific key is being pressed
   * `key`: the key code; can be one of the "Gamepad buttons" constants
-  * objectives:
+  * parameter details:
     * `lno`: line number
     * `lbl`: code line label
     * `#pg:lno`: code page index and line number
     * `#pg:lbl`: code page index and code line label
 * `on btnd(key) goto|gosub|start lno|lbl|#pg:lno|#pg:lbl`: registers a callback for when the specific key has just been pressed
   * `key`: the key code; can be one of the "Gamepad buttons" constants
-  * objectives:
+  * parameter details:
     * `lno`: line number
     * `lbl`: code line label
     * `#pg:lno`: code page index and line number
     * `#pg:lbl`: code page index and code line label
 * `on btnu(key) goto|gosub|start lno|lbl|#pg:lno|#pg:lbl`: registers a callback for when the specific key has just been released
   * `key`: the key code; can be one of the "Gamepad buttons" constants
-  * objectives:
+  * parameter details:
     * `lno`: line number
     * `lbl`: code line label
     * `#pg:lno`: code page index and line number

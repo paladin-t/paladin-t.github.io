@@ -102,7 +102,7 @@ url://prgs/menu-1.txt
   * `margin_x`: the margin in x-axis in pixels, with range of values from 0 to 15
   * `margin_y`: the margin in y-axis in pixels, with range of values from 0 to 15
 * `menu #pg|"{name}", fmt0[, fmt1, ..., fmtN][, ...]`: outputs text and numeric values to the screen as a menu's content
-  * objectives:
+  * parameter details:
     * `#pg`: font page index for the current menu
     * `name`: font asset name
   * `fmt0`: the first line of the format string, accepts the `print` "Escapes" for value interpretation
@@ -112,7 +112,7 @@ url://prgs/menu-1.txt
 * `menu nothing`: clears the content of the current menu
 
 * `on menu() start lno|lbl|#pg:lno|#pg:lbl`: registers a callback for when user interacts with the current menu
-  * objectives:
+  * parameter details:
     * `lno`: line number
     * `lbl`: code line label
     * `#pg:lno`: code page index and line number

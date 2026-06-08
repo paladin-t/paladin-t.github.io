@@ -37,7 +37,8 @@ url://prgs/image-1.txt
   * `w`: the width of the image in tiles
   * `h`: the height of the image in tiles
   * `layer`: the layer to put the image; can be either `MAP_LAYER` or `WINDOW_LAYER` of the "Graphics layers" constants
-  * objectives:
+  * parameter details:
+    * `data ...`: the variadic in-place data sequence
     * `"{builtin}"`: the name of a builtin entry
     * `#pg`: tiles page index
     * `#pg:n`: tiles page index and tile index
@@ -50,7 +51,7 @@ The `image(...) = with tile ...` function simply draws tiles to the tiles and ma
   * `x`: the x position in pixels to put the image
   * `y`: the y position in pixels to put the image
   * `layer`: the layer to put the image; can be either `MAP_LAYER` or `WINDOW_LAYER` of the "Graphics layers" constants
-  * objectives:
+  * parameter details:
     * `#pg`: map page index
     * `name`: tiles asset name
 

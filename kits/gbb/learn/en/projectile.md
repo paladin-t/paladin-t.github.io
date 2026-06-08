@@ -101,7 +101,8 @@ Launch:
 * `fill projectile(first, n) = read|data ...|"{builtin}"|#pg|#pg:n|"{name}"`: fills the projectile area in VRAM; this is equivalent to a `fill sprite` operation
   * `first`: index of the first sprite tile to write to
   * `n`: the tile count
-  * objectives:
+  * parameter details:
+    * `data ...`: the variadic in-place data sequence
     * `"{builtin}"`: the name of a builtin entry
     * `#pg`: tiles page index
     * `#pg:n`: tiles page index and tile index
@@ -110,7 +111,7 @@ Launch:
 * `def projectile(type, base_tile = 0) = "{builtin}"|#pg|"{name}"`: defines an projectile with the specific data
   * `type`: the specific projectile template to define, with range of values from 0 to 4
   * `base_tile`: the start index for sprite tiles
-  * objectives:
+  * parameter details:
     * `"{builtin}"`: the name of a builtin entry
     * `#pg`: projectile page index
     * `name`: projectile asset name
@@ -126,7 +127,8 @@ Launch:
 * `def projectile property(type, prop) = read|data ...|"{builtin}"|#pg|"{name}"`: sets the specific projectile's definition property
   * `type`: the projectile type, with range of values from 0 to 4
   * `prop`: the property type; can be one of the following "Projectile definition properties" constants
-  * objectives:
+  * parameter details:
+    * `data ...`: the variadic in-place data sequence
     * `"{builtin}"`: the name of a builtin entry
     * `#pg`: projectile page index
     * `name`: projectile asset name
@@ -141,7 +143,8 @@ Launch:
   * `type`: the projectile type, with range of values from 0 to 4
   * `prop`: the property type; must be `FRAMES_PROP` here
   * `base`: the base tile
-  * objectives:
+  * parameter details:
+    * `data ...`: the variadic in-place data sequence
     * `"{builtin}"`: the name of a builtin entry
     * `#pg`: projectile page index
     * `name`: projectile asset name
@@ -212,17 +215,17 @@ The base value for movement speed controlled by the `MOVE_SPEED_PROP` property i
 #### Getting Information of Projectile Assets
 
 * `=len projectile(#pg|"{name}")`: gets the total frame count of the specific projectile
-  * objectives:
+  * parameter details:
     * `#pg`: actor/projectile page index
     * `name`: actor/projectile asset name
   * returns the projectile's frame count
 * `=get projectile width(#pg|"{name}")`: gets the width in pixels of the specific projectile
-  * objectives:
+  * parameter details:
     * `#pg`: actor/projectile page index
     * `name`: actor/projectile asset name
   * returns the width in pixels
 * `=get projectile height(#pg|"{name}")`: gets the height in pixels of the specific projectile
-  * objectives:
+  * parameter details:
     * `#pg`: actor/projectile page index
     * `name`: actor/projectile asset name
   * returns the height in pixels

@@ -13,12 +13,12 @@ Expand the definition section in the scene editor to define the definition data 
 ## Getting and Setting Scene Properties
 
 * `=get scene width(#pg|"{name}")`: gets the width in tiles of the specific asset page
-  * objectives:
+  * parameter details:
     * `#pg`: scene page index
     * `name`: scene asset name
   * returns the width in tiles
 * `=get scene height(#pg|"{name}")`: gets the height in tiles of the specific asset page
-  * objectives:
+  * parameter details:
     * `#pg`: scene page index
     * `name`: scene asset name
   * returns the height in tiles

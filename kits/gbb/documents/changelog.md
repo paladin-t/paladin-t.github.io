@@ -2,9 +2,22 @@
 
 # Releases
 
-## GB BASIC v1.10.0
+## GB BASIC v1.11.0
 
 <details open>
+<summary><b>Click Me</b></summary>
+<div>
+This update introduces direct calls to user-defined assembly instructions. This version also includes other improvements and bug fixes.
+</div>
+</details>
+
+* [Changelog](documents/changelogs/Changelog_v1.11.0.txt) (Jun. 8, 2026)
+* Download on [Steam](https://store.steampowered.com/app/2308700/)
+* Also available on [Itch.io](https://tonywang.itch.io/gbbasic)
+* 
+## GB BASIC v1.10.0
+
+<details>
 <summary><b>Click Me</b></summary>
 <div>
 This release includes significant improvements to the kernels, adding support for using the SFC/SNES mouse as a click/touch backend via SGB features, along with a very simple yet fun speech synthesis feature. Both features are present in the official kernel source code. Please note that the kernels bundled with the application do not enable these new features. If needed, you can follow the links to the kernel download page to install them yourself. This version also includes enhancement of kernel management, etc.

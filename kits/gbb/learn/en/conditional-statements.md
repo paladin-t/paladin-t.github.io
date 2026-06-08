@@ -155,14 +155,14 @@ Branched jump syntax as follows:
 
 * `on cond goto|gosub lno|lbl|#pg:lno|#pg:lbl[, ...]`: performs a branched jump according to the condition
   * `cond`: the condition expression; jumps to the first (No. 0) branch if the condition results `0`, to the second (No. 1) branch if it results `1`, and so on...
-  * objectives:
+  * parameter details:
     * `lno`: line number
     * `lbl`: code line label
     * `#pg:lno`: code page index and line number
     * `#pg:lbl`: code page index and code line label
   * `...`: optional variadic labels; locations separated by comma
 
-A branch chunk is a routine that takes zero parameter.
+A branch block is a routine that takes zero parameter.
 
 ```basic
 let a = 0

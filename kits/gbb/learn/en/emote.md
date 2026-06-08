@@ -79,7 +79,8 @@ RaiseEmote:
   * `base_tile`: the start index for sprite tiles
   * `mirrored`: whether the tiles data is mirrored
   * `pal`: the palette index to use, with range of values from 0 to 7; defaults to 0; for colored device only
-  * objectives:
+  * parameter details:
+    * `data ...`: the variadic in-place data sequence
     * `"{builtin}"`: the name of a builtin entry
     * `#pg`: tiles page index
     * `name`: tiles asset name
@@ -90,7 +91,8 @@ RaiseEmote:
   * `mirrored`: whether the tiles data is mirrored
   * `pal`: the palette index to use, with range of values from 0 to 7; defaults to 0; for colored device only
   * `id`: the actor ID to start with
-  * objectives:
+  * parameter details:
+    * `data ...`: the variadic in-place data sequence
     * `"{builtin}"`: the name of a builtin entry
     * `#pg`: tiles page index
     * `name`: tiles asset name

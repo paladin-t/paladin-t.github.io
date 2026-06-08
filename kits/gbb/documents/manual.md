@@ -26,6 +26,11 @@
       - [Number Calculation](#number-calculation)
       - [Trigonometric Functions](#trigonometric-functions)
     - [Native Functions](#native-functions)
+    - [Inline Assembly](#inline-assembly)
+      - [Assembly Syntax and Rules](#assembly-syntax-and-rules)
+      - [Executing Inline Assembly Blocks](#executing-inline-assembly-blocks)
+      - [Calling Assembly Routines](#calling-assembly-routines)
+      - [CPU Instructions](#cpu-instructions)
     - [Macro Definitions](#macro-definitions)
       - [Macro Function](#macro-function)
       - [Macro Expression](#macro-expression)
@@ -114,6 +119,7 @@
   - [Cheat Sheet of GUI Widgets](#cheat-sheet-of-gui-widgets)
   - [Cheat Sheet of Devices](#cheat-sheet-of-devices)
   - [SGB Features](#sgb-features)
+  - [RAM Symbol Table](#ram-symbol-table)
   - [ASCII Table](#ascii-table)
 
 <!-- End Table of Content -->
@@ -401,7 +407,7 @@ These statements run under the `TEXT_MODE`.
 ### Jump
 
 * `goto lno|lbl|#pg:lno|#pg:lbl`: performs an unconditional jump to transfer the execution to the specific location
-  * objectives:
+  * parameter details:
     * `lno`: line number
     * `lbl`: code line label
     * `#pg:lno`: code page index and line number
@@ -567,6 +573,112 @@ The `call rumble n[, i]` function waits until `n` frames elapsed, the intensity 
 | `RUMBLE_INTENSITY_MAX`    | `0xFF` | Default value |
 
 **See also:** _Extra [Kernels](#kernels) can provide more native functions._
+
+### Inline Assembly
+
+While games can be written entirely in BASIC, inline assembly is offered as an optional advanced feature. Similar to native functions, GB BASIC supports calling hardware assembly instructions directly in BASIC. BASIC code is more intuitive, while assembly code runs faster.
+
+#### Assembly Syntax and Rules
+
+When a block of assembly code is being executed, it will keep running until it returns, and other BASIC threads will not be dispatched during that time. Assembly code is essentially like a native function. Therefore, a `begin asm ... end asm` block should typically end with a `ret` instruction to return execution to the BASIC program. Before executing `ret`, the stack pointer (`sp`) must be restored to its value upon entry to maintain stack balance. Furthermore, other registers (`af`, `bc`, `de`, `hl`) do not need to be preserved within the assembly block. Assembly blocks take no input parameters and return no values. Data exchange between assembly and BASIC is achieved through variable references and direct address access.
+
+Jump label declarations in assembly code follow the same syntax as BASIC, i.e. `lbl:`. Jump labels work inside the scope of a `begin asm ... end asm` block only. When using labels, cross-block assembly jumps, jumps between assembly and BASIC, and `goto` into an assembly block are not supported.
+
+BASIC variables, arrays, and RAM symbols in a kernel can be referenced directly in assembly code as addresses (16-bit unsigned integers). Other elements in assembly remain consistent with BASIC. For example, numeric literals can be in binary, decimal, octal, or hexadecimal, and comments follow the same syntax as BASIC. The low 8 bits of a 16-bit number can be unpacked using `low(n)` or `<n`, and the high 8 bits using `high(n)` or `>n`.
+
+If a BASIC identifier is referenced only in assembly code but not used in BASIC, it may trigger an "Unused variable" warning. Use `do nothing with foo` in BASIC to suppress the unreferenced warning for `foo`.
+
+#### Executing Inline Assembly Blocks
+
+Using `begin asm/end asm` blocks is the recommended way for writing assembly in GB BASIC. When placed within BASIC code, this block declares an assembly segment that is called upon execution. The execution flows sequentially, making the transition seamless. Note that assembly blocks cannot be nested.
+
+* `begin asm/end asm`: declares and executes a block of inline assembly code
+
+Inline assembly examples:
+
+```bas
+let foo = 42
+' Execution falls through to the block below.
+begin asm ' Declare and execute a block of inline assembly code.
+  ' Accessing BASIC variable, and calculating.
+    ld a,(foo)  ' a = foo.
+    add a,a     ' a = a + a.
+    ld (foo),a  ' foo = a.
+    ret         ' Required to return from the ASM routine.
+end asm
+' Assembly finished, execution continues below.
+print "foo=%d", foo
+
+' Execute the second assembly block.
+begin asm
+  ' Accessing BASIC variable, calculating, comparing, and jumping.
+    ld a,(foo)  ' a = foo
+  loop:
+    cp 42       ' Compare a and 42 (a.k.a. a - 42, affects flags).
+    jr z,done   ' If a == 42 (with zero flag) then jump to done.
+    dec a       ' a = a - 1.
+    jr loop     ' Jump to loop
+  done:
+    ld (foo),a  ' foo = a.
+    ret         ' Required to return from the ASM routine.
+end asm
+print "foo=%d", foo
+```
+
+`Begin asm/end asm` statements support both modern and retro syntax.
+
+| Modern syntax | Retro syntax |
+|---------------|--------------|
+| `begin asm`   | `beginasm`   |
+| `end asm`     | `endasm`     |
+
+An assembly block can be named by appending a string after `begin asm`. The bank and starting address of the block can be retrieved using `get asm bankof("name")` and `get asm addressof("name")`.
+
+* `begin asm "name"/end asm`: declares and executes a block of named inline assembly code
+  * `name`: the name of the assembly block
+
+#### Calling Assembly Routines
+
+In addition, the following statements support calling assembly by direct bank and address, data sequence, identifiers, named symbols, etc.
+
+* `call asm bank, addr`: calls the assembly function at the specific address
+  * `bank`: the bank of the assembly entry
+  * `addr`: the address of the assembly entry
+* `call asm data ...`: calls the assembly instructions in numeric machine code at the specific address
+  * parameter details:
+    * `data ...`: the variadic in-place data sequence
+* `call asm id|"{builtin}"|#pg:lno|#pg:lbl|"{name}"`: calls the assembly function at the specific address
+  * parameter details:
+    * `id`: the variable/array identifier
+    * `"{builtin}"`: the name of a builtin entry
+    * `#pg:lno`: code page index and line number
+    * `#pg:lbl`: code page index and code line label
+    * `name`: the assembly block name
+
+The `call` keyword can be omitted, which means `asm ...` is short for `call asm ...`.
+
+The following example demonstrates declaring an assembly block outside the execution flow and calling it from anywhere:
+
+```bas
+let foo = 0
+' Loop in BASIC.
+for i = 0 to 4
+  call asm "IncFoo" ' Call the assembly block.
+  print "foo=%d", foo
+next
+end ' The main execution flow ends here.
+' Declare a named block of inline assembly code.
+begin asm "IncFoo"
+    ld a,(foo)      ' a = foo.
+    add 1           ' a = a + 1.
+    ld (foo),a      ' foo = a.
+    ret             ' Required to return from the ASM routine.
+end asm
+```
+
+#### CPU Instructions
+
+For the CPU instructions, refer to [CPU Instructions](https://paladin-t.github.io/kits/gbb/learn/inline-assembly.html#cpu-instructions).
 
 ### Macro Definitions
 
@@ -734,14 +846,14 @@ Branched jump syntax as follows:
 
 * `on cond goto|gosub lno|lbl|#pg:lno|#pg:lbl[, ...]`: performs a branched jump according to the condition
   * `cond`: the condition expression; jumps to the first (No. 0) branch if the condition results `0`, to the second (No. 1) branch if it results `1`, and so on...
-  * objectives:
+  * parameter details:
     * `lno`: line number
     * `lbl`: code line label
     * `#pg:lno`: code page index and line number
     * `#pg:lbl`: code page index and code line label
   * `...`: optional variadic labels; locations separated by comma
 
-A branch chunk is a routine that takes zero parameter.
+A branch block is a routine that takes zero parameter.
 
 ```bas
 let a = 0
@@ -807,7 +919,7 @@ until a = 5
 ### Sub
 
 * `gosub lno|lbl|#pg:lno|#pg:lbl`: pushes the execution point to the stack, then performs an unconditional jump to transfer the execution to the specific location
-  * objectives:
+  * parameter details:
     * `lno`: line number
     * `lbl`: code line label
     * `#pg:lno`: code page index and line number
@@ -831,7 +943,7 @@ lbl:
 ### Thread
 
 * `=start lno|lbl|#pg:lno|#pg:lbl[, ...]`: starts a thread from the specific location
-  * objectives:
+  * parameter details:
     * `lno`: line number
     * `lbl`: code line label
     * `#pg:lno`: code page index and line number
@@ -903,6 +1015,8 @@ end do
 | `end do`      | `enddo`      |
 
 #### Macro Scope
+
+Macro scopes support nesting, and references to macros will search from the innermost scope outward to the top-level scope.
 
 * `begin def/end def`: marks the beginning and end of a local lexical scope for macro definitions like function `def fn f(...) = ...`, expression `def e = (a + b) * (22 / 7)`, constant `def c = 42`, alias `def a = b`, stack reference `def s = stackN`, and string `def f = "hello"`
 
@@ -1055,7 +1169,7 @@ Each array element takes one word (two bytes) of allocated space in memory.
   * `n`: the constant number of bytes to skip
 
 * `restore "{builtin}"|lno|lbl|#pg:lno|#pg:lbl`: restores the reading position of inline data sequence to the specific location
-  * objectives:
+  * parameter details:
     * `"{builtin}"`: the name of a builtin entry
     * `lno`: line number
     * `lbl`: code line label
@@ -1233,24 +1347,26 @@ The data following all `filler` statements are arranged in increasing order from
 * `memcpy(dst, n) = read|data ...`: copies arbitrary data from an inline data sequence into another place in memory
   * `dst`: the destination address
   * `n`: the count of integer to copy
+  * parameter details:
+    * `data ...`: the variadic in-place data sequence
 * `memcpy(dst, n[, offset]) = "{builtin}"`: copies arbitrary data from a builtin entry in ROM into another place in memory
   * `dst`: the destination address
   * `n`: the count of bytes to copy
   * `offset`: the offset of the source data in bytes
-  * objectives:
+  * parameter details:
     * `"{builtin}"`: the name of a builtin entry
 * `memcpy(dst[, n][, offset]) = with tile #pg|"{name}"`: copies arbitrary data from a tiles asset into another place in memory
   * `dst`: the destination address
   * `n`: the count of bytes to copy, omit to use the whole tiles asset size
   * `offset`: the offset of the source data in bytes
-  * objectives:
+  * parameter details:
     * `#pg`: tiles page index
     * `name`: tiles asset name
 * `memcpy(dst[, n][, offset]) = with map #pg|#pg:n|"{name}"`: copies arbitrary data from a map asset into another place in memory
   * `dst`: the destination address
   * `n`: the count of bytes to copy, omit to use the whole map asset size
   * `offset`: the offset of the source data in bytes
-  * objectives:
+  * parameter details:
     * `#pg`: map page index
     * `#pg:n`: map page index and tile index
     * `name`: tiles asset name
@@ -1272,21 +1388,21 @@ The data following all `filler` statements are arranged in increasing order from
   * `id`: the variable/array identifier
   * returns the address of the identifier
 * `=bankof(lbl|#pg:lbl)`: gets the bank of the specific destination
-  * objectives:
+  * parameter details:
     * `lbl`: code line label
     * `#pg:lbl`: code page index and code line label
   * returns the bank of the destination
 * `=addressof(lbl|#pg:lbl)`: gets the address of the specific destination
-  * objectives:
+  * parameter details:
     * `lbl`: code line label
     * `#pg:lbl`: code page index and code line label
   * returns the address of the destination
 * `=bankof("{builtin}")`: gets the bank of the specific builtin entry
-  * objectives:
+  * parameter details:
     * `"{builtin}"`: the name of a builtin entry
   * returns the bank of the entry
 * `=addressof("{builtin}")`: gets the address of the specific builtin entry
-  * objectives:
+  * parameter details:
     * `"{builtin}"`: the name of a builtin entry
   * returns the address of the entry
 
@@ -1297,32 +1413,41 @@ The data following all `filler` statements are arranged in increasing order from
 
 * `=get {asset} bankof(#pg|#pg:n|"{name}")`: gets the bank of the specific asset
   * `{asset}`: the type of a asset; can be one of `tile`, `map`, `scene`, `actor`, `projectile`, `music`, and `sfx`
-  * objectives:
+  * parameter details:
     * `#pg`: asset page index
     * `#pg:n`: asset page index and sub index
     * `name`: asset name
   * returns the bank of the entry
 * `=get {asset} addressof(#pg|#pg:n|"{name}")`: gets the address of the specific asset
   * `{asset}`: the type of a asset; can be one of `tile`, `map`, `scene`, `actor`, `projectile`, `music`, and `sfx`
-  * objectives:
+  * parameter details:
     * `#pg`: asset page index
     * `#pg:n`: asset page index and sub index
     * `name`: asset name
   * returns the address of the entry
 
 * `=get palette bankof([#pg|#pg:n|"{name}|"{name:n}"])`: gets the bank of the default palette asset
-  * objectives:
+  * parameter details:
     * `#pg`: palette asset index, with range of value from `#0` to `#7` for "BG0" to "BG7", and `#8` to `#15` for "OBJ0" to "OBJ7"
       * `n`: color index, with range of value from 0 to 3
     * `name`: palette asset name, with range of value from "BG0" to "BG7", and "OBJ0" to "OBJ7"
       * `n`: color index, with range of value from 0 to 3
   * returns the bank of the entry
 * `=get palette addressof([#pg|#pg:n|"{name}|"{name:n}"])`: gets the address of the default palette asset
-  * objectives:
+  * parameter details:
     * `#pg`: palette asset index, with range of value from `#0` to `#7` for "BG0" to "BG7", and `#8` to `#15` for "OBJ0" to "OBJ7"
       * `n`: color index, with range of value from 0 to 3
     * `name`: palette asset name, with range of value from "BG0" to "BG7", and "OBJ0" to "OBJ7"
       * `n`: color index, with range of value from 0 to 3
+  * returns the address of the entry
+
+* `=get asm bankof("id")`: gets the bank of the specific assembly block entry
+  * parameter details:
+    * `"id"`: the name of an assembly block entry
+  * returns the bank of the entry
+* `=get asm addressof("id")`: gets the address of the specific assembly block entry
+  * parameter details:
+    * `"id"`: the name of an assembly block entry
   * returns the address of the entry
 
 ### Gamepad
@@ -1356,21 +1481,21 @@ The data following all `filler` statements are arranged in increasing order from
 
 * `on btn(key) goto|gosub|start lno|lbl|#pg:lno|#pg:lbl`: registers a callback for when the specific key is being pressed
   * `key`: the key code; can be one of the "Gamepad buttons" constants
-  * objectives:
+  * parameter details:
     * `lno`: line number
     * `lbl`: code line label
     * `#pg:lno`: code page index and line number
     * `#pg:lbl`: code page index and code line label
 * `on btnd(key) goto|gosub|start lno|lbl|#pg:lno|#pg:lbl`: registers a callback for when the specific key has just been pressed
   * `key`: the key code; can be one of the "Gamepad buttons" constants
-  * objectives:
+  * parameter details:
     * `lno`: line number
     * `lbl`: code line label
     * `#pg:lno`: code page index and line number
     * `#pg:lbl`: code page index and code line label
 * `on btnu(key) goto|gosub|start lno|lbl|#pg:lno|#pg:lbl`: registers a callback for when the specific key has just been released
   * `key`: the key code; can be one of the "Gamepad buttons" constants
-  * objectives:
+  * parameter details:
     * `lno`: line number
     * `lbl`: code line label
     * `#pg:lno`: code page index and line number
@@ -1458,7 +1583,8 @@ All button callbacks by `goto`, `gosub` and `start` work with the manual update 
   * `w`: the width of the image in tiles
   * `h`: the height of the image in tiles
   * `layer`: the layer to put the image; can be either `MAP_LAYER` or `WINDOW_LAYER` of the "Graphics layers" constants
-  * objectives:
+  * parameter details:
+    * `data ...`: the variadic in-place data sequence
     * `"{builtin}"`: the name of a builtin entry
     * `#pg`: tiles page index
     * `#pg:n`: tiles page index and tile index
@@ -1471,7 +1597,7 @@ The `image(...) = with tile ...` function simply draws tiles to the tiles and ma
   * `x`: the x position in pixels to put the image
   * `y`: the y position in pixels to put the image
   * `layer`: the layer to put the image; can be either `MAP_LAYER` or `WINDOW_LAYER` of the "Graphics layers" constants
-  * objectives:
+  * parameter details:
     * `#pg`: map page index
     * `name`: tiles asset name
 
@@ -1501,14 +1627,15 @@ Drawing images will automatically turn on the map or window layer.
 * `fill tile(first, n) = read|data ...|"{builtin}"|#pg|#pg:n|"{name}"`: fills the tiles area in VRAM
   * `first`: index of the first tile to write to
   * `n`: the tile count
-  * objectives:
+  * parameter details:
+    * `data ...`: the variadic in-place data sequence
     * `"{builtin}"`: the name of a builtin entry
     * `#pg`: tiles page index
     * `#pg:n`: tiles page index and tile index
     * `name`: tiles asset name
 
 * `=get tile len(#pg)`: gets the tile count of the specific asset page
-  * objectives:
+  * parameter details:
     * `#pg`: tiles page index
   * returns the tile count
 
@@ -1528,7 +1655,8 @@ Tiles data for a `fill tile` operation can also come from inline code. This data
 * `fill map(first, n) = read|data ...|"{builtin}"|#pg|#pg:n|"{name}"`: fills the map area in VRAM; this is equivalent to a `fill tile` operation
   * `first`: index of the first map tile to write to
   * `n`: the tile count
-  * objectives:
+  * parameter details:
+    * `data ...`: the variadic in-place data sequence
     * `"{builtin}"`: the name of a builtin entry
     * `#pg`: tiles page index
     * `#pg:n`: tiles page index and tile index
@@ -1541,7 +1669,8 @@ Tiles data for a `fill tile` operation can also come from inline code. This data
   * `base_tile`: the start index for map tiles
   * `pitch`: the number of tiles in a row of the map, omit to use the source width
   * `offset`: the offset value in bytes to be added to the source data address, omit to let the compiler determine
-  * objectives:
+  * parameter details:
+    * `data ...`: the variadic in-place data sequence
     * `"{builtin}"`: the name of a builtin entry
     * `#pg`: map page index
     * `#pg:n`: map page index and map layer
@@ -1550,12 +1679,12 @@ Tiles data for a `fill tile` operation can also come from inline code. This data
 In order to transfer map data in a way where the coordinates are not aligned, an offset from the source data address can be passed in `-(x + y * pitch)`; i.e. to draw source tiles start from (0, 0) to the destination area starts from (8, 7), then offset the source address with `-(8 + 7 * map_width)`.
 
 * `=get map width(#pg|"{name}")`: gets the width in tiles of the specific map asset page
-  * objectives:
+  * parameter details:
     * `#pg`: map page index
     * `name`: map asset name
   * returns the width in tiles
 * `=get map height(#pg|"{name}")`: gets the height in tiles of the specific map asset page
-  * objectives:
+  * parameter details:
     * `#pg`: map page index
     * `name`: map asset name
   * returns the height in tiles
@@ -1599,7 +1728,8 @@ For example, `sprite id, 8, 16` puts a sprite at the top-left corner of the scre
 * `fill sprite(first, n) = read|data ...|"{builtin}"|#pg|#pg:n|"{name}"`: fills the sprite area in VRAM
   * `first`: index of the first sprite tile to write to
   * `n`: the tile count
-  * objectives:
+  * parameter details:
+    * `data ...`: the variadic in-place data sequence
     * `"{builtin}"`: the name of a builtin entry
     * `#pg`: tiles page index
     * `#pg:n`: tiles page index and tile index
@@ -1657,7 +1787,8 @@ The elements of a scene consist of map layers and placed objects.
   * `w`: the width of the scene in tiles
   * `h`: the height of the scene in tiles
   * `base_tile`: the start index for map tiles
-  * objectives:
+  * parameter details:
+    * `data ...`: the variadic in-place data sequence
     * `"{builtin}"`: the name of a builtin entry
     * `#pg`: scene page index
     * `name`: scene asset name
@@ -1667,7 +1798,7 @@ The elements of a scene consist of map layers and placed objects.
   * `map_base_tile`: the start index for map tiles
   * `sprite_base_tile`: the start index for sprite tiles
   * `clear_objects`: whether to clear all objects including actors, triggers, projectiles and widgets before loading
-  * objectives:
+  * parameter details:
     * `#pg`: scene page index
     * `name`: scene asset name
 * `load scene() = nothing`: unloads a scene; this operation resets the scene status, and deletes all objects including actors, triggers, projectiles and widgets; it also resets all effects
@@ -1675,12 +1806,12 @@ The elements of a scene consist of map layers and placed objects.
 A `def scene` operation can only fill map, attribute and property data to scene; a `load scene` does it further to fill tiles, actors, triggers, and definitions from an asset page. They are similar but `load scene` should be preferred for most cases.
 
 * `=get scene width(#pg|"{name}")`: gets the width in tiles of the specific asset page
-  * objectives:
+  * parameter details:
     * `#pg`: scene page index
     * `name`: scene asset name
   * returns the width in tiles
 * `=get scene height(#pg|"{name}")`: gets the height in tiles of the specific asset page
-  * objectives:
+  * parameter details:
     * `#pg`: scene page index
     * `name`: scene asset name
   * returns the height in tiles
@@ -1759,7 +1890,8 @@ The drawing elements of an actor consist of hardware sprites and their associate
 * `fill actor(first, n) = read|data ...|"{builtin}"|#pg|#pg:n|"{name}"`: fills the actor area in VRAM; this is equivalent to a `fill sprite` operation
   * `first`: index of the first sprite tile to write to
   * `n`: the tile count
-  * objectives:
+  * parameter details:
+    * `data ...`: the variadic in-place data sequence
     * `"{builtin}"`: the name of a builtin entry
     * `#pg`: tiles page index
     * `#pg:n`: tiles page index and tile index
@@ -1769,12 +1901,13 @@ The drawing elements of an actor consist of hardware sprites and their associate
   * `x`: the x position in pixels
   * `y`: the y position in pixels
   * `base_tile`: the start index for sprite tiles
-  * objectives:
+  * parameter details:
     * `"{builtin}"`: the name of a builtin entry
     * `#pg`: actor page index
     * `name`: actor asset name
-
 <!-- * `def actor(id, x, y, base_tile = 0) = read|data ...|"{builtin}"|#pg|"{name}"` -->
+
+Each actor can be set to use either 8x8 or 8x16 sprites. But note that all sprites/actors in the scene must use either the 8x8 or 8x16 pixel size; these two sizes cannot be mixed at any given time. All 8x16 sprites are aligned to 2 tiles when referencing to them, meaning the starting tile index for each 8x16 sprite should be an even number.
 
 * `=get actor property(id, prop)`: gets the specific actor's property
   * `id`: the actor ID
@@ -1787,7 +1920,8 @@ The drawing elements of an actor consist of hardware sprites and their associate
 * `set actor property(id, prop) = read|data ...|"{builtin}"|#pg|"{name}"`: sets the specific actor's property
   * `id`: the actor ID
   * `prop`: the property type; can be one of the following "Actor properties" constants
-  * objectives:
+  * parameter details:
+    * `data ...`: the variadic in-place data sequence
     * `"{builtin}"`: the name of a builtin entry
     * `#pg`: actor page index
     * `name`: actor asset name
@@ -1802,7 +1936,8 @@ The drawing elements of an actor consist of hardware sprites and their associate
   * `id`: the actor ID
   * `prop`: the property type; must be `FRAMES_PROP` here
   * `base`: the base tile
-  * objectives:
+  * parameter details:
+    * `data ...`: the variadic in-place data sequence
     * `"{builtin}"`: the name of a builtin entry
     * `#pg`: actor page index
     * `name`: actor asset name
@@ -1865,23 +2000,23 @@ The base value for movement speed controlled by the `MOVE_SPEED_PROP` property i
 **See also:** _Extra [Kernels](#kernels) can provide more actor properties._
 
 * `=len actor(#pg|"{name}")`: gets the total frame count of the specific actor
-  * objectives:
+  * parameter details:
     * `#pg`: actor page index
     * `name`: actor asset name
   * returns the actor's frame count
 * `=get actor width(#pg|"{name}")`: gets the width in pixels of the specific actor
-  * objectives:
+  * parameter details:
     * `#pg`: actor page index
     * `name`: actor asset name
   * returns the width in pixels
 * `=get actor height(#pg|"{name}")`: gets the height in pixels of the specific actor
-  * objectives:
+  * parameter details:
     * `#pg`: actor page index
     * `name`: actor asset name
   * returns the height in pixels
 
 * `=find actor(template|#pg|"{name}"[, offset])`: finds any actor that matches the specific condition
-  * objectives:
+  * parameter details:
     * `template`: the template type, it equals to a valid actor page index or a wildcard in the following "Actor template" constants
     * `#pg`: actor page index
     * `name`: actor asset name
@@ -1944,7 +2079,7 @@ The base value for movement speed controlled by the `MOVE_SPEED_PROP` property i
 
 * `=start actor id, lno|lbl|#pg:lno|#pg:lbl`: starts a thread from the specific location, and assigns it to the specific actor as a `behave` routine
   * `id`: the actor ID
-  * objectives:
+  * parameter details:
     * `lno`: line number
     * `lbl`: code line label
     * `#pg:lno`: code page index and line number
@@ -1958,7 +2093,7 @@ The base value for movement speed controlled by the `MOVE_SPEED_PROP` property i
 
 * `on actor(id) hits start lno|lbl|#pg:lno|#pg:lbl`: registers a callback for when the specific actor hits another one or a projectile
   * `id`: the actor ID
-  * objectives:
+  * parameter details:
     * `lno`: line number
     * `lbl`: code line label
     * `#pg:lno`: code page index and line number
@@ -2036,7 +2171,8 @@ A normal emotion icon takes four 8x8 sprites or two 8x16 sprites according to ru
   * `base_tile`: the start index for sprite tiles
   * `mirrored`: whether the tiles data is mirrored
   * `pal`: the palette index to use, with range of values from 0 to 7; defaults to 0; for colored device only
-  * objectives:
+  * parameter details:
+    * `data ...`: the variadic in-place data sequence
     * `"{builtin}"`: the name of a builtin entry
     * `#pg`: tiles page index
     * `name`: tiles asset name
@@ -2047,7 +2183,8 @@ A normal emotion icon takes four 8x8 sprites or two 8x16 sprites according to ru
   * `mirrored`: whether the tiles data is mirrored
   * `pal`: the palette index to use, with range of values from 0 to 7; defaults to 0; for colored device only
   * `id`: the actor ID to start with
-  * objectives:
+  * parameter details:
+    * `data ...`: the variadic in-place data sequence
     * `"{builtin}"`: the name of a builtin entry
     * `#pg`: tiles page index
     * `name`: tiles asset name
@@ -2059,7 +2196,8 @@ The drawing elements of a projectile consist of hardware sprites and their assoc
 * `fill projectile(first, n) = read|data ...|"{builtin}"|#pg|#pg:n|"{name}"`: fills the projectile area in VRAM; this is equivalent to a `fill sprite` operation
   * `first`: index of the first sprite tile to write to
   * `n`: the tile count
-  * objectives:
+  * parameter details:
+    * `data ...`: the variadic in-place data sequence
     * `"{builtin}"`: the name of a builtin entry
     * `#pg`: tiles page index
     * `#pg:n`: tiles page index and tile index
@@ -2067,7 +2205,7 @@ The drawing elements of a projectile consist of hardware sprites and their assoc
 * `def projectile(type, base_tile = 0) = "{builtin}"|#pg|"{name}"`: defines an projectile with the specific data
   * `type`: the specific projectile template to define, with range of values from 0 to 4
   * `base_tile`: the start index for sprite tiles
-  * objectives:
+  * parameter details:
     * `"{builtin}"`: the name of a builtin entry
     * `#pg`: projectile page index
     * `name`: projectile asset name
@@ -2081,7 +2219,8 @@ The drawing elements of a projectile consist of hardware sprites and their assoc
 * `def projectile property(type, prop) = read|data ...|"{builtin}"|#pg|"{name}"`: sets the specific projectile's definition property
   * `type`: the projectile type, with range of values from 0 to 4
   * `prop`: the property type; can be one of the following "Projectile definition properties" constants
-  * objectives:
+  * parameter details:
+    * `data ...`: the variadic in-place data sequence
     * `"{builtin}"`: the name of a builtin entry
     * `#pg`: projectile page index
     * `name`: projectile asset name
@@ -2096,7 +2235,8 @@ The drawing elements of a projectile consist of hardware sprites and their assoc
   * `type`: the projectile type, with range of values from 0 to 4
   * `prop`: the property type; must be `FRAMES_PROP` here
   * `base`: the base tile
-  * objectives:
+  * parameter details:
+    * `data ...`: the variadic in-place data sequence
     * `"{builtin}"`: the name of a builtin entry
     * `#pg`: projectile page index
     * `name`: projectile asset name
@@ -2164,17 +2304,17 @@ The base value for movement speed controlled by the `MOVE_SPEED_PROP` property i
 **See also:** _Extra [Kernels](#kernels) can provide more projectile properties._
 
 * `=len projectile(#pg|"{name}")`: gets the total frame count of the specific projectile
-  * objectives:
+  * parameter details:
     * `#pg`: actor/projectile page index
     * `name`: actor/projectile asset name
   * returns the projectile's frame count
 * `=get projectile width(#pg|"{name}")`: gets the width in pixels of the specific projectile
-  * objectives:
+  * parameter details:
     * `#pg`: actor/projectile page index
     * `name`: actor/projectile asset name
   * returns the width in pixels
 * `=get projectile height(#pg|"{name}")`: gets the height in pixels of the specific projectile
-  * objectives:
+  * parameter details:
     * `#pg`: actor/projectile page index
     * `name`: actor/projectile asset name
   * returns the height in pixels
@@ -2227,11 +2367,13 @@ Projectile data (frame, animations, etc.) can also come from inline code. These 
   * `h`: the height of area to set in tiles, with range of values from 1 to 255
 * `def trigger(idx) = read|data ...`: defines the specific trigger's area with data sequence
   * `idx`: the trigger index to define
+  * parameter details:
+    * `data ...`: the variadic in-place data sequence
 
 * `on trigger(idx) evt start lno|lbl|#pg:lno|#pg:lbl`: registers a callback for when the player enters or leaves the trigger
   * `idx`: the trigger index
   * `evt`: the event type; can be one or more of the following "Events" constants
-  * objectives:
+  * parameter details:
     * `lno`: line number
     * `lbl`: code line label
     * `#pg:lno`: code page index and line number
@@ -2281,7 +2423,8 @@ The window layer is visible (if "on") when both coordinates are in the ranges `x
 * `fill window(first, n) = read|data ...|"{builtin}"|#pg|#pg:n|"{name}"`: fills the window area in VRAM; this is equivalent to a `fill tile` operation
   * `first`: index of the first map tile to write to
   * `n`: the tile count
-  * objectives:
+  * parameter details:
+    * `data ...`: the variadic in-place data sequence
     * `"{builtin}"`: the name of a builtin entry
     * `#pg`: tiles page index
     * `#pg:n`: tiles page index and tile index
@@ -2294,19 +2437,20 @@ The window layer is visible (if "on") when both coordinates are in the ranges `x
   * `base_tile`: the start index for window (map) tiles
   * `pitch`: the number of tiles in a row of the window (map), omit to use the source width
   * `offset`: the offset value in bytes to be added to the source data address, omit to let the compiler determine; see `def map` for more about this parameter
-  * objectives:
+  * parameter details:
+    * `data ...`: the variadic in-place data sequence
     * `"{builtin}"`: the name of a builtin entry
     * `#pg`: window (map) page index
     * `#pg:n`: window (map) page index and tile index
     * `name`: tiles asset name
 
 * `=get window width(#pg|"{name}")`: gets the width in tiles of the specific window (map) asset page
-  * objectives:
+  * parameter details:
     * `#pg`: window (map) page index
     * `name`: window (map) asset name
   * returns the width in tiles
 * `=get window height(#pg|"{name}")`: gets the height in tiles of the specific window (map) asset page
-  * objectives:
+  * parameter details:
     * `#pg`: window (map) page index
     * `name`: window (map) asset name
   * returns the height in tiles
@@ -2346,12 +2490,12 @@ All GUI widgets share a same subset of rumtime states, so consider manipulating 
   * `blit_interval`: the interval frame count for character blit, with range of values from 0 to 31
   * `x_offset`: the x offset of the blit cursor in tiles, with range of values from 0 to 15
 * `label #pg|"{name}", ...`: outputs numeric values to the screen as a GUI label's content
-  * objectives:
+  * parameter details:
     * `#pg`: font page index for the current label
     * `name`: font asset name
   * `...`: variadic data; numeric values separated by comma
 * `label #pg|"{name}", fmt[, ...]`: outputs text and numeric values to the screen as a label's content
-  * objectives:
+  * parameter details:
     * `#pg`: font page index for the current label
     * `name`: font asset name
   * `fmt`: the format string, accepts the `print` "Escapes" for value interpretation
@@ -2378,7 +2522,7 @@ In GB BASIC, the `load dialog` operation serves as syntactic sugar for `def labe
   * `w`: the width constant of the dialog area in tiles
   * `h`: the height constant of the dialog area in tiles
   * `base_tile`: the start index to load tiles for the dialog
-  * objectives:
+  * parameter details:
     * `"{builtin}"`: the name of a builtin entry
     * `#pg`: tiles page index
     * `#pg:n`: tiles page index and tile index
@@ -2444,7 +2588,7 @@ Redefining is not required if a `progressbar val` were following up a `def progr
   * `margin_x`: the margin in x-axis in pixels, with range of values from 0 to 15
   * `margin_y`: the margin in y-axis in pixels, with range of values from 0 to 15
 * `menu #pg|"{name}", fmt0[, fmt1, ..., fmtN][, ...]`: outputs text and numeric values to the screen as a menu's content
-  * objectives:
+  * parameter details:
     * `#pg`: font page index for the current menu
     * `name`: font asset name
   * `fmt0`: the first line of the format string, accepts the `print` "Escapes" for value interpretation
@@ -2454,7 +2598,7 @@ Redefining is not required if a `progressbar val` were following up a `def progr
 * `menu nothing`: clears the content of the current menu
 
 * `on menu() start lno|lbl|#pg:lno|#pg:lbl`: registers a callback for when user interacts with the current menu
-  * objectives:
+  * parameter details:
     * `lno`: line number
     * `lbl`: code line label
     * `#pg:lno`: code page index and line number
@@ -2484,13 +2628,13 @@ The font editor can produce and configure assets for `menu`'s text drawing, pres
 #### Text Measurement
 
 * `=width #pg|"{name}", txt`: measures the width of the specified text in pixels
-  * objectives:
+  * parameter details:
     * `#pg`: font page index
     * `name`: font asset name
   * `txt`: the text to measure; an escape with placeholder, stack, carriage return, new line or new page is not supported
   * returns the width in pixels
 * `=height #pg|"{name}", txt`: measures the height of the specified text in pixels
-  * objectives:
+  * parameter details:
     * `#pg`: font page index
     * `name`: font asset name
   * `txt`: the text to measure; an escape with placeholder, stack, carriage return, new line or new page is not supported
@@ -2508,7 +2652,7 @@ The audio system supports four channels, including two duty (square wave), one w
 #### Music
 
 * `play #pg|"{name}"|"{builtin}"`: plays music of the specific asset page or builtin asset
-  * objectives:
+  * parameter details:
     * `#pg`: music page index
     * `name`: music asset name
     * `"{builtin}"`: the name of a builtin entry
@@ -2525,7 +2669,7 @@ The music editor accepts the following shortcuts to input notes. Press the liter
 #### SFX
 
 * `sound #pg|"{name}"|"{builtin}"[, priority]`: plays SFX of the specific asset page or builtin asset
-  * objectives:
+  * parameter details:
     * `#pg`: SFX page index
     * `name`: sound asset name
     * `"{builtin}"`: the name of a builtin entry
@@ -2591,14 +2735,14 @@ The following functions are used to assign colors corresponding to entries in a 
   * `layer`: the layer to operate; can be one of the "Graphics layers" constants, map and window layers are identical for this statement
   * `plt`: the palette index to modify, with range of value from 0 to 7
   * `entry`: the color index to modify, with range of value from 0 to 3
-  * objectives:
+  * parameter details:
     * `#pg`: palette asset index, with range of value from `#0` to `#7` for "BG0" to "BG7", and `#8` to `#15` for "OBJ0" to "OBJ7"
       * `n`: color index, with range of value from 0 to 3
     * `name`: palette asset name, with range of value from "BG0" to "BG7", and "OBJ0" to "OBJ7"
       * `n`: color index, with range of value from 0 to 3
 * `palette plt, col0|#pg:n_0|"{name:n_0}", col1|#pg:n_1|"{name:n_1}", ..., col6|#pg:n_6|"{name:n_6}"`: sets the SGB palette with RGB values for the specific slot; for SGB device only
   * `plt`: the palette indices to modify; can be one of the following "SGB palettes" constants
-  * objectives:
+  * parameter details:
     * `col`: the RGB color value; the format is bitpacked BGR-555 in a 16-bit unsigned integer
     * `#pg`: palette asset index, with range of value from `#0` to `#7` for "BG0" to "BG7", and `#8` to `#15` for "OBJ0" to "OBJ7"
       * `n`: color index, with range of value from 0 to 3
@@ -2628,11 +2772,11 @@ Note that if a local palette is enabled for a map asset, the associated loading 
 
 ### Effects
 
-| Effect types      | Note                                                   |
-|-------------------|--------------------------------------------------------|
-| `PULSE_EFFECT`    | Performs tile animation                                |
-| `PARALLAX_EFFECT` | Performs parallax scrolling                            |
-| `WOBBLE_EFFECT`   | Performs wobbling through scanlines (**experimental**) |
+| Effect types      | Note                                |
+|-------------------|-------------------------------------|
+| `PULSE_EFFECT`    | Performs tile animation             |
+| `PARALLAX_EFFECT` | Performs parallax scrolling         |
+| `WOBBLE_EFFECT`   | Performs wobbling through scanlines |
 
 * `fx PULSE_EFFECT, interval, t0, n0, #pg_0a|#pg:n_0a, #pg_0b|#pg:n_0b[, ...]`: enables the pulse effect
   * `interval`: the flip interval
@@ -2653,9 +2797,9 @@ Note that if a local palette is enabled for a map asset, the associated loading 
   * `...`: optional variadic arguments; for the second and third groups of values
 * `fx PARALLAX_EFFECT`: disables the parallax effect
 
-* `fx WOBBLE_EFFECT, val`: **experimental**, enables the wobble effect (and stops any parallax effect); for colored device only
-  * `val`: the wobble value, with range of value from 0 to 15
-* `fx WOBBLE_EFFECT`: **experimental**, disables the wobble effect
+* `fx WOBBLE_EFFECT, val`: enables the wobble effect (and stops any parallax effect); for colored device only
+  * `val`: the wobble value, with range of value from 1 to 15
+* `fx WOBBLE_EFFECT`: disables the wobble effect
 
 ### Collisions
 
@@ -2918,19 +3062,19 @@ _The "touch" API family supports direct interaction with GB BASIC programs on th
 | `MOUSE_BUTTON_ANY` | `0x03` | Any of `MOUSE_BUTTON_0` and/or `MOUSE_BUTTON_1`     |
 
 * `on touch goto|gosub|start lno|lbl|#pg:lno|#pg:lbl`: registers a callback for when the touch pointer is being pressed
-  * objectives:
+  * parameter details:
     * `lno`: line number
     * `lbl`: code line label
     * `#pg:lno`: code page index and line number
     * `#pg:lbl`: code page index and code line label
 * `on touchd goto|gosub|start lno|lbl|#pg:lno|#pg:lbl`: registers a callback for when the touch pointer has just been pressed
-  * objectives:
+  * parameter details:
     * `lno`: line number
     * `lbl`: code line label
     * `#pg:lno`: code page index and line number
     * `#pg:lbl`: code page index and code line label
 * `on touchu goto|gosub|start lno|lbl|#pg:lno|#pg:lbl`: registers a callback for when the touch pointer has just been released
-  * objectives:
+  * parameter details:
     * `lno`: line number
     * `lbl`: code line label
     * `#pg:lno`: code page index and line number
@@ -3194,29 +3338,29 @@ In GB BASIC, whether collision events are triggered, along with their conditions
 
 When two actors collide, if they meet the criteria and have binded event callbacks, the callbacks for both actors will be invoked. Besides event triggering, the colliding actors might also stop moving. Details are as follows.
 
-| Collision reactions           | Platformer player controller | Top-down player controller | Point&Click player controller | Scrol Shooting player controller |
-|-------------------------------|------------------------------|----------------------------|-------------------------------|----------------------------------|
-| Fires `on hits` automatically | Same group                   | Same group                 |                               | Same group                       |
-| Fires `on hits` on action     | Different group              | Different group            | Any group (non-zero)          | Different group                  |
-| Stops on collision            |                              | Same group                 |                               |                                  |
+| Collision reactions           | Platformer player controller | Top-down player controller | Point&Click player controller | Scroll Shooting player controller |
+|-------------------------------|------------------------------|----------------------------|-------------------------------|-----------------------------------|
+| Fires `on hits` automatically | Same group                   | Same group                 |                               | Same group                        |
+| Fires `on hits` on action     | Different group              | Different group            | Any group (non-zero)          | Different group                   |
+| Stops on collision            |                              | Same group                 |                               |                                   |
 
 **Between actor and projectile**
 
 When an actor and a projectile collide, the event callback binded to the actor is invoked. The projectile itself does not require and cannot have an event callback binded to it. For any builtin controller, it only interacts with projectiles that share at least one collision group bit set to `1`.
 
-| Collision reactions           | Platformer player controller | Top-down player controller | Point&Click player controller | Scrol Shooting player controller |
-|-------------------------------|------------------------------|----------------------------|-------------------------------|----------------------------------|
-| Fires `on hits` automatically | Same group                   | Same group                 | Same group                    | Same group                       |
+| Collision reactions           | Platformer player controller | Top-down player controller | Point&Click player controller | Scroll Shooting player controller |
+|-------------------------------|------------------------------|----------------------------|-------------------------------|-----------------------------------|
+| Fires `on hits` automatically | Same group                   | Same group                 | Same group                    | Same group                        |
 
 **Between actor and trigger**
 
 When an actor and a trigger collide, the event callback binded to the trigger is invoked. Since triggers do not have group assignments, they can interact with any qualifying actor. Trigger collision callbacks are divided into `enter` and `leave` events.
 
-| Collision reactions                   | Platformer player controller | Top-down player controller | Point&Click player controller | Scrol Shooting player controller |
-|---------------------------------------|------------------------------|----------------------------|-------------------------------|----------------------------------|
-| Fires `on hits` `enter` automatically | Any                          | Any                        |                               | Any                              |
-| Fires `on hits` `leave` automatically | Any                          | Any                        |                               | Any                              |
-| Fires `on hits` `enter` on action     |                              |                            | Any                           |                                  |
+| Collision reactions                   | Platformer player controller | Top-down player controller | Point&Click player controller | Scroll Shooting player controller |
+|---------------------------------------|------------------------------|----------------------------|-------------------------------|-----------------------------------|
+| Fires `on hits` `enter` automatically | Any                          | Any                        |                               | Any                               |
+| Fires `on hits` `leave` automatically | Any                          | Any                        |                               | Any                               |
+| Fires `on hits` `enter` on action     |                              |                            | Any                           |                                   |
 
 [TOP](#reference-manual)
 
@@ -3268,6 +3412,117 @@ The SGB features can be specified from a project's "Advanced" properties.
 ![](imgs/sgb_settings.png)
 
 These settings allow the specification of multiple palettes for the SGB platform. A border image can also be designated, with dimensions of 256x224px. This border contains a central window matching the game screen size of 160x144px for displaying the game viewport. Full transparency (alpha value of 0) or magenta (#FF00FF) can be used in this image to represent the transparent areas of the window.
+
+[TOP](#reference-manual)
+
+## RAM Symbol Table
+
+These symbols are allocated in memory and can be accessed by name via `addressof(...)`, assembly blocks, etc.
+
+| Name                          | Module    | Entity         | Description                                                             |
+|-------------------------------|-----------|----------------|-------------------------------------------------------------------------|
+| "RAM"                         | Hardware  | RAM            | The address of work RAM                                                 |
+| "RAMBANK"                     | Hardware  | RAM            | The address of extra work RAM; for colored device only                  |
+| "HRAM"                        | Hardware  | HRAM           | The address of high RAM                                                 |
+| "SRAM"                        | Hardware  | SRAM           | The address of external SRAM                                            |
+| "VRAM"                        | Hardware  | VRAM           | The address of VRAM                                                     |
+| "VRAM8000"                    | Hardware  | VRAM           | The address of VRAM starts from 0x8000                                  |
+| "VRAM8800"                    | Hardware  | VRAM           | The address of VRAM starts from 0x8800                                  |
+| "VRAM9000"                    | Hardware  | VRAM           | The address of VRAM starts from 0x9000                                  |
+| "SCRN0"                       | Hardware  | VRAM           | The address of tile map starts from 0x9800                              |
+| "SCRN1"                       | Hardware  | VRAM           | The address of tile map starts from 0x9C00                              |
+| "OAMRAM"                      | Hardware  | OAM            | The address of OAM                                                      |
+| "NR10_REG"                    | Hardware  | Audio          | The channel 1 sweep                                                     |
+| "NR11_REG"                    | Hardware  | Audio          | The channel 1 length timer and duty cycle                               |
+| "NR12_REG"                    | Hardware  | Audio          | The channel 1 volume and envelope                                       |
+| "NR13_REG"                    | Hardware  | Audio          | The channel 1 period low (write-only)                                   |
+| "NR14_REG"                    | Hardware  | Audio          | The channel 1 period high and control                                   |
+| "NR21_REG"                    | Hardware  | Audio          | The channel 2 length timer and duty cycle                               |
+| "NR22_REG"                    | Hardware  | Audio          | The channel 2 volume and envelope                                       |
+| "NR23_REG"                    | Hardware  | Audio          | The channel 2 period low (write-only)                                   |
+| "NR24_REG"                    | Hardware  | Audio          | The channel 2 period high and control                                   |
+| "NR30_REG"                    | Hardware  | Audio          | The channel 3 DAC enable                                                |
+| "NR31_REG"                    | Hardware  | Audio          | The channel 3 length timer (write-only)                                 |
+| "NR32_REG"                    | Hardware  | Audio          | The channel 3 output level                                              |
+| "NR33_REG"                    | Hardware  | Audio          | The channel 3 period low (write-only)                                   |
+| "NR34_REG"                    | Hardware  | Audio          | The channel 3 period high and control                                   |
+| "NR41_REG"                    | Hardware  | Audio          | The channel 4 length timer (write-only)                                 |
+| "NR42_REG"                    | Hardware  | Audio          | The channel 4 volume and envelope                                       |
+| "NR43_REG"                    | Hardware  | Audio          | The channel 4 frequency and randomness                                  |
+| "NR44_REG"                    | Hardware  | Audio          | The channel 4 control                                                   |
+| "NR50_REG"                    | Hardware  | Audio          | The master volume and VIN panning                                       |
+| "NR51_REG"                    | Hardware  | Audio          | The sound panning                                                       |
+| "NR52_REG"                    | Hardware  | Audio          | The audio master control                                                |
+| "AUD3WAVE"                    | Hardware  | Audio          | The address of wave pattern                                             |
+| "PCM12_REG"                   | Hardware  | Audio          | The digital outputs 1 and 2 (read-only)                                 |
+| "PCM34_REG"                   | Hardware  | Audio          | The digital outputs 3 and 4 (read-only)                                 |
+| "LCDC_REG"                    | Hardware  | Video          | The LCD control                                                         |
+| "STAT_REG"                    | Hardware  | Video          | The LCD status                                                          |
+| "SCY_REG"                     | Hardware  | Video          | The background viewport Y position                                      |
+| "SCX_REG"                     | Hardware  | Video          | The background viewport X position                                      |
+| "LY_REG"                      | Hardware  | Video          | The LCD Y coordinate (read-only)                                        |
+| "LYC_REG"                     | Hardware  | Video          | The LY compare                                                          |
+| "DMA_REG"                     | Hardware  | Video          | The OAM DMA source address and start                                    |
+| "BGP_REG"                     | Hardware  | Video          | The background palette                                                  |
+| "OBP0_REG"                    | Hardware  | Video          | The OBJ palette 0 data                                                  |
+| "OBP1_REG"                    | Hardware  | Video          | The OBJ palette 1 data                                                  |
+| "WY_REG"                      | Hardware  | Video          | The window Y position                                                   |
+| "WX_REG"                      | Hardware  | Video          | The window X position plus 7                                            |
+| "KEY1_REG"                    | Hardware  | Video          | Prepares speed switch                                                   |
+| "VBK_REG"                     | Hardware  | Video          | The VRAM bank                                                           |
+| "HDMA1_REG"                   | Hardware  | Video          | The high VRAM DMA source (write-only)                                   |
+| "HDMA2_REG"                   | Hardware  | Video          | The low VRAM DMA source (write-only)                                    |
+| "HDMA3_REG"                   | Hardware  | Video          | The high VRAM DMA destination (write-only)                              |
+| "HDMA4_REG"                   | Hardware  | Video          | The low VRAM DMA destination (write-only)                               |
+| "HDMA5_REG"                   | Hardware  | Video          | The VRAM DMA length/mode/start                                          |
+| "BCPS_REG"/"BGPI_REG"         | Hardware  | Video          | The background color palette specification, or background palette index |
+| "BCPD_REG"/"BGPD_REG"         | Hardware  | Video          | The background color palette data, or background palette data           |
+| "OCPS_REG"/"OBPI_REG"         | Hardware  | Video          | The OBJ color palette specification, or OBJ palette index               |
+| "OCPD_REG"/"OBPD_REG"         | Hardware  | Video          | The OBJ color palette data, or OBJ palette data                         |
+| "SVBK_REG"/"WBK_REG"          | Hardware  | Video          | Selects WRAM bank                                                       |
+| "IO"                          | Hardware  | I/O            | The address of I/O registers                                            |
+| "P1_REG"                      | Hardware  | I/O            | The joystick register                                                   |
+| "SB_REG"                      | Hardware  | I/O            | The serial I/O data buffer                                              |
+| "SC_REG"                      | Hardware  | I/O            | The serial I/O control register                                         |
+| "DIV_REG"                     | Hardware  | I/O            | The divider                                                             |
+| "TIMA_REG"                    | Hardware  | I/O            | The timer counter                                                       |
+| "TMA_REG"                     | Hardware  | I/O            | The timer modulo                                                        |
+| "TAC_REG"                     | Hardware  | I/O            | The timer control                                                       |
+| "IE_REG"                      | Hardware  | I/O            | The interrupt enabled register                                          |
+| "IF_REG"                      | Hardware  | I/O            | The interrupt flag                                                      |
+| "RP_REG"                      | Hardware  | I/O            | The infrared communications port                                        |
+| "rRAMG"                       | Cartridge | MBC5 registers | Enables or disables external RAM access                                 |
+| "rROMB0"                      | Cartridge | MBC5 registers | Selects the lower 8 bits of the ROM bank number                         |
+| "rROMB1"                      | Cartridge | MBC5 registers | Selects the 9th bit of the ROM bank number                              |
+| "rRAMB"                       | Cartridge | MBC5 registers | Selects the active RAM bank number                                      |
+| "rMBC7_SRAM_ENABLE_1"         | Cartridge | MBC7 registers | Part 1 of the sequence to enable SRAM access                            |
+| "rMBC7_SRAM_ENABLE_2"         | Cartridge | MBC7 registers | Part 2 of the sequence to enable SRAM access                            |
+| "rMBC7_LATCH_1"               | Cartridge | MBC7 registers | Part 1 of the sequence to latch accelerometer data                      |
+| "rMBC7_LATCH_2"               | Cartridge | MBC7 registers | Part 2 of the sequence to latch accelerometer data                      |
+| "rMBC7_ACCEL_X_LO"            | Cartridge | MBC7 registers | Low byte of the X-axis accelerometer value                              |
+| "rMBC7_ACCEL_X_HI"            | Cartridge | MBC7 registers | High byte of the X-axis accelerometer value                             |
+| "rMBC7_ACCEL_Y_LO"            | Cartridge | MBC7 registers | Low byte of the Y-axis accelerometer value                              |
+| "rMBC7_ACCEL_Y_HI"            | Cartridge | MBC7 registers | High byte of the Y-axis accelerometer value                             |
+| "script_memory"               | VM        | Thread         | The heap and stack space of VM memory (heap ahead, stack behind)        |
+| "CTXS"                        | VM        | Thread         | The structures of VM thread contexts                                    |
+| "first_ctx"                   | VM        | Thread         | The pointer of the first allocated VM thread context                    |
+| "free_ctxs"                   | VM        | Thread         | The pointer of the first free VM thread context                         |
+| "scene"                       | Object    | Scene          | The memory of scene structure                                           |
+| "actors"                      | Object    | Actor          | The memory of actor structures                                          |
+| "actor_active_head"           | Object    | Actor          | The head pointer of the active actors                                   |
+| "actor_active_tail"           | Object    | Actor          | The tail pointer of the active actors                                   |
+| "actor_inactive_head"         | Object    | Actor          | The head pointer of the inactive actors                                 |
+| "actor_inactive_tail"         | Object    | Actor          | The tail pointer of the inactive actors                                 |
+| "actor_hardware_sprite_count" | Object    | Actor          | The count of hardware sprites                                           |
+| "actor_following_target"      | Object    | Actor          | The pointer of the following target actor                               |
+| "emote_actor"                 | Object    | Emote          | The pointer of the emote actor                                          |
+| "projectile_defs"             | Object    | Projectile     | The memory of projectile definition structures                          |
+| "projectiles"                 | Object    | Projectile     | The memory of projectile structures                                     |
+| "projectile_active_head"      | Object    | Projectile     | The head pointer of the active projectiles                              |
+| "triggers"                    | Object    | Trigger        | The memory of trigger structures                                        |
+| "trigger_count"               | Object    | Trigger        | The count of triggers                                                   |
+
+[TOP](#reference-manual)
 
 ## ASCII Table
 

@@ -30,7 +30,7 @@
 ## Restoring Reading Cursor
 
 * `restore "{builtin}"|lno|lbl|#pg:lno|#pg:lbl`: restores the reading position of inline data sequence to the specific location
-  * objectives:
+  * parameter details:
     * `"{builtin}"`: the name of a builtin entry
     * `lno`: line number
     * `lbl`: code line label

@@ -3,7 +3,7 @@
 [Prev]() [Next]()
 
 * `play #pg|"{name}"|"{builtin}"`: plays music of the specific asset page or builtin asset
-  * objectives:
+  * parameter details:
     * `#pg`: music page index
     * `name`: music asset name
     * `"{builtin}"`: the name of a builtin entry

@@ -59,13 +59,15 @@ OnHits:
   * `h`: the height of area to set in tiles, with range of values from 1 to 255
 * `def trigger(idx) = read|data ...`: defines the specific trigger's area with data sequence
   * `idx`: the trigger index to define
+  * parameter details:
+    * `data ...`: the variadic in-place data sequence
 
 ### Trigger Callbacks
 
 * `on trigger(idx) evt start lno|lbl|#pg:lno|#pg:lbl`: registers a callback for when the player enters or leaves the trigger
   * `idx`: the trigger index
   * `evt`: the event type; can be one or more of the following "Events" constants
-  * objectives:
+  * parameter details:
     * `lno`: line number
     * `lbl`: code line label
     * `#pg:lno`: code page index and line number

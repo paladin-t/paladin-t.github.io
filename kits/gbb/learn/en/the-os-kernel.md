@@ -9,7 +9,7 @@ The kernels came along with binary distributions are precompiled from their C/As
 <div class="content-highlight" style="min-height: 48px;">
   <img src="imgs/logo-nokbd.png" class="logo-tip">
   <span class="content-text">
-    <strong>See also</strong>: <a href="compiler-and-kernel.html" class="nav-link">Compiler and Kernel</a>, and <a href="creating-a-custom-kernel.html" class="nav-link">Creating a Custom Kernel</a>.
+    <strong>See also</strong>: <a href="compiler-and-kernel.html" class="nav-link">Compiler and Kernel</a>, <a href="inline-assembly.html" class="nav-link">Inline Assembly</a>, and <a href="creating-a-custom-kernel.html" class="nav-link">Creating a Custom Kernel</a>.
   </span>
 </div>
 
@@ -19,7 +19,7 @@ From the perspective of an RTOS, this operating system layer can be divided into
 
 <img src="imgs/gbbvm-os-kernel-components.png" class="diagram-image diagram-schematic">
 
-* **Execution engine**: Runs GBBVM instructions
+* **Execution engine**: Runs GBBVM instructions, and executes CPU [assembly](inline-assembly.html) instructions
 * **Memory management**: Responsible for memory access, stack operations, general direct memory access, and game object allocation and release
 * **Thread scheduling**: Handles thread creation, execution, termination, and other operations
 * **Hardware drivers**: Interfaces with I/O operations such as VRAM, audio devices, and user input

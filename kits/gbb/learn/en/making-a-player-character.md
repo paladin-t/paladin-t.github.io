@@ -224,29 +224,29 @@ In GB BASIC, whether collision events are triggered, along with their conditions
 
 When two actors collide, if they meet the criteria and have binded event callbacks, the callbacks for both actors will be invoked. Besides event triggering, the colliding actors might also stop moving. Details are as follows.
 
-| Collision reactions           | Platformer player controller | Top-down player controller | Point&Click player controller | Scrol Shooting player controller |
-|-------------------------------|------------------------------|----------------------------|-------------------------------|----------------------------------|
-| Fires `on hits` automatically | Same group                   | Same group                 |                               | Same group                       |
-| Fires `on hits` on action     | Different group              | Different group            | Any group (non-zero)          | Different group                  |
-| Stops on collision            |                              | Same group                 |                               |                                  |
+| Collision reactions           | Platformer player controller | Top-down player controller | Point&Click player controller | Scroll Shooting player controller |
+|-------------------------------|------------------------------|----------------------------|-------------------------------|-----------------------------------|
+| Fires `on hits` automatically | Same group                   | Same group                 |                               | Same group                        |
+| Fires `on hits` on action     | Different group              | Different group            | Any group (non-zero)          | Different group                   |
+| Stops on collision            |                              | Same group                 |                               |                                   |
 
 **Between actor and projectile**
 
 When an actor and a projectile collide, the event callback binded to the actor is invoked. The projectile itself does not require and cannot have an event callback binded to it. For any built-in controller, it only interacts with projectiles that share at least one collision group bit set to `1`.
 
-| Collision reactions           | Platformer player controller | Top-down player controller | Point&Click player controller | Scrol Shooting player controller |
-|-------------------------------|------------------------------|----------------------------|-------------------------------|----------------------------------|
-| Fires `on hits` automatically | Same group                   | Same group                 | Same group                    | Same group                       |
+| Collision reactions           | Platformer player controller | Top-down player controller | Point&Click player controller | Scroll Shooting player controller |
+|-------------------------------|------------------------------|----------------------------|-------------------------------|-----------------------------------|
+| Fires `on hits` automatically | Same group                   | Same group                 | Same group                    | Same group                        |
 
 **Between actor and trigger**
 
 When an actor and a trigger collide, the event callback binded to the trigger is invoked. Since triggers do not have group assignments, they can interact with any qualifying actor. Trigger collision callbacks are divided into `enter` and `leave` events.
 
-| Collision reactions                   | Platformer player controller | Top-down player controller | Point&Click player controller | Scrol Shooting player controller |
-|---------------------------------------|------------------------------|----------------------------|-------------------------------|----------------------------------|
-| Fires `on hits` `enter` automatically | Any                          | Any                        |                               | Any                              |
-| Fires `on hits` `leave` automatically | Any                          | Any                        |                               | Any                              |
-| Fires `on hits` `enter` on action     |                              |                            | Any                           |                                  |
+| Collision reactions                   | Platformer player controller | Top-down player controller | Point&Click player controller | Scroll Shooting player controller |
+|---------------------------------------|------------------------------|----------------------------|-------------------------------|-----------------------------------|
+| Fires `on hits` `enter` automatically | Any                          | Any                        |                               | Any                               |
+| Fires `on hits` `leave` automatically | Any                          | Any                        |                               | Any                               |
+| Fires `on hits` `enter` on action     |                              |                            | Any                           |                                   |
 
 For instance, collision groups for players, player projectiles, enemies, and NPCs can be assigned as follows:
 
