@@ -14,7 +14,7 @@ This update introduces direct calls to user-defined assembly instructions. This 
 * [Changelog](documents/changelogs/Changelog_v1.11.0.txt) (Jun. 8, 2026)
 * Download on [Steam](https://store.steampowered.com/app/2308700/)
 * Also available on [Itch.io](https://tonywang.itch.io/gbbasic)
-* 
+
 ## GB BASIC v1.10.0
 
 <details>
