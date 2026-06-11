@@ -30,6 +30,7 @@
       - [Assembly Syntax and Rules](#assembly-syntax-and-rules)
       - [Executing Inline Assembly Blocks](#executing-inline-assembly-blocks)
       - [Calling Assembly Routines](#calling-assembly-routines)
+      - [Defining ISR in Assembly](#defining-isr-in-assembly)
       - [CPU Instructions](#cpu-instructions)
     - [Macro Definitions](#macro-definitions)
       - [Macro Function](#macro-function)
@@ -632,10 +633,12 @@ print "foo=%d", foo
 | `begin asm`   | `beginasm`   |
 | `end asm`     | `endasm`     |
 
-An assembly block can be named by appending a string after `begin asm`. The bank and starting address of the block can be retrieved using `get asm bankof("name")` and `get asm addressof("name")`.
+An assembly block can be named by appending a string after `begin asm`. Then the block can be called using `call asm "name"`, and the bank and starting address of the block can be retrieved using `get asm bankof("name")` and `get asm addressof("name")`.
 
 * `begin asm "name"/end asm`: declares and executes a block of named inline assembly code
   * `name`: the name of the assembly block
+
+Note that certain special assembly block names have specific behaviours and purposes. This will be explained later in the [Defining ISR in Assembly](#defining-isr-in-assembly) section.
 
 #### Calling Assembly Routines
 
@@ -674,6 +677,36 @@ begin asm "IncFoo"
     ld (foo),a      ' foo = a.
     ret             ' Required to return from the ASM routine.
 end asm
+```
+
+#### Defining ISR in Assembly
+
+| ISR assembly names | Description                            |
+|--------------------|----------------------------------------|
+| `on vbl`           | Called when a V-blank interrupt occurs |
+| `on lcd`           | Called when an LCD interrupt occurs    |
+
+By naming an assembly block using a name from the "ISR assembly names" table above, it is installed as a specific ISR callback. Unlike regular assembly blocks, these specially named blocks are not executed in the normal code flow. Instead, after the ISR is installed, execution continues with the code following the block, and the block is automatically triggered when the corresponding interrupt occurs.
+
+```bas
+screen TEXT_MODE
+
+let foo = 0          ' Declare a variable for testing.
+begin asm "on vbl"   ' Define and install a V-blank ISR.
+    ' Do something in the ISR.
+    ld a,(foo)       ' a = foo.
+    add 1            ' a = a + 1.
+    ld (foo),a       ' foo = a.
+    ret              ' Required to return from the ASM routine.
+end asm
+
+let bar = 0
+loop:
+  if bar <> foo then ' Has changed.
+    bar = foo
+    print "foo=%d", foo
+  end if
+  goto loop
 ```
 
 #### CPU Instructions

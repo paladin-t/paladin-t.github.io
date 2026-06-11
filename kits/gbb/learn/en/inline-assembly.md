@@ -87,10 +87,12 @@ print "foo=%d", foo
 | `begin asm`   | `beginasm`   |
 | `end asm`     | `endasm`     |
 
-An assembly block can be named by appending a string after `begin asm`. The bank and starting address of the block can be retrieved using `get asm bankof("name")` and `get asm addressof("name")`.
+An assembly block can be named by appending a string after `begin asm`. Then the block can be called using `call asm "name"`, and the bank and starting address of the block can be retrieved using `get asm bankof("name")` and `get asm addressof("name")`.
 
 * `begin asm "name"/end asm`: declares and executes a block of named inline assembly code
   * `name`: the name of the assembly block
+
+Note that certain special assembly block names have specific behaviours and purposes. This will be explained later in the [Defining ISR in Assembly](#defining-isr-in-assembly) section.
 
 ## Calling Assembly Routines
 
@@ -148,6 +150,153 @@ begin asm "IncFoo"
 end asm
 -->
 
+## Defining ISR in Assembly
+
+| ISR assembly names | Description                            |
+|--------------------|----------------------------------------|
+| `on vbl`           | Called when a V-blank interrupt occurs |
+| `on lcd`           | Called when an LCD interrupt occurs    |
+
+By naming an assembly block using a name from the "ISR assembly names" table above, it is installed as a specific ISR callback. Unlike regular assembly blocks, these specially named blocks are not executed in the normal code flow. Instead, after the ISR is installed, execution continues with the code following the block, and the block is automatically triggered when the corresponding interrupt occurs.
+
+The code below shows a simple ISR in assembly setup.
+
+```basic
+screen TEXT_MODE
+
+let foo = 0          ' Declare a variable for testing.
+begin asm "on vbl"   ' Define and install a V-blank ISR.
+    ' Do something in the ISR.
+    ld a,(foo)       ' a = foo.
+    add 1            ' a = a + 1.
+    ld (foo),a       ' foo = a.
+    ret              ' Required to return from the ASM routine.
+end asm
+
+let bar = 0
+loop:
+  if bar <> foo then ' Has changed.
+    bar = foo
+    print "foo=%d", foo
+  end if
+  goto loop
+```
+<!-- prg
+!edit, run, title="Simple ISR in assembly", style=""
+screen TEXT_MODE
+
+let foo = 0          ' Declare a variable for testing.
+begin asm "on vbl"   ' Define and install a V-blank ISR.
+    ' Do something in the ISR.
+    ld a,(foo)       ' a = foo.
+    add 1            ' a = a + 1.
+    ld (foo),a       ' foo = a.
+    ret              ' Required to return from the ASM routine.
+end asm
+
+let bar = 0
+loop:
+  if bar <> foo then ' Has changed.
+    bar = foo
+    print "foo=%d", foo
+  end if
+  goto loop
+-->
+
+The code below shows how to enabling things impossible in pure BASIC, like distortion effect, with assembly ISR.
+
+```basic
+' This program demonstrates how to install assembly ISRs with a graphics effects
+' example.
+'
+' It installs:
+'   1. An LCD STAT ISR that modifies the SCX (scroll x) register per scanline,
+'      creating a horizontal wave distortion that simulates water ripples
+'   2. A VBL ISR advances the wave phase each frame for smooth animation
+' Hardware registers used:
+'   0xff41 (STAT) - LCD status
+'   0xff43 (SCX)  - background scroll x
+'   0xff44 (LY)   - current scanline (read-only)
+'   0xff45 (LYC)  - scanline compare
+
+' Load the background image.
+image(1, 0, 0, MAP_LAYER) = with map "Background"
+
+' Pre-fill the sine wave table.
+dim sine[32] ' 32 words = 64 bytes.
+let addr = addressof(sine)
+for i = 0 to 63
+  poke(addr, (6 * sin(i * 4)) / 127)
+  inc addr
+next
+do nothing with sine
+
+' Declare a wave phase counter.
+' Incremented by 1 each V-blank, wraps at 64 (table size).
+let phase = 0
+do nothing with phase
+
+' Install a VBL ISR.
+' Advances the wave phase and prepares the first scanline's SCX value.
+begin asm "on vbl"
+    ' Increment phase (wraps at 64).
+    ld a,(phase)
+    inc a
+    and 0x3f
+    ld (phase),a
+    ' Set SCX for scanline 0.
+    ld l,a
+    ld h,0
+    ld de,sine
+    add hl,de
+    ld a,(hl)
+    ldh (0x43),a      ' SCX = sine[phase].
+    ' Reset LYC to 0.
+    xor a
+    ldh (0x45),a      ' LYC = 0.
+    ret
+end asm
+
+' Install an LCD ISR.
+' Triggered per scanline. Reads the sine table to compute horizontal
+' displacement.
+begin asm "on lcd"
+    ' Read current scanline.
+    ldh a,(0x44)      ' A = LY.
+    ' Skip if in V-blank (LY >= 144).
+    cp 144
+    jr nc,lcd_done
+    ' Store scanline in B.
+    ld b,a
+    ' Table index = (scanline + phase) mod 64.
+    ld a,(phase)
+    add a,b
+    and 0x3f
+    ld l,a
+    ld h,0
+    ld de,sine
+    add hl,de
+    ld a,(hl)
+    ' Apply displacement to SCX.
+    ldh (0x43),a      ' SCX = sine[(scanline + phase) mod 64].
+  lcd_done:
+    ret
+end asm
+
+' Enable the STAT Mode 0 interrupt.
+' STAT bit 3 enables the Mode 0 interrupt source.
+poke 0xff41, 0x08
+
+' Main loop.
+loop:
+  update
+  goto loop
+```
+<!-- prg
+!edit, run, title="ISR effect in assembly", style=""
+url://prgs/asm-isr-1.txt
+-->
+
 ## CPU Instructions
 
 For the CPU instructions, refer to the following tables.
@@ -169,10 +318,10 @@ For the CPU instructions, refer to the following tables.
   <tr style="font-family: monospace; font-size: 8pt" align="center"><td class="withborder" bgcolor="#9f9f9f"><b>&nbsp;9x&nbsp;</b></td><td class="withborder" bgcolor="#ffff99">SUB B<br>1&nbsp;&nbsp;4<br>Z 1 H C</td><td class="withborder" bgcolor="#ffff99">SUB C<br>1&nbsp;&nbsp;4<br>Z 1 H C</td><td class="withborder" bgcolor="#ffff99">SUB D<br>1&nbsp;&nbsp;4<br>Z 1 H C</td><td class="withborder" bgcolor="#ffff99">SUB E<br>1&nbsp;&nbsp;4<br>Z 1 H C</td><td class="withborder" bgcolor="#ffff99">SUB H<br>1&nbsp;&nbsp;4<br>Z 1 H C</td><td class="withborder" bgcolor="#ffff99">SUB L<br>1&nbsp;&nbsp;4<br>Z 1 H C</td><td class="withborder" bgcolor="#ffff99">SUB (HL)<br>1&nbsp;&nbsp;8<br>Z 1 H C</td><td class="withborder" bgcolor="#ffff99">SUB A<br>1&nbsp;&nbsp;4<br>Z 1 H C</td><td class="withborder" bgcolor="#ffff99">SBC A,B<br>1&nbsp;&nbsp;4<br>Z 1 H C</td><td class="withborder" bgcolor="#ffff99">SBC A,C<br>1&nbsp;&nbsp;4<br>Z 1 H C</td><td class="withborder" bgcolor="#ffff99">SBC A,D<br>1&nbsp;&nbsp;4<br>Z 1 H C</td><td class="withborder" bgcolor="#ffff99">SBC A,E<br>1&nbsp;&nbsp;4<br>Z 1 H C</td><td class="withborder" bgcolor="#ffff99">SBC A,H<br>1&nbsp;&nbsp;4<br>Z 1 H C</td><td class="withborder" bgcolor="#ffff99">SBC A,L<br>1&nbsp;&nbsp;4<br>Z 1 H C</td><td class="withborder" bgcolor="#ffff99">SBC A,(HL)<br>1&nbsp;&nbsp;8<br>Z 1 H C</td><td class="withborder" bgcolor="#ffff99">SBC A,A<br>1&nbsp;&nbsp;4<br>Z 1 H C</td></tr>
   <tr style="font-family: monospace; font-size: 8pt" align="center"><td class="withborder" bgcolor="#9f9f9f"><b>&nbsp;Ax&nbsp;</b></td><td class="withborder" bgcolor="#ffff99">AND B<br>1&nbsp;&nbsp;4<br>Z 0 1 0</td><td class="withborder" bgcolor="#ffff99">AND C<br>1&nbsp;&nbsp;4<br>Z 0 1 0</td><td class="withborder" bgcolor="#ffff99">AND D<br>1&nbsp;&nbsp;4<br>Z 0 1 0</td><td class="withborder" bgcolor="#ffff99">AND E<br>1&nbsp;&nbsp;4<br>Z 0 1 0</td><td class="withborder" bgcolor="#ffff99">AND H<br>1&nbsp;&nbsp;4<br>Z 0 1 0</td><td class="withborder" bgcolor="#ffff99">AND L<br>1&nbsp;&nbsp;4<br>Z 0 1 0</td><td class="withborder" bgcolor="#ffff99">AND (HL)<br>1&nbsp;&nbsp;8<br>Z 0 1 0</td><td class="withborder" bgcolor="#ffff99">AND A<br>1&nbsp;&nbsp;4<br>Z 0 1 0</td><td class="withborder" bgcolor="#ffff99">XOR B<br>1&nbsp;&nbsp;4<br>Z 0 0 0</td><td class="withborder" bgcolor="#ffff99">XOR C<br>1&nbsp;&nbsp;4<br>Z 0 0 0</td><td class="withborder" bgcolor="#ffff99">XOR D<br>1&nbsp;&nbsp;4<br>Z 0 0 0</td><td class="withborder" bgcolor="#ffff99">XOR E<br>1&nbsp;&nbsp;4<br>Z 0 0 0</td><td class="withborder" bgcolor="#ffff99">XOR H<br>1&nbsp;&nbsp;4<br>Z 0 0 0</td><td class="withborder" bgcolor="#ffff99">XOR L<br>1&nbsp;&nbsp;4<br>Z 0 0 0</td><td class="withborder" bgcolor="#ffff99">XOR (HL)<br>1&nbsp;&nbsp;8<br>Z 0 0 0</td><td class="withborder" bgcolor="#ffff99">XOR A<br>1&nbsp;&nbsp;4<br>Z 0 0 0</td></tr>
   <tr style="font-family: monospace; font-size: 8pt" align="center"><td class="withborder" bgcolor="#9f9f9f"><b>&nbsp;Bx&nbsp;</b></td><td class="withborder" bgcolor="#ffff99">OR B<br>1&nbsp;&nbsp;4<br>Z 0 0 0</td><td class="withborder" bgcolor="#ffff99">OR C<br>1&nbsp;&nbsp;4<br>Z 0 0 0</td><td class="withborder" bgcolor="#ffff99">OR D<br>1&nbsp;&nbsp;4<br>Z 0 0 0</td><td class="withborder" bgcolor="#ffff99">OR E<br>1&nbsp;&nbsp;4<br>Z 0 0 0</td><td class="withborder" bgcolor="#ffff99">OR H<br>1&nbsp;&nbsp;4<br>Z 0 0 0</td><td class="withborder" bgcolor="#ffff99">OR L<br>1&nbsp;&nbsp;4<br>Z 0 0 0</td><td class="withborder" bgcolor="#ffff99">OR (HL)<br>1&nbsp;&nbsp;8<br>Z 0 0 0</td><td class="withborder" bgcolor="#ffff99">OR A<br>1&nbsp;&nbsp;4<br>Z 0 0 0</td><td class="withborder" bgcolor="#ffff99">CP B<br>1&nbsp;&nbsp;4<br>Z 1 H C</td><td class="withborder" bgcolor="#ffff99">CP C<br>1&nbsp;&nbsp;4<br>Z 1 H C</td><td class="withborder" bgcolor="#ffff99">CP D<br>1&nbsp;&nbsp;4<br>Z 1 H C</td><td class="withborder" bgcolor="#ffff99">CP E<br>1&nbsp;&nbsp;4<br>Z 1 H C</td><td class="withborder" bgcolor="#ffff99">CP H<br>1&nbsp;&nbsp;4<br>Z 1 H C</td><td class="withborder" bgcolor="#ffff99">CP L<br>1&nbsp;&nbsp;4<br>Z 1 H C</td><td class="withborder" bgcolor="#ffff99">CP (HL)<br>1&nbsp;&nbsp;8<br>Z 1 H C</td><td class="withborder" bgcolor="#ffff99">CP A<br>1&nbsp;&nbsp;4<br>Z 1 H C</td></tr>
-  <tr style="font-family: monospace; font-size: 8pt" align="center"><td class="withborder" bgcolor="#9f9f9f"><b>&nbsp;Cx&nbsp;</b></td><td class="withborder" bgcolor="#ffcc99">RET NZ<br>1&nbsp;&nbsp;20/8<br>- - - -</td><td class="withborder" bgcolor="#ccffcc">POP BC<br>1&nbsp;&nbsp;12<br>- - - -</td><td class="withborder" bgcolor="#ffcc99">JP NZ,a16<br>3&nbsp;&nbsp;16/12<br>- - - -</td><td class="withborder" bgcolor="#ffcc99">JP a16<br>3&nbsp;&nbsp;16<br>- - - -</td><td class="withborder" bgcolor="#ffcc99">CALL NZ,a16<br>3&nbsp;&nbsp;24/12<br>- - - -</td><td class="withborder" bgcolor="#ccffcc">PUSH BC<br>1&nbsp;&nbsp;16<br>- - - -</td><td class="withborder" bgcolor="#ffff99">ADD A,d8<br>2&nbsp;&nbsp;8<br>Z 0 H C</td><td class="withborder" bgcolor="#ffcc99">RST 00H<br>1&nbsp;&nbsp;16<br>- - - -</td><td class="withborder" bgcolor="#ffcc99">RET Z<br>1&nbsp;&nbsp;20/8<br>- - - -</td><td class="withborder" bgcolor="#ffcc99">RET<br>1&nbsp;&nbsp;16<br>- - - -</td><td class="withborder" bgcolor="#ffcc99">JP Z,a16<br>3&nbsp;&nbsp;16/12<br>- - - -</td><td class="withborder" bgcolor="#ff99cc">PREFIX CB<br>1&nbsp;&nbsp;4<br>- - - -</td><td class="withborder" bgcolor="#ffcc99">CALL Z,a16<br>3&nbsp;&nbsp;24/12<br>- - - -</td><td class="withborder" bgcolor="#ffcc99">CALL a16<br>3&nbsp;&nbsp;24<br>- - - -</td><td class="withborder" bgcolor="#ffff99">ADC A,d8<br>2&nbsp;&nbsp;8<br>Z 0 H C</td><td class="withborder" bgcolor="#ffcc99">RST 08H<br>1&nbsp;&nbsp;16<br>- - - -</td></tr>
-  <tr style="font-family: monospace; font-size: 8pt" align="center"><td class="withborder" bgcolor="#9f9f9f"><b>&nbsp;Dx&nbsp;</b></td><td class="withborder" bgcolor="#ffcc99">RET NC<br>1&nbsp;&nbsp;20/8<br>- - - -</td><td class="withborder" bgcolor="#ccffcc">POP DE<br>1&nbsp;&nbsp;12<br>- - - -</td><td class="withborder" bgcolor="#ffcc99">JP NC,a16<br>3&nbsp;&nbsp;16/12<br>- - - -</td><td class="withborder">&nbsp;</td><td class="withborder" bgcolor="#ffcc99">CALL NC,a16<br>3&nbsp;&nbsp;24/12<br>- - - -</td><td class="withborder" bgcolor="#ccffcc">PUSH DE<br>1&nbsp;&nbsp;16<br>- - - -</td><td class="withborder" bgcolor="#ffff99">SUB d8<br>2&nbsp;&nbsp;8<br>Z 1 H C</td><td class="withborder" bgcolor="#ffcc99">RST 10H<br>1&nbsp;&nbsp;16<br>- - - -</td><td class="withborder" bgcolor="#ffcc99">RET C<br>1&nbsp;&nbsp;20/8<br>- - - -</td><td class="withborder" bgcolor="#ffcc99">RETI<br>1&nbsp;&nbsp;16<br>- - - -</td><td class="withborder" bgcolor="#ffcc99">JP C,a16<br>3&nbsp;&nbsp;16/12<br>- - - -</td><td class="withborder">&nbsp;</td><td class="withborder" bgcolor="#ffcc99">CALL C,a16<br>3&nbsp;&nbsp;24/12<br>- - - -</td><td class="withborder">&nbsp;</td><td class="withborder" bgcolor="#ffff99">SBC A,d8<br>2&nbsp;&nbsp;8<br>Z 1 H C</td><td class="withborder" bgcolor="#ffcc99">RST 18H<br>1&nbsp;&nbsp;16<br>- - - -</td></tr>
-  <tr style="font-family: monospace; font-size: 8pt" align="center"><td class="withborder" bgcolor="#9f9f9f"><b>&nbsp;Ex&nbsp;</b></td><td class="withborder" bgcolor="#ccccff">LDH (a8),A<br>2&nbsp;&nbsp;12<br>- - - -</td><td class="withborder" bgcolor="#ccffcc">POP HL<br>1&nbsp;&nbsp;12<br>- - - -</td><td class="withborder" bgcolor="#ccccff">LD (C),A<br>2&nbsp;&nbsp;8<br>- - - -</td><td class="withborder">&nbsp;</td><td class="withborder">&nbsp;</td><td class="withborder" bgcolor="#ccffcc">PUSH HL<br>1&nbsp;&nbsp;16<br>- - - -</td><td class="withborder" bgcolor="#ffff99">AND d8<br>2&nbsp;&nbsp;8<br>Z 0 1 0</td><td class="withborder" bgcolor="#ffcc99">RST 20H<br>1&nbsp;&nbsp;16<br>- - - -</td><td class="withborder" bgcolor="#ffcccc">ADD SP,r8<br>2&nbsp;&nbsp;16<br>0 0 H C</td><td class="withborder" bgcolor="#ffcc99">JP (HL)<br>1&nbsp;&nbsp;4<br>- - - -</td><td class="withborder" bgcolor="#ccccff">LD (a16),A<br>3&nbsp;&nbsp;16<br>- - - -</td><td class="withborder">&nbsp;</td><td class="withborder">&nbsp;</td><td class="withborder">&nbsp;</td><td class="withborder" bgcolor="#ffff99">XOR d8<br>2&nbsp;&nbsp;8<br>Z 0 0 0</td><td class="withborder" bgcolor="#ffcc99">RST 28H<br>1&nbsp;&nbsp;16<br>- - - -</td></tr>
-  <tr style="font-family: monospace; font-size: 8pt" align="center"><td class="withborder" bgcolor="#9f9f9f"><b>&nbsp;Fx&nbsp;</b></td><td class="withborder" bgcolor="#ccccff">LDH A,(a8)<br>2&nbsp;&nbsp;12<br>- - - -</td><td class="withborder" bgcolor="#ccffcc">POP AF<br>1&nbsp;&nbsp;12<br>Z N H C</td><td class="withborder" bgcolor="#ccccff">LD A,(C)<br>2&nbsp;&nbsp;8<br>- - - -</td><td class="withborder" bgcolor="#ff99cc">DI<br>1&nbsp;&nbsp;4<br>- - - -</td><td class="withborder">&nbsp;</td><td class="withborder" bgcolor="#ccffcc">PUSH AF<br>1&nbsp;&nbsp;16<br>- - - -</td><td class="withborder" bgcolor="#ffff99">OR d8<br>2&nbsp;&nbsp;8<br>Z 0 0 0</td><td class="withborder" bgcolor="#ffcc99">RST 30H<br>1&nbsp;&nbsp;16<br>- - - -</td><td class="withborder" bgcolor="#ccffcc">LD HL,SP+r8<br>2&nbsp;&nbsp;12<br>0 0 H C</td><td class="withborder" bgcolor="#ccffcc">LD SP,HL<br>1&nbsp;&nbsp;8<br>- - - -</td><td class="withborder" bgcolor="#ccccff">LD A,(a16)<br>3&nbsp;&nbsp;16<br>- - - -</td><td class="withborder" bgcolor="#ff99cc">EI<br>1&nbsp;&nbsp;4<br>- - - -</td><td class="withborder">&nbsp;</td><td class="withborder">&nbsp;</td><td class="withborder" bgcolor="#ffff99">CP d8<br>2&nbsp;&nbsp;8<br>Z 1 H C</td><td class="withborder" bgcolor="#ffcc99">RST 38H<br>1&nbsp;&nbsp;16<br>- - - -</td></tr>
+  <tr style="font-family: monospace; font-size: 8pt" align="center"><td class="withborder" bgcolor="#9f9f9f"><b>&nbsp;Cx&nbsp;</b></td><td class="withborder" bgcolor="#ffcc99">RET NZ<br>1&nbsp;&nbsp;20/8<br>- - - -</td><td class="withborder" bgcolor="#ccffcc">POP BC<br>1&nbsp;&nbsp;12<br>- - - -</td><td class="withborder" bgcolor="#ffcc99">JP NZ,a16<br>3&nbsp;&nbsp;16/12<br>- - - -</td><td class="withborder" bgcolor="#ffcc99">JP a16<br>3&nbsp;&nbsp;16<br>- - - -</td><td class="withborder" bgcolor="#ffcc99">CALL NZ,a16<br>3&nbsp;&nbsp;24/12<br>- - - -</td><td class="withborder" bgcolor="#ccffcc">PUSH BC<br>1&nbsp;&nbsp;16<br>- - - -</td><td class="withborder" bgcolor="#ffff99">ADD A,d8<br>2&nbsp;&nbsp;8<br>Z 0 H C</td><td class="withborder" bgcolor="#ffcc99">RST 0x00<br>1&nbsp;&nbsp;16<br>- - - -</td><td class="withborder" bgcolor="#ffcc99">RET Z<br>1&nbsp;&nbsp;20/8<br>- - - -</td><td class="withborder" bgcolor="#ffcc99">RET<br>1&nbsp;&nbsp;16<br>- - - -</td><td class="withborder" bgcolor="#ffcc99">JP Z,a16<br>3&nbsp;&nbsp;16/12<br>- - - -</td><td class="withborder" bgcolor="#ff99cc">PREFIX CB<br>1&nbsp;&nbsp;4<br>- - - -</td><td class="withborder" bgcolor="#ffcc99">CALL Z,a16<br>3&nbsp;&nbsp;24/12<br>- - - -</td><td class="withborder" bgcolor="#ffcc99">CALL a16<br>3&nbsp;&nbsp;24<br>- - - -</td><td class="withborder" bgcolor="#ffff99">ADC A,d8<br>2&nbsp;&nbsp;8<br>Z 0 H C</td><td class="withborder" bgcolor="#ffcc99">RST 0x08<br>1&nbsp;&nbsp;16<br>- - - -</td></tr>
+  <tr style="font-family: monospace; font-size: 8pt" align="center"><td class="withborder" bgcolor="#9f9f9f"><b>&nbsp;Dx&nbsp;</b></td><td class="withborder" bgcolor="#ffcc99">RET NC<br>1&nbsp;&nbsp;20/8<br>- - - -</td><td class="withborder" bgcolor="#ccffcc">POP DE<br>1&nbsp;&nbsp;12<br>- - - -</td><td class="withborder" bgcolor="#ffcc99">JP NC,a16<br>3&nbsp;&nbsp;16/12<br>- - - -</td><td class="withborder">&nbsp;</td><td class="withborder" bgcolor="#ffcc99">CALL NC,a16<br>3&nbsp;&nbsp;24/12<br>- - - -</td><td class="withborder" bgcolor="#ccffcc">PUSH DE<br>1&nbsp;&nbsp;16<br>- - - -</td><td class="withborder" bgcolor="#ffff99">SUB d8<br>2&nbsp;&nbsp;8<br>Z 1 H C</td><td class="withborder" bgcolor="#ffcc99">RST 0x10<br>1&nbsp;&nbsp;16<br>- - - -</td><td class="withborder" bgcolor="#ffcc99">RET C<br>1&nbsp;&nbsp;20/8<br>- - - -</td><td class="withborder" bgcolor="#ffcc99">RETI<br>1&nbsp;&nbsp;16<br>- - - -</td><td class="withborder" bgcolor="#ffcc99">JP C,a16<br>3&nbsp;&nbsp;16/12<br>- - - -</td><td class="withborder">&nbsp;</td><td class="withborder" bgcolor="#ffcc99">CALL C,a16<br>3&nbsp;&nbsp;24/12<br>- - - -</td><td class="withborder">&nbsp;</td><td class="withborder" bgcolor="#ffff99">SBC A,d8<br>2&nbsp;&nbsp;8<br>Z 1 H C</td><td class="withborder" bgcolor="#ffcc99">RST 0x18<br>1&nbsp;&nbsp;16<br>- - - -</td></tr>
+  <tr style="font-family: monospace; font-size: 8pt" align="center"><td class="withborder" bgcolor="#9f9f9f"><b>&nbsp;Ex&nbsp;</b></td><td class="withborder" bgcolor="#ccccff">LDH (a8),A<br>2&nbsp;&nbsp;12<br>- - - -</td><td class="withborder" bgcolor="#ccffcc">POP HL<br>1&nbsp;&nbsp;12<br>- - - -</td><td class="withborder" bgcolor="#ccccff">LD (C),A<br>2&nbsp;&nbsp;8<br>- - - -</td><td class="withborder">&nbsp;</td><td class="withborder">&nbsp;</td><td class="withborder" bgcolor="#ccffcc">PUSH HL<br>1&nbsp;&nbsp;16<br>- - - -</td><td class="withborder" bgcolor="#ffff99">AND d8<br>2&nbsp;&nbsp;8<br>Z 0 1 0</td><td class="withborder" bgcolor="#ffcc99">RST 0x20<br>1&nbsp;&nbsp;16<br>- - - -</td><td class="withborder" bgcolor="#ffcccc">ADD SP,r8<br>2&nbsp;&nbsp;16<br>0 0 H C</td><td class="withborder" bgcolor="#ffcc99">JP (HL)<br>1&nbsp;&nbsp;4<br>- - - -</td><td class="withborder" bgcolor="#ccccff">LD (a16),A<br>3&nbsp;&nbsp;16<br>- - - -</td><td class="withborder">&nbsp;</td><td class="withborder">&nbsp;</td><td class="withborder">&nbsp;</td><td class="withborder" bgcolor="#ffff99">XOR d8<br>2&nbsp;&nbsp;8<br>Z 0 0 0</td><td class="withborder" bgcolor="#ffcc99">RST 0x28<br>1&nbsp;&nbsp;16<br>- - - -</td></tr>
+  <tr style="font-family: monospace; font-size: 8pt" align="center"><td class="withborder" bgcolor="#9f9f9f"><b>&nbsp;Fx&nbsp;</b></td><td class="withborder" bgcolor="#ccccff">LDH A,(a8)<br>2&nbsp;&nbsp;12<br>- - - -</td><td class="withborder" bgcolor="#ccffcc">POP AF<br>1&nbsp;&nbsp;12<br>Z N H C</td><td class="withborder" bgcolor="#ccccff">LD A,(C)<br>2&nbsp;&nbsp;8<br>- - - -</td><td class="withborder" bgcolor="#ff99cc">DI<br>1&nbsp;&nbsp;4<br>- - - -</td><td class="withborder">&nbsp;</td><td class="withborder" bgcolor="#ccffcc">PUSH AF<br>1&nbsp;&nbsp;16<br>- - - -</td><td class="withborder" bgcolor="#ffff99">OR d8<br>2&nbsp;&nbsp;8<br>Z 0 0 0</td><td class="withborder" bgcolor="#ffcc99">RST 0x30<br>1&nbsp;&nbsp;16<br>- - - -</td><td class="withborder" bgcolor="#ccffcc">LD HL,SP+r8<br>2&nbsp;&nbsp;12<br>0 0 H C</td><td class="withborder" bgcolor="#ccffcc">LD SP,HL<br>1&nbsp;&nbsp;8<br>- - - -</td><td class="withborder" bgcolor="#ccccff">LD A,(a16)<br>3&nbsp;&nbsp;16<br>- - - -</td><td class="withborder" bgcolor="#ff99cc">EI<br>1&nbsp;&nbsp;4<br>- - - -</td><td class="withborder">&nbsp;</td><td class="withborder">&nbsp;</td><td class="withborder" bgcolor="#ffff99">CP d8<br>2&nbsp;&nbsp;8<br>Z 1 H C</td><td class="withborder" bgcolor="#ffcc99">RST 0x38<br>1&nbsp;&nbsp;16<br>- - - -</td></tr>
 </table>
 </div>
 
