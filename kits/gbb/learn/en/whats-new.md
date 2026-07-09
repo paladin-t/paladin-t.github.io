@@ -4,9 +4,22 @@
 
 # Releases
 
-## GB BASIC v1.11.0
+## GB BASIC v1.12.0
 
 <details open>
+<summary><b>Click Me</b></summary>
+<div>
+This update introduces support for overriding Interrupt Service Routines (ISRs) in BASIC code using named assembly blocks. It also adds a comprehensive internationalization (i18n) pipeline featuring compile-time dictionary lookups and dedicated asset management, alongside a new <code>LSTR(...)</code> statement for retrieving text from the i18n dictionary. Additionally, with a new official kernel "Scene Transfer", a new <code>blit_scene</code> function has been added to facilitate scene data transfer, alongside another scrolling transitions via a similar sub-region transfer method <code>transition_scene</code>. This version also includes various other improvements and bug fixes for the assembler, serial port communication, project validation, and text/Unicode handling, etc.
+</div>
+</details>
+
+* [Changelog](../documents/changelogs/Changelog_v1.12.0.txt) (Jul. 9, 2026)
+* Download on [Steam](https://store.steampowered.com/app/2308700/)
+* Also available on [Itch.io](https://tonywang.itch.io/gbbasic)
+
+## GB BASIC v1.11.0
+
+<details>
 <summary><b>Click Me</b></summary>
 <div>
 This update introduces direct calls to user-defined assembly instructions. This version also includes other improvements and bug fixes.

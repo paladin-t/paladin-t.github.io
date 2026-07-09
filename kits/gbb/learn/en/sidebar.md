@@ -230,6 +230,8 @@
 
 ## [2. Using Unicode Strings](using-unicode-strings)
 
+## [3. I18n](i18n)
+
 --------------------------------------------------------------------------------
 
 # [XIV. Practical Projects: Starter Kits](practical-projects-starter-kits)
@@ -317,6 +319,14 @@
 ## [2. Kernel Linking](kernel-linking)
 
 ## [3. Switching Kernel](switching-kernel)
+
+## [4. Official Kernels](official-kernels)
+
+### [4.1 Scene Transfer Kernel](scene-transfer-kernel)
+
+### [4.2 SFC Mouse Kernel](sfc-mouse-kernel)
+
+### [4.3 Speech Synthesizer Kernel](speech-synthesizer-kernel)
 
 --------------------------------------------------------------------------------
 

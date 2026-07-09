@@ -22,7 +22,11 @@ loop:
     a = a + 1
   else if btnu(B_BTN) then ' Press B to receive.
     b = sread
-    print "Recv: %d", b
+    if b = SERIAL_TIMEOUT then
+      print "Timeout"
+    else
+      print "Recv: %d", b
+    end if
   end if
   update
   goto loop
@@ -38,17 +42,18 @@ url://prgs/serial-1.txt
 * `serial off`: turns off the serial port
 
 * `=sread(wait = true)`: reads one byte from the serial port
-  * `wait`: `true` to wait if the program is in the receiving state, `false` to return immediately
-  * returns the read byte or `SERIAL_ERROR` (for sending, error) when `wait` is `true`; otherwise returns the read byte or `SERIAL_BUSY` (for receiving) or `SERIAL_ERROR` (for sending, error) in "Serial statuses"
+  * `wait`: `true` to wait for a few seconds (~4s) if the program is in the receiving state, `false` to return immediately
+  * returns the read byte or `SERIAL_ERROR` or `SERIAL_TIMEOUT` when `wait` is `true`; otherwise returns the read byte or `SERIAL_BUSY` or `SERIAL_ERROR` in "Serial statuses"
 * `=swrite(val, wait = true)`: writes one byte to the serial port
   * `val`: the byte to write
   * `wait`: `true` to wait if the program is in the sending state, `false` to return immediately
-  * returns the written byte or `SERIAL_ERROR` (for receiving, error) when `wait` is `true`; otherwise returns the written byte or `SERIAL_BUSY` (for sending) or `SERIAL_ERROR` (for receiving, error) in "Serial statuses"
+  * returns the written byte or `SERIAL_ERROR` when `wait` is `true`; otherwise returns the written byte or `SERIAL_BUSY` or `SERIAL_ERROR` in "Serial statuses"
 
-| Serial statuses | Note                                            |
-|-----------------|-------------------------------------------------|
-| `SERIAL_IDLE`   | The serial device is ready for operation        |
-| `SERIAL_BUSY`   | The serial device is busy doing operation       |
-| `SERIAL_ERROR`  | The serial device got error with some operation |
+| Serial statuses  | Note                                            |
+|------------------|-------------------------------------------------|
+| `SERIAL_IDLE`    | The serial device is ready for operation        |
+| `SERIAL_BUSY`    | The serial device is busy doing operation       |
+| `SERIAL_ERROR`   | The serial device got error with some operation |
+| `SERIAL_TIMEOUT` | The serial device got timeout                   |
 
 **See also**: <a class="nav-link" href="https://gbdev.io/pandocs/Serial_Data_Transfer_(Link_Cable).html" target="_blank">Serial Data Transfer (Link Cable) <i class="fa-solid fa-up-right-from-square"></i></a>.

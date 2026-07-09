@@ -5,7 +5,7 @@
 <div class="content-gray" style="min-height: 48px;">
   <img src="imgs/logo-nokbd.png" class="logo-tip">
   <span class="content-text">
-    This chapter covers topics related to fonts and Unicode. The content here will be helpful when you want to customize GUI fonts or develop multilingual games.
+    This chapter covers topics related to fonts, Unicode, and i18n. The content here will be helpful when you want to customize GUI fonts or develop multilingual games.
   </span>
 </div>
 

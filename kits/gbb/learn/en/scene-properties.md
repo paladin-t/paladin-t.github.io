@@ -49,6 +49,7 @@ Expand the definition section in the scene editor to define the definition data 
 | `CAMERA_DEADZONE_PROP`   | Integer (8-bit unsigned) | Camera deadzone in both directions                               | Write-only |
 | `CAMERA_DEADZONE_X_PROP` | Integer (8-bit unsigned) | Camera deadzone in x-axis                                        | Read/write |
 | `CAMERA_DEADZONE_Y_PROP` | Integer (8-bit unsigned) | Camera deadzone in y-axis                                        | Read/write |
+| `CAMERA_OFFSET_Y_PROP`   | Integer (8-bit signed)   | Camera offset in y-axis                                          | Read/write |
 
 <!-- Extra kernels can provide more scene properties. -->
 

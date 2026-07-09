@@ -15,6 +15,8 @@ GUI programming in GB BASIC uses a declarative command paradigm. For instance, a
 
 All GUI widgets share a same subset of rumtime states, so consider manipulating only one widget at a time, or redefining before putting/drawing across multiple threads or mixed invokings.
 
+Text-based widgets (`label`, `menu`) typically do not require the "Inverted" option, defaulting to normal display. In this mode, glyph pixel bits are logically ORed onto the screen VRAM, where glyph pixels with grayscale values of 0x03, 0x02, or 0x01 overwrite screen pixels with lower values. Conversely, when "Inverted" is enabled in the font editor, glyph pixel bits are logically ANDed with the screen, where glyph pixels with grayscale values of 0x00, 0x01, or 0x02 erase screen pixels with higher values. Simply put, in normal mode, text background tiles should be lighter than the font; in inverted mode, the background should be darker than the font.
+
 The following statement is a general command used to clear the context of the currently active widget. This statement does not clear the widget's data in memory and video memory itself, but only resets the GUI state to the initial "not manipulating any widget" state.
 
 * `def widget() = nothing`: undefines widget; this only resets the previous widget states, but does not resets graphics elements and VRAM

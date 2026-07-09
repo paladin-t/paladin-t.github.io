@@ -2,7 +2,7 @@
 
 [Prev]() [Next]()
 
-The SFX editor can produce SFX assets, press **Ctrl+8/Cmd+8** in edit mode to switch to the SFX tab. GB BASIC allows importing external formats as SFX, and offers a number of pre-made in library.
+The SFX editor can produce SFX assets, press **Ctrl+9/Cmd+9** in edit mode to switch to the SFX tab. GB BASIC allows importing external formats as SFX, and offers a number of pre-made in library.
 
 Similar to other assets, you can click the "+"/"-" buttons at the top to add or remove an SFX asset. Clicking the buttons in the status bar below allows you to import, export, or perform other operations on the current SFX.
 

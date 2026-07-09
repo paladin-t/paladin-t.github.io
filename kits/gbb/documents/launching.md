@@ -43,6 +43,7 @@ gbbasic temp.gbb -o gbbasic.gb -r gbbvm.gb -s gbbvm.sym -f default.json
   * ${FILE}: output to a specific file
 * "-f PATH": specify font config path
 * "-q MACROS": specify pre-defined macros, macroes are separated by ",", string is placed between two "'" (single quote) marks
+* "-x LANG": specify game language in i18n dictionaries, `LANG` is user defined
 * "-n": specify to use explicit line-number mode; omit to let parser to determine
 * "-i OPT": whether to enable case-insensitive for the parser; defaults to "true"
   * "true"

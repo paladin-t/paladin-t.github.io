@@ -1,0 +1,62 @@
+This update introduces support for overriding Interrupt Service Routines (ISRs)
+in BASIC code using named assembly blocks. It also adds a comprehensive
+internationalization (i18n) pipeline featuring compile-time dictionary lookups
+and dedicated asset management, alongside a new `LSTR(...)` statement for
+retrieving text from the i18n dictionary. Additionally, with a new official
+kernel "Scene Transfer", a new `blit_scene` function has been added to
+facilitate scene data transfer, alongside another scrolling transitions via a
+similar sub-region transfer method `transition_scene`. This version also
+includes various other improvements and bug fixes for the assembler, serial port
+communication, project validation, and text/Unicode handling, etc.
+
+v1.12
+
+* Runtime
+  * Added overridable ISR entries
+  * Added native functions for overriding ISRs
+  * Added support for sending chunk data for a sub-region of the scene
+  * Added support for scene scrolling transitions
+  * Improved timeout handling of serial port receiving
+  * Improved initial scene camera putting when loading a scene
+  * Improved stability of the VM
+  * Optimized ISR for graphics effects
+  * Optimized the time ticking of pulse effect
+  * Fixed a pixel blit issue with reverse font glyphs
+  * Fixed a typo when handling a `CAMERA_Y` query
+  * Fixed a potential out of bounds accessing bug when removing an input handler
+  * Fixed a program-counter corruption bug when failed creating a new thread with parameters
+* Syntax
+  * Added naming rules for assembly blocks for ISR overriding
+  * Added an `LSTR(...)` statement for compile-time i18n lookup
+  * Added a `SERIAL_TIMEOUT` status for data reading via serial port timeout
+  * Added a native function `blit_scene` to send chunk data for a sub-region of the scene
+  * Added a native function `transition_scene` to transition a scene with scroll
+  * Added a new scene property `CAMERA_OFFSET_Y_PROP` for camera offset in y-axis, i.e. `SET SCENE PROPERTY(CAMERA_OFFSET_Y_PROP) = 16`
+* Compiler and Asset Pipeline
+  * Added compilation of ISR overriding with assembly blocks
+  * Added compilation for i18n dictionary and `LSTR(...)` lookup
+  * Improved glyph pixel filling with reverse fonts
+  * Improved actor sorting in the assets pipeline
+  * Fixed a compilation issue with `RST ...` instructions in an assembly block
+  * Fixed a few potential stability issues of the compiler modules
+  * Fixed a map attribute addressing issue when both a scene's attribute layer and its ref map's one are enabled
+  * Fixed a wrong optimization with division
+* Editor
+  * Added a new asset type for i18n dictionary
+  * Added an i18n dictionary editor
+  * Added i18n dictionary importing and exporting
+  * Added current i18n language option to specify build language
+  * Added command-line argument to specify i18n build language
+  * Improved project validation on opening
+  * Improved application text rendering with support for more Chinese characters
+  * Improved scene camera positioning in the scene editor
+  * Fixed encoding issues when exporting assets with Unicode data
+  * Fixed a bug where a trigger was mistakenly added when double-clicking on the trigger layer of a scene
+  * Fixed a few potential stability issues of the utilities modules
+  * Fixed an index refreshing bug when removing an item in the arbitary editor
+  * Fixed a crash bug when referencing a non-existing scene asset in code
+* Document, Examples, Starter Kits, Tutorials and Help
+  * Added examples of assembly blocks
+  * Added document about i18n dictionary
+  * Added an example of i18n dictionary
+  * Added tutorials about more official kernels

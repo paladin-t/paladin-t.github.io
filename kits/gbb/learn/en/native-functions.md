@@ -36,6 +36,10 @@ Some native functions have corresponding short syntax forms that are semanticall
 | `call set_sgb_border pb, paddr, psz, tb, taddr, tsz, mb, maddr, msz` | -                         | Sets border frame for SGB device                                                                                  |
 | `call error`                                                         | -                         | Raises an error                                                                                                   |
 | `call camera_shake n, d`                                             | -                         | Shakes camera for `n` frames with ["Camera shake directions"](camera.html) specified by `d`                       |
+| `call install_vbl_isr`                                               | -                         | Installs an overridable VBL ISR defined in named assembly block (do not need to call it manually)                 |
+| `call uninstall_vbl_isr`                                             | -                         | Installs the overridable VBL ISR defined in named assembly block (do not need to call it manually)                |
+| `call install_lcd_isr`                                               | -                         | Installs an overridable LCD ISR defined in named assembly block (do not need to call it manually)                 |
+| `call uninstall_lcd_isr`                                             | -                         | Installs the overridable LCD ISR defined in named assembly block (do not need to call it manually)                |
 
 The `=call wait_for_key_code` and `=call wait_for_key_ascii` functions are extension and experimental features. The `=call wait_for_key_ascii` function returns the literal ASCII value of a letter, digit, or symbol, or a special control value. See the "Key ASCII" constants below.
 

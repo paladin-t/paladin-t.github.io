@@ -24,6 +24,8 @@ Scene data for a `def scene` operation can also come from inline code. This data
 | Attribute layer | `0x01` |
 | Property layer  | `0x02` |
 
+**Tips:** _GB BASIC also supports extra scene transfer methods for blit and scroll transition in an additional kernel. To use this feature in a project, download and install the "Scene Transfer" kernel from the [latest GitHub release](https://github.com/paladin-t/gbb/releases/latest) page first. Specify to use the kernel in a project. Then `call blit_scene ...`, or `call transition_scene ...` to use the feature._
+
 ## Defining a Scene
 
 * `def scene(w, h, base_tile = 0) = read|data ...|"{builtin}"|#pg|"{name}"`: defines a scene with map, attribute and property layers

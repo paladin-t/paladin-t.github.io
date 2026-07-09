@@ -286,11 +286,6 @@ end asm
 ' Enable the STAT Mode 0 interrupt.
 ' STAT bit 3 enables the Mode 0 interrupt source.
 poke 0xff41, 0x08
-
-' Main loop.
-loop:
-  update
-  goto loop
 ```
 <!-- prg
 !edit, run, title="ISR effect in assembly", style=""

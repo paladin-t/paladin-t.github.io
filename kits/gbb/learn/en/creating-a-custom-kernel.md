@@ -23,6 +23,13 @@ The scroll shooting kernel is an extension of the default kernel. In addition to
 
 Other official kernels are distributed with the [latest GitHub release](https://github.com/paladin-t/gbb/releases/latest). See the "Assets" section for download.
 
+<div class="content-highlight" style="min-height: 48px;">
+  <img src="imgs/logo-nokbd.png" class="logo-tip">
+  <span class="content-text">
+    <strong>See also</strong>: <a href="official-kernels.html" class="nav-link">Official Kernels</a>.
+  </span>
+</div>
+
 ## Custom Kernels
 
 In addition, GB BASIC also supports user-defined kernels and allows for custom distributions. This chapter explains practices related to custom kernels, including source fetching, development, packaging, and installation.

@@ -2,7 +2,7 @@
 
 [Prev]() [Next]()
 
-The music editor can produce music assets, press **Ctrl+7/Cmd+7** in edit mode to switch to the music tab. GB BASIC allows importing external formats (exported by hUGETracker, etc.) as music, besides creating from scratch.
+The music editor can produce music assets, press **Ctrl+8/Cmd+8** in edit mode to switch to the music tab. GB BASIC allows importing external formats (exported by hUGETracker, etc.) as music, besides creating from scratch.
 
 Like other assets, you can click the "+"/"-" buttons at the top to add or remove a music asset. Clicking the buttons in the status bar below allows you to import, export, preview or perform other operations on the current music.
 

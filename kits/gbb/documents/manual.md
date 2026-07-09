@@ -77,6 +77,7 @@
       - [ProgressBar Widget](#progressbar-widget)
       - [Menu Widget](#menu-widget)
       - [Text Measurement](#text-measurement)
+    - [I18n](#i18n)
     - [Audio](#audio)
       - [Music](#music)
       - [SFX](#sfx)
@@ -147,6 +148,7 @@
 * **Audio**: 4 channels; supports importing from JSON, VGM, WAV, FxHammer
 * **Palette**: 2bit (4 colors) per tile, palette of map and actor is configurable for colored device
 * **GUI**: supports label, progress bar, menu, etc.
+* **I18n**: supports custom i18n dictionary for games
 * **Persistence**: supported
 * **RTC**: supported
 * **Serial port**: supported
@@ -180,9 +182,11 @@ Most of the shortcut keys are listed aside the corresponding GUI elements, besid
 * **Ctrl+4**: switch to scene editor
 * **Ctrl+5**: switch to actor/projectile editor
 * **Ctrl+6**: switch to font editor
-* **Ctrl+7**: switch to music editor
-* **Ctrl+8**: switch to SFX editor
-* **Ctrl+9**: switch to console
+* **Ctrl+7**: switch to i18n editor
+* **Ctrl+8**: switch to music editor
+* **Ctrl+9**: switch to SFX editor
+* **Ctrl+0**: switch to console
+* **Ctrl+P**: open palette editor
 * **Ctrl+Alt+1**: resize the window to x1 size
 * **Ctrl+Alt+2**: resize the window to x2 size
 * **Ctrl+Alt+3**: resize the window to x3 size
@@ -541,6 +545,10 @@ The `=deg(angle)` function provides a convenient way to map angles with a domain
 | `call set_sgb_border pb, paddr, psz, tb, taddr, tsz, mb, maddr, msz` | -                         | Sets border frame for SGB device                                                                                  |
 | `call error`                                                         | -                         | Raises an error                                                                                                   |
 | `call camera_shake n, d`                                             | -                         | Shakes camera for `n` frames with ["Camera shake directions"](#scene) specified by `d`                            |
+| `call install_vbl_isr`                                               | -                         | Installs an overridable VBL ISR defined in named assembly block (do not need to call it manually)                 |
+| `call uninstall_vbl_isr`                                             | -                         | Installs the overridable VBL ISR defined in named assembly block (do not need to call it manually)                |
+| `call install_lcd_isr`                                               | -                         | Installs an overridable LCD ISR defined in named assembly block (do not need to call it manually)                 |
+| `call uninstall_lcd_isr`                                             | -                         | Installs the overridable LCD ISR defined in named assembly block (do not need to call it manually)                |
 
 The `=call wait_for_key_code` and `=call wait_for_key_ascii` functions are extension and experimental features. The `=call wait_for_key_ascii` function returns the literal ASCII value of a letter, digit, or symbol, or a special control value. See the "Key ASCII" constants below.
 
@@ -1876,6 +1884,7 @@ A `def scene` operation can only fill map, attribute and property data to scene;
 | `CAMERA_DEADZONE_PROP`   | Integer (8-bit unsigned) | Camera deadzone in both directions                               | Write-only |
 | `CAMERA_DEADZONE_X_PROP` | Integer (8-bit unsigned) | Camera deadzone in x-axis                                        | Read/write |
 | `CAMERA_DEADZONE_Y_PROP` | Integer (8-bit unsigned) | Camera deadzone in y-axis                                        | Read/write |
+| `CAMERA_OFFSET_Y_PROP`   | Integer (8-bit signed)   | Camera offset in y-axis                                          | Read/write |
 
 **See also:** _Extra [Kernels](#kernels) can provide more scene properties._
 
@@ -1909,6 +1918,8 @@ Scene data for a `def scene` operation can also come from inline code. This data
 | Map layer       | `0x00` |
 | Attribute layer | `0x01` |
 | Property layer  | `0x02` |
+
+**Tips:** _GB BASIC also supports extra scene transfer methods for blit and scroll transition in an additional kernel. To use this feature in a project, download and install the "Scene Transfer" kernel from the [latest GitHub release](https://github.com/paladin-t/gbb/releases/latest) page first. Specify to use the kernel in a project. Then `call blit_scene ...`, or `call transition_scene ...` to use the feature._
 
 ### Actor
 
@@ -2505,6 +2516,8 @@ GB BASIC supports three GUI widgets: [label](#label-widget), [progress bar](#pro
 
 All GUI widgets share a same subset of rumtime states, so consider manipulating only one widget at a time, or redefining before putting/drawing across multiple threads or mixed invokings.
 
+Text-based widgets (`label`, `menu`) typically do not require the "Inverted" option, defaulting to normal display. In this mode, glyph pixel bits are logically ORed onto the screen VRAM, where glyph pixels with grayscale values of 0x03, 0x02, or 0x01 overwrite screen pixels with lower values. Conversely, when "Inverted" is enabled in the font editor, glyph pixel bits are logically ANDed with the screen, where glyph pixels with grayscale values of 0x00, 0x01, or 0x02 erase screen pixels with higher values. Simply put, in normal mode, text background tiles should be lighter than the font; in inverted mode, the background should be darker than the font.
+
 * `def widget() = nothing`: undefines widget; this only resets the previous widget states, but does not resets graphics elements and VRAM
 
 **See also:** _[Cheat Sheet of GUI Widgets](#cheat-sheet-of-gui-widgets)._
@@ -2675,6 +2688,30 @@ The font editor can produce and configure assets for `menu`'s text drawing, pres
 
 These functions are useful for determining the dimensions of text before drawing it on the screen, allowing for precise placement and alignment of GUI elements.
 
+### I18n
+
+String literals can be used as parameters in text output statements like `print`, `text`, and `label`. GUI text output also supports Unicode encoding and TTF glyph rasterization. These features fully support multilingual development, for example, developing and exporting a ROM with English text, then exporting a separate ROM with Chinese text. This process may require techniques like macros to distinguish the target language during compilation and export.
+
+The i18n (internationalization) features introduced here are designed to facilitate multilingual development. They are unnecessary for single-language programs or those with minimal text. This functionality consists of three parts: the dictionary editor, the dictionary string reference statement (`lstr`), and compile options.
+
+The i18n editor can produce i18n assets, press **Ctrl+7/Cmd+7** in edit mode to switch to the i18n tab. GB BASIC allows importing external formats (.csv) as i18n, besides creating from scratch. The dictionary editor provides a visual interface for editing a 2D table-based dictionary. Like other assets, dictionaries support multiple pages; rows represent text entries, and columns represent languages. A dictionary must include a special column named "key" to define entry keys for code references. Language names are fully customizable, such as "english", "chinese", or even "klingon", etc. Each i18n asset page can hold data up to 63 languages (including "key") and 254 items.
+
+When building the final ROM, you can specify the target language in the build dialog. Command-line builds also support this option via parameters. If no target language is specified, GB BASIC will attempt to use "default" or "english" as the default language option.
+
+Use the following statements to reference dictionary entries in BASIC code. These statements are evaluated at compile time. If an entry key is unique within the current project's i18n assets, the page parameter can be omitted, allowing the shorthand `lstr(key)`.
+
+* `=lstr(key)`: gets the dictionary entry for the current language
+  * parameter details:
+    * `key`: item key string
+  * returns the localized text string
+* `=lstr(#pg|"{name}", key|ln)`: gets the dictionary entry for the current language
+  * parameter details:
+    * `#pg`: i18n page index
+    * `name`: i18n asset name
+    * `key`: item key string
+    * `ln`: item line index
+  * returns the localized text string
+
 ### Audio
 
 The audio system supports four channels, including two duty (square wave), one wave (custom waveform) and one noise generators.
@@ -2693,7 +2730,7 @@ The audio system supports four channels, including two duty (square wave), one w
 
 <!-- * `play bank, addr` -->
 
-The music editor can produce music assets, press **Ctrl+7/Cmd+7** in edit mode to switch to the music tab. GB BASIC allows importing external formats (exported by hUGETracker, etc.) as music, besides creating from scratch.
+The music editor can produce music assets, press **Ctrl+8/Cmd+8** in edit mode to switch to the music tab. GB BASIC allows importing external formats (exported by hUGETracker, etc.) as music, besides creating from scratch.
 
 The music editor accepts the following shortcuts to input notes. Press the literal keys for the upper blue notes, and **Alt**+keys for the lower red ones.
 
@@ -2721,7 +2758,7 @@ The music editor accepts the following shortcuts to input notes. Press the liter
 
 * `beep`: plays a simple beep sound
 
-The SFX editor can produce SFX assets, press **Ctrl+8/Cmd+8** in edit mode to switch to the SFX tab. GB BASIC allows importing external formats as SFX, and offers a number of pre-made in library.
+The SFX editor can produce SFX assets, press **Ctrl+9/Cmd+9** in edit mode to switch to the SFX tab. GB BASIC allows importing external formats as SFX, and offers a number of pre-made in library.
 
 #### Speech
 
@@ -2913,18 +2950,19 @@ The `RTC_ENABLED` must be on to use the RTC feature.
 * `serial off`: turns off the serial port
 
 * `=sread(wait = true)`: reads one byte from the serial port
-  * `wait`: `true` to wait if the program is in the receiving state, `false` to return immediately
-  * returns the read byte or `SERIAL_ERROR` (for sending, error) when `wait` is `true`; otherwise returns the read byte or `SERIAL_BUSY` (for receiving) or `SERIAL_ERROR` (for sending, error) in "Serial statuses"
+  * `wait`: `true` to wait for a few seconds (~4s) if the program is in the receiving state, `false` to return immediately
+  * returns the read byte or `SERIAL_ERROR` or `SERIAL_TIMEOUT` when `wait` is `true`; otherwise returns the read byte or `SERIAL_BUSY` or `SERIAL_ERROR` in "Serial statuses"
 * `=swrite(val, wait = true)`: writes one byte to the serial port
   * `val`: the byte to write
   * `wait`: `true` to wait if the program is in the sending state, `false` to return immediately
-  * returns the written byte or `SERIAL_ERROR` (for receiving, error) when `wait` is `true`; otherwise returns the written byte or `SERIAL_BUSY` (for sending) or `SERIAL_ERROR` (for receiving, error) in "Serial statuses"
+  * returns the written byte or `SERIAL_ERROR` when `wait` is `true`; otherwise returns the written byte or `SERIAL_BUSY` or `SERIAL_ERROR` in "Serial statuses"
 
-| Serial statuses | Note                                            |
-|-----------------|-------------------------------------------------|
-| `SERIAL_IDLE`   | The serial device is ready for operation        |
-| `SERIAL_BUSY`   | The serial device is busy doing operation       |
-| `SERIAL_ERROR`  | The serial device got error with some operation |
+| Serial statuses  | Note                                            |
+|------------------|-------------------------------------------------|
+| `SERIAL_IDLE`    | The serial device is ready for operation        |
+| `SERIAL_BUSY`    | The serial device is busy doing operation       |
+| `SERIAL_ERROR`   | The serial device got error with some operation |
+| `SERIAL_TIMEOUT` | The serial device got timeout                   |
 
 ### Device
 
