@@ -23,32 +23,25 @@ Click the delete button next to the kernel twice to uninstall it.
 
 For the moment, there are two ready-to-use official external kernels.
 
+#### Scene Transfer Kernel
+
+This kernel implements scene blit and transition methods.
+
+Consider two scenarios: First, displaying game dialogue by temporarily replacing a portion of the map's tilemap instead of using the window layer, then restoring the scene display after the dialogue ends. Second, switching between game scenes with a scrolling effect rather than a fade out/in. This kernel was created to fulfill these requirements.
+
+See [Scene Transfer Kernel](https://paladin-t.github.io/kits/gbb/learn/scene-transfer-kernel.html) for details.
+
 #### SFC Mouse Kernel
 
 This kernel is integrated with an SFC/SNES mouse driver, and enables using it as the input hardware of the `touch` APIs. This requires the SGB adapter to bridge between the ROM software and the SFC/SNES hardware.
 
-To use this feature, specify to use the kernel in your project, and the "SGB Features" in the project's property should be turned on. Then no special coding is required. In addition, `call is_sgb_mouse_installed` to get whether a compatible mouse has bee installed.
-
-To debug this function or use it, use an SFC/SNES with plugged SGB and peripheral mouse, or find some emulators like Mesen. The mouse should be plugged in port 2
+See [SFC Mouse Kernel](https://paladin-t.github.io/kits/gbb/learn/sfc-mouse-kernel.html) for details.
 
 #### Speech Synthesizer Kernel
 
 This kernel implements a realtime speech synthesizer that outputs gibberish voice on Game Boy.
 
-The module uses the second square channel (the `NR2y` registers) for audio output. It was created primarily with English scenarios in mind. Thanks to its gibberish style, it also works well with non-English text, and you can write text for other languages based on English spelling-pronunciation rules.
-
-The APIs are implemented as extra native functions, see the usages as follows:
-
-```bas
-' Setup the speech options, parameters for volume, speed, and pitch respectively.
-call tune 14, 7, 100
-
-' Speak something.
-call say "Hello World!"
-
-' Stop speaking.
-call hush
-```
+See [Speech Synthesizer Kernel](https://paladin-t.github.io/kits/gbb/learn/speech-synthesizer-kernel.html) for details.
 
 ### About OS Kernel
 
