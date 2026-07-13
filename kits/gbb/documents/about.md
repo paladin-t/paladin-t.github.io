@@ -107,6 +107,7 @@ The above explanations of GB BASIC's license terms and their implications for it
 * mpc - from [orangeduck/mpc](https://github.com/orangeduck/mpc)
 * Portable File Dialogs - from [samhocevar/portable-file-dialogs](https://github.com/samhocevar/portable-file-dialogs)
 * promise-cpp - from [xhawk18/promise-cpp](https://github.com/xhawk18/promise-cpp)
+* PSD SDK - from [MolecularMatters/psd_sdk](https://github.com/MolecularMatters/psd_sdk)
 * RapidFuzz - from [rapidfuzz/rapidfuzz-cpp](https://github.com/rapidfuzz/rapidfuzz-cpp)
 * stb - from [nothings/stb](https://github.com/nothings/stb)
 

@@ -1,0 +1,29 @@
+This patch update includes a bunch of bug fixes. It also introduces new features
+such as importing tiles, map, actor, and font assets, or project icon, and icon
+of desktop builds from .psd files, and generating font and i18n reference code.
+
+v1.12.1
+
+* Runtime
+  * Optimized the `POW(...)` operation
+  * Fixed a calculation bug in the `POW(...)` operation
+* Syntax
+  * Improved error reporting of the `LSTR(...)` statement
+* Compiler and Asset Pipeline
+  * Updated error types raised by `LSTR(...)` from error to warning when no specific key found
+  * Fixed a calculation bug when folding a constant pow operation
+  * Fixed a crash bug when using `LSTR(...)` with unexpected arguments
+* Editor
+  * Added support for importing .psd images into tiles and map assets
+  * Added support for importing .psd images as actor sprite sheets
+  * Added support for importing .psd images into bitmap-based font assets
+  * Added support for importing .psd images as project icon
+  * Added support for importing .psd images as the icon of desktop builds
+  * Added BASIC code exporting for font assets
+  * Added BASIC code exporting for i18n assets
+  * Updated map import to not populate the local palette by default
+  * Fixed a decoding issue when importing an i18n asset from a .csv file
+  * Fixed a cells fine zooming issue in the i18n editor
+  * Fixed a line moving bug in the i18n editor
+* Document, Examples, Starter Kits, Tutorials and Help
+  * Updated the links of the official kernels under the help menu
