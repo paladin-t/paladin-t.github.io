@@ -39,7 +39,7 @@
 * `restore array`: restores the reading position of inline data sequence to the start address of the specific array
   * `array`: the source data array, where each element is an `int` that takes two bytes
 
-GB BASIC also supports to declare 16-bit integer values other than 8-bit ones with the `int` statement, this statement is only used with in a `data` or `read` to declare or read two bytes as one word.
+GB BASIC also supports to declare 16-bit integer values other than 8-bit ones with the `int` statement, this statement is only used with in a `data` or `read` to declare or read two bytes as one word. In addition, an `arb(...)` constant also emits a 16-bit integer.
 
 The values following all `data` statements are arranged in increasing order from code page 0 to the following pages, and from the first line to the following lines. Regardless of whether the `data` statement is inside a conditional or loop statement, the sequence of values is processed once and only once. The maximum supported size for the `data` sequence declared in code is 16,380 bytes or approximately 15.996KB.
 

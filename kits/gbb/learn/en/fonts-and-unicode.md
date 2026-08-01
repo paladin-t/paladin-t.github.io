@@ -63,13 +63,11 @@ A string is encoded as a sequence of these structures. And each element in the s
 
 #### Placeholder Handling
 
-GB BASIC supports replacing placeholders like `"%d"` and `"%x"` with corresponding characters at runtime. By default, the range of characters to be filled is extended ASCII (0-255).
+GB BASIC supports replacing placeholders like `"%d"` and `"%x"` with numbers for DEC or HEX output.
 
-You can also modify the set of supported replacement characters for the current project in the font's arbitrary dialog.
+Additionally, it also supports replacing placeholders `"%c"` with characters at runtime. The range of characters to be filled is extended ASCII (0-255) by default, plus a set of arbitrary ranges. See [Arbitrary Characters](arbitrary-characters.html) for more information.
 
-<img src="imgs/editor-font-arbitrary.png" class="diagram-image diagram-screenshot">
-
-<div class="small-note">Font arbitrary</div>
+You can modify the set of supported arbitrary characters for a project in the font's arbitrary dialog.
 
 <div class="content-highlight" style="min-height: 48px;">
   <img src="imgs/logo-nokbd.png" class="logo-tip">

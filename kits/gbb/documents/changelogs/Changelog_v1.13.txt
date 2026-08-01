@@ -1,0 +1,58 @@
+This version expands the limit to over 4,000 arbitrary elements per single font
+asset (The previous version supported a maximum of 256 elements). Accompanying
+this change, a new `arb(...)` statement has been added to get the arbitrary
+index of a specific font asset of a Unicode character. Additionally, the font
+editor now supports editing arbitrary ranges and exporting the full
+UTF-8-to-arbitrary-index mapping. This makes it easier for wide range dynamic
+character drawing, for purposes such as multilingual, user input characters,
+etc. The IME example added in this version fully utilizes recent new features,
+including arbitrary filling, assembly blocks. The assembler received important
+improvements. This update also includes various bug fixes and performance
+improvements.
+
+v1.13
+
+* Runtime
+  * Added support for wide range arbitrary in font assets to allow dynamic glyph blit
+  * Added a native function `blit_text(...)` to blit a buffer of arbitrary indices as text to the screen
+  * Optimized character blit for GUI widgets
+* Syntax
+  * Added an `ARB(...)` statement to get the arbitrary index of a Unicode character
+  * Added support for `RESTORE lbl` where `lbl` is a project-wise unique label in other code pages
+  * Added support for using BASIC macros in assembly blocks
+* Compiler and Asset Pipeline
+  * Added support for wide range arbitrary compilation
+  * Added support to get the bank/address with `GET FONT BANKOF(...)`/`GET FONT ADDRESSOF(...)` for font assets
+  * Added support for applying offset in assembly blocks to identifiers and jump labels
+  * Added support for addressing BASIC symbols in a jump instruction in an assembly block
+  * Added support for addressing banks of BASIC symbols in an assembly block
+  * Added assembly result size output
+  * Added `DATA` sequence size output
+  * Added support for defining nonbanked assembly blocks (in bank 0)
+  * Improved stability of arbitrary compilation
+  * Improved font arbitraries handling in the asset pipeline
+  * Improved stability of the `LET` statement
+  * Fixed a bank/address lookup issue with `GET MUSIC BANKOF(...)`/`GET MUSIC ADDRESSOF(...)` for music assets
+  * Fixed a bank/address lookup issue with `GET MUSIC BANKOF(...)`/`GET MUSIC ADDRESSOF(...)` for SFX assets
+  * Fixed a compilation issue with `DATA INT ...`
+  * Fixed an assembling bug with `JP a16` and `CALL a16` in the assembler
+  * Fixed an assembling bug with `LDH (a8),a` and `LDH a,(a8)` in the assembler
+  * Fixed a false "Unused variable" warning when an array is only written to
+  * Fixed a bug where address references became invalid after an assembly block was compiled to a new bank
+  * Fixed a cross-page destination lookup bug of the `ON cond ...` statement
+  * Fixed a cross-page destination lookup bug of the `ON TOUCH ...` and `ON BUTTON ...` statements
+  * Fixed a cross-page destination lookup bug of the `ON ACTOR ...` and `START ACTOR ...` statements
+  * Fixed a cross-page destination lookup bug of the `ON TRIGGER.` statement
+  * Fixed a cross-page destination lookup bug of the `ON MENU` statement
+  * Fixed an array offset addressing bug when using complex expressions as indices
+* Editor
+  * Added support for wide range arbitrary specifying in the font editor
+  * Added export for full mapping from UTF-8 characters to arbitrary indices to the font editor
+  * Added support for direct character parsing in arbitrary editing
+  * Updated to use Unicode escape sequence for arbitrary editing instead of decimal
+  * Improved delete key handling in the code editor
+  * Fixed a potential invalidation bug when deleted a line of code
+  * Fixed a crash bug when sorting i18n or music assets
+* Document, Examples, Starter Kits, Tutorials and Help
+  * Added an IME example
+  * Added document and tutorial about the font arbitrary feature

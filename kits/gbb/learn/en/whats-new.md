@@ -4,9 +4,22 @@
 
 # Releases
 
-## GB BASIC v1.12.1
+## GB BASIC v1.13.0
 
 <details open>
+<summary><b>Click Me</b></summary>
+<div>
+This version expands the limit to over 4,000 arbitrary elements per single font asset (The previous version supported a maximum of 256 elements). Accompanying this change, a new <code>ARB(...)</code> statement has been added to get the arbitrary index of a specific font asset of a Unicode character. Additionally, the font editor now supports editing arbitrary ranges and exporting the full UTF-8-to-arbitrary-index mapping. This makes it easier for wide range dynamic character drawing, for purposes such as multilingual, user input characters, etc. The IME example added in this version fully utilizes recent new features, including arbitrary filling, assembly blocks. The assembler received important improvements. This update also includes various bug fixes and performance improvements.
+</div>
+</details>
+
+* [Changelog](../documents/changelogs/Changelog_v1.13.txt) (Aug. 1, 2026)
+* Download on [Steam](https://store.steampowered.com/app/2308700/)
+* Also available on [Itch.io](https://tonywang.itch.io/gbbasic)
+
+## GB BASIC v1.12.1
+
+<details>
 <summary><b>Click Me</b></summary>
 <div>
 This patch update includes a bunch of bug fixes. It also introduces new features such as importing tiles, map, actor, and font assets, or project icon, and icon of desktop builds from .psd files, and generating font and i18n reference code.

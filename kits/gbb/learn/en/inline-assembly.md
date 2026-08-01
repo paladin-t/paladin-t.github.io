@@ -10,9 +10,11 @@ When a block of assembly code is being executed, it will keep running until it r
 
 Jump label declarations in assembly code follow the same syntax as BASIC, i.e. `lbl:`. Jump labels work inside the scope of a `begin asm ... end asm` block only. When using labels, cross-block assembly jumps, jumps between assembly and BASIC, and `goto` into an assembly block are not supported.
 
-BASIC variables, arrays, and RAM symbols in a kernel can be referenced directly in assembly code as addresses (16-bit unsigned integers). Other elements in assembly remain consistent with BASIC. For example, numeric literals can be in binary, decimal, octal, or hexadecimal, and comments follow the same syntax as BASIC. The low 8 bits of a 16-bit number can be unpacked using `low(n)` or `<n`, and the high 8 bits using `high(n)` or `>n`.
+BASIC variables, arrays, and RAM/ROM symbols in a kernel can be referenced directly in assembly code as addresses (16-bit unsigned integers). Other elements in assembly remain consistent with BASIC. For example, numeric literals can be in binary, decimal, octal, or hexadecimal, and comments follow the same syntax as BASIC. The low 8 bits of a 16-bit number can be unpacked using `low(n)` or `<n`, and the high 8 bits using `high(n)` or `>n`. The bank of a symbol can be addressed using `bank(sym)`.
 
 If a BASIC identifier is referenced only in assembly code but not used in BASIC, it may trigger an "Unused variable" warning. Use `do nothing with foo` in BASIC to suppress the unreferenced warning for `foo`.
+
+Identifiers and jump labels support positive or negative byte offsets, such as `(foo+2)` or `(bar-1)`.
 
 ## Executing Inline Assembly Blocks
 
@@ -94,6 +96,12 @@ An assembly block can be named by appending a string after `begin asm`. Then the
 
 Note that certain special assembly block names have specific behaviours and purposes. This will be explained later in the [Defining ISR in Assembly](#defining-isr-in-assembly) section.
 
+When the keyword `nonbanked` is appended after an assembly block declaration, the block is linked to bank 0 of the final ROM instead of into latter switchable banks. Thus it is safe to call it from any banked assembly block using `call SomeAsm`, and it runs slightly faster than banked assembly blocks.
+
+* `begin asm nonbanked/end asm`: declares and executes a **nonbanked** block of inline assembly code
+* `begin asm "name" nonbanked/end asm`: declares and executes a **nonbanked** block of named inline assembly code
+  * `name`: the name of the assembly block
+
 ## Calling Assembly Routines
 
 In addition, the following statements support calling assembly by direct bank and address, data sequence, identifiers, named symbols, etc.
@@ -112,7 +120,7 @@ In addition, the following statements support calling assembly by direct bank an
     * `#pg:lbl`: code page index and code line label
     * `name`: the assembly block name
 
-The `call` keyword can be omitted, which means `asm ...` is short for `call asm ...`.
+Note that `call asm` here is a BASIC syntax and must be distinguished from the `call` CPU instruction within assembly blocks. The `call` keyword can be omitted, which means `asm ...` is short for `call asm ...`.
 
 The following example demonstrates declaring an assembly block outside the execution flow and calling it from anywhere:
 

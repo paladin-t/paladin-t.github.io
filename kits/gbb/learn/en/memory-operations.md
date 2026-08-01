@@ -79,14 +79,14 @@ This section introduces some memory related operations. Some can directly read f
 * `=addressof read`: gets the address of the current reading position of inline data sequence
   * returns the address of the current reading position of inline data sequence
 * `=get {asset} bankof(#pg|#pg:n|"{name}")`: gets the bank of the specific asset
-  * `{asset}`: the type of a asset; can be one of `tile`, `map`, `scene`, `actor`, `projectile`, `music`, and `sfx`
+  * `{asset}`: the type of a asset; can be one of `tile`, `map`, `scene`, `actor`, `projectile`, `music`, `sfx` and `font`
   * parameter details:
     * `#pg`: asset page index
     * `#pg:n`: asset page index and sub index
     * `name`: asset name
   * returns the bank of the entry
 * `=get {asset} addressof(#pg|#pg:n|"{name}")`: gets the address of the specific asset
-  * `{asset}`: the type of a asset; can be one of `tile`, `map`, `scene`, `actor`, `projectile`, `music`, and `sfx`
+  * `{asset}`: the type of a asset; can be one of `tile`, `map`, `scene`, `actor`, `projectile`, `music`, `sfx` and `font`
   * parameter details:
     * `#pg`: asset page index
     * `#pg:n`: asset page index and sub index

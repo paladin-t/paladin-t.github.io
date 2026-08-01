@@ -77,6 +77,7 @@
       - [ProgressBar Widget](#progressbar-widget)
       - [Menu Widget](#menu-widget)
       - [Text Measurement](#text-measurement)
+    - [Arbitrary Characters](#arbitrary-characters)
     - [I18n](#i18n)
     - [Audio](#audio)
       - [Music](#music)
@@ -430,6 +431,8 @@ loop:
 
 ### Declaration and Expression
 
+The `let` statement is used for declaring normal variables. Note that a variable must be solely declared in GB BASIC, there's no need to write `let` to reassign a variable.
+
 * `let foo`: declares a variable without assignment
 * `let bar = 42`: declares a variable and assigns a value to it
 
@@ -541,6 +544,7 @@ The `=deg(angle)` function provides a convenient way to map angles with a domain
 | `=call wait_for_key_code` (**experimental**)                         | -                         | Waits until a key on keyboard has been pressed; returns `(modifiers LSHIFT 4) BOR key` (extension feature)        |
 | `=call wait_for_key_ascii` (**experimental**)                        | -                         | Waits until a key on keyboard has been pressed; returns the ASCII code (extension feature)                        |
 | `call rumble n[, i]`                                                 | -                         | Rumbles for `n` frames with intensity `i`                                                                         |
+| `call blit_text bank, addr, n, font_bank, font_addr`                 | -                         | Blits a buffer of arbitrary indices as text to the screen                                                         |
 | `call send_sgb_packet bank, addr, sz`                                | -                         | Sends a packet of bytes to SGB device                                                                             |
 | `call set_sgb_border pb, paddr, psz, tb, taddr, tsz, mb, maddr, msz` | -                         | Sets border frame for SGB device                                                                                  |
 | `call error`                                                         | -                         | Raises an error                                                                                                   |
@@ -593,9 +597,11 @@ When a block of assembly code is being executed, it will keep running until it r
 
 Jump label declarations in assembly code follow the same syntax as BASIC, i.e. `lbl:`. Jump labels work inside the scope of a `begin asm ... end asm` block only. When using labels, cross-block assembly jumps, jumps between assembly and BASIC, and `goto` into an assembly block are not supported.
 
-BASIC variables, arrays, and RAM symbols in a kernel can be referenced directly in assembly code as addresses (16-bit unsigned integers). Other elements in assembly remain consistent with BASIC. For example, numeric literals can be in binary, decimal, octal, or hexadecimal, and comments follow the same syntax as BASIC. The low 8 bits of a 16-bit number can be unpacked using `low(n)` or `<n`, and the high 8 bits using `high(n)` or `>n`.
+BASIC variables, arrays, and RAM/ROM symbols in a kernel can be referenced directly in assembly code as addresses (16-bit unsigned integers). Other elements in assembly remain consistent with BASIC. For example, numeric literals can be in binary, decimal, octal, or hexadecimal, and comments follow the same syntax as BASIC. The low 8 bits of a 16-bit number can be unpacked using `low(n)` or `<n`, and the high 8 bits using `high(n)` or `>n`. The bank of a symbol can be addressed using `bank(sym)`.
 
 If a BASIC identifier is referenced only in assembly code but not used in BASIC, it may trigger an "Unused variable" warning. Use `do nothing with foo` in BASIC to suppress the unreferenced warning for `foo`.
+
+Identifiers and jump labels support positive or negative byte offsets, such as `(foo+2)` or `(bar-1)`.
 
 #### Executing Inline Assembly Blocks
 
@@ -648,6 +654,12 @@ An assembly block can be named by appending a string after `begin asm`. Then the
 
 Note that certain special assembly block names have specific behaviours and purposes. This will be explained later in the [Defining ISR in Assembly](#defining-isr-in-assembly) section.
 
+When the keyword `nonbanked` is appended after an assembly block declaration, the block is linked to bank 0 of the final ROM instead of into latter switchable banks. Thus it is safe to call it from any banked assembly block using `call SomeAsm`, and it runs slightly faster than banked assembly blocks.
+
+* `begin asm nonbanked/end asm`: declares and executes a **nonbanked** block of inline assembly code
+* `begin asm "name" nonbanked/end asm`: declares and executes a **nonbanked** block of named inline assembly code
+  * `name`: the name of the assembly block
+
 #### Calling Assembly Routines
 
 In addition, the following statements support calling assembly by direct bank and address, data sequence, identifiers, named symbols, etc.
@@ -666,7 +678,7 @@ In addition, the following statements support calling assembly by direct bank an
     * `#pg:lbl`: code page index and code line label
     * `name`: the assembly block name
 
-The `call` keyword can be omitted, which means `asm ...` is short for `call asm ...`.
+Note that `call asm` here is a BASIC syntax and must be distinguished from the `call` CPU instruction within assembly blocks. The `call` keyword can be omitted, which means `asm ...` is short for `call asm ...`.
 
 The following example demonstrates declaring an assembly block outside the execution flow and calling it from anywhere:
 
@@ -1219,7 +1231,7 @@ Each array element takes one word (two bytes) of allocated space in memory.
 * `restore array`: restores the reading position of inline data sequence to the start address of the specific array
   * `array`: the source data array, where each element is an `int` that takes two bytes
 
-GB BASIC also supports to declare 16-bit integer values other than 8-bit ones with the `int` statement, this statement is only used with in a `data` or `read` to declare or read two bytes as one word.
+GB BASIC also supports to declare 16-bit integer values other than 8-bit ones with the `int` statement, this statement is only used with in a `data` or `read` to declare or read two bytes as one word. In addition, an `arb(...)` constant also emits a 16-bit integer.
 
 The values following all `data` statements are arranged in increasing order from code page 0 to the following pages, and from the first line to the following lines. Regardless of whether the `data` statement is inside a conditional or loop statement, the sequence of values is processed once and only once. The maximum supported size for the `data` sequence declared in code is approximately 16KB.
 
@@ -1453,14 +1465,14 @@ The data following all `filler` statements are arranged in increasing order from
   * returns the address of the current reading position of inline data sequence
 
 * `=get {asset} bankof(#pg|#pg:n|"{name}")`: gets the bank of the specific asset
-  * `{asset}`: the type of a asset; can be one of `tile`, `map`, `scene`, `actor`, `projectile`, `music`, and `sfx`
+  * `{asset}`: the type of a asset; can be one of `tile`, `map`, `scene`, `actor`, `projectile`, `music`, `sfx` and `font`
   * parameter details:
     * `#pg`: asset page index
     * `#pg:n`: asset page index and sub index
     * `name`: asset name
   * returns the bank of the entry
 * `=get {asset} addressof(#pg|#pg:n|"{name}")`: gets the address of the specific asset
-  * `{asset}`: the type of a asset; can be one of `tile`, `map`, `scene`, `actor`, `projectile`, `music`, and `sfx`
+  * `{asset}`: the type of a asset; can be one of `tile`, `map`, `scene`, `actor`, `projectile`, `music`, `sfx` and `font`
   * parameter details:
     * `#pg`: asset page index
     * `#pg:n`: asset page index and sub index
@@ -2687,6 +2699,24 @@ The font editor can produce and configure assets for `menu`'s text drawing, pres
   * returns the height in pixels
 
 These functions are useful for determining the dimensions of text before drawing it on the screen, allowing for precise placement and alignment of GUI elements.
+
+### Arbitrary Characters
+
+In statements such as `label` and `menu`, numeric codes can be dynamically treated as characters using the `"%c"` placeholder, in addition to string literals. This encoding defaults to extended ASCII (0–255) defined in a font asset. Within the font editor, Characters for indices 0–255 can be modified, or arbitrary characters added within specified ranges.
+
+In programming, the following statements map characters to the character codes (arbitrary indices) compatible with `"%c"`.
+
+* `=arb(ch)`: gets the arbitrary index of the specific character in the first font asset
+  * `ch`: the character to address
+  * returns the arbitrary index
+* `=arb(#pg|"{name}", ch)`: gets the arbitrary index of the specific character defined in a font asset
+  * parameter details:
+    * `#pg`: font page index
+    * `name`: font asset name
+  * `ch`: the character to address
+  * returns the arbitrary index
+
+For detailed usage, refer to [Arbitrary Characters](https://paladin-t.github.io/kits/gbb/learn/arbitrary-characters.html).
 
 ### I18n
 

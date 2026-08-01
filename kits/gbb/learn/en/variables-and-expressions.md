@@ -2,6 +2,8 @@
 
 [Prev]() [Next]()
 
+The `let` statement is used for declaring normal variables. Note that a variable must be solely declared in GB BASIC, there's no need to write `let` to reassign a variable.
+
 * `let foo`: declares a variable without assignment
 * `let bar = 42`: declares a variable and assigns a value to it
 

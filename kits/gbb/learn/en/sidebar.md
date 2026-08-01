@@ -230,7 +230,9 @@
 
 ## [2. Using Unicode Strings](using-unicode-strings)
 
-## [3. I18n](i18n)
+## [3. Arbitrary Characters](arbitrary-characters)
+
+## [4. I18n](i18n)
 
 --------------------------------------------------------------------------------
 
