@@ -3604,6 +3604,8 @@ These symbols are allocated in memory and can be accessed by name via `addressof
 | "rMBC7_ACCEL_X_HI"            | Cartridge | MBC7 registers | High byte of the X-axis accelerometer value                             |
 | "rMBC7_ACCEL_Y_LO"            | Cartridge | MBC7 registers | Low byte of the Y-axis accelerometer value                              |
 | "rMBC7_ACCEL_Y_HI"            | Cartridge | MBC7 registers | High byte of the Y-axis accelerometer value                             |
+| "VBL_DONE"                    | VM        | System         | Flag indicating the V-blank ISR has run                                 |
+| "CURRENT_BANK"                | VM        | System         | Tracks current active ROM bank                                          |
 | "script_memory"               | VM        | Thread         | The heap and stack space of VM memory (heap ahead, stack behind)        |
 | "CTXS"                        | VM        | Thread         | The structures of VM thread contexts                                    |
 | "first_ctx"                   | VM        | Thread         | The pointer of the first allocated VM thread context                    |

@@ -1,0 +1,33 @@
+This update introduces a new code debugger. Combined with the existing VRAM
+debugger, you can now fully debug both code and assets within an integrated
+environment. You can set breakpoints in your code (whether in BASIC or ASM),
+during runtime the emulator will pause program execution at the appropriate
+moment, allowing you to inspect and debug variables, threads, objects, or
+hardware assembly through the inspector. The original text rasterizer was a
+general-purpose function supporting variable-width, unaligned text rendering.
+This update introduces an optimized rasterization path for 8x8, tile-aligned
+text, speeding up regular font rendering. It also optimizes symbol exports and
+aliases, along with various other improvements and fixes.
+
+v1.14
+
+* Runtime
+  * Added symbol alias `VBL_DONE` for `_vbl_done`
+  * Added symbol alias `CURRENT_BANK` for `_current_bank`
+  * Optimized 8x8 font rastering
+* Compiler and Asset Pipeline
+  * Added breakpoint support for BASIC and ASM code
+  * Improved fuzzy symbol matching
+  * Fixed a potential code label lookup issue
+* Emulator
+  * Added option to mute individual channels
+  * Added breakpoint and debugger integration
+  * Added a debugging inspector
+* Editor
+  * Added auto correction for Y/Z shortcut mappings for QWERTZ keyboards
+  * Added auto correction for A/Q shortcut mappings
+  * Added auto correction for W/Z shortcut mappings
+  * Added auto correction for M/;(,) shortcut mappings
+  * Added a launch option to disable shortcut corrections
+* Document, Examples, Starter Kits, Tutorials and Help
+  * Added tutorial about code debugger

@@ -12,6 +12,7 @@ GB BASIC accepts a number of launching options to customize some behaviours.
 * "-Q": specify to not quit after compiling under the compile-only mode
 * "-A FPS": specify expected `FPS` for the application
 * "-H": specify to launch without splash screen
+* "-K 0": disable shortcut correction; i.e. Y <-> Z swapping
 * "-N": specify to launch under the notepad mode
 * "-B": specify to enable borderless window
 * "-S WxH": specify the application window size with `W`x`H`

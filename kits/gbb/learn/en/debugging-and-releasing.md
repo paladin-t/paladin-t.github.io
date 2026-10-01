@@ -9,6 +9,6 @@
   </span>
 </div>
 
-The current version includes command-based runtime status debugging. Additional dynamic debugging features based on the emulator are under development.
+GB BASIC supports setting breakpoints, runtime BASIC and assembly debugging, VRAM debugging, and command-based runtime status debugging.
 
 GB BASIC allows you to export and package your finished game into a ROM, a standalone executable, or burn it onto physical cartridges for distribution.

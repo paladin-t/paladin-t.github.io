@@ -304,6 +304,12 @@
 
 ## [1. Debugging Techniques](debugging-techniques)
 
+### [1.1 Code Debugger](code-debugger)
+
+### [1.2 VRAM Debugger](vram-debugger)
+
+### [1.3 Other Debugging Techniques](other-debugging-techniques)
+
 ## [2. Releasing](releasing)
 
 ### [2.1 Building the ROM](building-the-rom)

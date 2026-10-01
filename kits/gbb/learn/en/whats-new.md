@@ -4,9 +4,22 @@
 
 # Releases
 
-## GB BASIC v1.13.0
+## GB BASIC v1.14.0
 
 <details open>
+<summary><b>Click Me</b></summary>
+<div>
+This update introduces a new code debugger. Combined with the existing VRAM debugger, you can now fully debug both code and assets within an integrated environment. You can set breakpoints in your code (whether in BASIC or ASM), during runtime the emulator will pause program execution at the appropriate moment, allowing you to inspect and debug variables, threads, objects, or hardware assembly through the inspector. The original text rasterizer was a general-purpose function supporting variable-width, unaligned text rendering. This update introduces an optimized rasterization path for 8x8, tile-aligned text, speeding up regular font rendering. It also optimizes symbol exports and aliases, along with various other improvements and fixes.
+</div>
+</details>
+
+* [Changelog](../documents/changelogs/Changelog_v1.14.txt) (Oct. 1, 2026)
+* Download on [Steam](https://store.steampowered.com/app/2308700/)
+* Also available on [Itch.io](https://tonywang.itch.io/gbbasic)
+
+## GB BASIC v1.13.0
+
+<details>
 <summary><b>Click Me</b></summary>
 <div>
 This version expands the limit to over 4,000 arbitrary elements per single font asset (The previous version supported a maximum of 256 elements). Accompanying this change, a new <code>ARB(...)</code> statement has been added to get the arbitrary index of a specific font asset of a Unicode character. Additionally, the font editor now supports editing arbitrary ranges and exporting the full UTF-8-to-arbitrary-index mapping. This makes it easier for wide range dynamic character drawing, for purposes such as multilingual, user input characters, etc. The IME example added in this version fully utilizes recent new features, including arbitrary filling, assembly blocks. The assembler received important improvements. This update also includes various bug fixes and performance improvements.
